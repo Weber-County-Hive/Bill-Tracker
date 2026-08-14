@@ -1,7 +1,9 @@
 // The Weber County Hive — Legislative Docket
 // To add a new bill: copy an object below, fill in the fields, and
-// save it. index.html reads this file and builds the docket
-// automatically — you never need to touch index.html by hand.
+// save it. weber-hive-bill-docket.html reads this file and builds
+// the docket automatically — you never need to touch that file by hand.
+// IMPORTANT: the "link" value below must exactly match the real
+// filename of the case-file page you upload to GitHub.
 //
 // status: "law" | "vetoed" | "failed" | "pending"  (controls stamp color/text)
 
@@ -14,6 +16,6 @@ const BILLS = [
     tags: ["Federalism", "Budget & Appropriations", "Weber-area votes: 8–0"],
     status: "law",
     voteLine: "House 69–1–5 · Senate 26–1–2 · Signed Mar 17, 2026",
-    link: "hb249.html"
+    link: "weber-hive-hb249.html"
   }
 ];
