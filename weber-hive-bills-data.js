@@ -27,5 +27,15 @@ const BILLS = [
     status: "law",
     voteLine: "House 51–15–9 · Senate 17–7–5 · Signed Mar 25, 2026",
     link: "weber-hive-hb546.html"
+  },
+  {
+    caseNumber: "CASE 2026-410/348",
+    bill: "H.B. 410 + H.B. 348",
+    title: "Great Salt Lake Water Leasing and Dedicated Water",
+    summary: "A new $2.75M/year farmer water-leasing program with real monitoring and reporting requirements — success still depends on rules not yet written.",
+    tags: ["Great Salt Lake", "Water Rights", "Weber-area votes: 7–0–2"],
+    status: "law",
+    voteLine: "H.B. 410: House 71–1–3 · Senate 25–0–4 — H.B. 348: House 70–0–5 · Senate 26–0–3 — Signed Mar 23, 2026",
+    link: "weber-hive-hb410-348.html"
   }
 ];
