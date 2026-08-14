@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.B. 249 — Federal Funds Modifications | The Weber County Hive Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-deep:#0D1728;
+    --manila:#D9C9A3;
+    --manila-dark:#C4B389;
+    --paper:#EDE7D8;
+    --paper-light:#F5F1E6;
+    --ink:#1F1B16;
+    --ink-soft:#4A443A;
+    --red:#A5301E;
+    --green:#3F6B3B;
+    --gold:#A9822F;
+    --rule:#C9BE9F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ---- nav ---- */
+  nav{
+    background:var(--navy);
+    color:var(--paper);
+  }
+  .nav-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:16px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+  }
+  .nav-inner a{
+    color:var(--manila);
+    text-decoration:none;
+  }
+  .nav-inner a:hover{text-decoration:underline;}
+
+  /* ---- header / case stamp block ---- */
+  header.case{
+    max-width:820px;
+    margin:0 auto;
+    padding:52px 28px 40px;
+    position:relative;
+    border-bottom:1px solid var(--rule);
+  }
+  .case-number{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  header.case h1{
+    font-size:clamp(30px, 4.6vw, 46px);
+    line-height:1.08;
+    margin:0 0 6px;
+    font-weight:700;
+  }
+  header.case .subtitle{
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+  }
+  .stamp-big{
+    position:absolute;
+    top:44px; right:24px;
+    font-family:'Special Elite', monospace;
+    text-transform:uppercase;
+    font-size:22px;
+    letter-spacing:0.05em;
+    color:var(--green);
+    border:4px solid var(--green);
+    border-radius:8px;
+    padding:10px 18px;
+    transform:rotate(-8deg);
+    mix-blend-mode:multiply;
+    filter:url(#roughen);
+  }
+  .verdict-quote{
+    background:var(--manila);
+    border-left:4px solid var(--gold);
+    padding:18px 22px;
+    font-size:16.5px;
+    line-height:1.6;
+    font-style:italic;
+    color:var(--ink);
+    max-width:70ch;
+  }
+
+  /* ---- section shell ---- */
+  main{
+    max-width:820px;
+    margin:0 auto;
+    padding:8px 28px 100px;
+  }
+  section{
+    padding:38px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+  .tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--navy);
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  section h2{
+    font-size:24px;
+    margin:0 0 18px;
+    font-weight:700;
+  }
+  section h3{
+    font-size:16.5px;
+    margin:22px 0 8px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  section p{
+    font-size:16px;
+    line-height:1.68;
+    color:var(--ink);
+    margin:0 0 12px;
+  }
+  ul.plain{
+    margin:0 0 10px;
+    padding-left:22px;
+  }
+  ul.plain li{
+    font-size:16px;
+    line-height:1.62;
+    margin-bottom:7px;
+  }
+  ul.check{list-style:none; margin:0; padding:0;}
+  ul.check li{
+    display:flex;
+    gap:10px;
+    font-size:15.5px;
+    line-height:1.55;
+    padding:7px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  ul.check li:last-child{border-bottom:none;}
+  ul.check .mark{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--red);
+    font-weight:700;
+    flex-shrink:0;
+  }
+
+  /* who it helped / harmed */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .split .col{
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:18px 20px;
+  }
+  .split .col.harm{border-color:rgba(165,48,30,0.35);}
+  .split h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin:0 0 10px;
+    color:var(--ink-soft);
+  }
+  .split ul{margin:0; padding-left:18px;}
+  .split li{font-size:14.5px; line-height:1.5; margin-bottom:6px;}
+
+  /* ledger table */
+  table.ledger{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    margin-top:6px;
+  }
+  table.ledger th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:2px solid var(--navy);
+    padding:8px 10px;
+  }
+  table.ledger td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.ledger tr:last-child td{
+    border-bottom:2px solid var(--gold);
+    font-weight:600;
+  }
+  table.ledger td.num{text-align:right;}
+
+  /* vote tally */
+  .tally-row{
+    display:flex;
+    gap:0;
+    margin:18px 0 26px;
+    border:1px solid var(--navy);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .tally-cell{
+    flex:1;
+    padding:16px 18px;
+    border-right:1px solid var(--navy);
+  }
+  .tally-cell:last-child{border-right:none;}
+  .tally-cell .chamber{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:6px;
+  }
+  .tally-cell .score{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:20px;
+    font-weight:600;
+  }
+  .tally-cell .score .yes{color:var(--green);}
+  .tally-cell .score .no{color:var(--red);}
+
+  .no-votes{
+    background:rgba(165,48,30,0.06);
+    border:1px solid rgba(165,48,30,0.3);
+    border-radius:3px;
+    padding:12px 16px;
+    font-size:14px;
+    margin-bottom:22px;
+  }
+  .no-votes strong{color:var(--red);}
+
+  table.weber{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.weber th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:7px 10px;
+    border-bottom:2px solid var(--navy);
+  }
+  table.weber td{
+    padding:8px 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.weber .yes-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--green);
+    font-weight:600;
+  }
+
+  /* bottom line */
+  .bottom-line{
+    background:var(--navy);
+    color:var(--paper-light);
+    border-radius:4px;
+    padding:34px 30px;
+    margin-top:6px;
+  }
+  .bottom-line .tab{background:var(--gold); color:var(--navy-deep);}
+  .bottom-line p{color:rgba(245,241,230,0.85); font-size:16px;}
+  .bottom-line .question{
+    margin-top:16px;
+    font-style:italic;
+    font-size:17px;
+    color:var(--manila);
+    border-left:3px solid var(--gold);
+    padding-left:16px;
+  }
+
+  footer{
+    max-width:820px;
+    margin:0 auto;
+    padding:30px 28px 70px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--navy);}
+
+  @media (max-width:600px){
+    .split{grid-template-columns:1fr;}
+    .stamp-big{position:static; display:inline-block; margin-bottom:16px; transform:rotate(-4deg);}
+    .tally-row{flex-direction:column;}
+    .tally-cell{border-right:none; border-bottom:1px solid var(--navy);}
+    .tally-cell:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="roughen">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4"/>
+  </filter>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <span>THE WEBER COUNTY HIVE — LEGISLATIVE DOCKET</span>
+    <a href="weber-hive-bill-docket.html">← All cases</a>
+  </div>
+</nav>
+
+<header class="case">
+  <p class="case-number mono">CASE 2026-249 · 2026 GENERAL SESSION</p>
+  <h1>H.B. 249 — Federal Funds Modifications</h1>
+  <p class="subtitle">Status: Became law · Signed March 17, 2026</p>
+  <div class="stamp-big">Became Law</div>
+  <div class="verdict-quote">
+    "Mostly helpful — Utah taxpayers are funding a public dashboard intended to show the state's dependence on federal money, although the bill does not establish a launch deadline or detailed performance measures."
+  </div>
+</header>
+
+<main>
+
+  <section id="what-it-did">
+    <span class="tab">What It Did</span>
+    <h2>Built a dashboard and gave a commission a new job</h2>
+
+    <h3>A federal-funding dependency dashboard</h3>
+    <p>The Analytics Solutions Center at Utah State University's Jon M. Huntsman School of Business must build and maintain a public digital dashboard showing Utah's dependence on federal funding, the risks of possible reductions, and economic scenarios to help the state prepare.</p>
+    <ul class="plain">
+      <li>Must be publicly available, user-friendly, dynamic, and kept accurate</li>
+      <li>The center must identify, clean, organize, and securely store the underlying data</li>
+      <li>Work is subject to legislative appropriations and done in consultation with the Federalism Commission</li>
+    </ul>
+
+    <h3>Expanded contingency-planning role for the Federalism Commission</h3>
+    <p>The legislative fiscal analyst already runs periodic budget stress tests. H.B. 249 requires the federal-funds portions of those tests to go to the Federalism Commission, which reviews the results, decides on legislative recommendations, and submits them to the Executive Appropriations Committee.</p>
+    <p>The law does not itself reject federal funding or require any agency to end a federally supported program.</p>
+  </section>
+
+  <section id="what-it-could-reveal">
+    <span class="tab">What It Could Reveal</span>
+    <h2>If it's built well</h2>
+    <ul class="plain">
+      <li>How much federal money Utah receives</li>
+      <li>Which agencies and programs depend most heavily on it</li>
+      <li>Which services face the greatest risk if federal funds are reduced</li>
+      <li>How much replacement funding Utah would need</li>
+      <li>Which losses the state could realistically absorb</li>
+      <li>Which federal programs have no practical state-funded replacement</li>
+    </ul>
+    <p>The enrolled bill doesn't prescribe the exact categories, charts, program-level detail, or downloadable data that has to appear — so the answer to most of the above depends entirely on implementation.</p>
+  </section>
+
+  <section id="what-it-did-not-do">
+    <span class="tab">What It Did Not Do</span>
+    <h2>The limits of the bill</h2>
+    <ul class="check">
+      <li><span class="mark">✕</span> Cut federal funding</li>
+      <li><span class="mark">✕</span> Reject a federal grant</li>
+      <li><span class="mark">✕</span> Require Utah to replace lost federal money</li>
+      <li><span class="mark">✕</span> Guarantee affected services would continue</li>
+      <li><span class="mark">✕</span> Establish a specific dashboard launch date</li>
+      <li><span class="mark">✕</span> Require program-by-program contingency plans</li>
+      <li><span class="mark">✕</span> Require an independent audit of the dashboard</li>
+      <li><span class="mark">✕</span> Set measures for evaluating whether the dashboard is worth its continuing cost</li>
+    </ul>
+  </section>
+
+  <section id="who">
+    <span class="tab">Who It Helped / Who Could Be Harmed</span>
+    <h2>The bill imposes no new burden — but the risks are in the gaps</h2>
+    <div class="split">
+      <div class="col help">
+        <h4>Who It Helped</h4>
+        <ul>
+          <li>Residents seeking clearer information on where federal money goes</li>
+          <li>Lawmakers preparing for federal budget reductions or shutdowns</li>
+          <li>State agencies that need contingency-planning data</li>
+          <li>Researchers and journalists examining Utah's fiscal dependence</li>
+          <li>The Federalism Commission, which gains stress-test access and a recommendation role</li>
+          <li>USU's Analytics Solutions Center, which receives the funding to build it</li>
+        </ul>
+      </div>
+      <div class="col harm">
+        <h4>Who Could Be Harmed</h4>
+        <ul>
+          <li>Taxpayers, if the dashboard duplicates existing federal or state financial data</li>
+          <li>Agencies, which must devote staff time to supplying and validating data</li>
+          <li>Residents, if it shows only agency-level totals with no program-level consequences</li>
+          <li>The debate itself, if federal funding gets framed as a federalism dispute rather than a service-delivery question</li>
+          <li>Vulnerable residents, if programs serving them are labeled "federal dependency" without explaining what losing them would cost</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="who-paid">
+    <span class="tab">Who Paid</span>
+    <h2>$300,000 to start, $150,000 a year after that</h2>
+    <table class="ledger">
+      <thead>
+        <tr><th>Fund</th><th class="num">Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ongoing Income Tax Fund appropriation</td><td class="num">$150,000</td></tr>
+        <tr><td>One-time Income Tax Fund appropriation</td><td class="num">$150,000</td></tr>
+        <tr><td>Continuing annual appropriation (after FY2027)</td><td class="num">$150,000 / yr</td></tr>
+        <tr><td>Initial FY2027 total</td><td class="num">$300,000</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;">This is lower than the original fiscal estimate of $500,000 a year — the adopted substitute cut the continuing cost to $150,000 annually. The final fiscal note found no direct, measurable cost to local governments and no direct tax or fee expense for residents or businesses.</p>
+  </section>
+
+  <section id="how-they-voted">
+    <span class="tab">How They Voted</span>
+    <h2>Passed with almost no opposition</h2>
+    <div class="tally-row">
+      <div class="tally-cell">
+        <span class="chamber">House</span>
+        <span class="score"><span class="yes">69</span>–<span class="no">1</span>–5</span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">Senate</span>
+        <span class="score"><span class="yes">26</span>–<span class="no">1</span>–2</span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">Governor</span>
+        <span class="score" style="font-size:15px;">Signed Mar 17, 2026</span>
+      </div>
+    </div>
+
+    <div class="no-votes">
+      <strong>Votes against:</strong> Rep. Leah Hansen (No) · Sen. Nate Blouin (No)
+    </div>
+
+    <h3>Weber-area votes</h3>
+    <table class="weber">
+      <thead>
+        <tr><th>Legislator</th><th>Chamber</th><th>Vote</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wayne Harper</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>John Johnson</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Scott Sandall</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Todd Weiler</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Matthew Gwynn</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Jason Kyle</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Jake Sawyer</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Ryan Wilcox</td><td>House</td><td class="yes-badge">YES</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bottom-line">
+    <div class="bottom-line">
+      <span class="tab">The Public-Interest Bottom Line</span>
+      <p>Making Utah's federal-funding dependence visible is a legitimate public benefit. Federal money supports major portions of health care, transportation, education, nutrition, public safety, and other state-administered services. A useful dashboard should show more than one large statewide total — it should identify the specific programs, the Utahns each one serves, the federal/state funding split, restrictions attached to the money, the consequences of a reduction, and whether Utah could realistically replace it.</p>
+      <p class="question">Will Utah get a genuinely useful, independently verifiable public tool for its $300,000 startup investment and $150,000 annual cost — or just a high-level presentation supporting the Federalism Commission's policy agenda?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Sourced from the enrolled bill text, House and Senate floor votes, and the final fiscal note (le.utah.gov). Compiled by The Weber County Hive.
+</footer>
+
+</body>
+</html>
