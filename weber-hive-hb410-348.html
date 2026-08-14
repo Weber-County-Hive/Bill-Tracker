@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.B. 410 + H.B. 348 — Great Salt Lake Water Leasing | The Weber County Hive Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-deep:#0D1728;
+    --manila:#D9C9A3;
+    --manila-dark:#C4B389;
+    --paper:#EDE7D8;
+    --paper-light:#F5F1E6;
+    --ink:#1F1B16;
+    --ink-soft:#4A443A;
+    --red:#A5301E;
+    --green:#3F6B3B;
+    --gold:#A9822F;
+    --rule:#C9BE9F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  nav{background:var(--navy); color:var(--paper);}
+  .nav-inner{
+    max-width:820px; margin:0 auto; padding:16px 28px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.05em;
+  }
+  .nav-inner a{color:var(--manila); text-decoration:none;}
+  .nav-inner a:hover{text-decoration:underline;}
+
+  header.case{
+    max-width:820px; margin:0 auto; padding:52px 28px 40px;
+    position:relative; border-bottom:1px solid var(--rule);
+  }
+  .case-number{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.15em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px;
+  }
+  header.case h1{
+    font-size:clamp(26px, 4vw, 40px); line-height:1.14; margin:0 0 6px;
+    font-weight:700; max-width:19ch;
+  }
+  header.case .subtitle{font-size:16px; color:var(--ink-soft); margin:0 0 6px;}
+  header.case .sponsors{font-size:14px; color:var(--ink-soft); margin:0 0 22px; font-family:'IBM Plex Mono', monospace;}
+  .stamp-big{
+    position:absolute; top:44px; right:24px;
+    font-family:'Special Elite', monospace; text-transform:uppercase; font-size:19px;
+    letter-spacing:0.05em; color:var(--green); border:4px solid var(--green);
+    border-radius:8px; padding:9px 16px; transform:rotate(-8deg);
+    mix-blend-mode:multiply; filter:url(#roughen); text-align:center; line-height:1.3;
+  }
+  .verdict-quote{
+    background:var(--manila); border-left:4px solid var(--gold); padding:18px 22px;
+    font-size:16.5px; line-height:1.6; font-style:italic; color:var(--ink); max-width:70ch;
+  }
+
+  main{max-width:820px; margin:0 auto; padding:8px 28px 100px;}
+  section{padding:38px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .tab{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--paper);
+    background:var(--navy); padding:4px 10px; border-radius:2px; margin-bottom:14px;
+  }
+  .tab.warn{background:var(--red);}
+  section h2{font-size:23px; margin:0 0 18px; font-weight:700;}
+  section h3{font-size:16.5px; margin:22px 0 8px; font-weight:600; color:var(--navy);}
+  section p{font-size:16px; line-height:1.68; color:var(--ink); margin:0 0 12px;}
+  ul.plain{margin:0 0 10px; padding-left:22px;}
+  ul.plain li{font-size:16px; line-height:1.62; margin-bottom:7px;}
+  ol.numbered{margin:0 0 10px; padding-left:22px;}
+  ol.numbered li{font-size:16px; line-height:1.62; margin-bottom:8px;}
+  ul.check{list-style:none; margin:0; padding:0;}
+  ul.check li{
+    display:flex; gap:10px; font-size:15.5px; line-height:1.55; padding:7px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  ul.check li:last-child{border-bottom:none;}
+  ul.check .mark{font-family:'IBM Plex Mono', monospace; color:var(--red); font-weight:700; flex-shrink:0;}
+
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .split .col{background:var(--paper-light); border:1px solid var(--rule); border-radius:3px; padding:18px 20px;}
+  .split .col.harm{border-color:rgba(165,48,30,0.35);}
+  .split h4{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; margin:0 0 10px; color:var(--ink-soft);
+  }
+  .split ul{margin:0; padding-left:18px;}
+  .split li{font-size:14.5px; line-height:1.5; margin-bottom:6px;}
+
+  table.ledger{width:100%; border-collapse:collapse; font-family:'IBM Plex Mono', monospace; font-size:13.5px; margin-top:6px;}
+  table.ledger th{
+    text-align:left; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-soft); border-bottom:2px solid var(--navy); padding:8px 10px;
+  }
+  table.ledger td{padding:9px 10px; border-bottom:1px solid var(--rule);}
+  table.ledger tr:last-child td{border-bottom:2px solid var(--gold); font-weight:600;}
+  table.ledger td.num{text-align:right;}
+
+  table.votes{width:100%; border-collapse:collapse; font-family:'IBM Plex Mono', monospace; font-size:13.5px; margin-top:10px;}
+  table.votes th{
+    text-align:left; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-soft); border-bottom:2px solid var(--navy); padding:8px 10px;
+  }
+  table.votes td{padding:10px; border-bottom:1px solid var(--rule);}
+
+  table.weber{width:100%; border-collapse:collapse; font-size:14.5px;}
+  table.weber th{
+    text-align:left; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--ink-soft); padding:7px 10px; border-bottom:2px solid var(--navy);
+  }
+  table.weber td{padding:8px 10px; border-bottom:1px solid var(--rule);}
+  table.weber .yes-badge{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--green); font-weight:600;}
+  table.weber .absent-badge{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); font-weight:600;}
+
+  .correction-block{
+    background:rgba(165,48,30,0.06); border:1px solid rgba(165,48,30,0.3);
+    border-left:4px solid var(--red); border-radius:2px; padding:20px 22px; margin:16px 0;
+  }
+  .correction-block ul{margin:0; padding-left:20px;}
+  .correction-block li{font-size:15.5px; line-height:1.6; margin-bottom:8px;}
+
+  .bottom-line{background:var(--navy); color:var(--paper-light); border-radius:4px; padding:34px 30px; margin-top:6px;}
+  .bottom-line .tab{background:var(--gold); color:var(--navy-deep);}
+  .bottom-line p{color:rgba(245,241,230,0.85); font-size:16px;}
+  .bottom-line .question{
+    margin-top:16px; font-style:italic; font-size:17px; color:var(--manila);
+    border-left:3px solid var(--gold); padding-left:16px;
+  }
+  .bottom-line ol.numbered li{color:rgba(245,241,230,0.85);}
+
+  footer{
+    max-width:820px; margin:0 auto; padding:30px 28px 70px;
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft);
+  }
+  footer a{color:var(--navy);}
+
+  @media (max-width:600px){
+    .split{grid-template-columns:1fr;}
+    .stamp-big{position:static; display:inline-block; margin-bottom:16px; transform:rotate(-4deg);}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="roughen">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4"/>
+  </filter>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <span>THE WEBER COUNTY HIVE — LEGISLATIVE DOCKET</span>
+    <a href="weber-hive-bill-docket.html">← All cases</a>
+  </div>
+</nav>
+
+<header class="case">
+  <p class="case-number mono">CASE 2026-410 / 2026-348 · 2026 GENERAL SESSION</p>
+  <h1>H.B. 410 + H.B. 348 — Great Salt Lake Water Leasing and Dedicated Water</h1>
+  <p class="subtitle">Status: Both became law · Signed March 23, 2026 · Effective May 6, 2026</p>
+  <p class="sponsors">Sponsors: Rep. Jill Koford &amp; Sen. Scott Sandall</p>
+  <div class="stamp-big">Became<br>Law</div>
+  <div class="verdict-quote">
+    "Mostly helpful — with real implementation risks, but stronger safeguards than the accompanying graphic suggests."
+  </div>
+</header>
+
+<main>
+
+  <section id="correction">
+    <span class="tab warn">An Important Correction</span>
+    <h2>What a circulating graphic got wrong</h2>
+    <div class="correction-block">
+      <ul>
+        <li>H.B. 410 appropriated <strong>$2.75 million annually</strong>, not $5 million.</li>
+        <li>The appropriation is <strong>ongoing General Fund spending</strong> beginning in FY2027.</li>
+        <li>H.B. 410 requires the program to document the number of acre-feet actually delivered to the Great Salt Lake.</li>
+        <li>The <strong>state engineer still approves</strong> the necessary water-right applications.</li>
+        <li>H.B. 348's "written concurrence" provision concerns approval from a participating division director or the Colorado River Authority — it does not replace the state engineer's approval authority.</li>
+        <li>H.B. 348's flexible dedicated-water applications are <strong>not automatically paid H.B. 410 leases</strong>.</li>
+      </ul>
+    </div>
+    <p>It is too broad to conclude the state can simply pay a farmer for a nonbinding promise while receiving no water.</p>
+  </section>
+
+  <section id="hb410">
+    <span class="tab">What H.B. 410 Did</span>
+    <h2>Created a state-funded water-leasing program</h2>
+    <p>H.B. 410 created the <strong>Great Salt Lake Preservation Program</strong> and a five-member Preservation Board within the Office of the Great Salt Lake Commissioner. The program may use public money to lease agricultural water from eligible water users within the Great Salt Lake basin.</p>
+    <p>The board must set annual leasing rates (weighing the five-year average Utah alfalfa hay price), accept and award lease applications at least annually, establish ranking criteria, prioritize senior adjudicated water rights, use leased water only to benefit the lake, require the successful applicant to obtain water-right approval, and set lease conditions through administrative rules.</p>
+    <p>Full-season leases on the same agricultural field are capped at no more than two years during any five-year period. The program sunsets July 1, 2030 unless extended.</p>
+
+    <h3>The split-season provision</h3>
+    <p>A split-season arrangement allows sequential use of part of a water right within the same calendar year. For agricultural land, the application must identify one period of at least <strong>four consecutive weeks</strong> to dedicate the water — which raises a real concern, since a four-week lease could fall outside the lake's most environmentally sensitive summer window.</p>
+    <p>But that four-week language is only the minimum for a qualifying application — it doesn't require the board to purchase every eligible lease. The board can rank and condition which leases it actually awards. The program's real value depends on those rules: which months get priority, whether leases are ranked by environmental need, how downstream losses get calculated, and whether payment reflects water actually delivered to the lake versus water merely released upstream.</p>
+
+    <h3>Monitoring and enforcement</h3>
+    <p>The state engineer must limit approval to the period specified in the lease, condition approval on annual measurement or monitoring, examine monitoring of approved leases, and report annually on measurement and monitoring challenges. The Preservation Board must publicly document acre-feet delivered, number of leases awarded, and public money spent — reported to the Legislative Water Development Commission. If a participant violates the lease or improperly diverts water, the board may require repayment, and the state engineer's separate enforcement authority remains intact.</p>
+  </section>
+
+  <section id="hb348">
+    <span class="tab">What H.B. 348 Did</span>
+    <h2>Created a broader dedicated-water application</h2>
+    <p>H.B. 348 lets a water-right holder add a temporary or indefinite dedicated use for instream flow, use on sovereign lands (including the Great Salt Lake), or delivery to certain Colorado River System reservoirs — with split-season use allowed.</p>
+    <p>Approval of a dedicated water application does not, by itself, require the owner to make water available every year or in a particular quantity — a legal flexibility that lets a water-right holder get authorization to dedicate water when conditions allow, without committing to do so annually. That authorization is not automatically a paid lease. If the state separately awards an H.B. 410 lease, the participant becomes subject to that lease's conditions, measurement requirements, reporting requirements, and possible repayment for noncompliance.</p>
+
+    <h3>The "approval" versus "concurrence" change</h3>
+    <p>H.B. 348 changed certain references from a division director's "approval" to the director's "written concurrence" — reducing that language to a statement that the proposed use is consistent with the division's statutory responsibilities. But the application still goes to the <strong>state engineer</strong>, who must approve or reject it under Utah water law. The state engineer may deny a dedicated-water application if it would remove the same agricultural field from production for a full irrigation season more than two years during a five-year period, and may require annual notice, volume information, and other evidence that dedication is actually occurring.</p>
+  </section>
+
+  <section id="who">
+    <span class="tab">Who It Helped / Who Could Be Harmed</span>
+    <h2>Real safeguards, real measurement risk</h2>
+    <div class="split">
+      <div class="col help">
+        <h4>Who It Helped</h4>
+        <ul>
+          <li>The Great Salt Lake and industries dependent on its ecological health</li>
+          <li>Farmers who voluntarily lease water and get compensated</li>
+          <li>Agricultural producers wanting flexibility without permanently selling water rights</li>
+          <li>Conservation organizations seeking a lawful route for instream or lake-bound water</li>
+          <li>State water administrators, who get a standardized application process</li>
+          <li>Communities affected by dust, salinity changes, habitat loss, and declining lake levels</li>
+        </ul>
+      </div>
+      <div class="col harm">
+        <h4>Who Could Be Harmed</h4>
+        <ul>
+          <li>Taxpayers, if the state pays for water that can't be adequately measured or delivered</li>
+          <li>Downstream ecosystems, if short lease periods don't match when water is most needed</li>
+          <li>Non-participating farmers, if the program shifts local water prices or distribution</li>
+          <li>Other water users, if protected leased water changes system-wide timing or availability</li>
+          <li>The public, if program rules obscure individual payments, delivery locations, or measurement failures</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:18px;">The greatest risk isn't that the statutes lack accountability — it's that measuring water across a complicated watershed is genuinely hard, and reported "deliveries" may not always equal water that actually reaches the lake.</p>
+  </section>
+
+  <section id="who-paid">
+    <span class="tab">Who Paid</span>
+    <h2>$2.75 million a year, ongoing</h2>
+    <table class="ledger">
+      <thead><tr><th>Fiscal Impact</th><th class="num">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>FY2027 General Fund</td><td class="num">$2,750,000</td></tr>
+        <tr><td>FY2028 General Fund</td><td class="num">$2,750,000</td></tr>
+        <tr><td>Local-government direct cost</td><td class="num">None identified</td></tr>
+        <tr><td>Direct resident/business tax or fee change</td><td class="num">None identified</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;">H.B. 348 carried no direct state appropriation. Applicants may pay water-application review fees estimated at <strong>$50 to $2,500</strong>, depending on complexity.</p>
+  </section>
+
+  <section id="how-they-voted">
+    <span class="tab">How They Voted</span>
+    <h2>Passed overwhelmingly, both bills</h2>
+    <table class="votes">
+      <thead><tr><th>Bill</th><th>House</th><th>Senate</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>H.B. 410</td><td>71–1–3</td><td>25–0–4</td><td>Signed Mar 23, 2026</td></tr>
+        <tr><td>H.B. 348</td><td>70–0–5</td><td>26–0–3</td><td>Signed Mar 23, 2026</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;">H.B. 410 went to a conference committee after the House declined a Senate amendment — the final compromise passed overwhelmingly. H.B. 348's Senate passage was unanimous among those voting.</p>
+
+    <h3>Weber-area votes (H.B. 410 final passage)</h3>
+    <table class="weber">
+      <thead><tr><th>Legislator</th><th>Chamber</th><th>Vote</th></tr></thead>
+      <tbody>
+        <tr><td>Wayne Harper</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>John Johnson</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Scott Sandall</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Todd Weiler</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Kirk Cullimore</td><td>Senate</td><td class="absent-badge">ABSENT</td></tr>
+        <tr><td>Matthew Gwynn</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Jason Kyle</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Ryan Wilcox</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Jake Sawyer</td><td>House</td><td class="absent-badge">ABSENT</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bottom-line">
+    <div class="bottom-line">
+      <span class="tab">The Public-Interest Bottom Line</span>
+      <p>These laws establish a potentially useful way to compensate farmers for voluntarily sending agricultural water toward the Great Salt Lake without forcing them to permanently surrender their water rights. They are not merely unenforceable promises — H.B. 410 requires approved applications, monitoring, public reporting, documentation of acre-feet delivered, and potential repayment for violations.</p>
+      <p>But the laws don't guarantee water will be leased during the driest summer months, and important decisions are left to future rules and individual lease agreements. The best verdict: <strong>mostly helpful — but success must be judged by measured water delivered, not money spent or leases signed.</strong></p>
+      <p style="margin-top:18px; font-weight:600; color:var(--manila);">The most important accountability measures going forward:</p>
+      <ol class="numbered">
+        <li>Cost per acre-foot actually delivered to the Great Salt Lake</li>
+        <li>Timing of each delivery</li>
+        <li>Starting point and final measurement point</li>
+        <li>Payments to individual leaseholders</li>
+        <li>Water lost or diverted before reaching the lake</li>
+        <li>Violations, repayments, and enforcement actions</li>
+        <li>Whether the program improves lake inflows beyond what would have occurred without public payment</li>
+      </ol>
+      <p class="question">For every taxpayer dollar spent, how much additional water actually reached the Great Salt Lake — and when?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Sourced from the enrolled H.B. 410 and H.B. 348 official records, House committee minutes, and final floor votes (le.utah.gov). Compiled by The Weber County Hive.
+</footer>
+
+</body>
+</html>
