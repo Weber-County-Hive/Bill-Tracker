@@ -47,5 +47,15 @@ const BILLS = [
     status: "failed",
     voteLine: "Passed Senate · Failed House 28–41–6",
     link: "weber-hive-sb78.html"
+  },
+  {
+    caseNumber: "CASE 2026-044",
+    bill: "S.B. 44",
+    title: "Statewide Resource Management Plan Amendments",
+    summary: "A two-page bill unanimously adopted an entire 198-page public-land policy plan by reference — including a state-park push for Mill Creek Canyon that the bill text never mentions.",
+    tags: ["Public Lands", "Transparency Concern", "Weber-area votes: 6–0–2 absent"],
+    status: "law",
+    voteLine: "Senate 26–0–3 · House 67–0–8 · Signed Mar 26, 2026",
+    link: "weber-hive-sb44.html"
   }
 ];
