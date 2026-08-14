@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.B. 546 — Public Lands Duty of Care Amendments | The Weber County Hive Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-deep:#0D1728;
+    --manila:#D9C9A3;
+    --manila-dark:#C4B389;
+    --paper:#EDE7D8;
+    --paper-light:#F5F1E6;
+    --ink:#1F1B16;
+    --ink-soft:#4A443A;
+    --red:#A5301E;
+    --green:#3F6B3B;
+    --gold:#A9822F;
+    --rule:#C9BE9F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  nav{
+    background:var(--navy);
+    color:var(--paper);
+  }
+  .nav-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:16px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+  }
+  .nav-inner a{
+    color:var(--manila);
+    text-decoration:none;
+  }
+  .nav-inner a:hover{text-decoration:underline;}
+
+  header.case{
+    max-width:820px;
+    margin:0 auto;
+    padding:52px 28px 40px;
+    position:relative;
+    border-bottom:1px solid var(--rule);
+  }
+  .case-number{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  header.case h1{
+    font-size:clamp(28px, 4.4vw, 44px);
+    line-height:1.1;
+    margin:0 0 6px;
+    font-weight:700;
+    max-width:15ch;
+  }
+  header.case .subtitle{
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+  }
+  .stamp-big{
+    position:absolute;
+    top:44px; right:24px;
+    font-family:'Special Elite', monospace;
+    text-transform:uppercase;
+    font-size:22px;
+    letter-spacing:0.05em;
+    color:var(--green);
+    border:4px solid var(--green);
+    border-radius:8px;
+    padding:10px 18px;
+    transform:rotate(-8deg);
+    mix-blend-mode:multiply;
+    filter:url(#roughen);
+  }
+  .verdict-quote{
+    background:var(--manila);
+    border-left:4px solid var(--gold);
+    padding:18px 22px;
+    font-size:16.5px;
+    line-height:1.6;
+    font-style:italic;
+    color:var(--ink);
+    max-width:70ch;
+  }
+  .verdict-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:var(--red);
+    color:var(--paper-light);
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:10px;
+  }
+
+  main{
+    max-width:820px;
+    margin:0 auto;
+    padding:8px 28px 100px;
+  }
+  section{
+    padding:38px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+  .tab{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--navy);
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  .tab.warn{background:var(--red);}
+  section h2{
+    font-size:24px;
+    margin:0 0 18px;
+    font-weight:700;
+  }
+  section h3{
+    font-size:16.5px;
+    margin:22px 0 8px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  section p{
+    font-size:16px;
+    line-height:1.68;
+    color:var(--ink);
+    margin:0 0 12px;
+  }
+  ul.plain{
+    margin:0 0 10px;
+    padding-left:22px;
+  }
+  ul.plain li{
+    font-size:16px;
+    line-height:1.62;
+    margin-bottom:7px;
+  }
+  ul.check{list-style:none; margin:0; padding:0;}
+  ul.check li{
+    display:flex;
+    gap:10px;
+    font-size:15.5px;
+    line-height:1.55;
+    padding:7px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  ul.check li:last-child{border-bottom:none;}
+  ul.check .mark{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--red);
+    font-weight:700;
+    flex-shrink:0;
+  }
+
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .split .col{
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:18px 20px;
+  }
+  .split .col.harm{border-color:rgba(165,48,30,0.35);}
+  .split h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin:0 0 10px;
+    color:var(--ink-soft);
+  }
+  .split ul{margin:0; padding-left:18px;}
+  .split li{font-size:14.5px; line-height:1.5; margin-bottom:6px;}
+
+  table.ledger{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    margin-top:6px;
+  }
+  table.ledger th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:2px solid var(--navy);
+    padding:8px 10px;
+  }
+  table.ledger td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.ledger tr:last-child td{
+    border-bottom:2px solid var(--gold);
+    font-weight:600;
+  }
+  table.ledger td.num{text-align:right;}
+
+  .tally-row{
+    display:flex;
+    gap:0;
+    margin:18px 0 26px;
+    border:1px solid var(--navy);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .tally-cell{
+    flex:1;
+    padding:16px 18px;
+    border-right:1px solid var(--navy);
+  }
+  .tally-cell:last-child{border-right:none;}
+  .tally-cell .chamber{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:6px;
+  }
+  .tally-cell .score{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:20px;
+    font-weight:600;
+  }
+  .tally-cell .score .yes{color:var(--green);}
+  .tally-cell .score .no{color:var(--red);}
+  .tally-cell .score .abst{color:var(--gold);}
+
+  table.weber{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.weber th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:7px 10px;
+    border-bottom:2px solid var(--navy);
+  }
+  table.weber td{
+    padding:8px 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.weber .yes-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--green);
+    font-weight:600;
+  }
+  table.weber .absent-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+
+  .legal-block{
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--navy);
+    border-radius:2px;
+    padding:20px 22px;
+    margin:16px 0;
+  }
+  .legal-block p{margin-bottom:10px;}
+  .legal-block p:last-child{margin-bottom:0;}
+  .legal-block a{text-decoration:underline;}
+
+  .accountability{
+    margin-top:16px;
+  }
+  .accountability .q{
+    font-style:italic;
+    font-size:17px;
+    color:var(--navy);
+    border-left:3px solid var(--gold);
+    padding-left:16px;
+    margin:14px 0;
+  }
+
+  .bottom-line{
+    background:var(--navy);
+    color:var(--paper-light);
+    border-radius:4px;
+    padding:34px 30px;
+    margin-top:6px;
+  }
+  .bottom-line .tab{background:var(--gold); color:var(--navy-deep);}
+  .bottom-line p{color:rgba(245,241,230,0.85); font-size:16px;}
+  .bottom-line .question{
+    margin-top:16px;
+    font-style:italic;
+    font-size:17px;
+    color:var(--manila);
+    border-left:3px solid var(--gold);
+    padding-left:16px;
+  }
+
+  footer{
+    max-width:820px;
+    margin:0 auto;
+    padding:30px 28px 70px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--navy);}
+
+  @media (max-width:600px){
+    .split{grid-template-columns:1fr;}
+    .stamp-big{position:static; display:inline-block; margin-bottom:16px; transform:rotate(-4deg);}
+    .tally-row{flex-direction:column;}
+    .tally-cell{border-right:none; border-bottom:1px solid var(--navy);}
+    .tally-cell:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="roughen">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4"/>
+  </filter>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <span>THE WEBER COUNTY HIVE — LEGISLATIVE DOCKET</span>
+    <a href="weber-hive-bill-docket.html">← All cases</a>
+  </div>
+</nav>
+
+<header class="case">
+  <p class="case-number mono">CASE 2026-546 · 2026 GENERAL SESSION</p>
+  <h1>H.B. 546 — Public Lands Duty of Care Amendments</h1>
+  <p class="subtitle">Status: Became law · Signed March 25, 2026</p>
+  <div class="stamp-big">Became Law</div>
+  <span class="verdict-tag">Mixed · Leaning Harmful</span>
+  <div class="verdict-quote">
+    "Mixed, leaning harmful — useful hazard mapping is combined with an aggressive and legally disputed claim of state jurisdiction over approximately 96% of Utah's federally controlled land."
+  </div>
+</header>
+
+<main>
+
+  <section id="what-it-did">
+    <span class="tab">What It Did</span>
+    <h2>Mapped huge federal landscapes — and claimed jurisdiction over them</h2>
+
+    <h3>Declared a broad state-jurisdiction theory</h3>
+    <p>H.B. 546 invents the term "federal proprietary interest lands" — federally controlled land the bill says the federal government holds only as an ordinary property owner, with no governing or legislative jurisdiction. The law declares that Utah never ceded legislative jurisdiction over these lands, that they cover roughly 35 million acres, and that they make up about 96% of federally controlled land in Utah.</p>
+    <p>Most significantly: state entities are instructed to <em>presume</em> federally controlled land is merely "federal proprietary interest land" unless the federal government proves otherwise. These are assertions written into state law — passing them doesn't settle their constitutionality or bind the federal government.</p>
+
+    <h3>Created a statewide mapping project</h3>
+    <p>By January 1, 2028, the Public Lands Policy Coordinating Office must identify and digitally map "landscape-scale lands" — contiguous areas of at least 250,000 acres under common title, lease, or unified management. The map must layer in public roads and access points, potential "landscape public nuisance areas," priority mineral lands, and high-value mineral areas.</p>
+
+    <h3>Created "landscape public nuisance areas"</h3>
+    <p>The Division of Forestry, Fire and State Lands may designate a public-nuisance area on large forested landscapes, weighing tree density, forest health, insect or disease infestation, wildfire fuel loads, terrain, watershed, weather — and "any other factor the division considers reasonably relevant." That catch-all gives the division substantial discretion.</p>
+
+    <h3>Mapped mineral-development priorities</h3>
+    <p>The mapping system must also flag lands with federally or state-designated critical minerals, areas near mineral-processing and transport infrastructure, areas with "limited conflicts" with other resources, and areas with high production potential. The office must issue annual recommendations on establishing high-value mineral zones.</p>
+  </section>
+
+  <section id="what-it-did-not-do">
+    <span class="tab">What It Did Not Do</span>
+    <h2>The limits of the bill — for now</h2>
+    <ul class="check">
+      <li><span class="mark">✕</span> Transfer ownership of federal land to Utah</li>
+      <li><span class="mark">✕</span> Authorize mineral extraction</li>
+      <li><span class="mark">✕</span> Approve a particular mine</li>
+      <li><span class="mark">✕</span> Authorize logging or vegetation removal</li>
+      <li><span class="mark">✕</span> Override a federal land-management plan by itself</li>
+      <li><span class="mark">✕</span> Create an immediate enforcement or nuisance-abatement procedure</li>
+      <li><span class="mark">✕</span> Establish penalties against a federal agency</li>
+      <li><span class="mark">✕</span> Appropriate money for future treatment of mapped land</li>
+    </ul>
+    <p>Calling an area a "landscape public nuisance" on a Utah map does not, by itself, give the state authority to enter federally managed property and alter it.</p>
+  </section>
+
+  <section id="constitutional-conflict">
+    <span class="tab warn">The Constitutional Conflict</span>
+    <h2>A contested legal premise</h2>
+    <div class="legal-block">
+      <p>The U.S. Constitution's Property Clause gives Congress authority to make rules and regulations concerning property belonging to the United States.</p>
+      <p>In <em>Kleppe v. New Mexico</em>, the U.S. Supreme Court rejected a narrow reading of that authority — holding that when valid federal public-land legislation conflicts with state law, the state law must give way under the Supremacy Clause. (<a href="https://www.law.cornell.edu/supremecourt/text/426/529" target="_blank" rel="noopener">Cornell Law, full opinion</a>)</p>
+      <p>Utah may retain generally applicable state authority over matters like water rights, criminal law, and public safety. But H.B. 546 cannot, through a state-law declaration alone, conclusively determine where federal jurisdiction ends. That question may ultimately require federal litigation.</p>
+    </div>
+  </section>
+
+  <section id="who">
+    <span class="tab">Who It Helped / Who Could Be Harmed</span>
+    <h2>The maps are neutral — how they get used isn't</h2>
+    <div class="split">
+      <div class="col help">
+        <h4>Who It Helped</h4>
+        <ul>
+          <li>State officials seeking greater influence over federal-land management</li>
+          <li>The Public Lands Policy Coordinating Office and Federalism Commission</li>
+          <li>Counties seeking additional roads, access, or active forest treatment</li>
+          <li>Communities facing wildfire, insects, disease, or unhealthy forest conditions</li>
+          <li>Mining and mineral-processing interests seeking identification of high-value deposits</li>
+          <li>Grazing, timber, and energy interests favored by Utah's multiple-use policies</li>
+          <li>Emergency-response agencies that could benefit from improved access and hazard information</li>
+        </ul>
+      </div>
+      <div class="col harm">
+        <h4>Who Could Be Harmed</h4>
+        <ul>
+          <li>Utah taxpayers, if the state's jurisdictional claims produce litigation</li>
+          <li>Conservation interests, if nuisance designations become a basis for roads, logging, or development</li>
+          <li>Wildlife and habitat affected by mineral extraction or vegetation treatment</li>
+          <li>Tribes, if culturally significant landscapes are mapped without meaningful consultation</li>
+          <li>Federal land managers confronted with inconsistent state demands</li>
+          <li>Local communities, if statewide mineral or nuisance designations override local priorities</li>
+          <li>Recreationists, if "access" projects fragment currently roadless areas</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:18px;">The mapping itself doesn't create these effects — but it builds the information and classifications that could support them later.</p>
+  </section>
+
+  <section id="who-paid">
+    <span class="tab">Who Paid</span>
+    <h2>No direct appropriation — but a real fiscal note</h2>
+    <p>The enrolled bill appropriated no money directly. Its fiscal note, however, estimated implementation costs for the Department of Natural Resources:</p>
+    <table class="ledger">
+      <thead>
+        <tr><th>Expense</th><th class="num">Estimated Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>One-time General Fund cost, FY2027</td><td class="num">$69,100</td></tr>
+        <tr><td>Amount DNR said it could absorb</td><td class="num">$8,300</td></tr>
+        <tr><td>Direct local-government cost</td><td class="num">None identified</td></tr>
+        <tr><td>Direct resident or business cost</td><td class="num">None identified</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;">The money funds identifying and mapping landscape-scale lands and evaluating possible nuisance areas. (<a href="https://pf.utleg.gov/public-web/sessions/2026GS/fiscal-notes/HB0546.fn.pdf" target="_blank" rel="noopener">Fiscal note, PDF</a>)</p>
+  </section>
+
+  <section id="how-they-voted">
+    <span class="tab">How They Voted</span>
+    <h2>Passed with real opposition</h2>
+    <div class="tally-row">
+      <div class="tally-cell">
+        <span class="chamber">House</span>
+        <span class="score"><span class="yes">51</span>–<span class="no">15</span>–<span class="abst">9</span></span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">Senate</span>
+        <span class="score"><span class="yes">17</span>–<span class="no">7</span>–<span class="abst">5</span></span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">Governor</span>
+        <span class="score" style="font-size:15px;">Signed Mar 25, 2026</span>
+      </div>
+    </div>
+
+    <h3>Weber-area votes</h3>
+    <table class="weber">
+      <thead>
+        <tr><th>Legislator</th><th>Chamber</th><th>Vote</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wayne Harper</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>John Johnson</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Scott Sandall</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Todd Weiler</td><td>Senate</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Matthew Gwynn</td><td>House</td><td class="absent-badge">ABSENT</td></tr>
+        <tr><td>Jason Kyle</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Jake Sawyer</td><td>House</td><td class="yes-badge">YES</td></tr>
+        <tr><td>Ryan Wilcox</td><td>House</td><td class="yes-badge">YES</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="bottom-line">
+    <div class="bottom-line">
+      <span class="tab">The Public-Interest Bottom Line</span>
+      <p>Mapping wildfire hazards, disease, access routes, and mineral resources can support legitimate public planning. But H.B. 546 goes further — it directs state agencies to start from a legal presumption that nearly all federally controlled land in Utah falls under Utah's jurisdiction unless the federal government proves otherwise, then places forest "public nuisances," access routes, and high-value minerals inside the same mapping system.</p>
+      <p>The bill doesn't authorize Utah to abate those nuisances or develop those minerals today. Its significance is that it builds the factual and legal infrastructure for what may come next.</p>
+      <div class="accountability">
+        <p class="q">Will the maps be used primarily to protect communities from wildfire — or to justify roads, logging, mineral development, and expanded state control?</p>
+        <p class="q">Before Utah acts on these designations, will the public be able to see the data, methodology, private participants, and affected lands behind each map?</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Sourced from the enrolled bill text, House and Senate floor votes, the final fiscal note (le.utah.gov, pf.utleg.gov), and <em>Kleppe v. New Mexico</em> (law.cornell.edu). Compiled by The Weber County Hive.
+</footer>
+
+</body>
+</html>
