@@ -37,5 +37,15 @@ const BILLS = [
     status: "law",
     voteLine: "H.B. 410: House 71–1–3 · Senate 25–0–4 — H.B. 348: House 70–0–5 · Senate 26–0–3 — Signed Mar 23, 2026",
     link: "weber-hive-hb410-348.html"
+  },
+  {
+    caseNumber: "CASE 2026-078",
+    bill: "S.B. 78",
+    title: "Property Tax Relief Amendments",
+    summary: "Started out expanding renter and homeowner relief; by its fourth substitute it repealed both — and that final version never got a committee hearing before failing in the House.",
+    tags: ["Property Tax", "Process Concern", "4 Substitutes"],
+    status: "failed",
+    voteLine: "Passed Senate · Failed House 28–41–6",
+    link: "weber-hive-sb78.html"
   }
 ];
