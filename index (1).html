@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Legislative Docket — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-deep:#0D1728;
+    --manila:#D9C9A3;
+    --manila-dark:#C4B389;
+    --paper:#EDE7D8;
+    --paper-light:#F5F1E6;
+    --ink:#1F1B16;
+    --ink-soft:#4A443A;
+    --red:#A5301E;
+    --green:#3F6B3B;
+    --gold:#A9822F;
+    --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);
+    font-family:'Source Serif 4', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  .masthead{
+    max-width:960px;
+    margin:0 auto;
+    padding:56px 28px 34px;
+    border-bottom:1px solid rgba(217,201,163,0.25);
+  }
+  .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--manila);
+    opacity:0.85;
+    margin:0 0 10px;
+  }
+  .masthead h1{
+    font-size:clamp(34px, 5vw, 54px);
+    line-height:1.05;
+    margin:0 0 14px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--paper-light);
+  }
+  .masthead p{
+    max-width:56ch;
+    font-size:17px;
+    line-height:1.6;
+    color:rgba(237,231,216,0.72);
+    margin:0;
+  }
+  .masthead .pub{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--gold);
+  }
+  .pub::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  .docket{
+    max-width:960px;
+    margin:0 auto;
+    padding:44px 28px 100px;
+  }
+  .docket-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--gold);
+    padding-bottom:10px;
+  }
+  .docket-head h2{
+    font-family:'Special Elite', monospace;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--manila);
+    margin:0;
+    font-weight:400;
+  }
+  .docket-head span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(237,231,216,0.5);
+  }
+
+  .case-row{
+    display:block;
+    text-decoration:none;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:2px;
+    margin-bottom:18px;
+    box-shadow:0 14px 30px -14px rgba(0,0,0,0.55);
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .case-row:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 38px -14px rgba(0,0,0,0.65);
+  }
+  .case-row::before{
+    content:attr(data-case);
+    position:absolute;
+    top:0; left:28px;
+    background:var(--manila-dark);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    padding:5px 14px 4px;
+    border-radius:0 0 4px 4px;
+    box-shadow:0 3px 6px rgba(0,0,0,0.25);
+  }
+  .case-body{
+    padding:40px 32px 26px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:start;
+  }
+  .case-main h3{
+    font-size:24px;
+    margin:0 0 6px;
+    font-weight:700;
+    letter-spacing:-0.005em;
+  }
+  .case-main .bill-name{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .case-main p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+  .tags{
+    margin-top:16px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    color:var(--ink-soft);
+  }
+
+  .stamp{
+    justify-self:end;
+    font-family:'Special Elite', monospace;
+    text-transform:uppercase;
+    font-size:15px;
+    letter-spacing:0.06em;
+    border-radius:6px;
+    padding:8px 14px;
+    transform:rotate(-7deg);
+    white-space:nowrap;
+    mix-blend-mode:multiply;
+    filter:url(#roughen);
+  }
+  .stamp.law{color:var(--green); border:3px solid var(--green);}
+  .stamp.vetoed{color:var(--red); border:3px solid var(--red);}
+  .stamp.failed{color:var(--red); border:3px solid var(--red);}
+  .stamp.pending{color:var(--gold); border:3px solid var(--gold);}
+
+  .case-foot{
+    border-top:1px dashed var(--rule);
+    padding:12px 32px 16px;
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+  .case-foot .open{
+    color:var(--red);
+    font-weight:600;
+  }
+
+  .ghost-row{
+    border:1.5px dashed rgba(217,201,163,0.35);
+    border-radius:2px;
+    padding:26px 32px;
+    color:rgba(237,231,216,0.45);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  footer{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 28px 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:rgba(237,231,216,0.4);
+    border-top:1px solid rgba(217,201,163,0.15);
+    padding-top:22px;
+  }
+
+  @media (max-width:600px){
+    .case-body{grid-template-columns:1fr;}
+    .stamp{justify-self:start;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="roughen">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4"/>
+  </filter>
+</svg>
+
+<header class="masthead">
+  <p class="eyebrow">The Weber County Hive</p>
+  <h1>The Legislative Docket</h1>
+  <p>Every bill filed here gets the same treatment a case file gets: what it actually did, who paid for it, who voted which way, and what it still doesn't tell you. No spin either direction — just the record.</p>
+  <div class="pub">2026 General Session · Utah Legislature</div>
+</header>
+
+<main class="docket">
+  <div class="docket-head">
+    <h2>Open Cases</h2>
+    <span id="case-count">— filed</span>
+  </div>
+
+  <div id="case-list"></div>
+
+  <div class="ghost-row">
+    <span>Next case pending review</span>
+    <span>—</span>
+  </div>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, and fiscal notes. Compiled by The Weber County Hive.
+</footer>
+
+<script src="data/bills.js"></script>
+<script>
+  const STAMP_TEXT = {
+    law: "Became Law",
+    vetoed: "Vetoed",
+    failed: "Failed",
+    pending: "Pending"
+  };
+
+  const list = document.getElementById('case-list');
+  document.getElementById('case-count').textContent = BILLS.length + (BILLS.length === 1 ? ' filed' : ' filed');
+
+  BILLS.forEach(b => {
+    const a = document.createElement('a');
+    a.className = 'case-row';
+    a.href = b.link;
+    a.setAttribute('data-case', b.caseNumber);
+
+    const tagsHtml = (b.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+    const stampClass = b.status || 'pending';
+    const stampText = STAMP_TEXT[stampClass] || 'Pending';
+
+    a.innerHTML = `
+      <div class="case-body">
+        <div class="case-main">
+          <span class="bill-name">${b.bill}</span>
+          <h3>${b.title}</h3>
+          <p>${b.summary}</p>
+          <div class="tags">${tagsHtml}</div>
+        </div>
+        <div class="stamp ${stampClass}">${stampText}</div>
+      </div>
+      <div class="case-foot">
+        <span>${b.voteLine || ''}</span>
+        <span class="open">Open case file →</span>
+      </div>
+    `;
+    list.appendChild(a);
+  });
+</script>
+
+</body>
+</html>
