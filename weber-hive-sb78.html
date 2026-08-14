@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.B. 78 — Property Tax Relief Amendments | The Weber County Hive Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-deep:#0D1728;
+    --manila:#D9C9A3;
+    --manila-dark:#C4B389;
+    --paper:#EDE7D8;
+    --paper-light:#F5F1E6;
+    --ink:#1F1B16;
+    --ink-soft:#4A443A;
+    --red:#A5301E;
+    --green:#3F6B3B;
+    --gold:#A9822F;
+    --rule:#C9BE9F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  nav{background:var(--navy); color:var(--paper);}
+  .nav-inner{
+    max-width:820px; margin:0 auto; padding:16px 28px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.05em;
+  }
+  .nav-inner a{color:var(--manila); text-decoration:none;}
+  .nav-inner a:hover{text-decoration:underline;}
+
+  header.case{
+    max-width:820px; margin:0 auto; padding:52px 28px 40px;
+    position:relative; border-bottom:1px solid var(--rule);
+  }
+  .case-number{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.15em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px;
+  }
+  header.case h1{
+    font-size:clamp(28px, 4.4vw, 44px); line-height:1.1; margin:0 0 6px;
+    font-weight:700; max-width:16ch;
+  }
+  header.case .subtitle{font-size:17px; color:var(--ink-soft); margin:0 0 22px;}
+  .stamp-big{
+    position:absolute; top:44px; right:24px;
+    font-family:'Special Elite', monospace; text-transform:uppercase; font-size:22px;
+    letter-spacing:0.05em; color:var(--red); border:4px solid var(--red);
+    border-radius:8px; padding:10px 18px; transform:rotate(-8deg);
+    mix-blend-mode:multiply; filter:url(#roughen);
+  }
+  .verdict-tag{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    letter-spacing:0.08em; text-transform:uppercase; background:var(--gold);
+    color:var(--navy-deep); padding:4px 10px; border-radius:2px; margin-bottom:10px;
+  }
+  .verdict-quote{
+    background:var(--manila); border-left:4px solid var(--gold); padding:18px 22px;
+    font-size:16.5px; line-height:1.6; font-style:italic; color:var(--ink); max-width:70ch;
+  }
+
+  main{max-width:820px; margin:0 auto; padding:8px 28px 100px;}
+  section{padding:38px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .tab{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--paper);
+    background:var(--navy); padding:4px 10px; border-radius:2px; margin-bottom:14px;
+  }
+  .tab.warn{background:var(--red);}
+  section h2{font-size:24px; margin:0 0 18px; font-weight:700;}
+  section h3{font-size:16.5px; margin:22px 0 8px; font-weight:600; color:var(--navy);}
+  section p{font-size:16px; line-height:1.68; color:var(--ink); margin:0 0 12px;}
+
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .split .col{background:var(--paper-light); border:1px solid var(--rule); border-radius:3px; padding:18px 20px;}
+  .split .col.harm{border-color:rgba(165,48,30,0.35);}
+  .split h4{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; margin:0 0 10px; color:var(--ink-soft);
+  }
+  .split ul{margin:0; padding-left:18px;}
+  .split li{font-size:14.5px; line-height:1.5; margin-bottom:6px;}
+
+  table.compare{width:100%; border-collapse:collapse; font-size:14.5px; margin-top:10px;}
+  table.compare th{
+    text-align:left; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--ink-soft); padding:8px 10px; border-bottom:2px solid var(--navy);
+  }
+  table.compare td{padding:10px; border-bottom:1px solid var(--rule); vertical-align:top;}
+  table.compare td.was{color:var(--ink-soft);}
+  table.compare td.now{color:var(--red); font-weight:500;}
+
+  table.score{width:100%; border-collapse:collapse; font-size:14.5px; margin-top:10px;}
+  table.score th{
+    text-align:left; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--ink-soft); padding:8px 10px; border-bottom:2px solid var(--navy);
+  }
+  table.score td{padding:10px; border-bottom:1px solid var(--rule);}
+  .dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px;}
+  .dot.red{background:var(--red);}
+  .dot.green{background:var(--green);}
+  .dot.neutral{background:var(--rule); border:1px solid var(--ink-soft);}
+
+  .process-block{
+    background:rgba(165,48,30,0.06); border:1px solid rgba(165,48,30,0.3);
+    border-left:4px solid var(--red); border-radius:2px; padding:20px 22px; margin:16px 0;
+  }
+  .process-block p{margin-bottom:8px;}
+  .process-block p:last-child{margin-bottom:0;}
+  .process-stats{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
+  }
+  .process-stat{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.03em;
+    background:var(--paper-light); border:1px solid var(--rule); border-radius:2px;
+    padding:6px 10px; color:var(--ink-soft);
+  }
+
+  .tally-row{
+    display:flex; gap:0; margin:18px 0 10px; border:1px solid var(--navy); border-radius:3px; overflow:hidden;
+  }
+  .tally-cell{flex:1; padding:16px 18px; border-right:1px solid var(--navy);}
+  .tally-cell:last-child{border-right:none;}
+  .tally-cell .chamber{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-soft); display:block; margin-bottom:6px;
+  }
+  .tally-cell .score{font-family:'IBM Plex Mono', monospace; font-size:19px; font-weight:600;}
+  .tally-cell .score .yes{color:var(--green);}
+  .tally-cell .score .no{color:var(--red);}
+  .tally-cell .score .abst{color:var(--gold);}
+
+  .bottom-line{background:var(--navy); color:var(--paper-light); border-radius:4px; padding:34px 30px; margin-top:6px;}
+  .bottom-line .tab{background:var(--gold); color:var(--navy-deep);}
+  .bottom-line p{color:rgba(245,241,230,0.85); font-size:16px;}
+  .bottom-line .question{
+    margin-top:16px; font-style:italic; font-size:17px; color:var(--manila);
+    border-left:3px solid var(--gold); padding-left:16px;
+  }
+
+  footer{
+    max-width:820px; margin:0 auto; padding:30px 28px 70px;
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft);
+  }
+  footer a{color:var(--navy);}
+
+  @media (max-width:600px){
+    .split{grid-template-columns:1fr;}
+    .stamp-big{position:static; display:inline-block; margin-bottom:16px; transform:rotate(-4deg);}
+    .tally-row{flex-direction:column;}
+    .tally-cell{border-right:none; border-bottom:1px solid var(--navy);}
+    .tally-cell:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="roughen">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4"/>
+  </filter>
+</svg>
+
+<nav>
+  <div class="nav-inner">
+    <span>THE WEBER COUNTY HIVE — LEGISLATIVE DOCKET</span>
+    <a href="weber-hive-bill-docket.html">← All cases</a>
+  </div>
+</nav>
+
+<header class="case">
+  <p class="case-number mono">CASE 2026-078 · 2026 GENERAL SESSION</p>
+  <h1>S.B. 78 — Property Tax Relief Amendments</h1>
+  <p class="subtitle">Status: Failed · Died in the House</p>
+  <div class="stamp-big">Failed</div>
+  <span class="verdict-tag">Mixed · Leaning Harmful</span>
+  <div class="verdict-quote">
+    A bill that started out expanding property tax relief ended up, by its final substitute, repealing renter credits and homeowner credits outright — and never got a committee hearing on that final version before dying on the House floor.
+  </div>
+</header>
+
+<main>
+
+  <section id="process">
+    <span class="tab warn">Process Red Flag</span>
+    <h2>The version that failed was never heard in committee</h2>
+    <div class="process-block">
+      <p>By the time S.B. 78 reached its final form, it had been substituted four times. The final substitute — the one that repealed renter and homeowner credits and replaced existing abatements with an optional county program — never received its own committee hearing before going to the floor.</p>
+      <p>That matters for accountability regardless of how anyone feels about the policy: the public and other legislators were voting on, and reacting to, a version of the bill that never got the normal public vetting process.</p>
+      <div class="process-stats">
+        <span class="process-stat">Substitutes: 4</span>
+        <span class="process-stat">Committee hearing on final version: None</span>
+        <span class="process-stat">Passed Senate</span>
+        <span class="process-stat">Failed House</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-changed">
+    <span class="tab">What Changed</span>
+    <h2>From expanding relief to repealing it</h2>
+    <p>The bill's substance shifted substantially between its original introduction and the final (S4) substitute that reached the floor:</p>
+    <table class="compare">
+      <thead><tr><th>Original Proposal</th><th>Final S4 Proposal</th></tr></thead>
+      <tbody>
+        <tr><td class="was">Expanded renter credits</td><td class="now">Repealed renter credits</td></tr>
+        <tr><td class="was">Modified existing homeowner relief</td><td class="now">Repealed homeowner credits</td></tr>
+        <tr><td class="was">Modified existing abatements</td><td class="now">Replaced them with an optional county program</td></tr>
+        <tr><td class="was">Expanded existing deferrals</td><td class="now">Created an interest-bearing lien structure</td></tr>
+        <tr><td class="was">Statewide programs</td><td class="now">County-by-county participation</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="who">
+    <span class="tab">Who Could Benefit / Who Could Lose</span>
+    <h2>The final version's winners and losers</h2>
+    <div class="split">
+      <div class="col help">
+        <h4>Who Could Benefit</h4>
+        <ul>
+          <li>Some homeowners age 65–74</li>
+          <li>Homeowners earning up to $75,000 seeking deferral</li>
+          <li>Qualifying homeowners in participating counties</li>
+        </ul>
+      </div>
+      <div class="col harm">
+        <h4>Who Could Lose</h4>
+        <ul>
+          <li>Low-income renters</li>
+          <li>Recipients of existing homeowner credits</li>
+          <li>Residents of nonparticipating counties</li>
+          <li>Reverse-mortgage holders</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="score">
+    <span class="tab">Public-Impact Score</span>
+    <h2>Where the final version fell short</h2>
+    <table class="score">
+      <thead><tr><th>Category</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Direct tax reduction</td><td><span class="dot red"></span>Weaker</td></tr>
+        <tr><td>Access to deferrals</td><td><span class="dot green"></span>Broader</td></tr>
+        <tr><td>Protection for renters</td><td><span class="dot red"></span>Eliminated</td></tr>
+        <tr><td>County-to-county equality</td><td><span class="dot red"></span>Reduced</td></tr>
+        <tr><td>Transparency of process</td><td><span class="dot red"></span>Weak</td></tr>
+        <tr><td>Actual legal effect</td><td><span class="dot neutral"></span>None — bill failed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="how-they-voted">
+    <span class="tab">How They Voted</span>
+    <h2>Died on the House floor</h2>
+    <div class="tally-row">
+      <div class="tally-cell">
+        <span class="chamber">Senate</span>
+        <span class="score" style="font-size:15px;">Passed</span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">House (final vote)</span>
+        <span class="score"><span class="yes">28</span>–<span class="no">41</span>–<span class="abst">6</span></span>
+      </div>
+      <div class="tally-cell">
+        <span class="chamber">Result</span>
+        <span class="score" style="font-size:15px; color:var(--red);">Failed</span>
+      </div>
+    </div>
+    <p>The Senate passed an earlier version of the bill; the source record does not report that Senate vote's tally. The final House vote — on the S4 substitute that had never been heard in committee — failed 28–41–6.</p>
+  </section>
+
+  <section id="bottom-line">
+    <div class="bottom-line">
+      <span class="tab">The Public-Interest Bottom Line</span>
+      <p>S.B. 78 is a case study in how much a bill can change between introduction and its final vote. It started as an expansion of renter and homeowner relief and ended, four substitutes later, repealing both — replacing statewide programs with a patchwork of optional county participation, and creating an interest-bearing lien structure in place of straightforward deferrals.</p>
+      <p>The bill failed, so none of this became law. But the process itself is the story: the version that mattered most — the one lawmakers actually voted on — never got a public committee hearing.</p>
+      <p class="question">When a bill's substance reverses this much between introduction and final vote, should the final version be required to get its own committee hearing before reaching the floor?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Sourced from the enrolled bill substitute history, House floor vote, and committee record (le.utah.gov). Compiled by The Weber County Hive.
+</footer>
+
+</body>
+</html>
