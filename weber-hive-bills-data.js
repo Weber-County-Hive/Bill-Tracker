@@ -6,7 +6,6 @@
 // filename of the case-file page you upload to GitHub.
 //
 // status: "law" | "vetoed" | "failed" | "pending"  (controls stamp color/text)
-
 const BILLS = [
   {
     caseNumber: "CASE 2026-249",
@@ -57,5 +56,15 @@ const BILLS = [
     status: "law",
     voteLine: "Senate 26–0–3 · House 67–0–8 · Signed Mar 26, 2026",
     link: "weber-hive-sb44.html"
+  },
+  {
+    caseNumber: "CASE 2026-258/510",
+    bill: "S.B. 258 (2024) + H.B. 510",
+    title: "One Vote, Four Checks — Preliminary Municipality Reform",
+    summary: "A 2024 law lets a handful of landowners create a new town with no county say-so. A 2026 reform bill to fix that failed by one vote — four of the no votes went to senators who'd taken checks from a homebuilder using the law right now.",
+    tags: ["Local Government", "Campaign Finance", "Wasatch/Summit Counties"],
+    status: "failed",
+    voteLine: "H.B. 510: House 68–0 · Senate 14–12–3 (failed)",
+    link: "sb258-preliminary-municipalities.html"
   }
 ];
