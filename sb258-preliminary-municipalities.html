@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Vote, Four Checks — The Weber County Hive</title>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:24px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  /* applicant cards */
+  .applicants{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 42px;}
+  .acard{border:1px solid var(--line);background:#fff;padding:16px;}
+  .acard .name{font-family:var(--sans);font-weight:700;font-size:13.5px;margin-bottom:4px;}
+  .acard .status{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:8px;}
+  .acard .status.accepted{background:#dfe9df;color:var(--stamp);}
+  .acard .status.rejected{background:var(--flag-soft);color:var(--flag);}
+  .acard p{font-family:var(--sans);font-size:12px;color:var(--ink-soft);margin:0;line-height:1.5;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+
+  /* vote table */
+  .votetable{width:100%;border-collapse:collapse;margin:18px 0;font-family:var(--sans);font-size:13px;}
+  .votetable th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--stamp);padding:6px 8px;}
+  .votetable td{padding:8px;border-bottom:1px solid var(--line);}
+  .votetable tr.sponsor td{background:#dfe9df;}
+  .votetable .amt{font-family:var(--mono);font-size:12px;}
+  .votetable .vote-no{color:var(--flag);font-weight:700;}
+  .votetable .vote-yes{color:var(--stamp);font-weight:700;}
+  .votetable .vote-absent{color:var(--ink-soft);font-style:italic;}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .applicants{grid-template-columns:1fr;}
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">August 2026</div>
+  </div>
+
+  <div class="file-tag">Records &amp; Campaign Finance</div>
+  <h1>One Vote, Four Checks</h1>
+  <p class="dek">A 2024 law lets a handful of landowners turn their land into a new town with no county say-so. A bill to fix that failed by one vote — and four of the no votes went to senators who'd taken checks from a homebuilder using the law right now.</p>
+
+  <div class="related">Companion piece: <a href="waldrip-funding-threat.html">Wrong Room, Right Message</a> — the Governor's office threatens Wasatch County's funding over its opposition to this same law.</div>
+
+  <div class="byline-row">
+    <span>Sources: <b>LegiScan, le.utah.gov, disclosures.utah.gov</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here — the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">A 2024 Utah law lets up to three landowners petition the state to create a brand-new town on their own land — skipping the county entirely.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">In 2026, four separate landowners in Wasatch and Summit counties tried to use it — twice the state's yearly cap of two.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">A bill to give counties a real role before an application is filed passed the House 68-0, but got watered down before reaching the Senate.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">Even the weaker version failed in the Senate, 14-12 — one vote short of passing.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">Four of the twelve no votes went to senators who had each personally received a campaign check from Ivory Homes, the state's largest homebuilder and the sponsor of one of the four 2026 applications.</div></li>
+        </ol>
+
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary — click a term</div>
+          <span class="gterm" data-term="pm">Preliminary municipality</span>
+          <div class="gdef" data-def="pm">A fast-track path created by SB 258 (2024) for landowners to petition the state directly to incorporate their land as a new town, bypassing the county's normal zoning and rezone process.</div>
+
+          <span class="gterm" data-term="cap">The 2-per-year cap</span>
+          <div class="gdef" data-def="cap">State law only allows two preliminary municipality applications to be accepted per year, statewide — any filed after that cap is reached are automatically rejected, regardless of merit.</div>
+
+          <span class="gterm" data-term="hb510">HB 510</span>
+          <div class="gdef" data-def="hb510">The 2026 reform bill that would have given counties the right to commission traffic studies, dispute feasibility findings, and pause incorporations pending review. Passed the House 68-0; failed in the Senate 14-12 after being substituted down.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">A 2024 Utah law lets as few as one landowner turn their own land into a brand-new town — no county approval required. In 2026, four separate landowners in Wasatch and Summit counties tried to use it. A bill to give counties any real say in the process needed one more "yes" in the Senate to pass. It didn't get one &mdash; and four of the senators who voted no had each taken a campaign check from a homebuilder with a direct stake in the outcome.</p>
+
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What The Law Does</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Senate Bill 258, passed in 2024, created a fast-track path to incorporation known as a "preliminary municipality." Under the law, up to three landowners who together control a piece of land can petition the state directly to turn it into a new town &mdash; bypassing the county the land currently sits in entirely. The state caps acceptance at two applications per year, statewide.</p>
+        <p>Supporters have framed it as a tool for rural landowners to control their own development future. Critics &mdash; including the counties where it's actually being used &mdash; say it hands a handful of large landowners a way around the ordinary zoning and rezone process, with no seat at the table for the county government whose infrastructure, roads, and services the new town will eventually need.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Four Applications, One Cycle</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>In 2026, four preliminary municipality applications came out of Wasatch and Summit counties alone &mdash; twice the statewide annual cap.</p>
+
+        <div class="applicants">
+          <div class="acard">
+            <div class="name">Wasatch Highlands</div>
+            <span class="status accepted">Accepted</span>
+            <p>2,700 acres east of Heber, adjacent to Red Ledges. ~700 homes, hotel, glamping, retail. Sponsored by Philo Ventures after the same project failed twice at the city/county level.</p>
+          </div>
+          <div class="acard">
+            <div class="name">Bear Canyon</div>
+            <span class="status rejected">Rejected</span>
+            <p>~2,300 acres near Sundance. Initially accepted, then rejected — boundaries didn't meet contiguity requirements. Second rejection after an earlier version had too many landowners.</p>
+          </div>
+          <div class="acard">
+            <div class="name">Lost Creek</div>
+            <span class="status rejected">Rejected</span>
+            <p>490 acres, Browns Canyon, Summit County. Rejected — filed after the annual cap was reached. Owner tied to the Garff-Rogers Ranch family; will pursue a standard county rezone instead.</p>
+          </div>
+          <div class="acard">
+            <div class="name">Smooth Hollow</div>
+            <span class="status rejected">Rejected</span>
+            <p>Wasatch County, south of Wallsburg. Also rejected for filing after the cap was reached.</p>
+          </div>
+        </div>
+
+        <p>Two rejections, two acceptances, and a persistent problem regardless of outcome: with four applications and a two-per-year statewide cap, half the projects that show up in any given year are guaranteed to be turned away &mdash; not on the merits, but on timing.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Reform That Needed One More Vote</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>In 2026, Rep. Tiara Auxier (R-Morgan) introduced HB 510, which would have given counties a real role before an application is filed: the right to commission a traffic study, to hire their own consultant and dispute a feasibility study, and to pause the incorporation process pending independent review.</p>
+        <p>The bill passed the House 68-0. By the time it reached the Senate floor, it had already been substituted down &mdash; the traffic study authority gone, the audit and dispute mechanism gone, "consultation" loosened into an 18-month "good faith coordination" standard that doesn't require county sign-off.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">68&ndash;0</div><div class="label">House floor vote</div></div>
+          <div class="stat"><div class="num">14&ndash;12</div><div class="label">Senate floor vote (failed)</div></div>
+          <div class="stat"><div class="num">1</div><div class="label">Vote short of passing</div></div>
+        </div>
+
+        <p>Even that watered-down version failed on the Senate floor, 14-12, three senators absent. In a chamber Republicans control 22-6-1, the bill needed one more "yes" to pass.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Four Checks, Four No Votes</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Ivory Homes &mdash; the state's largest homebuilder, and the company behind the Lost Creek application &mdash; had made direct campaign contributions to five sitting senators before the vote. All five were part of the HB 510 decision:</p>
+
+        <table class="votetable">
+          <tr><th>Senator</th><th>Ivory Homes contribution</th><th>HB 510 vote</th></tr>
+          <tr><td>Ann Millner</td><td class="amt">$1,000 (2024) + $500 x2 (2022)</td><td class="vote-no">NO</td></tr>
+          <tr><td>Jerry Stevenson</td><td class="amt">$1,000 (2022)</td><td class="vote-no">NO</td></tr>
+          <tr><td>Evan Vickers</td><td class="amt">$1,000 (2022)</td><td class="vote-no">NO</td></tr>
+          <tr><td>Brady Brammer</td><td class="amt">$500 (2024)</td><td class="vote-no">NO</td></tr>
+          <tr><td>Lincoln Fillmore</td><td class="amt">$500 (2023)</td><td class="vote-absent">ABSENT</td></tr>
+          <tr class="sponsor"><td>Kirk Cullimore</td><td class="amt">$1,000 (2023)</td><td class="vote-yes">YES (Senate sponsor)</td></tr>
+        </table>
+
+        <p>Any single one of those five voting yes &mdash; or simply showing up &mdash; would have passed the bill.</p>
+        <p>One senator breaks the clean pattern and deserves to be named for it: Kirk Cullimore, who also received an Ivory Homes contribution, was the bill's own Senate sponsor. He carried the reform, not opposed it, and voted yes.</p>
+
+        <div class="caveat">
+          <b>What this does and doesn't show:</b> none of this proves any senator's vote was bought, traded, or even consciously influenced by a $500 or $1,000 check. What it shows is narrower and still worth stating plainly: the bill that would have given counties leverage over the exact tool a major donor was actively using needed one more vote, and four of the twelve no votes belonged to senators that donor had personally written checks to.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>What Comes Next</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Auxier has said publicly she intends to reintroduce the bill in the 2027 session. Until then, the law works exactly as it did in 2026: up to three landowners, a state-level application, a two-per-year cap, and no formal county role in between.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from LegiScan, le.utah.gov &amp; disclosures.utah.gov &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
