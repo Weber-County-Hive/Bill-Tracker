@@ -66,5 +66,15 @@ const BILLS = [
     status: "failed",
     voteLine: "H.B. 510: House 68–0 · Senate 14–12–3 (failed)",
     link: "sb258-preliminary-municipalities.html"
+  },
+  {
+    caseNumber: "CASE 2025-037 / 2026-065",
+    bill: "S.B. 37 (2025) + S.B. 65 (2026)",
+    title: "The Bill That Won't Die — Minimum Basic Tax Rate Amendments",
+    summary: "Two sessions running, the same senator tried to route every school district's basic property tax through a new state-controlled fund first. Vetoed in 2025. In 2026 it passed the Senate again, then died in the House without ever getting a real hearing.",
+    tags: ["School Finance", "Property Tax", "Process Concern", "Repeat Attempt"],
+    status: "failed",
+    voteLine: "2025: Passed House 41–27 · Senate 20–8 · VETOED — 2026: Passed Senate 18–11–0 · Enacting clause struck in House",
+    link: "weber-hive-sb65-case-file.html"
   }
 ];

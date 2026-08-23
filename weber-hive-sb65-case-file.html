@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case File: The Bill That Won't Die — SB37 / SB65 | The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --paper:#EDE6D6;
+    --paper-dark:#E1D8C2;
+    --folder:#C7B896;
+    --ink:#23283B;
+    --ink-soft:#4B5063;
+    --stamp:#A31621;
+    --stamp-soft:#A3162122;
+    --brass:#8A6D3B;
+    --line:#B9AD8F;
+    --max:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(0,0,0,0.03), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(0,0,0,0.035), transparent 40%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Libre Baskerville", Georgia, serif;
+    line-height:1.65;
+    font-size:17px;
+  }
+
+  a{color:var(--stamp);}
+
+  .mono{font-family:"Courier Prime", monospace;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 22px;}
+
+  /* ---------- HERO / COVER ---------- */
+  .cover{
+    position:relative;
+    border-bottom:3px double var(--ink);
+    padding:54px 0 40px;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(0,0,0,0.025) 28px);
+    pointer-events:none;
+  }
+  .tab{
+    display:inline-block;
+    background:var(--folder);
+    color:var(--ink);
+    font-family:"Courier Prime", monospace;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border:1px solid var(--brass);
+    border-bottom:none;
+    transform: translateY(2px) rotate(-0.4deg);
+  }
+  .case-meta{
+    font-family:"Courier Prime", monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:16px 0 6px;
+    letter-spacing:.02em;
+  }
+  h1.title{
+    font-family:"Anton", sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(2.4rem, 7vw, 4.6rem);
+    line-height:0.94;
+    letter-spacing:0.01em;
+    margin:6px 0 14px;
+    color:var(--ink);
+  }
+  h1.title em{
+    font-style:normal;
+    color:var(--stamp);
+  }
+  .subtitle{
+    font-family:"Libre Baskerville", serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0 0 26px;
+  }
+  .stampbar{
+    display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+    margin-top:10px;
+  }
+  .stamp{
+    font-family:"Anton", sans-serif;
+    font-weight:400;
+    letter-spacing:.06em;
+    font-size:1rem;
+    color:var(--stamp);
+    border:3.5px solid var(--stamp);
+    padding:6px 14px 4px;
+    border-radius:3px;
+    transform:rotate(-6deg);
+    text-transform:uppercase;
+    background:rgba(163,22,33,0.04);
+    box-shadow: 0 0 0 1px rgba(163,22,33,0.08) inset;
+    opacity:0.92;
+    mix-blend-mode:multiply;
+  }
+  .stamp.pending{
+    color:var(--brass);
+    border-color:var(--brass);
+    background:rgba(138,109,59,0.06);
+    transform:rotate(3deg);
+  }
+
+  /* ---------- NAV / TOC ---------- */
+  .toc{
+    background:var(--paper-dark);
+    border-bottom:1px solid var(--line);
+    padding:12px 0;
+    position:sticky; top:0; z-index:10;
+  }
+  .toc .wrap{display:flex; flex-wrap:wrap; gap:6px 8px;}
+  .toc button{
+    font-family:"Courier Prime", monospace;
+    font-size:11.5px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    background:none;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    padding:6px 9px;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .toc button:hover, .toc button:focus-visible{
+    border-color:var(--stamp);
+    color:var(--stamp);
+    outline:none;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:46px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    font-family:"Courier Prime", monospace;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 8px;
+  }
+  h2{
+    font-family:"Anton", sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(1.5rem,4vw,2.2rem);
+    letter-spacing:.01em;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  h3{
+    font-family:"Libre Baskerville", serif;
+    font-weight:700;
+    font-size:1.15rem;
+    margin:26px 0 10px;
+  }
+  p{margin:0 0 14px;}
+  ul, ol{margin:0 0 16px; padding-left:22px;}
+  li{margin-bottom:6px;}
+
+  /* plain-language callout box */
+  .plain{
+    background:#fff8ea;
+    border:1px solid var(--brass);
+    border-left:5px solid var(--brass);
+    padding:20px 22px;
+    border-radius:2px;
+    margin-bottom:8px;
+  }
+  .plain .eyebrow{color:var(--brass);}
+  .plain p:last-child{margin-bottom:0;}
+
+  /* case cards for the two attempts */
+  .case-card{
+    position:relative;
+    background:var(--paper-dark);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:22px 24px 26px;
+    margin:22px 0;
+    overflow:hidden;
+  }
+  .case-card h3{margin-top:0;}
+  .case-card .stamp{
+    position:absolute;
+    top:18px; right:18px;
+    font-size:.92rem;
+  }
+  .facts{
+    font-family:"Courier Prime", monospace;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    margin-top:14px;
+    padding-top:12px;
+  }
+  .facts div{margin-bottom:4px;}
+  .facts b{color:var(--ink);}
+
+  /* flow diagram */
+  .flow{
+    display:flex; flex-direction:column; gap:0;
+    margin:18px 0 6px;
+    font-family:"Courier Prime", monospace;
+    font-size:13.5px;
+  }
+  .flow .step{
+    background:var(--paper-dark);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:10px 14px;
+  }
+  .flow .arrow{
+    text-align:center;
+    color:var(--brass);
+    padding:4px 0;
+    font-size:15px;
+  }
+  .flow-label{
+    font-family:"Anton", sans-serif;
+    font-size:.82rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    margin:0 0 8px;
+  }
+  .two-col{
+    display:grid; grid-template-columns:1fr 1fr; gap:22px;
+  }
+  @media (max-width:680px){ .two-col{grid-template-columns:1fr;} }
+
+  /* vote roster */
+  .votes{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:18px 0;}
+  @media (max-width:680px){ .votes{grid-template-columns:1fr;} }
+  .vote-block h4{
+    font-family:"Anton", sans-serif;
+    font-weight:400;
+    letter-spacing:.05em;
+    margin:0 0 10px;
+    font-size:1rem;
+    text-transform:uppercase;
+  }
+  .yeas h4{color:var(--stamp);}
+  .nays h4{color:var(--ink-soft);}
+  .namegrid{
+    font-family:"Courier Prime", monospace;
+    font-size:12.8px;
+    columns:2;
+    column-gap:14px;
+  }
+  .namegrid div{break-inside:avoid; margin-bottom:5px; display:flex; gap:5px; align-items:baseline;}
+  .flag{
+    color:var(--stamp);
+    font-weight:700;
+  }
+  .vote-note{
+    font-family:"Courier Prime", monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:14px;
+    border-top:1px dashed var(--line);
+    padding-top:10px;
+  }
+
+  /* pull quote / testimony */
+  .testimony{
+    border-left:3px solid var(--ink);
+    padding-left:16px;
+    margin:16px 0;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+  .testimony .who{
+    display:block;
+    font-family:"Courier Prime", monospace;
+    font-style:normal;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-top:6px;
+  }
+
+  /* timeline */
+  .timeline{margin:20px 0; border-left:2px solid var(--line); padding-left:22px;}
+  .tl-item{position:relative; margin-bottom:18px;}
+  .tl-item::before{
+    content:"";
+    position:absolute; left:-27px; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--brass);
+    border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--brass);
+  }
+  .tl-item.kill::before{background:var(--stamp); box-shadow:0 0 0 1px var(--stamp);}
+  .tl-date{font-family:"Courier Prime", monospace; font-size:12.5px; color:var(--brass); font-weight:700;}
+  .tl-item.kill .tl-date{color:var(--stamp);}
+
+  /* interim committee grid */
+  .people{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+    gap:8px; margin:16px 0;
+    font-family:"Courier Prime", monospace; font-size:12.8px;
+  }
+  .people .p{
+    padding:7px 10px; background:var(--paper-dark); border:1px solid var(--line); border-radius:2px;
+  }
+  .people .p.hot{border-color:var(--stamp); color:var(--stamp); font-weight:700;}
+
+  .divider{
+    text-align:center; color:var(--brass); letter-spacing:.4em; margin:8px 0 0;
+    font-family:"Courier Prime", monospace; font-size:12px;
+  }
+
+  footer{
+    padding:34px 0 60px;
+    font-family:"Courier Prime", monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--brass);}
+
+  .backstamp{
+    display:inline-block;
+    font-family:"Anton", sans-serif;
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border:1.5px solid var(--line);
+    padding:3px 8px;
+    border-radius:2px;
+    margin-right:8px;
+  }
+
+  ::selection{background:var(--stamp-soft);}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--stamp);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <span class="tab">Weber County Hive — Legislative Docket</span>
+    <div class="case-meta">CASE NO. SB37-25 / SB65-26 &nbsp;·&nbsp; STATUS: OPEN &nbsp;·&nbsp; JURISDICTION: UTAH LEGISLATURE</div>
+    <h1 class="title">The Bill<br>That <em>Won't Die</em></h1>
+    <p class="subtitle">Two sessions. Two versions. Same idea: reroute the property tax your school district collects through a new state fund first. It's failed twice — and the same lawmakers who wrote it sit on the committee built to bring it back.</p>
+    <div class="stampbar">
+      <span class="stamp">2025: Vetoed</span>
+      <span class="stamp">2026: Killed</span>
+      <span class="stamp pending">2027: Pending?</span>
+    </div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="wrap">
+    <button data-scroll-to="plain">Start Here</button>
+    <button data-scroll-to="timeline">The Two Attempts</button>
+    <button data-scroll-to="mechanism">How It Works</button>
+    <button data-scroll-to="wash">The Wash</button>
+    <button data-scroll-to="votes">Who Voted</button>
+    <button data-scroll-to="alpine">The Alpine Connection</button>
+    <button data-scroll-to="watch">Watch List</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= PLAIN LANGUAGE ================= -->
+  <section id="plain">
+    <div class="eyebrow">New to this? Start here.</div>
+    <h2>What SB65 Actually Would Have Done</h2>
+
+    <div class="plain">
+      <div class="eyebrow">In one paragraph</div>
+      <p>Every Utah school district collects a property tax called the <strong>minimum basic levy</strong>. Right now, that money stays local — it counts directly toward what your district owes for its own basic education program. SB65 (and its 2025 predecessor, SB37) would have required every district to send that money to the state first, dump it into a brand-new fund the state controls, and then wait up to 35 days for the state to send an equivalent amount back. Supporters called it an accounting cleanup. Critics — including Utah's own State Auditor — called it a way to make local school money legally indistinguishable from the state's general spending account, at least for a few weeks at a time.</p>
+    </div>
+
+    <h3>Why would anyone want that?</h3>
+    <p>The bill's sponsor, Sen. Lincoln Fillmore, has argued it gives the state more flexibility to move money between growing and shrinking districts — his own words were that "red dollars spend just as well as green dollars," meaning it shouldn't matter which pot of money pays a school's bills as long as the total is the same.</p>
+
+    <h3>Why did it fail — twice?</h3>
+    <p>In 2025, it passed both chambers and landed on Gov. Cox's desk — who vetoed it, citing legal and accounting ambiguity and a "public trust" problem. In 2026, Fillmore brought it back as SB65. It passed the Senate again, but died in the House before it ever got a real hearing — more on exactly how, below.</p>
+
+    <h3>Why it's still worth watching</h3>
+    <p>The sponsor, the House floor sponsor, and one of the bill's sharpest on-record critics all sit together on the same legislative committee that's supposed to workshop education bills before they're introduced. That committee didn't touch this bill either year. Two failed attempts in a row from the same senator, on the same interim committee, is usually a sign of a third attempt — not an abandoned idea.</p>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section id="timeline">
+    <div class="eyebrow">Case History</div>
+    <h2>Two Attempts, Two Deaths</h2>
+
+    <div class="case-card">
+      <span class="stamp">Vetoed</span>
+      <h3>2025 — Senate Bill 37</h3>
+      <p>Fillmore's first version passed the House 41–27 and the Senate 20–8. Gov. Spencer Cox vetoed it, pointing to unresolved legal and accounting questions and a broader concern about public trust — specifically, whether money that passes through a general-purpose state account keeps the same legal protection it has when it stays with a local district.</p>
+    </div>
+
+    <div class="case-card kill-card">
+      <span class="stamp">Killed</span>
+      <h3>2026 — Senate Bill 65</h3>
+      <p>Fillmore brought the same core mechanism back as SB65, with Rep. Val L. Peterson as House floor sponsor. This time it didn't reach the governor's desk at all.</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">JAN 28, 2026</div>
+          <p>Senate Revenue and Taxation Committee hearing. Fillmore presented his own bill. <strong>Tina Cannon, Utah's elected State Auditor</strong>, testified against it — as did Jennifer Partridge of the Utah School Boards Association. Fillmore then moved to pass his own bill; it advanced 4–1–2.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">FEB 18, 2026</div>
+          <p>Passed the Senate floor 18–11–0 and was sent to the House the same day. (Full roster below.)</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">MAR 3, 2026</div>
+          <p>House Education Committee agenda — SB65 was item #7 of 7, dead last. Fillmore only <em>introduced</em> the bill; no testimony, no discussion. <strong>Rep. Val L. Peterson — the bill's own House sponsor — wasn't even in the room</strong>, marked absent. A motion to adjourn passed before the committee ever got to it.</p>
+        </div>
+        <div class="tl-item kill">
+          <div class="tl-date">MAR 6, 2026</div>
+          <p>Without a rescheduled hearing, the House struck the bill's enacting clause — a procedural move that guts a bill without a floor vote. Filed as not passed the same day.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="vote-note">Read together: a bill can die from an up-or-down vote, or it can die from simply never being given the time. SB65 died the second way.</p>
+  </section>
+
+  <!-- ================= MECHANISM ================= -->
+  <section id="mechanism">
+    <div class="eyebrow">The Mechanism</div>
+    <h2>Where The Money Goes — Before and After</h2>
+
+    <div class="two-col">
+      <div>
+        <div class="flow-label">Current Law</div>
+        <div class="flow">
+          <div class="step">District sets and imposes the minimum basic levy</div>
+          <div class="arrow">↓</div>
+          <div class="step">County treasurer collects it locally</div>
+          <div class="arrow">↓</div>
+          <div class="step">Money counts directly as the district's own contribution to its own program cost — it never leaves local hands</div>
+          <div class="arrow">↓</div>
+          <div class="step">State fills only the remaining gap, from the constitutionally protected Uniform School Fund</div>
+        </div>
+      </div>
+      <div>
+        <div class="flow-label">Under SB65</div>
+        <div class="flow">
+          <div class="step">District sets and imposes the minimum basic levy</div>
+          <div class="arrow">↓</div>
+          <div class="step">County treasurer collects it, remits it to the <strong>state</strong> treasurer every month — no exceptions</div>
+          <div class="arrow">↓</div>
+          <div class="step">Deposited into a new <strong>Minimum Basic Tax Special Revenue Fund</strong> — usable for "statewide purposes consistent with the General Fund"</div>
+          <div class="arrow">↓</div>
+          <div class="step">State has 35 days to send an equivalent amount back — from whatever source it chooses</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>What actually changes</h3>
+    <p>Districts still set their own tax rate — that doesn't change. What changes is who holds the money while it's in transit, and how much flexibility the state has over where the money that gets sent back actually comes from. The bill also would have repealed the current rule that sends any excess levy revenue straight to the constitutionally protected Uniform School Fund, and added a new disclosure line to property tax notices explaining the pass-through. Since the bill died, none of that disclosure language ever made it into law — <span class="mono">Utah Code §59-2-1317</span> today says nothing about how the minimum basic levy is collected or where it goes.</p>
+  </section>
+
+  <!-- ================= THE WASH ================= -->
+  <section id="wash">
+    <div class="eyebrow">Follow The Money</div>
+    <h2>The "Wash" Mechanism</h2>
+
+    <p>The bill guarantees districts get an equivalent <em>dollar amount</em> back. It says nothing about which pool of money that amount has to come from — and that gap is exactly where a Granite School District finance administrator said the real risk lives.</p>
+
+    <div class="testimony">
+      Instead of using the new special fund to pay districts back, the state could use Utah's <strong>Income Tax Fund</strong> — which is constitutionally reserved for education — and free up an equal amount of ordinary General Fund money that would otherwise have covered the same need. That freed-up General Fund money can then be shifted anywhere General Fund money goes: higher education, roads, corrections, Medicaid. Nothing on this year's budget looks wrong. But as income tax revenue grows year over year, the growth that's supposed to flow automatically to K-12 could just as easily get redirected to higher ed instead, using the same substitution, year after year.
+      <span class="who">— paraphrased from testimony by Granite School District's business administrator, 2025 committee debate</span>
+    </div>
+
+    <p>Neither bill's text does this by itself. What it does is remove the structural reason it currently <em>can't</em> happen quietly.</p>
+  </section>
+
+  <!-- ================= VOTES ================= -->
+  <section id="votes">
+    <div class="eyebrow">On The Record</div>
+    <h2>Senate Final Passage — Feb 18, 2026 · 18–11–0</h2>
+
+    <div class="votes">
+      <div class="vote-block yeas">
+        <h4>Yeas — 18</h4>
+        <div class="namegrid">
+          <div>Adams, J. Stuart</div>
+          <div><span class="flag">†</span>Balderree, H.</div>
+          <div><span class="flag">†</span>Brammer, B.</div>
+          <div><span class="flag">†</span>Cullimore, K.A.</div>
+          <div>Fillmore, L. <em>(sponsor)</em></div>
+          <div><span class="flag">†</span>Grover, K.</div>
+          <div><span class="flag">†</span>Harper, W.</div>
+          <div>Johnson, J.</div>
+          <div><span class="flag">†</span>McCay, D.</div>
+          <div>McKell, M.</div>
+          <div>Musselman, C.R.</div>
+          <div><span class="flag">†</span>Sandall, S.</div>
+          <div>Stevenson, J.</div>
+          <div><span class="flag">†</span>Stratton, K.</div>
+          <div>Vickers, E.</div>
+          <div>Weiler, T.</div>
+          <div>Wilson, C.</div>
+          <div>Winterton, R.</div>
+        </div>
+      </div>
+      <div class="vote-block nays">
+        <h4>Nays — 11</h4>
+        <div class="namegrid">
+          <div>Blouin, N.</div>
+          <div>Buss, E.</div>
+          <div>Escamilla, L.</div>
+          <div>Hinkins, D.</div>
+          <div>Ipson, D.</div>
+          <div>Kwan, K.</div>
+          <div>Millner, A.</div>
+          <div>Owens, D.R.</div>
+          <div>Pitcher, S.</div>
+          <div>Plumb, J.</div>
+          <div>Riebe, K.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vote-note">
+      <span class="flag">†</span> = has documented campaign contributions from the Fillmore-adjacent PAC network in prior years, per the Hive's separate PAC research. That's a disclosure, not an accusation — several senators who <em>also</em> received network money voted Nay, so funding history alone doesn't predict this vote.
+    </div>
+  </section>
+
+  <!-- ================= ALPINE ================= -->
+  <section id="alpine">
+    <div class="eyebrow">Case Study</div>
+    <h2>The Alpine Connection</h2>
+
+    <p>SB65 doesn't exist in isolation. It lands on top of a separate, already-shrinking tax base — and nowhere will that collision be sharper than in the new districts carved out of Alpine School District, effective July 2027.</p>
+
+    <h3>The base is already leaking</h3>
+    <p>Tax increment financing districts — TIFs, PIDs, CRAs — freeze a project area's taxable value at a base year and divert most of the <em>growth</em> above that base to the development itself, not to schools. Eagle Mountain's Sweetwater Industrial Park deal, tied to a Meta data center expansion, is projected to divert <strong>$13.5 million</strong> from Alpine School District's revenue over 20 years — 64.7% of the growth in that zone, with only 3.7% coming back to the district.</p>
+    <p>A 2017 carve-out — also sponsored by Fillmore — was supposed to wall the minimum basic levy off from exactly this kind of diversion. The Sweetwater numbers show Alpine's full combined rate going into the increment split anyway. Whether that carve-out is actually being honored is still an open question.</p>
+
+    <h3>Then the district gets smaller</h3>
+    <p>Alpine currently absorbs that $13.5M loss across roughly 84,000 students. After the 2027 split, Eagle Mountain and Saratoga Springs fall into the new <strong>West District</strong> — built from just four cities. The same diversion, unchanged, lands on a fraction of the tax base.</p>
+
+    <h3>Now pool it statewide</h3>
+    <p>Today, that shortfall is at least <em>visible</em> — a specific district losing a specific, traceable amount to a specific tax deal. Under SB65's pooled system, every district's minimum basic revenue gets mixed into one statewide fund before being redistributed. West District's shortfall would still get backfilled — but the link between "this data center deal cost this district this much" disappears into a statewide average. The dollar amount owed is guaranteed. The accountability isn't.</p>
+    <p class="vote-note">Worth noting: SB65 only pools the minimum basic levy. The Voted/Board Local Levy, Capital Levy, and Debt Service Levy stay local — so West District would still visibly carry TIF impact through those, even if a future version of this bill passes.</p>
+  </section>
+
+  <!-- ================= WATCH ================= -->
+  <section id="watch">
+    <div class="eyebrow">Looking Ahead</div>
+    <h2>Who To Watch Before 2027</h2>
+
+    <p>SB65 was never part of the Education Interim Committee's own formal bill requests for 2026 — that committee recommended three other bills instead, and explicitly declined to recommend two more. Fillmore introduced SB65 independently, bypassing the very body built to vet education-finance ideas before session.</p>
+    <p>That same interim committee is where a third attempt would most likely get pre-worked. Three names matter most:</p>
+
+    <div class="people">
+      <div class="p hot">Fillmore, L. — sponsor</div>
+      <div class="p hot">Peterson, V.L. — House sponsor</div>
+      <div class="p hot">Riebe, K. — on-record critic</div>
+      <div class="p">Johnson, J.D. — co-chair</div>
+      <div class="p">Walter, R.N. — co-chair</div>
+      <div class="p">Balderree, H.</div>
+      <div class="p">Wilson, C.H.</div>
+      <div class="p">Auxier, T.</div>
+      <div class="p">Bishop, R.</div>
+      <div class="p">Defay, A.</div>
+      <div class="p">Elison, J.</div>
+      <div class="p">Hayes, S.</div>
+      <div class="p">Lisonbee, K.</div>
+      <div class="p">Moss, C.S.</div>
+      <div class="p">Okerlund, C.D.</div>
+      <div class="p">Peterson, K.M.</div>
+      <div class="p">Pierucci, C.B.</div>
+      <div class="p">Thompson, J.E.</div>
+      <div class="p">Welton, D.</div>
+    </div>
+
+    <p class="vote-note">Two failed attempts, same sponsor, same committee seat both times. If a third version shows up in 2027, it likely starts here.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="backstamp">Case Status: Open</span>
+    <span class="backstamp">Next Review: 2027 General Session</span>
+    <p style="margin-top:16px;">Sources: official Utah Legislature bill text and status pages (le.utah.gov), Senate Revenue &amp; Taxation Committee minutes (1/28/2026), House Education Standing Committee draft minutes (3/3/2026), Senate final passage roster (2/18/2026), Education Interim Committee roster and 2026 bill file, prior Hive campaign-finance research on the Fillmore-adjacent PAC network, and Hive reporting on the Alpine School District split. Compiled by The Weber County Hive.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('[data-scroll-to]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+</script>
+
+</body>
+</html>
