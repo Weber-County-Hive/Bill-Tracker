@@ -76,5 +76,15 @@ const BILLS = [
     status: "failed",
     voteLine: "2025: Passed House 41–27 · Senate 20–8 · VETOED — 2026: Passed Senate 18–11–0 · Enacting clause struck in House",
     link: "weber-hive-sb65-case-file.html"
+  },
+  {
+    caseNumber: "CASE 2025-HB37",
+    bill: "H.B. 37 (2025)",
+    title: "The Threshold Nobody Noticed — Utah Housing Amendments",
+    summary: "A 2025 housing bill quietly lowered the minimum population to incorporate a new Utah town from 100 to 75 people — rewriting the same statute the 2024 preliminary-municipality fast-track law depends on.",
+    tags: ["Local Government", "Land Use", "Preliminary Municipality"],
+    status: "law",
+    voteLine: "House 58–9–8 · Senate 22–6–1 · House concurred 39–30–6 · Signed Mar 26, 2025 · Effective May 7, 2025",
+    link: "weber-hive-hb37.html"
   }
 ];
