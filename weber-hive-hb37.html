@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Threshold Nobody Noticed — The Weber County Hive</title>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  .before-after{display:flex;align-items:center;gap:18px;margin:20px 0 8px;flex-wrap:wrap;}
+  .ba-box{flex:1;min-width:140px;border:1px solid var(--line);background:#fff;padding:16px;text-align:center;}
+  .ba-box .num{font-family:var(--serif);font-size:2.2rem;color:var(--ink);line-height:1;}
+  .ba-box .label{font-family:var(--sans);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+  .ba-box.after .num{color:var(--flag);}
+  .ba-arrow{font-family:var(--sans);font-size:22px;color:var(--gold);flex:0 0 auto;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
+  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
+  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+  .tl-text{font-size:13.5px;color:var(--ink);}
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+    .before-after{flex-direction:column;}
+    .ba-arrow{transform:rotate(90deg);}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">August 2026</div>
+  </div>
+
+  <div class="file-tag">Records &amp; Land Use</div>
+  <h1>The Threshold Nobody Noticed</h1>
+  <p class="dek">A 2025 housing bill quietly rewrote the exact statute that governs how few people it takes to found a new Utah town — right before landowners started using a fast-track incorporation law that depends on it.</p>
+
+  <div class="related">Companion piece: <a href="sb258-preliminary-municipalities.html">One Vote, Four Checks</a> — the 2024 fast-track "preliminary municipality" law that runs on this same incorporation statute.</div>
+
+  <div class="byline-row">
+    <span>Sources: <b>le.utah.gov, LegiScan</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here — the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">H.B. 37 (2025), "Utah Housing Amendments," rewrote Utah Code §10-2a-201.5 — the same statute that sets who qualifies to incorporate as a new town, and the one the 2024 "preliminary municipality" fast-track law (S.B. 258) depends on.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">Among the changes: the minimum population needed to incorporate as a town dropped from 100 people to 75.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">The bill also created new "density bonus" tools letting cities and counties approve higher-density developments in exchange for affordability and owner-occupancy commitments, and tied a slice of state transportation funding to a city or county's housing-report compliance.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">It passed with lopsided margins — House 58&ndash;9, Senate 22&ndash;6 — and took effect May 7, 2025, months before the four 2026 preliminary-municipality applications this Hive already tracked in Wasatch and Summit counties.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">But the bill left a separate, absolute bar elsewhere in the same statute untouched — one that still blocks incorporation below 100 people regardless. In practice, the headline number changed; the real floor didn't.</div></li>
+        </ol>
+
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary — click a term</div>
+          <span class="gterm" data-term="pm">Preliminary municipality</span>
+          <div class="gdef" data-def="pm">The fast-track incorporation path created by S.B. 258 (2024) — see the companion piece above. It lets landowners petition the state directly to become a new town, and it uses this same qualifications statute to decide who's eligible.</div>
+
+          <span class="gterm" data-term="densitybonus">Affordable home ownership density bonus</span>
+          <div class="gdef" data-def="densitybonus">A new tool H.B. 37 created: a city or county can approve extra housing density on a project — well above what normal zoning allows — in exchange for the developer agreeing to owner-occupancy deed restrictions and a share of units priced as "affordable."</div>
+
+          <span class="gterm" data-term="mih">Moderate income housing strategy</span>
+          <div class="gdef" data-def="mih">One of a state-defined menu of options (rezoning for density, waiving fees, creating a reinvestment zone, and others) that cities and counties must select from and report on. Noncompliant cities can lose eligibility for certain state transportation funds.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">Rep. James Dunnigan's H.B. 37 was framed, and covered, as a housing-supply bill: density bonuses, moderate-income-housing reporting, a new state housing plan. Buried in Section 1, though, is a rewrite of the incorporation-qualifications statute that decides how small a piece of land can become its own town — the identical statute the "preliminary municipality" fast-track law leans on. Senate floor sponsor Sen. Lincoln Fillmore is also one of the senators this Hive has already documented taking an Ivory Homes campaign contribution and sitting out the 2026 vote to add county oversight to that same fast-track process.</p>
+
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What The Bill Does</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>H.B. 37, "Utah Housing Amendments," 2025 General Session. Chief Sponsor Rep. James A. Dunnigan; Senate/Floor Sponsor Sen. Lincoln Fillmore, who also carried the final substitute. The Political Subdivisions Interim Committee recommended the bill going into session. It went through five substitutes, passed, was signed March 26, 2025, and took effect May 7, 2025.</p>
+        <ul>
+          <li>Amends the incorporation-qualifications statute, §10-2a-201.5 (Section 1 — see below).</li>
+          <li>Creates new "affordable home ownership density bonus" mechanisms for both municipalities and counties, for single-family (6+ units/acre) and multi-family (20+ units/acre) development.</li>
+          <li>Expands the menu of "moderate income housing strategies" cities and counties choose from in their general plans — including Housing and Transit Reinvestment Zones, Home Ownership Promotion Zones, and First Home Investment Zones, all reinvestment-zone tools already tracked elsewhere in this Hive's PID/TIF reporting.</li>
+          <li>Requires the Governor's Office of Planning and Budget to write a statewide housing plan by Dec. 31, 2025, and report annually to the Political Subdivisions Interim Committee.</li>
+          <li>Ties Transportation Investment Fund and Transit Transportation Investment Fund money to a city or county's moderate-income-housing report compliance — noncompliant places can lose eligibility for certain UDOT-programmed funds.</li>
+          <li>A minor, unrelated add-on: authorizes special districts to operate propane systems.</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Number That Changed</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Section 1 rewrites §10-2a-201.5, "Qualifications for incorporation" — the statute that sets the population and density floor an area must clear to become a town or city. Among the changes: the minimum population to incorporate as a <i>town</i> dropped from 100 people to 75.</p>
+
+        <div class="before-after">
+          <div class="ba-box"><div class="num">100</div><div class="label">Old minimum, town population</div></div>
+          <div class="ba-arrow">&#8594;</div>
+          <div class="ba-box after"><div class="num">75</div><div class="label">New minimum, town population</div></div>
+        </div>
+
+        <p>This is the identical statute S.B. 258 (2024) leans on to decide whether a landowner's "preliminary municipality" petition qualifies to become a town. Confirmed directly from the Legislature's own tracked-changes comparison document for the bill (HB0037S04 compared with HB0037S05): the redline shows "[100] 75" — the old number struck, the new one inserted, exactly where the bill's own summary said it would land.</p>
+
+        <div class="caveat">
+          <b>The catch, confirmed:</b> the same statute keeps a second, separate rule a few lines down — Subsection (2)(a)(i), which flatly bars incorporation anywhere "the area has a population of fewer than 100 people." That line carries no strikethrough or bracket marks anywhere in the Legislature's own comparison document. This bill didn't touch it. Because that absolute bar controls regardless of the number in (1)(a)(ii), an area with 75 to 99 people still cannot legally incorporate as a town — the headline number changed; the real floor an applicant actually has to clear did not.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Where This Connects</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="timeline">
+          <li class="tl-item"><span class="tl-date">Feb 13 &amp; 27, 2025</span><div class="tl-text">Steve Waldrip, Gov. Cox's Senior Advisor for Housing Strategy, personally testifies in favor of H.B. 37 at both the House and Senate committee hearings — the same Waldrip who later, in Aug. 2026, threatens to cut Wasatch County's road funding over its opposition to the preliminary-municipality regime this statute underpins.</div></li>
+          <li class="tl-item"><span class="tl-date">May 7, 2025</span><div class="tl-text">H.B. 37 takes effect — the 100-to-75 population change and the new density-bonus tools are now law.</div></li>
+          <li class="tl-item"><span class="tl-date">Jan 2026</span><div class="tl-text">Wasatch Highlands preliminary municipality application accepted — first of the four 2026 applications already tracked in the companion piece.</div></li>
+          <li class="tl-item"><span class="tl-date">Mar 6, 2026</span><div class="tl-text">H.B. 510, the county-oversight reform bill, fails in the Senate 14–12. Sen. Fillmore — H.B. 37's own floor sponsor, and a $500 (2023) Ivory Homes donee — is recorded absent.</div></li>
+        </div>
+        <p>H.B. 37 didn't create the preliminary-municipality fast track — S.B. 258 (2024) did that. But it amended the same statute that fast track depends on to decide eligibility, more than a year before the 2026 filing wave this Hive has already documented. Two officials show up on both ends of this timeline: Sen. Fillmore, who sponsored the 2025 statute rewrite and then sat out the 2026 vote to add county checks on it, and Steve Waldrip, who pushed the same bill through committee in 2025 and was still defending the broader growth agenda it serves in 2026. Neither connection has been reported anywhere else.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>Vote Record</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="stat-strip">
+          <div class="stat"><div class="num">58&ndash;9&ndash;8</div><div class="label">House 3rd reading, 2/20/25</div></div>
+          <div class="stat"><div class="num">22&ndash;6&ndash;1</div><div class="label">Senate 2nd/3rd reading, 3/7/25</div></div>
+          <div class="stat"><div class="num">39&ndash;30&ndash;6</div><div class="label">House concurs w/ Senate amendment, 3/7/25</div></div>
+        </div>
+        <p>Committee votes: House Political Subdivisions Committee recommended the first substitute and passed it favorably 6&ndash;0&ndash;4 (2/13/25). Senate Government Operations and Political Subdivisions Committee recommended a further substitute 5&ndash;0&ndash;2 and passed it favorably 4&ndash;0&ndash;3 (2/27/25). The bill's final substitute (S5) was adopted on the Senate floor by voice vote the night of 3/7/25, skipping two intermediate drafts (S3, S4) that were distributed but never adopted.</p>
+        <p>Signed by the Governor March 26, 2025. Effective May 7, 2025. Individual named roll-call rosters (who specifically voted no, and whether any Weber-area legislators did) not yet pulled — the official record gives tallies, not names, for floor votes.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat">
+          <b>What isn't confirmed yet:</b> whether any specific 2026 preliminary-municipality applicant would ever have fallen in the 75-99 range this drafting quirk actually affects. All four applicants already tracked in the companion piece appear to project populations well above 100 at buildout, meaning this particular provision likely made no practical difference to any of 2026's filings — but that hasn't been checked applicant-by-applicant against each one's stated numbers. Named individual roll-call votes also not yet pulled — only committee and floor tallies are confirmed so far.
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from le.utah.gov &amp; LegiScan &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
