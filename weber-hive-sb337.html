@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The One Authority to Rule Them All — The Weber County Hive</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  .before-after{display:flex;align-items:center;gap:18px;margin:20px 0 8px;flex-wrap:wrap;}
+  .ba-box{flex:1;min-width:140px;border:1px solid var(--line);background:#fff;padding:16px;text-align:center;}
+  .ba-box .num{font-family:var(--serif);font-size:2.2rem;color:var(--ink);line-height:1;}
+  .ba-box .label{font-family:var(--sans);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+  .ba-box.after .num{color:var(--flag);}
+  .ba-arrow{font-family:var(--sans);font-size:22px;color:var(--gold);flex:0 0 auto;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
+  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
+  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+  .tl-text{font-size:13.5px;color:var(--ink);}
+
+  .mermaid{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:18px 10px;
+    margin:20px 0 24px;
+    display:flex;
+    justify-content:center;
+    overflow-x:auto;
+  }
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+  .caveat.caveat--first{margin-top:0;}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+    .before-after{flex-direction:column;}
+    .ba-arrow{transform:rotate(90deg);}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">August 2026</div>
+  </div>
+
+  <div class="file-tag">Land Use &amp; State Authorities</div>
+  <h1>The One Authority to Rule Them All</h1>
+  <p class="dek">A governor's top legislative priority would have created a state agency more powerful than MIDA and the Inland Port Authority combined. Cross-partisan opposition killed it without a floor vote — and everything critics warned about is now what the Governor himself says about its sister agency.</p>
+
+  <div class="byline-row">
+    <span>Sources: <b>le.utah.gov, Utah News Dispatch, Salt Lake Tribune</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here — the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">S.B. 337 (2025), sponsored by Senate Majority Leader Kirk Cullimore, would have created the Beehive Development Agency &mdash; a new state authority with sweeping land use, bonding, and taxing power over any project it designated "significant" to the state.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">It was one of Gov. Spencer Cox's top priorities for the session, backed by Senate President Stuart Adams.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">Opposition came from both directions at once &mdash; conservative grassroots groups and progressive water/environmental groups, plus a Republican senator who voted no in committee.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">It passed two committees narrowly, then simply ran out of time. The 2025 session ended before it ever reached a Senate floor vote. It never became law.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">Seventeen months later, Gov. Cox himself said MIDA &mdash; one of the existing authorities this bill would have sat above &mdash; has had "mission creep" and needs "major reform." That's the exact warning critics gave about this bill, about a different agency, from the Governor's own mouth.</div></li>
+        </ol>
+
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary &mdash; click a term</div>
+          <span class="gterm" data-term="bda">Beehive Development Agency</span>
+          <div class="gdef" data-def="bda">The authority S.B. 337 would have created &mdash; an "independent nonprofit" public corporation under the Governor's Office of Economic Opportunity, with planning, bonding, land use, and taxing power over designated project areas.</div>
+
+          <span class="gterm" data-term="mida">MIDA</span>
+          <div class="gdef" data-def="mida">Military Installation Development Authority &mdash; created in 2007 to help Hill Air Force Base, now an active statewide land-use and tax-increment authority. One of the agencies BDA was designed to coordinate with.</div>
+
+          <span class="gterm" data-term="uipa">UIPA</span>
+          <div class="gdef" data-def="uipa">Utah Inland Port Authority &mdash; created 2018, another state-level land-use and tax-capture authority BDA would have coordinated with.</div>
+
+          <span class="gterm" data-term="scipa">Significant community impact project area</span>
+          <div class="gdef" data-def="scipa">The bill's own term for a development BDA could designate for its powers &mdash; envisioned for things like a nuclear plant, large manufacturing, or grand-scale mixed-use development, per sponsor Kirk Cullimore's own description.</div>
+
+          <span class="gterm" data-term="missioncreep">Mission creep</span>
+          <div class="gdef" data-def="missioncreep">Gov. Cox's own phrase, used about MIDA in August 2026 after the Stratos data center controversy &mdash; an agency's authority expanding well past its original, narrower purpose.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">Utah already has MIDA, the Inland Port Authority, the Point of the Mountain State Land Authority, the Utah Lake Authority, the State Fair Park Authority, and the Fairpark Area Investment and Restoration District &mdash; six separate state bodies with power to override local zoning, issue bonds, and capture tax revenue inside their own project areas. In 2025, Senate Majority Leader Kirk Cullimore introduced a bill to build a seventh, bigger than the rest, explicitly designed to sit above and coordinate all of them. The Salt Lake Tribune called it "the one authority to rule them all." It never became law.</p>
+
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What The Bill Would Have Done</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>S.B. 337, "Land Use and Development Amendments," 2025 General Session. Chief Sponsor Sen. Kirk A. Cullimore. It would have:</p>
+        <ul>
+          <li>Created the Beehive Development Agency (BDA) &mdash; "an independent nonprofit," a political subdivision of the state, "a separate body corporate and politic, with perpetual succession, and a public corporation" under Utah Constitution Article XI. Appropriations to it would be nonlapsing.</li>
+          <li>Given the Governor's Office of Economic Opportunity (GOEO) a tool with "ultimate planning power" and broad bonding, land use, and taxing authority to designate "significant community impact project areas" &mdash; in Cullimore's own words, for things like "a nuclear plant... large manufacturing... really grand scale, mixed-use developments."</li>
+          <li>Allowed BDA to capture up to <b>75% of the taxes generated within a designated project area</b> for infrastructure or project subsidies.</li>
+          <li>Required BDA's commissioner to coordinate with MIDA, UIPA, the Point of the Mountain State Land Authority, the Utah Lake Authority, the State Fair Park Authority, and the Fairpark Area Investment and Restoration District.</li>
+          <li>Let BDA form a Public Infrastructure District for any project area it designated &mdash; including, per testimony opposing the bill, potential "massive, multibillion-dollar water projects."</li>
+          <li>Consolidated state housing programs from the Division of Housing and Community Development into GOEO, and removed the sunset on the Utah Housing Corporation.</li>
+        </ul>
+        <p>The original draft let BDA designate up to three project areas per city, per year, with <b>no local consent required at all</b>. After weekend negotiations with the Utah League of Cities and Towns and the Utah Association of Counties, Cullimore introduced a substitute requiring a city or county to consent within 45 days of a draft plan &mdash; but specified that once given, that consent is <b>irrevocable</b>.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Where The 75% Would Have Gone</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Property and sales tax generated inside a Utah taxing area is normally split among the local entities that actually serve that area &mdash; the school district, the county, the city, and any special districts (fire, water, and so on) &mdash; each getting a share set by its own certified tax rate. Inside a BDA-designated project area, up to 75% of that revenue would instead have flowed to BDA itself, for infrastructure and project subsidies, before any of it reached those entities.</p>
+
+        <div class="mermaid">
+flowchart TD
+    T["Property &amp; sales tax generated<br/>inside the project area"]
+    T --> N["Normal distribution<br/>(outside a BDA project area)"]
+    T --> B["Inside a BDA project area"]
+
+    N --> N1["School district"]
+    N --> N2["County"]
+    N --> N3["City"]
+    N --> N4["Fire / water / special districts"]
+
+    B --> C["BDA captures up to 75%"]
+    B --> R["Remaining 25% or less"]
+
+    C --> I["Infrastructure &amp; project subsidies<br/>(BDA's own use)"]
+    R --> R1["School district &mdash; reduced share"]
+    R --> R2["County &mdash; reduced share"]
+    R --> R3["City &mdash; reduced share"]
+    R --> R4["Fire / water / special districts &mdash; reduced share"]
+
+    R1 -.-> G["Those entities still have to serve<br/>any new residents, students, and calls<br/>the project brings &mdash; on a smaller share"]
+    R2 -.-> G
+    R3 -.-> G
+    R4 -.-> G
+        </div>
+
+        <div class="caveat"><b>Nothing in the bill replaced that lost revenue.</b> This is the same mechanism already documented in this Hive's reporting on tax increment financing and PID debt: a taxing entity doesn't get credit for growth captured by an authority like this, but it still has to serve the population and development that growth brings &mdash; more students, more calls for service, more infrastructure demand, on a smaller revenue share. Under Utah's Truth in Taxation framework, the only two levers left to close that gap are raising the rate on everyone else in the entity's boundary, or cutting services. S.B. 337 didn't include a backfill mechanism for the 75% it would have redirected &mdash; and because the bill never became law, no actual project area was ever designated under it, so this is the mechanism as written, not a documented real-world case.</div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Opposition From Both Directions</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat caveat--first"><b>Critics' own shorthand:</b> "BAD" &mdash; Beehive Agency Development &mdash; coined by Elaine Oaks, a South Davis Water District board member testifying as a private citizen: "a shadow organization controlled by the governor with little to no public oversight or checks on its power."</div>
+
+        <p>Opposed from the right: <b>Utah Legislative Watch</b> (executive director Maryann Christensen: "I'm viewing this bill as a tipping point... It's too much of a power grab"), <b>Utah Eagle Forum</b>, and a leader of the <b>Utah County Republican Party</b>. Opposed from the left: the <b>Utah Rivers Council</b> and Senate Minority Whip <b>Karen Kwan</b> (D-West Valley): "I'm not comfortable with the idea of the bill to begin with." <b>Sen. John Johnson</b> (R-North Ogden) voted against it in the Senate Economic Development and Workforce Services Committee, citing government overreach and process concerns: "we're losing credibility with the public that thinks we rush into things."</p>
+
+        <blockquote>
+          <p>"Beehive Development Agency &mdash; or B-A-D for short &mdash; undermines our constitutional framework of local governance, transferring power from elected officials to an unaccountable, private entity with statewide power."</p>
+          <cite>Elaine Oaks, South Davis Water District board member, committee testimony</cite>
+        </blockquote>
+
+        <p>The Utah League of Cities and Towns' own staff materials recommended lawmakers "Oppose as drafted." Zachary Frankel of the Utah Rivers Council testified the bill would "fast track multibillion-dollar water projects by exempting local land use controls" &mdash; calling it "bad utility planning."</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Backers</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>The bill was pushed by Gov. Spencer Cox's office and supported by Senate President Stuart Adams, who cast what Utah News Dispatch called "a rare vote of support" during the committee hearing and told reporters afterward: "You need somebody to start controlling this... That control I think is something that's really important." Ryan Starks, then-executive director of GOEO, testified in favor, arguing the state needed better tools to "attract large-scale projects in energy and housing and business." Steve Waldrip, the governor's senior housing policy adviser, also testified in favor, framing BDA as fixing a "mismatch between job creation and our housing needs."</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Died Without A Vote</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="stat-strip">
+          <div class="stat"><div class="num">3&ndash;2</div><div class="label">Senate Econ. Dev. &amp; Workforce Services, Mar 3</div></div>
+          <div class="stat"><div class="num">3&ndash;2&ndash;1</div><div class="label">Senate Revenue &amp; Taxation, 1st Sub. favorable</div></div>
+          <div class="stat"><div class="num">0</div><div class="label">Senate floor votes taken</div></div>
+        </div>
+        <p>S.B. 337 passed two Senate committees narrowly &mdash; the Economic Development and Workforce Services Committee 3&ndash;2 on March 3, 2025, and the Revenue and Taxation Committee later voted 3&ndash;2&ndash;1 to pass a 1st Substitute out favorably (Adams, Millner, Owens yes; Johnson, Kwan no; Stevenson absent). It never reached the Senate floor. Per the Salt Lake Tribune's Robert Gehrke, writing March 5, 2025: the bill "appears to have died without even getting a vote in the Senate," despite being "one of Gov. Spencer Cox's top priorities this session." The 2025 General Session ended days later. S.B. 337 never became law.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Validation, 17 Months Later</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>On August 20, 2026, Utah News Dispatch reported: <b>"After data center debacle, Gov. Cox says MIDA has had 'mission creep' and needs 'major reform.'"</b> The story followed public controversy over the Stratos data center project in Box Elder County, approved through MIDA's existing authority.</p>
+        <p>MIDA is one of the six agencies S.B. 337 was written to coordinate with &mdash; a sibling authority in the same structural family. Every warning raised against Beehive Development Agency in March 2025 &mdash; unaccountable power, minimal oversight, an agency answering mainly to the governor's office &mdash; is now the exact critique Cox himself makes about MIDA. The coalition that killed a <i>proposed</i> seventh authority in 2025 turned out to be right about an <i>existing</i> one, on the record, a year and a half later.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat"><b>What isn't confirmed yet:</b> whether any version of the BDA consolidation concept was reintroduced in the 2026 session under a new bill number &mdash; no evidence of that found so far. The exact sequencing of the two 2025 committee votes (Economic Development and Workforce Services 3&ndash;2, then Revenue and Taxation 3&ndash;2&ndash;1) has not been cross-checked against the bill's full committee history to confirm which came first.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from le.utah.gov, Utah News Dispatch &amp; Salt Lake Tribune &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#f4ecdc',
+      primaryTextColor: '#20241f',
+      primaryBorderColor: '#8a6a1f',
+      lineColor: '#8a8265',
+      secondaryColor: '#f4e2dc',
+      tertiaryColor: '#e2e8e0',
+      fontFamily: 'Helvetica Neue, Arial, sans-serif',
+      fontSize: '13px'
+    }
+  });
+
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
