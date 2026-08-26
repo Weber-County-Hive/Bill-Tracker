@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Backfill — The Weber County Hive</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
+  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
+
+  .before-after{display:flex;align-items:center;gap:18px;margin:20px 0 8px;flex-wrap:wrap;}
+  .ba-box{flex:1;min-width:140px;border:1px solid var(--line);background:#fff;padding:16px;text-align:center;}
+  .ba-box .num{font-family:var(--serif);font-size:2rem;color:var(--ink);line-height:1;}
+  .ba-box .label{font-family:var(--sans);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+  .ba-box.after .num{color:var(--flag);}
+  .ba-arrow{font-family:var(--sans);font-size:22px;color:var(--gold);flex:0 0 auto;}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
+  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+  .tl-text{font-size:13.5px;color:var(--ink);}
+
+  .mermaid{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:18px 10px;
+    margin:20px 0 24px;
+    display:flex;
+    justify-content:center;
+    overflow-x:auto;
+  }
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+  .caveat.caveat--first{margin-top:0;}
+
+  .flip-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:12px;
+    margin:18px 0 20px;
+  }
+  .flipcard{perspective:1200px;height:160px;}
+  .flip-toggle{position:absolute;opacity:0;pointer-events:none;}
+  .flip-inner{
+    position:relative;
+    width:100%;height:100%;
+    transition:transform .5s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+    cursor:pointer;
+    display:block;
+  }
+  .flip-toggle:checked ~ .flip-inner{transform:rotateY(180deg);}
+  .flip-toggle:focus-visible ~ .flip-inner{outline:2px solid var(--gold);outline-offset:2px;}
+  .flip-front,.flip-back{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:2px;
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow-y:auto;
+  }
+  .flip-front{background:#fff;border:1px solid var(--gold);text-align:center;}
+  .flip-front .fc-num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+  .flip-front .fc-term{
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    line-height:1.35;
+  }
+  .flip-front .fc-tap{
+    margin-top:8px;
+    font-family:var(--mono);
+    font-size:9px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    opacity:.65;
+  }
+  .flip-back{
+    background:var(--gold);
+    color:#fff;
+    transform:rotateY(180deg);
+    font-family:var(--sans);
+    font-size:12.5px;
+    line-height:1.42;
+    justify-content:flex-start;
+    scrollbar-width:thin;
+  }
+  .flip-back::-webkit-scrollbar{width:5px;}
+  .flip-back::-webkit-scrollbar-thumb{background:rgba(255,255,255,.5);border-radius:3px;}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+    .before-after{flex-direction:column;}
+    .ba-arrow{transform:rotate(90deg);}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">August 2026</div>
+  </div>
+
+  <div class="file-tag">Land Use &amp; State Authorities</div>
+  <h1>The Backfill</h1>
+  <p class="dek">MIDA's own Vice Chair sponsored a bill expanding the authority's tax power over Deer Valley &mdash; six weeks after his campaign was reported taking $11,000 from the resort's own developer. The state's own fiscal analysts said the bill would cost Utah's basic school fund $421,800 a year, every year, to make up what MIDA takes instead.</p>
+
+  <div class="related">Companion pieces: <a href="weber-hive-sb333.html">A Stadium-Shaped Loophole</a> and <a href="weber-hive-sb337.html">The One Authority to Rule Them All</a> &mdash; part of the same investigation into Utah's family of state land-use/tax-capture authorities.</div>
+
+  <div class="byline-row">
+    <span>Sources: <b>le.utah.gov, LegiScan, KPCW, Salt Lake Tribune, MIDA board records</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here &mdash; the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">S.B. 169 (2024) gives MIDA &mdash; the Military Installation Development Authority &mdash; the power to impose an additional resort communities sales tax and a new accommodations tax of up to 15%, among other changes.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">Its sponsor is Sen. Jerry W. Stevenson &mdash; MIDA's own sitting Vice Chair, who has personally sponsored MIDA Act amendments in six different legislative sessions since 2017.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">Six weeks before he introduced the bill, the Salt Lake Tribune reported his campaign had taken $11,000 from Extell, the developer behind Deer Valley/Mayflower &mdash; one of the project areas this bill's new taxes apply to. Senate President Stuart Adams, also a MIDA board member, had taken money from the same developer.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">The state Legislature's own fiscal analysts calculated that this bill would cost Utah's Uniform School Fund $421,800 every year, ongoing &mdash; money the state has to send to the Basic School Program to make up for property tax revenue diverted to MIDA instead of local schools.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">It passed the Senate 19&ndash;4 and the House committee unanimously, and was signed into law March 21, 2024 &mdash; despite one senator voting yes while calling the tax's intended permanence a real concern.</div></li>
+        </ol>
+
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary &mdash; click a term</div>
+          <span class="gterm" data-term="backfill">Backfill</span>
+          <div class="gdef" data-def="backfill">When a taxing entity like a school district loses revenue to a diversion mechanism (like MIDA's tax capture), the state sometimes has to send it replacement money from elsewhere &mdash; here, the Uniform School Fund &mdash; to keep funding whole.</div>
+
+          <span class="gterm" data-term="basiclevy">Basic Levy</span>
+          <div class="gdef" data-def="basiclevy">The portion of property tax that funds Utah's Basic School Program, the state's foundational per-pupil education funding formula.</div>
+
+          <span class="gterm" data-term="resorttax">Resort communities sales tax</span>
+          <div class="gdef" data-def="resorttax">An extra local sales tax certain resort-area jurisdictions can levy, on top of ordinary sales tax. MIDA can impose it within its own project areas.</div>
+
+          <span class="gterm" data-term="uniformschool">Uniform School Fund</span>
+          <div class="gdef" data-def="uniformschool">Utah's primary dedicated fund for public education, drawing mainly from income tax revenue &mdash; separate from local property tax.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">Most of the MIDA scope-creep story runs on inference and pattern-matching &mdash; small justifications growing into large ones over years. S.B. 169 is different: it comes with a number, calculated by the Legislature's own fiscal analysts, showing exactly what MIDA's tax capture costs the state's basic education fund. That number is real, ongoing, and attached to a bill sponsored by MIDA's own Vice Chair.</p>
+
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What The Bill Does</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>S.B. 169, "Military Installation Development Authority Modifications," 2024 General Session. Chief Sponsor Sen. Jerry W. Stevenson; Floor Sponsor Rep. Val L. Peterson. Tap a card to see why each provision matters.</p>
+
+        <div class="flip-grid">
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-169-1" class="flip-toggle">
+            <label for="fc-169-1" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">01</div><div class="fc-term">Modifies definitions</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Redefines "military land" within the MIDA Act &mdash; land owned or leased by MIDA, or held/used for the benefit of the military. Definitional changes like this quietly widen or narrow what the rest of the Act's powers actually apply to.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-169-2" class="flip-toggle">
+            <label for="fc-169-2" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">02</div><div class="fc-term">Accommodations tax up to 15%, no expiration</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">A new, sizable tax MIDA can levy inside its own project areas &mdash; with no sunset date written into the law. Once imposed, there's no built-in mechanism that ever removes it. Sponsor Stevenson said as much himself: "I don't see that tax being taken off."</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-169-3" class="flip-toggle">
+            <label for="fc-169-3" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">03</div><div class="fc-term">Additional resort communities sales tax</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Stacks a second sales tax on top of MIDA's existing resort communities tax authority within its project areas &mdash; more revenue captured by MIDA, layered onto a tool it already had.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-169-4" class="flip-toggle">
+            <label for="fc-169-4" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">04</div><div class="fc-term">No physical meeting-notice requirement</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Exempts MIDA and its subsidiaries from a transparency requirement most Utah public bodies still follow. MIDA's chief legal officer, Nicole Cottle, told the Park Record MIDA will still post online &mdash; but this is the exact provision that cost the bill a Republican senator's vote in committee.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-169-5" class="flip-toggle">
+            <label for="fc-169-5" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">05</div><div class="fc-term">Optional school-district revenue sharing</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Lets MIDA voluntarily agree to let a school district keep some of the tax revenue increase it would otherwise capture. This is discretionary, not required &mdash; it could soften the fiscal impact below, but nothing in the bill forces MIDA to use it.</div>
+            </label>
+          </div>
+
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Number</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>The bill's official fiscal note, prepared by the Legislature's own Office of the Legislative Fiscal Analyst, spells out the cost in dollars:</p>
+
+        <div class="before-after">
+          <div class="ba-box"><div class="num">$0</div><div class="label">Uniform School Fund cost, FY2024</div></div>
+          <div class="ba-arrow">&#8594;</div>
+          <div class="ba-box after"><div class="num">$421,800</div><div class="label">Uniform School Fund cost, FY2025 &amp; ongoing</div></div>
+        </div>
+
+        <p>The fiscal note's own language: enactment "could cost the Basic School Program $421,800 ongoing in FY 2025 from the Uniform School Fund to backfill lost Basic Levy property tax revenue allocated to the Military Installation Development Authority." In plain terms &mdash; the property tax that would normally fund Utah's basic per-pupil education formula gets diverted to MIDA within its project areas, and the state has to replace that lost money out of a separate education fund, every year, indefinitely.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">$23,500</div><div class="label">MIDA's added annual revenue from the new 0.5% resort tax</div></div>
+          <div class="stat"><div class="num">$537,500</div><div class="label">MIDA's added accommodations tax revenue per $5M in qualifying sales</div></div>
+          <div class="stat"><div class="num">$258,500</div><div class="label">State sales/use tax forgone annually, same $5M basis</div></div>
+        </div>
+
+        <div class="caveat caveat--first"><b>Worth stating plainly:</b> this is the fiscal note's own estimate, not this Hive's calculation, and the note itself flags some of the aggregate totals as "unknown" because they scale with how much qualifying revenue actually materializes. The $421,800 Uniform School Fund figure is a direct ongoing cost stated in the bill's own official fiscal analysis &mdash; but the bill also gives MIDA discretion to negotiate agreements letting a school district keep some of that revenue instead, so the fiscal note's figure is the exposure absent such an agreement, not a guaranteed, unavoidable cost. Whether any such agreement has actually been reached hasn't been checked.</div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Who Actually Pays This</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>These aren't costs that show up on a Wasatch County resident's property tax bill. The accommodations and resort taxes fall on <b>transactions inside MIDA's project areas</b> &mdash; hotel stays, resort purchases, services sold there &mdash; paid mostly by visitors, whoever is buying. The Uniform School Fund cost is different: that's a <b>statewide</b> burden, paid out of income tax revenue that funds Utah public schools everywhere, not a bill sent specifically to Wasatch County.</p>
+
+        <div class="before-after">
+          <div class="ba-box"><div class="num">$300</div><div class="label">A night's stay, before tax</div></div>
+          <div class="ba-arrow">&#8594;</div>
+          <div class="ba-box after"><div class="num">+$45</div><div class="label">Added at the full 15% accommodations tax rate</div></div>
+        </div>
+        <p style="font-size:13px;color:var(--ink-soft);margin-top:-8px;">A simple illustration of the rate itself, not a claim about what any specific MIDA property currently charges &mdash; the bill sets 15% as the ceiling MIDA's board <i>can</i> impose, not a fixed rate already in effect everywhere.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">Visitors</div><div class="label">Who pays the accommodations &amp; resort taxes &mdash; anyone booking a stay or purchase in a project area</div></div>
+          <div class="stat"><div class="num">All Utahns</div><div class="label">Who backfills the $421,800/yr &mdash; the Uniform School Fund draws from statewide income tax, not a Wasatch-only source</div></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Cross-Partisan Opposition</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>The Park Record (Brock Marchant, March 1, 2024) reported opposition crossing party lines, concentrated on the physical-notice exemption and the broader pattern of authority expansion:</p>
+
+        <blockquote>
+          <p>"MIDA already lacks transparency in many ways, and is emblematic with many of the state land authorities exceeding what they were originally intended. I don't believe this is a proper role of the state government in the end."</p>
+          <cite>Rep. Brett Garner (D-West Valley City)</cite>
+        </blockquote>
+
+        <blockquote>
+          <p>"I'm concerned with the continued expansion of authorities generally in Utah and the potential for these groups to make significant decisions and spend significant money without proper oversight or accountability. It remains an open question whether these bodies are constitutional or not, because they stretch the bounds of separation of powers."</p>
+          <cite>Sen. Nate Blouin (D-Salt Lake)</cite>
+        </blockquote>
+
+        <p><b>Sen. Heidi Balderree (R-Salt Lake)</b> told the Park Record it was specifically the physical-meeting-notice exemption that lost her vote &mdash; a Republican senator breaking from the bill's Republican sponsor on a transparency provision, not the underlying tax powers.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Sponsor's Pattern</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Sen. Jerry W. Stevenson is MIDA's sitting Vice Chair, on the authority's board since 2008. He has personally sponsored MIDA Act amendments across six legislative sessions:</p>
+        <div class="timeline">
+          <li class="tl-item"><span class="tl-date">2017</span><div class="tl-text">S.B. 178, Military Installation Development Authority Amendments.</div></li>
+          <li class="tl-item"><span class="tl-date">2020</span><div class="tl-text">S.B. 192 &mdash; already documented in this Hive's MIDA reporting as a 15-year tax-increment extension for the Extell/Deer Valley project.</div></li>
+          <li class="tl-item"><span class="tl-date">2021</span><div class="tl-text">S.B. 233 &mdash; already documented here as authorizing MIDA's own PID subsidiaries to levy property taxes directly.</div></li>
+          <li class="tl-item"><span class="tl-date">2022</span><div class="tl-text">S.B. 232, Military Installation Development Authority Revisions.</div></li>
+          <li class="tl-item"><span class="tl-date">2024</span><div class="tl-text">S.B. 169 &mdash; this bill, adding the additional resort communities tax and the meeting-notice exemption.</div></li>
+          <li class="tl-item"><span class="tl-date">2025</span><div class="tl-text">S.B. 316, Military Installation Development Authority and Other Development Zone Amendments &mdash; clarifies resort communities tax provisions and lets a PID created by MIDA be formally treated as MIDA's own subsidiary.</div></li>
+        </div>
+        <p>Across a decade, the senator who sits on MIDA's own board and holds its Vice Chair seat has been the Legislature's primary author of the bills expanding what MIDA can do.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Developer's Money</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>The Salt Lake Tribune reported, December 29, 2023 &mdash; six weeks before Stevenson introduced this bill &mdash; that his campaign had received <b>$11,000 over the prior two years from Extell</b>, the luxury developer behind the Deer Valley/Mayflower expansion, one of MIDA's largest and most tax-lucrative project areas, and its owner, Gary Barnett. The same Tribune reporting found Senate President Stuart Adams, also a sitting MIDA board member, had separately received "thousands of dollars" from the same developer. Collectively, the Tribune found Utah lawmakers who approved the Extell/Mayflower development had taken $100,000 from the developer.</p>
+
+        <blockquote>
+          <p>Utah Senate President Stuart Adams and Sen. Jerry Stevenson, both Military Installation Development Authority board members, have received thousands of dollars from the Mayflower developer.</p>
+          <cite>The Salt Lake Tribune, Dec. 29, 2023</cite>
+        </blockquote>
+
+        <p>KPCW's own coverage of the SB169 committee hearing noted this connection directly. The bill Stevenson sponsored expands the tax tools available specifically to project areas including the one his own campaign donor developed.</p>
+
+        <div class="mermaid">
+flowchart TD
+    A["Extell Development / Gary Barnett"] -->|"developing"| B["Deer Valley East Village<br/>(a MIDA project area)"]
+    B -->|"reported campaign contributions"| C["$11,000 to Sen. Jerry Stevenson<br/>over the preceding two years"]
+    C -->|"Stevenson's public roles"| D["MIDA board Vice Chair<br/>+ Utah State Senator"]
+    D -->|"sponsored"| E["S.B. 169 (2024)"]
+    E -->|"granted MIDA additional authority to impose"| F["Accommodations tax + additional<br/>resort communities tax"]
+    F -->|"Stevenson: 'I don't see that tax<br/>being taken off'"| G["S.B. 333 (2025)"]
+    G -->|"created"| H["Sporting-venue zones,<br/>tax increment, qualifying-county sales tax"]
+    H -->|"Summit County adopted"| I["1.1% tax, ~$17M/year estimated"]
+        </div>
+
+        <div class="caveat caveat--first"><b>What the record establishes, and what it doesn't:</b> the contributions establish a documented financial relationship between Stevenson's campaign and the developer of a project area his bill's new taxes apply to. They do not, on their own, prove the contributions caused him to sponsor either bill. The safe formulation: public records show Sen. Jerry Stevenson served as MIDA's Vice Chair, received reported campaign contributions from the developer behind Deer Valley East Village, and sponsored legislation expanding taxing and financing authority applicable to MIDA and major sporting-event development. That sequence is documented. A causal claim beyond it is not.</div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What Was Said In Committee</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>At the February 9, 2024 Senate Revenue and Taxation Committee hearing (reported by KPCW's Grace Doerfler), MIDA's own chief legal officer, Nicole Cottle, told the committee the new taxes would be "an additional tool for financing MIDA's project areas," noting: "In many cases, these project areas are very infrastructure-heavy, very difficult projects to facilitate."</p>
+
+        <p>Stevenson himself was direct about the tax's expected permanence:</p>
+        <blockquote>
+          <p>"I don't see that tax being taken off. It's a little bit like Park City &mdash; once that's in place, there's extra costs incurred with being a resort community."</p>
+          <cite>Sen. Jerry Stevenson, committee testimony</cite>
+        </blockquote>
+
+        <p>Sen. Daniel McCay raised a structural objection but voted for the bill anyway:</p>
+        <blockquote>
+          <p>"The idea that it be in perpetuity is the only thing that's kind of bothering me a little bit about the bill... Because MIDA, unlike being a local elected authority, there isn't really an elected membership that sets up that tax. Usually when we come up with a local option incremental sales tax like this might be, there's elected officials that are accountable for it."</p>
+          <cite>Sen. Daniel McCay, committee testimony</cite>
+        </blockquote>
+
+        <p>McCay also pointed out that unlike Public Infrastructure Districts, where such sales taxes can only be levied on certain items, MIDA's new tax "could be applied to just about anything within the resort area." The committee advanced the bill unanimously despite McCay's stated reservations.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Where This Landed: Sundance</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Months before S.B. 169 passed, MIDA had already created a new project area at Sundance Mountain Resort in Utah County &mdash; partnering with Utah County and a private developer, Storyteller Canyon Property Owner, LP, on a project MIDA's own plan describes as building "an accessible inn at the Sundance Mountain Resort that will be essential to providing a specialty wounded veterans assistance program." On December 19, 2023, the same day MIDA adopted the Sundance Project Area Plan, the MIDA Board &mdash; chaired by Senate President Stuart Adams &mdash; passed Ordinance 2023-01, levying the MIDA Accommodations Tax, the Resort Communities Tax, and an Energy Tax within the new project area, using authority MIDA already held. S.B. 169, passed the following spring, added to that authority with the new additional resort communities tax.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Vote Record</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="stat-strip">
+          <div class="stat"><div class="num">5&ndash;0&ndash;3</div><div class="label">Senate Revenue &amp; Taxation Committee, favorable</div></div>
+          <div class="stat"><div class="num">19&ndash;4</div><div class="label">Senate floor passage, Feb 26, 2024 (6 absent)</div></div>
+          <div class="stat"><div class="num">Unanimous</div><div class="label">House Business &amp; Labor Committee, favorable</div></div>
+        </div>
+        <p>Passed the Senate Revenue and Taxation Committee with a favorable recommendation, 5&ndash;0&ndash;3, February 7, 2024, after an earlier 4&ndash;0&ndash;4 amendment vote. Passed the Senate floor 19&ndash;4 on February 26, 2024, with six senators marked absent. Passed the House Business and Labor Committee with a unanimous favorable recommendation. Signed by the Governor March 21, 2024.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat caveat--first"><b>What isn't confirmed yet:</b> the final House floor vote tally hasn't been pulled (only the unanimous committee recommendation is confirmed so far). Whether the $421,800 Uniform School Fund cost has actually materialized in subsequent state budgets, or whether MIDA has reached any school-district revenue-sharing agreement that would offset it, hasn't been checked against actual appropriations or MIDA board records. The full text of S.B. 316 (2025), which further clarified these same tax provisions, hasn't been pulled in detail here.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from le.utah.gov &amp; LegiScan &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#f4ecdc',
+      primaryTextColor: '#20241f',
+      primaryBorderColor: '#8a6a1f',
+      lineColor: '#8a8265',
+      secondaryColor: '#f4e2dc',
+      tertiaryColor: '#e2e8e0',
+      fontFamily: 'Helvetica Neue, Arial, sans-serif',
+      fontSize: '13px'
+    }
+  });
+
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
