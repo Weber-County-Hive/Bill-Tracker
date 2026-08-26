@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundation — The Weber County Hive</title>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
+  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
+
+  .flip-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:12px;
+    margin:18px 0 20px;
+  }
+  .flipcard{perspective:1200px;height:170px;}
+  .flip-toggle{position:absolute;opacity:0;pointer-events:none;}
+  .flip-inner{
+    position:relative;
+    width:100%;height:100%;
+    transition:transform .5s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+    cursor:pointer;
+    display:block;
+  }
+  .flip-toggle:checked ~ .flip-inner{transform:rotateY(180deg);}
+  .flip-toggle:focus-visible ~ .flip-inner{outline:2px solid var(--gold);outline-offset:2px;}
+  .flip-front,.flip-back{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:2px;
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow-y:auto;
+  }
+  .flip-front{background:#fff;border:1px solid var(--gold);text-align:center;}
+  .flip-front .fc-num{font-family:var(--mono);font-size:11px;color:var(--gold);margin-bottom:6px;}
+  .flip-front .fc-term{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink);line-height:1.35;}
+  .flip-front .fc-tap{margin-top:8px;font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);opacity:.65;}
+  .flip-back{background:var(--gold);color:#fff;transform:rotateY(180deg);font-family:var(--sans);font-size:12.5px;line-height:1.42;justify-content:flex-start;scrollbar-width:thin;}
+  .flip-back::-webkit-scrollbar{width:5px;}
+  .flip-back::-webkit-scrollbar-thumb{background:rgba(255,255,255,.5);border-radius:3px;}
+
+  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
+  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+  .tl-text{font-size:13.5px;color:var(--ink);}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+  .caveat.caveat--first{margin-top:0;}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">August 2026</div>
+  </div>
+
+  <div class="file-tag">Land Use &amp; State Authorities</div>
+  <h1>The Foundation</h1>
+  <p class="dek">Every tax MIDA now levies inside its own project-area PIDs traces back to one 2021 bill — the one that also carved out a conflict-of-interest exception and shielded MIDA from open meetings and records law, years before anyone was watching.</p>
+
+  <div class="related">Companion pieces: <a href="weber-hive-sb169.html">The Backfill</a> (S.B. 169, 2024) and <a href="weber-hive-sb333.html">A Stadium-Shaped Loophole</a> (S.B. 333, 2025) &mdash; part of the same investigation into Utah's MIDA/UIPA family of land-use authorities.</div>
+
+  <div class="byline-row">
+    <span>Sources: <b>le.utah.gov, LegiScan</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here &mdash; the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">S.B. 233 (2021) is the bill that let a Public Infrastructure District created by MIDA levy property tax directly &mdash; the mechanism behind every MIDA-area tax bill documented since.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">It's part of a two-step sequence: S.B. 179 (2020, sponsored by a different senator, Daniel McCay) first let MIDA create these PIDs at all. S.B. 233, a year later, gave those PIDs the power to tax.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">The same bill also carved out a conflict-of-interest exception for contracts involving MIDA or a subsidiary as a public-private partnership facilitator, and wrote in exceptions to Utah's open meetings and government records laws.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">Sponsor: Sen. Jerry W. Stevenson, MIDA's own Vice Chair &mdash; the same senator/floor-sponsor pair (Stevenson/Val Peterson) behind S.B. 169 three years later.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">It passed committee 4-0-5 and was signed into law March 22, 2021, with essentially no public attention at the time.</div></li>
+        </ol>
+
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary &mdash; click a term</div>
+          <span class="gterm" data-term="pid">Public Infrastructure District</span>
+          <div class="gdef" data-def="pid">A special-purpose local entity that can issue bonds and levy taxes to pay for infrastructure. MIDA can create these as its own subsidiaries within its project areas.</div>
+
+          <span class="gterm" data-term="p3">Public-private partnership facilitator</span>
+          <div class="gdef" data-def="p3">A role that helps arrange deals between government entities and private developers. This bill let MIDA or a subsidiary serve in that role under a specific conflict-of-interest exception.</div>
+
+          <span class="gterm" data-term="grama">GRAMA</span>
+          <div class="gdef" data-def="grama">Utah's Government Records Access and Management Act &mdash; the state's public records law, which this bill created an exception to for MIDA in certain circumstances.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">By 2021, MIDA had existed for fourteen years. This is the bill that quietly gave it the specific financial tool &mdash; a taxing PID subsidiary &mdash; that every subsequent MIDA-area tax finding in this investigation runs through, plus a set of exceptions to conflict-of-interest, open meetings, and public records law that got almost no attention at the time.</p>
+
+  <div class="accordion" id="accordion">
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What The Bill Does</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>S.B. 233, "Military Installation Development Authority Amendments," 2021 General Session. Chief Sponsor Sen. Jerry W. Stevenson; House Sponsor Rep. Val L. Peterson. Tap a card for why each provision matters.</p>
+
+        <div class="flip-grid">
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-233-1" class="flip-toggle">
+            <label for="fc-233-1" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">01</div><div class="fc-term">PID can levy property tax directly</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">The headline provision: a Public Infrastructure District created as a MIDA subsidiary can levy property tax for operations and maintenance of its own financed infrastructure. This is the statutory basis for every MIDA-area PID tax documented since.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-233-2" class="flip-toggle">
+            <label for="fc-233-2" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">02</div><div class="fc-term">Conflict-of-interest exception</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Creates an exception to an existing conflict-of-interest provision, specifically for a contract involving MIDA or a subsidiary acting as a facilitator of public-private partnerships &mdash; the exact role MIDA plays in project after project.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-233-3" class="flip-toggle">
+            <label for="fc-233-3" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">03</div><div class="fc-term">Open meetings &amp; records exceptions</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Provides exceptions to Utah's open meetings provisions and government records provisions. This predates &mdash; and is broader than &mdash; the narrower "no physical posting" exemption in S.B. 169 (2024).</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-233-4" class="flip-toggle">
+            <label for="fc-233-4" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">04</div><div class="fc-term">MIDA treated like a county or city</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Includes MIDA alongside counties, cities, and towns in provisions governing local sales tax administration and the sales tax information the State Tax Commission provides &mdash; formally treating a state-created authority the same as an elected local government for tax purposes.</div>
+            </label>
+          </div>
+
+          <div class="flipcard">
+            <input type="checkbox" id="fc-233-5" class="flip-toggle">
+            <label for="fc-233-5" class="flip-inner">
+              <div class="flip-front"><div class="fc-num">05</div><div class="fc-term">Tax Commission represents MIDA's interests</div><div class="fc-tap">Tap to flip</div></div>
+              <div class="flip-back">Modifies the State Tax Commission's authority so it can represent MIDA's interests in administrative proceedings &mdash; a state agency formally advocating on behalf of another state authority.</div>
+            </label>
+          </div>
+
+        </div>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>The Two-Step Sequence</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="timeline">
+          <li class="tl-item"><span class="tl-date">2019</span><div class="tl-text">S.B. 228 (Daniel McCay, House Sponsor James A. Dunnigan) enacts the general statewide Public Infrastructure District Act &mdash; the foundational framework any local entity can use to create a PID.</div></li>
+          <li class="tl-item"><span class="tl-date">2020</span><div class="tl-text">S.B. 179 (Daniel McCay again, not Stevenson) specifically allows MIDA to create a Public Infrastructure District as its own subsidiary &mdash; the step that made a MIDA-controlled PID possible at all.</div></li>
+          <li class="tl-item"><span class="tl-date">2021</span><div class="tl-text">S.B. 233 (this bill, Stevenson) lets that MIDA-created PID levy property tax directly for operations and maintenance &mdash; turning the 2020 structural authorization into an actual taxing power.</div></li>
+        </div>
+        <p>Two different senators built this in two steps a year apart: McCay opened the door, Stevenson gave what walked through it the power to tax. Neither the 2019 nor 2020 predecessor bills appear to have drawn significant public attention at the time &mdash; both passed as fairly technical-sounding PID framework bills.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Vote Record</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="stat-strip">
+          <div class="stat"><div class="num">4&ndash;0&ndash;5</div><div class="label">Senate Business &amp; Labor Committee, favorable</div></div>
+          <div class="stat"><div class="num">27&ndash;0</div><div class="label">Senate floor, Final Passage</div></div>
+          <div class="stat"><div class="num">67&ndash;1&ndash;7</div><div class="label">House floor, Final Passage, Mar 5, 2021</div></div>
+        </div>
+        <p>Passed the Senate Business and Labor Committee with a favorable recommendation, 4&ndash;0&ndash;5, February 26, 2021. Passed the Senate floor 27&ndash;0. Final Passage in the House, 3rd Reading, March 5, 2021 at 11:20 AM: 67 yeas, 1 nay, 7 absent or not voting. The lone House no vote was Rep. Petersen, M. (The House vote's own record header labels it a "Senate 3rd Reading," but le.utah.gov's own floor audio index confirms Day 45, March 5, 2021, as House Floor Audio with House Sponsor Val Peterson presenting &mdash; the header label is a tracking-system artifact.) Signed by the Governor March 22, 2021; effective the same day. Session Law Chapter 414.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Which Projects Actually Use This</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>The taxing power this bill created isn't theoretical &mdash; at least two MIDA-created Public Infrastructure Districts are actively using it, with real budgets and bonds behind them.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">$274M</div><div class="label">Mountain Village PID tentative FY2026 budget (Deer Valley/Jordanelle)</div></div>
+        </div>
+
+        <p><b>MIDA Mountain Village Public Infrastructure District</b> &mdash; the PID covering the Deer Valley East Village/Jordanelle expansion. Its original Designation Resolution and Assessment Ordinance were adopted <b>February 26, 2021</b> &mdash; the same day this bill cleared the Senate Business and Labor Committee. The district approved a $274 million tentative budget for fiscal year 2026 (May 13, 2025). It has since amended its assessment areas multiple times (2025 resolutions on Assessment Areas #1 and #2), and its board includes Kurt Krieg &mdash; an Extell employee &mdash; alongside MIDA officials Gary Harter, Nicole Cottle, and Mike Ostermiller.</p>
+
+        <p><b>MIDA Mountain Veterans Program Public Infrastructure District</b> &mdash; a separate PID that issued Tax Allocation Revenue Bonds (Series 2024) explicitly secured by, among other pledged revenue, "District Property Tax Revenues." The bond proceeds funded an inn, townhomes, a day lodge, and a maintenance structure &mdash; ski-resort infrastructure consistent with the Military Recreation Facility project area near Mayflower/Sundance.</p>
+
+        <p>MIDA's own board has also indicated interest in developing nuclear power and AI data center capacity within its Utah National Guard project area (27 combined UTNG properties) &mdash; approving a $16.5 million loan for related work at Camp Williams, including a facility tied to uranium enrichment equipment manufacturing. Whether that project area's own PID has separately invoked the S.B. 233 property tax authority hasn't been confirmed here.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Coverage &mdash; Then And Later</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Despite expanding MIDA's taxing, public-infrastructure-district, and public-private-partnership powers &mdash; and creating exceptions involving meetings, records, and conflicts of interest &mdash; S.B. 233 received almost no substantive contemporaneous mainstream news coverage this Hive could locate. It passed the Senate 27&ndash;0 and the House 67&ndash;1 before Gov. Cox signed it. That's not "the media never covered it" &mdash; unindexed print, broadcast, or archived reporting may exist &mdash; but a search of major Utah outlets came up nearly empty. Worth remembering the bill passed in the middle of a still-active pandemic, when legislative coverage broadly thinned out statewide.</p>
+
+        <p>The one mainstream mention found: a Fox 13 roundup of bills Gov. Cox signed that legislative session listed S.B. 233 as one item among dozens, with no explanation of its taxing, transparency, or public-private-partnership provisions.</p>
+
+        <p>The most detailed contemporaneous discussion came from an advocacy source, not a newsroom: the Utah Conservation Community's February 28, 2021 legislative update opposed the bill, describing it as giving MIDA additional "power and secrecy." It specifically flagged the same four provisions documented on this page &mdash; the taxing-power change, the conflict-of-interest exception, and the open-meetings and records exceptions &mdash; plus a related $45.6 million budget allocation it said supported infrastructure tied to the military project and the resort. That characterization should be read as the organization's own advocacy framing, not a neutral account &mdash; but its description of the bill's actual provisions matches the enrolled legislation.</p>
+
+        <p>Real scrutiny came later, and aimed at the broader pattern rather than this bill specifically. A December 2023 Salt Lake Tribune investigation, republished by KPCW, found Senate President Stuart Adams and Sen. Jerry Stevenson &mdash; MIDA's chair and vice chair &mdash; had together received roughly $112,500 in donations connected to Extell owner Gary Barnett since 2018, nearly three-quarters of it going to Adams directly or PACs he leads. Adams had already accepted almost $30,000 of that money by the time he and Barnett posed together at the Mayflower groundbreaking in June 2021 &mdash; three months after this bill passed. The same reporting found Stevenson had introduced <b>a dozen bills</b> tweaking MIDA statute across his 14 legislative sessions, changes he said made MIDA "tremendously effective": "I don't think we envisioned some of the things that have taken place... the laws governing MIDA had to be adjusted."</p>
+
+        <p>MIDA's own executive director, Paul Morris, told lawmakers at a 2022 interim committee meeting that Extell "read the MIDA law and they said there's no way we can make that work without using the MIDA resources" &mdash; and Extell's own VP of development, Brooke Hontz, echoed it to the Tribune: Barnett "wouldn't even consider coming to Utah without the MIDA jurisdiction." Both Adams and Stevenson, when asked directly, denied the donations influenced their votes. Adams: "Campaign contributions do not impact nor influence any of my decisions or votes." Stevenson: "I don't know that the donation from the Barnetts has been any heavier than it has from other places... I don't think that influences my vote."</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat caveat--first"><b>What isn't confirmed yet:</b> the exact statutory text of the open meetings/GRAMA and conflict-of-interest exceptions hasn't been pulled and quoted directly &mdash; only the bill's own "Highlighted Provisions" summary, which is accurate but not the full legal language. Whether MIDA's Utah National Guard/Camp Williams project area has its own PID separately using this same property tax authority hasn't been confirmed. The exact contents of the Utah Conservation Community's cited $45.6 million budget allocation haven't been independently traced to a specific state budget line.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from le.utah.gov &amp; LegiScan &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
