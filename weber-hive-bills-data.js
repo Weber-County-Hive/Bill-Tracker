@@ -86,6 +86,17 @@ const BILLS = [
     status: "law",
     voteLine: "House 58–9–8 · Senate 22–6–1 · House concurred 39–30–6 · Signed Mar 26, 2025 · Effective May 7, 2025",
     link: "weber-hive-hb37.html"
+  },
+  {
+    caseNumber: "CASE 2025-333",
+    bill: "S.B. 333 (2025)",
+    title: "A Stadium-Shaped Loophole — Major Sporting Event Venue Financing Amendments",
+    summary: "MIDA's own sitting Vice Chair wrote a new law letting any city or county carve out a 40-year tax-capture zone around a sporting venue — the same PID/tax-increment toolkit already documented for MIDA and UIPA, extended to a new category, statewide.",
+    tags: ["Land Use", "Tax Increment", "MIDA/UIPA Family", "PID"],
+    status: "law",
+    voteLine: "5 substitutes · Senate Econ. Dev. Committee 4–0–2 favorable · Passed both chambers",
+    link: "weber-hive-sb333.html"
+  },
   {
     caseNumber: "CASE 2025-337",
     bill: "S.B. 337 (2025)",
