@@ -106,5 +106,15 @@ const BILLS = [
     status: "failed",
     voteLine: "Senate Econ. Dev. Committee 3–2 · Senate Rev. & Tax 3–2–1 favorable · Never reached Senate floor",
     link: "weber-hive-sb337.html"
+  },
+  {
+    caseNumber: "CASE 2026-061",
+    bill: "H.B. 61",
+    title: "Less Detail, No Records — Navajo Trust Fund Amendments",
+    summary: "A new GRAMA exemption closes off public records on how the Navajo Trust Fund invests its money — and the Navajo Nation's own annual report gets less detailed too, with no record of tribal consultation before the bill advanced.",
+    tags: ["Tribal Accountability", "GRAMA Exemption", "Native American Legislative Liaison Committee"],
+    status: "law",
+    voteLine: "Committee 9–0–2 · Signed Mar 23, 2026",
+    link: "weber-hive-hb61.html"
   }
 ];
