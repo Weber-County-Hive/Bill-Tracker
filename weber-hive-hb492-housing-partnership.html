@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Loan That Lost Its Label — Weber County Hive</title>
+<style>
+  :root {
+    --cream: #f5f0e4;
+    --cream-dark: #e9e1cf;
+    --charcoal: #2a2622;
+    --charcoal-soft: #4a443c;
+    --amber: #b8873a;
+    --amber-dark: #8f6a2c;
+    --border: #d8cfb8;
+    --good: #4c6b4f;
+    --bad: #9c4636;
+    --mixed: #9c7c36;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px 80px; }
+
+  header.masthead {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 40px 24px 34px;
+    border-bottom: 6px solid var(--amber);
+  }
+  header.masthead .inner { max-width: 820px; margin: 0 auto; }
+  .case-label {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    color: var(--amber);
+    border: 1px solid var(--amber-dark);
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  h1.headline {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  p.dek {
+    font-size: 1.12rem;
+    color: var(--cream-dark);
+    font-style: italic;
+    margin: 0 0 18px;
+    max-width: 640px;
+  }
+  .byline-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 0.85rem;
+    color: var(--cream-dark);
+    border-top: 1px solid rgba(245,240,228,0.2);
+    padding-top: 14px;
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    margin: 34px 0 8px;
+    color: var(--charcoal);
+  }
+  .lede::first-letter {
+    font-size: 3.2rem;
+    float: left;
+    line-height: 0.85;
+    padding-right: 8px;
+    padding-top: 4px;
+    color: var(--amber-dark);
+    font-weight: 700;
+  }
+
+  h2.section {
+    margin-top: 46px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid var(--amber);
+    padding-bottom: 8px;
+    color: var(--charcoal);
+  }
+  h3.subsection {
+    margin-top: 28px;
+    font-size: 1.15rem;
+    color: var(--amber-dark);
+  }
+  p { margin: 14px 0; }
+  a { color: var(--amber-dark); }
+
+  /* Basics cards */
+  .grade-wrap { margin: 20px 0; }
+  details.grade-card {
+    background: #fffdf7;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details.grade-card summary {
+    cursor: pointer;
+    padding: 12px 100px 12px 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+  }
+  details.grade-card summary::-webkit-details-marker { display: none; }
+  details.grade-card summary::after {
+    content: '▸ tap to expand';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.72rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--amber-dark);
+    white-space: nowrap;
+  }
+  details.grade-card[open] summary::after {
+    content: '▾ tap to collapse';
+  }
+  .grade-pill {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    padding: 2px 10px;
+    border-radius: 3px;
+    color: #fff;
+  }
+  .grade-pill.D { background: var(--bad); }
+  .grade-pill.C { background: var(--mixed); }
+  .grade-card-body { padding: 0 18px 16px; font-size: 0.94rem; }
+  .grade-card-body .row { margin-bottom: 8px; }
+  .grade-card-body .row b { color: var(--amber-dark); }
+  .grade-card-body .row.fix {
+    margin-top: 14px;
+    background: #eef2ea;
+    border: 1px solid var(--good);
+    border-left: 4px solid var(--good);
+    border-radius: 4px;
+    padding: 12px 14px 12px 40px;
+    position: relative;
+  }
+  .grade-card-body .row.fix::before {
+    content: '✓';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    background: var(--good);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .grade-card-body .row.fix b {
+    color: var(--good);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Timeline */
+  .timeline { margin: 30px 0; }
+  .tl-item {
+    position: relative;
+    padding: 4px 0 26px 30px;
+    border-left: 3px solid var(--amber);
+    margin-left: -3px;
+  }
+  .tl-item:last-child { border-left: 3px solid transparent; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--amber-dark);
+  }
+  .tl-date {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--amber-dark);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+  .tl-title { font-weight: 700; font-size: 1.05rem; margin: 4px 0 6px; }
+  .tl-body { font-size: 0.96rem; color: var(--charcoal-soft); }
+
+  blockquote {
+    background: var(--cream-dark);
+    border-left: 4px solid var(--amber);
+    margin: 20px 0;
+    padding: 14px 20px;
+    font-style: italic;
+    color: var(--charcoal-soft);
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--amber-dark);
+  }
+
+  .box {
+    background: #fffdf7;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+  }
+  .box.caution { border-color: var(--bad); background: #fbf1ee; }
+  .box.caution .box-label { color: var(--bad); }
+  .box-label {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--amber-dark);
+    margin-bottom: 8px;
+  }
+
+  /* Side by side before/after */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 20px 0;
+  }
+  @media (max-width: 620px) { .compare { grid-template-columns: 1fr; } }
+  .compare-col {
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-size: 0.94rem;
+  }
+  .compare-col.before {
+    background: #fbf1ee;
+    border: 1px solid var(--bad);
+  }
+  .compare-col.after {
+    background: #fffdf7;
+    border: 1px solid var(--border);
+  }
+  .compare-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .compare-col.before .compare-label { color: var(--bad); }
+  .compare-col.after .compare-label { color: var(--amber-dark); }
+
+  table.votes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.92rem;
+  }
+  table.votes th, table.votes td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  table.votes th { background: var(--charcoal); color: var(--cream); font-weight: 600; }
+  table.votes tr:nth-child(even) td { background: var(--cream-dark); }
+
+  details.sources {
+    margin-top: 40px;
+    border-top: 2px solid var(--charcoal);
+    padding-top: 12px;
+  }
+  details.sources summary { cursor: pointer; font-weight: 700; color: var(--amber-dark); font-size: 0.95rem; }
+  details.sources ol { font-size: 0.9rem; color: var(--charcoal-soft); padding-left: 20px; }
+  details.sources li { margin-bottom: 8px; }
+
+  footer.site {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--charcoal-soft);
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    h1.headline { font-size: 1.55rem; }
+    p.dek { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <span class="case-label">Case 2026-BT-03 · Bill Tracker</span>
+    <h1 class="headline">The Loan That Lost Its Label</h1>
+    <p class="dek">An $18 million loan was introduced as money for prison construction. A plan to merge two housing boards into one was introduced the same day. By the time the bill became law — three weeks and six substitutes later — the prison label was gone and the two boards had multiplied into two.</p>
+    <div class="byline-row">
+      <span>The Weber County Hive</span>
+      <span>2026 General Session</span>
+      <span>Housing Finance · State Boards · Transparency Concern</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="lede">H.B. 492 is a 66-page bill that most readers would only skim for the highway money. Buried inside it: a new state housing fund whose largest single loan was originally, explicitly, for a prison — and a promise to consolidate two overlapping housing boards into one, that quietly disappeared before the bill ever left its first committee.</p>
+
+  <h2 class="section">First, the Basics</h2>
+  <p style="color: var(--charcoal-soft); font-size: 0.98rem;">What the bill said it was for, what it actually does now that it's law, and two process terms worth knowing before the rest of this makes sense.</p>
+
+  <div class="grade-wrap">
+
+    <details class="grade-card" open>
+      <summary>What was H.B. 492 trying to do? <span class="grade-pill C" style="background:var(--good);">Fund housing infrastructure statewide</span></summary>
+      <div class="grade-card-body">
+        <p style="margin:0 0 10px;">Building new housing often stalls not because nobody wants to build it, but because the roads, water lines, and sewer connections needed to support it don't exist yet — and cities and counties often can't afford to build that infrastructure up front. H.B. 492's stated goal was to fix that: create a new state fund that local governments could borrow from, at a low interest rate, specifically to build the roads, pipes, and utility connections that let new housing get built faster.</p>
+        <p style="margin:0;">Alongside that, the bill also touched a wide range of unrelated transportation and property topics — a Salt Lake convention center, highway funding formulas, and rules for how the state sells off surplus land — bundled into the same 66-page package.</p>
+      </div>
+    </details>
+
+    <details class="grade-card" open>
+      <summary>What does it actually accomplish, now that it's law? <span class="grade-pill C" style="background:var(--good);">A new fund and two boards — with two loose threads</span></summary>
+      <div class="grade-card-body">
+        <p style="margin:0 0 10px;">It creates a real, funded loan program: the State Housing Infrastructure Partnership Fund, seeded with $100 million, that cities and counties can borrow from — up to 20 years, at a below-market interest rate — to build the infrastructure a new housing project needs. A new board reviews and approves those loan applications. That part works largely as advertised.</p>
+        <p style="margin:0;">But two things changed along the way that this page is about: the fund's single largest identified loan — $18 million to the Point of the Mountain State Land Authority — was originally, explicitly written as money for prison construction, and that label quietly disappeared. And a plan to simplify Utah's housing-grant system by merging two boards into one instead left two separate boards standing. Both are detailed below.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <h3 class="subsection">Two process terms worth knowing</h3>
+
+  <div class="grade-wrap">
+
+    <details class="grade-card" open>
+      <summary>What's a bill "substitute"? <span class="grade-pill C" style="background:var(--good);">A full rewrite, same bill number</span></summary>
+      <div class="grade-card-body">
+        <p style="margin:0 0 10px;">When a legislator wants to change a bill significantly, they don't file a new bill — they file a "substitute," a complete replacement text that keeps the same bill number (H.B. 492, H.B. 492 S1, H.B. 492 S2, and so on). A committee can vote to adopt a substitute in seconds, and once it's adopted, the earlier version stops mattering — only the current substitute is "the bill." This one went through six substitutes before it became law.</p>
+        <p style="margin:0; color: var(--charcoal-soft);"><b>What it allows:</b> the practical effect of a bill can change substantially — sometimes completely — without a new bill number, a new hearing from scratch, or necessarily any public explanation of what changed and why.</p>
+      </div>
+    </details>
+
+    <details class="grade-card" open>
+      <summary>Why compare a bill's first version to its last? <span class="grade-pill C" style="background:var(--good);">It shows what got quietly dropped</span></summary>
+      <div class="grade-card-body">
+        <p style="margin:0 0 10px;">Utah's legislature publishes an automated "comparison" document between any two versions of a bill, showing exactly what text was added and what was removed. Reading only the final, signed law tells you what's true today — but not what was promised, and then walked back, along the way. That's the tool used to find both findings on this page.</p>
+        <p style="margin:0; color: var(--charcoal-soft);"><b>What it allows:</b> a reader — or a reporter — to catch a bill that changed its stated purpose mid-process, even when the final law never mentions the earlier version at all.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <h2 class="section">Finding One: The Prison Loan That Became a Housing Loan</h2>
+
+  <p>As introduced, H.B. 492 was explicit about one of its biggest single expenditures: an $18 million loan to the Point of the Mountain State Land Authority, described in the bill's own summary as being <b>"for prison infrastructure projects."</b> The introduced bill even enacted a standalone section of Utah Code with that purpose in its title.</p>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="compare-label">As introduced</span>
+      "...the board shall make a loan from the fund to the Point of the Mountain State Land Authority <b>for prison infrastructure projects</b>..."
+      <br><br>
+      New code section title: <i>"...Loan to Point of the Mountain State Land Authority <b>for prison infrastructure</b> -- Administration costs."</i>
+    </div>
+    <div class="compare-col after">
+      <span class="compare-label">As enacted</span>
+      The $18,000,000 loan and its 3-year term survive, folded into the general infrastructure-loan section alongside ordinary housing-related loans. No reference to a prison, or to any purpose distinct from the rest of the fund, remains anywhere in the final text.
+    </div>
+  </div>
+
+  <p>The fund itself is named the <b>State Housing Infrastructure Partnership Fund</b>. Nothing in the enacted law tells a reader that its single largest identified loan began life as prison construction money.</p>
+
+  <div class="box">
+    <div class="box-label">The state's own fiscal note says the same thing</div>
+    <p style="margin:0;">This isn't only a statutory-text issue. The <b>Legislative Fiscal Analyst's official fiscal note</b> — the nonpartisan cost analysis every legislator reads before voting — describes the loan only as "an $18 million loan to the Point of the Mountain State Land Authority." No mention of a prison anywhere in it. The document written specifically to tell lawmakers what they were about to fund never told them what the fund's largest individual loan was originally for.</p>
+  </div>
+
+  <h2 class="section">Finding Two: A Merger That Became a Second Board Instead</h2>
+
+  <p>The introduced bill also proposed something that would have made Utah's affordable-housing infrastructure funding simpler to track: folding an existing board into the new one.</p>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="compare-label">As introduced</span>
+      "...<b>repeals the Affordable Housing Infrastructure Grant Board</b> and transfers duties for awarding affordable housing infrastructure grants to the [new] board..."
+    </div>
+    <div class="compare-col after">
+      <span class="compare-label">As enacted</span>
+      The old Affordable Housing Infrastructure Grant Board survives — its membership modified, but the board itself intact — <b>alongside</b> the brand-new State Housing Infrastructure Partnership Board. Two boards, not one, now administer overlapping pools of affordable-housing money.
+    </div>
+  </div>
+
+  <p>The repeal language never appears again after the introduced version. What passed instead has more moving parts, not fewer, than what was originally proposed.</p>
+
+  <h2 class="section">Where Both Changes Happened</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Feb 4, 2026</div>
+      <div class="tl-title">Introduced</div>
+      <div class="tl-body">Bill text includes both the explicit prison-infrastructure loan language and the board-consolidation repeal, described above.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Feb 12, 2026</div>
+      <div class="tl-title">Referred to committee</div>
+      <div class="tl-body">Sent to the House Economic Development and Workforce Services Committee — not the House Transportation Committee, where chief sponsor Rep. Calvin Roberts serves as Vice Chair.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Feb 18, 2026, 8:40 AM</div>
+      <div class="tl-title">1st Substitute adopted — both changes already gone</div>
+      <div class="tl-body">Committee vote: <b>8–0–2</b> to substitute. By this version, the "prison infrastructure" language and the board-repeal language are both absent — meaning the change happened in this committee action, though the specific motion and discussion behind it are not yet in hand.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Feb 18–24, 2026</div>
+      <div class="tl-title">Four more substitutes</div>
+      <div class="tl-body">A 2nd substitute the same morning, a 3rd substitute by House floor passage (61–8–6) on Feb 24, then two more before the bill reached the Senate.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mar 6, 2026, 11:28 PM</div>
+      <div class="tl-title">6th and final substitute, conference committee</div>
+      <div class="tl-body">The version that became law — sponsored at this stage by Rep. Ken Ivory rather than Roberts — passed both chambers' conference committees that night: House 66–5–4, Senate 27–0–2. Signed by the Governor March 25.</div>
+    </div>
+  </div>
+
+  <div class="box caution">
+    <div class="box-label">What the record does and doesn't show</div>
+    <p style="margin:0;">Public records confirm both the prison-loan language and the board-consolidation repeal were present when the bill was introduced, and both were gone by the first committee substitute three weeks later. The committee's substitute vote (8–0–2) is a matter of record. Who specifically moved that substitute, and whether the prison-loan relabeling or the board consolidation were discussed on the record, is not yet confirmed — that would require the committee's full minutes, not yet obtained.</p>
+  </div>
+
+  <h2 class="section">A Separate Thread: The Ethics Carve-Out</h2>
+
+  <p>Unlike the two findings above, this next piece was never changed by a substitute — it was in the bill from the moment it was introduced straight through to the governor's signature. Section 10 amends <b>§67-16-4</b>, the core statute barring a public officer, employee, or legislator from using their office to further their own economic interest. The bill adds a new exception:</p>
+
+  <blockquote>
+    "Subsections (1)(c)(i) and (ii) do not apply to conduct relating to the construction or operation of affordable housing... if the benefits are provided to all qualified residents."
+    <cite>H.B. 492, §67-16-4(4), as enacted</cite>
+  </blockquote>
+
+  <p>In plain terms: a public official who also builds or operates affordable housing is exempted from the general rule against using their office to benefit their own business — as long as the housing benefits go to everyone who qualifies, not a hand-picked group. It's a real, named carve-out in Utah's core ethics law, not a housing-specific side statute.</p>
+
+  <h2 class="section">Graded Against the Rubric</h2>
+  <div class="grade-wrap">
+
+    <details class="grade-card">
+      <summary>The dropped prison-loan label <span class="grade-pill D">D</span></summary>
+      <div class="grade-card-body">
+        <div class="row"><b>Power —</b> No new authority shifts hands, but the public's ability to know what a major expenditure is actually for was reduced between the bill's introduction and its passage.</div>
+        <div class="row"><b>Transparency —</b> The final, signed law gives no indication that its largest named loan began as prison-construction funding. A reader relying only on the enacted text has no way to know.</div>
+        <div class="row"><b>Financial accountability —</b> $18 million is still $18 million, regardless of label — but housing money and prison money draw different public scrutiny, different constituencies, and different oversight expectations. Removing the label removes that scrutiny path.</div>
+        <div class="row fix"><b>How This Could Have Served the Public Better</b> Nothing required the label to disappear — the loan amount, term, and recipient stayed identical the whole time. The substitute could have kept the original "for prison infrastructure projects" language intact right alongside the general housing-loan authority, or the final law could simply state the loan's purpose in its own text rather than leaving it undefined. Either would have cost nothing and let the public see, in the statute itself, what the state's largest single loan under this fund is actually for.</div>
+      </div>
+    </details>
+
+    <details class="grade-card">
+      <summary>The dropped board consolidation <span class="grade-pill D">D</span></summary>
+      <div class="grade-card-body">
+        <div class="row"><b>Power —</b> Keeping two boards instead of consolidating to one splits decision-making authority over affordable-housing money across two separate bodies with different membership and appointment structures.</div>
+        <div class="row"><b>Transparency —</b> A resident trying to track affordable-housing funding decisions in Utah now has two boards, two sets of meetings, and two sets of records to follow instead of one — exactly the opposite of what the introduced bill promised.</div>
+        <div class="row"><b>Financial accountability —</b> Overlapping mandates between two boards create more opportunity for funding decisions to be duplicated, uncoordinated, or harder to trace to a single point of responsibility.</div>
+        <div class="row fix"><b>How This Could Have Served the Public Better</b> The introduced bill's own plan — repeal the older board, transfer its duties into the new one — was already the simpler, more accountable design and didn't require inventing anything new. If lawmakers had a real reason to keep both boards (a genuine division of labor, a legal transition need), the final law could have said so directly and defined how the two boards' jurisdictions don't overlap. As enacted, neither the reason for keeping both nor a clear line between what each one does is written anywhere in the statute.</div>
+      </div>
+    </details>
+
+    <details class="grade-card">
+      <summary>The §67-16-4 ethics carve-out <span class="grade-pill C">C</span></summary>
+      <div class="grade-card-body">
+        <div class="row"><b>Power —</b> Narrows a general anti-self-dealing rule for one specific category of public officer conduct.</div>
+        <div class="row"><b>Transparency —</b> The carve-out itself is fully visible in the bill text — this is an open, named exception, not a hidden one.</div>
+        <div class="row"><b>Financial accountability —</b> The "all qualified residents" condition is a real limiting principle, not a blank check — but "qualified" is defined by criteria the builder or operator may have a hand in setting, which is worth watching as this provision gets used.</div>
+        <div class="row fix"><b>How This Could Have Served the Public Better</b> The carve-out could have required a public officer relying on it to file a disclosure each time they invoke it — naming the project, the housing units involved, and how "all qualified residents" was determined — so the exemption's actual use becomes checkable over time rather than a standing, silent permission. As written, there's no reporting requirement attached at all, so nothing tracks how often, or by whom, this exception ever gets used.</div>
+      </div>
+    </details>
+
+  </div>
+
+  <h2 class="section">One More Thread: Where the Convention Center Money Comes From</h2>
+
+  <p>H.B. 492 also creates a new Convention Center Reserves Restricted Account, funded by a $50 million transfer out of the Transportation Investment Fund — the state's main highway construction fund — and authorized to secure up to <b>$1.6 billion</b> in county debt for a Salt Lake convention center renovation. The bill text itself never says which highway project loses that $50 million to make room.</p>
+
+  <p>The fiscal note does:</p>
+
+  <blockquote>
+    "...enactment of this legislation could reduce costs to the Transportation Investment Fund of 2005 (TIF) by $50,000,000 one-time in FY 2026 then increase costs to the TIF by $50,000,000 one-time in FY 2027 due to diverting some of the funding for <b>the 300 East renovation project</b> to the newly created Convention Center Reserves Restricted Account for local government use."
+    <cite>Legislative Fiscal Analyst, official H.B. 492 fiscal note</cite>
+  </blockquote>
+
+  <p>The state's own nonpartisan fiscal analyst is the only place this trade-off is named. A resident reading the bill itself would have no way to know a specific road project — 300 East — is the funding source being redirected toward a convention center renovation nearly 30 miles away.</p>
+
+  <h2 class="section">Who Runs This Fund Now</h2>
+
+  <p>On July 1, 2026, Utah launched a new Division of Housing and Community Development inside the Governor's Office of Economic Development — created by a separate 2026 bill, H.B. 68 — led by <b>Steve Waldrip</b>, who holds the position of state housing coordinator alongside his existing role as Gov. Cox's senior housing adviser. The state's own press release announcing the division is explicit about what it does:</p>
+
+  <blockquote>
+    "The new division will also play a central role in implementing recent housing initiatives approved by the Legislature, including <b>the $100 million State Housing Infrastructure Partnership Fund and Board</b>, designed to help local communities finance critical infrastructure needed to support housing development."
+    <cite>Office of Gov. Spencer Cox, press release, July 1, 2026</cite>
+  </blockquote>
+
+  <p>That's the exact fund and board this page is about.</p>
+
+  <div class="box caution">
+    <div class="box-label">Timing, stated plainly</div>
+    <p style="margin:0;">The prison-loan relabeling and the dropped board-consolidation both happened in H.B. 492's committee substitute on February 18, 2026 — before the Division of Housing and Community Development existed and before Waldrip's coordinator role took on any duties tied to this fund. Nothing here shows Waldrip had any part in those committee-level changes. What's confirmed is narrower and still worth stating: the official now administering this fund is the same one already the subject of separate reporting on his expanded statutory authority and a 2026 county-funding dispute. State the fact; don't assume a connection the record doesn't show.</p>
+  </div>
+
+  <h2 class="section">Where This Stands</h2>
+  <p>H.B. 492 is law. The $18 million Point of the Mountain loan and the two-board structure are both in effect. Still open: who specifically moved the Feb. 18 substitute that dropped both the prison label and the consolidation language, and whether any public testimony addressed either change before it happened.</p>
+
+  <details class="sources">
+    <summary>Sources &amp; further reading</summary>
+    <ol>
+      <li>H.B. 492 (2026), "Transportation, Infrastructure, and Housing Amendments" — introduced text, substitutes 1 through 6, enrolled text, le.utah.gov</li>
+      <li>HB0492 introduced-vs-S6 automated comparison document, le.utah.gov</li>
+      <li>Bill status/action history and floor vote tallies, le.utah.gov and LegiScan</li>
+      <li>House Transportation Standing Committee minutes, 2/5/2026 (confirming Rep. Calvin Roberts as Vice Chair), le.utah.gov</li>
+      <li>Utah Code §67-16-4, current and as amended by H.B. 492</li>
+      <li>H.B. 492 official Legislative Fiscal Analyst fiscal note, cobi.utah.gov</li>
+      <li>Office of Gov. Spencer Cox, "Utah launches Division of Housing and Community Development," press release, July 1, 2026</li>
+    </ol>
+  </details>
+
+</div>
+
+<footer class="site">
+  The Weber County Hive · Accountability journalism for Weber County and beyond
+</footer>
+
+</body>
+</html>
