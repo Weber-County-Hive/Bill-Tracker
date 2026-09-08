@@ -116,5 +116,25 @@ const BILLS = [
     status: "law",
     voteLine: "Committee 9–0–2 · Signed Mar 23, 2026",
     link: "weber-hive-hb61.html"
+  },
+  {
+    caseNumber: "CASE 2025-188 / 2026-332",
+    bill: "S.B. 188 (2025) + H.B. 332 (2026)",
+    title: "The Fix That Was Left to Die — Lease Revenue Bond Amendments",
+    summary: "A 2024 law capped how much school debt a district could take on without a vote. A 2025 bill quietly exempted one district — the one that caused the cap. The 2026 fix had no recorded opposition anywhere and died anyway, at 11:59 p.m., without a floor vote.",
+    tags: ["School Finance", "Bond Elections", "Process Concern", "Repeat Attempt"],
+    status: "failed",
+    voteLine: "S.B. 188: passed unanimously at every stage, signed Mar 17, 2025 — H.B. 332: Committee 12–0–0 · Held same meeting · Enacting clause struck 11:59 PM Mar 6, 2026",
+    link: "weber-hive-sb188-lease-revenue-bonds.html"
+  },
+  {
+    caseNumber: "CASE 2026-492",
+    bill: "H.B. 492 (2026)",
+    title: "The Loan That Lost Its Label — Transportation, Infrastructure, and Housing Amendments",
+    summary: "An $18 million loan was introduced as money for prison construction, and a plan to merge two housing boards into one was in the bill too. By the time it became law three weeks and six substitutes later, the prison label was gone and the two boards had multiplied into two.",
+    tags: ["Housing Finance", "State Boards", "Transparency Concern"],
+    status: "law",
+    voteLine: "House Conference 66–5–4 · Senate Conference 27–0–2 · Signed Mar 25, 2026",
+    link: "weber-hive-hb492-housing-partnership.html"
   }
 ];
