@@ -83,6 +83,76 @@
     display:inline-block;
   }
 
+  /* Search bar */
+  .search-wrap{
+    margin-top:26px;
+    position:relative;
+    max-width:460px;
+  }
+  .search-wrap input{
+    width:100%;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    padding:12px 40px 12px 16px;
+    border:1.5px solid rgba(217,201,163,0.35);
+    border-radius:4px;
+    background:rgba(255,255,255,0.05);
+    color:var(--paper-light);
+    outline:none;
+  }
+  .search-wrap input::placeholder{
+    color:rgba(237,231,216,0.4);
+  }
+  .search-wrap input:focus{
+    border-color:var(--gold);
+    background:rgba(255,255,255,0.08);
+  }
+  .search-wrap .search-icon,
+  .search-wrap .clear-btn{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+  }
+  .search-wrap .search-icon{
+    color:var(--gold);
+    pointer-events:none;
+  }
+  .search-wrap .clear-btn{
+    color:var(--manila);
+    background:none;
+    border:none;
+    cursor:pointer;
+    display:none;
+    opacity:0.7;
+    padding:2px 4px;
+  }
+  .search-wrap .clear-btn:hover{opacity:1;}
+  .search-meta{
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(237,231,216,0.5);
+    min-height:16px;
+  }
+  .no-results{
+    border:1.5px dashed rgba(217,201,163,0.35);
+    border-radius:2px;
+    padding:34px 32px;
+    color:rgba(237,231,216,0.55);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-align:center;
+  }
+  mark.hit{
+    background:var(--gold);
+    color:var(--navy-deep);
+    padding:0 2px;
+    border-radius:2px;
+  }
+
   .docket{
     max-width:960px;
     margin:0 auto;
@@ -312,6 +382,13 @@
   <h1>The Legislative Docket</h1>
   <p>Every bill filed here gets the same treatment a case file gets: what it actually did, who paid for it, who voted which way, and what it still doesn't tell you. No spin either direction — just the record.</p>
   <div class="pub" id="pub-line">Utah Legislature</div>
+
+  <div class="search-wrap">
+    <input type="text" id="search-input" placeholder="Search bill number, title, sponsor, tag…" autocomplete="off">
+    <span class="search-icon" id="search-icon">⌕</span>
+    <button class="clear-btn" id="clear-btn" aria-label="Clear search">✕</button>
+  </div>
+  <div class="search-meta" id="search-meta"></div>
 </header>
 
 <main class="docket">
@@ -321,7 +398,9 @@
 
   <div id="year-groups"></div>
 
-  <div class="ghost-row">
+  <div class="no-results" id="no-results" style="display:none;">No cases match that search.</div>
+
+  <div class="ghost-row" id="ghost-row">
     <span>Next case pending review</span>
     <span>—</span>
   </div>
@@ -331,7 +410,7 @@
   Sourced from official Utah Legislature bill text, floor votes, and fiscal notes. Compiled by The Weber County Hive.
 </footer>
 
-<script src="weber-hive-bills-data.js?v=8"></script>
+<script src="weber-hive-bills-data.js?v=9"></script>
 <script>
   const STAMP_TEXT = {
     law: "Became Law",
@@ -339,84 +418,145 @@
     failed: "Failed",
     pending: "Pending"
   };
-
-  const groupsEl = document.getElementById('year-groups');
-  document.getElementById('case-count').textContent = BILLS.length + (BILLS.length === 1 ? ' case filed' : ' cases filed');
-
-  // Group bills by year (falls back to "Undated" if a bill has no year field yet)
-  const byYear = {};
-  BILLS.forEach(b => {
-    const y = b.year || 'Undated';
-    if (!byYear[y]) byYear[y] = [];
-    byYear[y].push(b);
-  });
-
-  // Sort years newest-first; "Undated" sinks to the bottom
-  const years = Object.keys(byYear).sort((a, b) => {
-    if (a === 'Undated') return 1;
-    if (b === 'Undated') return -1;
-    return Number(b) - Number(a);
-  });
-
-  // Set the masthead session line to the most recent year present
-  const newestYear = years.find(y => y !== 'Undated');
-  if (newestYear) {
-    document.getElementById('pub-line').textContent = newestYear + ' General Session · Utah Legislature';
-  }
-
   const COLLAPSE_THRESHOLD = 10;
 
-  years.forEach((year, idx) => {
-    const count = byYear[year].length;
-    const shouldCollapse = count > COLLAPSE_THRESHOLD;
+  const groupsEl = document.getElementById('year-groups');
+  const noResultsEl = document.getElementById('no-results');
+  const ghostRowEl = document.getElementById('ghost-row');
+  const searchMetaEl = document.getElementById('search-meta');
+  const searchInput = document.getElementById('search-input');
+  const clearBtn = document.getElementById('clear-btn');
+  const searchIcon = document.getElementById('search-icon');
 
-    // Once a year has more than 10 cases, it renders as a collapsible
-    // <details> block instead of a plain section — closed by default
-    // for every year except the newest, so old sessions tuck away
-    // without hiding the current one.
-    const section = document.createElement(shouldCollapse ? 'details' : 'section');
-    section.className = 'year-section';
-    if (shouldCollapse && idx === 0) section.open = true;
+  // Set the masthead session line to the most recent year present, using the full unfiltered set
+  const allYears = [...new Set(BILLS.map(b => b.year || 'Undated'))]
+    .filter(y => y !== 'Undated')
+    .sort((a, b) => Number(b) - Number(a));
+  if (allYears.length) {
+    document.getElementById('pub-line').textContent = allYears[0] + ' General Session · Utah Legislature';
+  }
 
-    const head = document.createElement(shouldCollapse ? 'summary' : 'div');
-    head.className = 'year-head';
-    head.innerHTML = `<h2>${year} Session</h2><span>${count} ${count === 1 ? 'case' : 'cases'}</span>`;
-    section.appendChild(head);
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
 
-    const list = document.createElement('div');
-    list.className = 'case-list';
+  // Wraps matches of `query` in <mark> for display, on already-escaped text
+  function highlight(text, query){
+    const escaped = escapeHtml(text);
+    if (!query) return escaped;
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return escaped.replace(new RegExp('(' + escapedQuery + ')', 'ig'), '<mark class="hit">$1</mark>');
+  }
 
-    byYear[year].forEach(b => {
-      const a = document.createElement('a');
-      a.className = 'case-row';
-      a.href = b.link;
-      a.setAttribute('data-case', b.caseNumber);
+  function matches(bill, query){
+    if (!query) return true;
+    const haystack = [bill.bill, bill.title, bill.summary, bill.voteLine, ...(bill.tags || [])]
+      .join(' ')
+      .toLowerCase();
+    return haystack.includes(query.toLowerCase());
+  }
 
-      const tagsHtml = (b.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
-      const stampClass = b.status || 'pending';
-      const stampText = STAMP_TEXT[stampClass] || 'Pending';
+  function render(){
+    const query = searchInput.value.trim();
+    clearBtn.style.display = query ? 'block' : 'none';
+    searchIcon.style.display = query ? 'none' : 'block';
 
-      a.innerHTML = `
-        <div class="case-body">
-          <div class="case-main">
-            <span class="bill-name">${b.bill}</span>
-            <h3>${b.title}</h3>
-            <p>${b.summary}</p>
-            <div class="tags">${tagsHtml}</div>
-          </div>
-          <div class="stamp ${stampClass}">${stampText}</div>
-        </div>
-        <div class="case-foot">
-          <span>${b.voteLine || ''}</span>
-          <span class="open">Open case file →</span>
-        </div>
-      `;
-      list.appendChild(a);
+    const filtered = BILLS.filter(b => matches(b, query));
+
+    document.getElementById('case-count').textContent =
+      query
+        ? filtered.length + ' of ' + BILLS.length + ' cases'
+        : BILLS.length + (BILLS.length === 1 ? ' case filed' : ' cases filed');
+
+    searchMetaEl.textContent = query
+      ? `Searching "${query}"`
+      : '';
+
+    groupsEl.innerHTML = '';
+    ghostRowEl.style.display = query ? 'none' : 'flex';
+
+    if (query && filtered.length === 0) {
+      noResultsEl.style.display = 'block';
+      return;
+    }
+    noResultsEl.style.display = 'none';
+
+    // Group filtered bills by year (falls back to "Undated" if a bill has no year field)
+    const byYear = {};
+    filtered.forEach(b => {
+      const y = b.year || 'Undated';
+      if (!byYear[y]) byYear[y] = [];
+      byYear[y].push(b);
     });
 
-    section.appendChild(list);
-    groupsEl.appendChild(section);
+    // Sort years newest-first; "Undated" sinks to the bottom
+    const years = Object.keys(byYear).sort((a, b) => {
+      if (a === 'Undated') return 1;
+      if (b === 'Undated') return -1;
+      return Number(b) - Number(a);
+    });
+
+    years.forEach((year, idx) => {
+      const count = byYear[year].length;
+      // Collapsing only applies with no active search — while searching,
+      // every matching year stays open so results are never hidden.
+      const shouldCollapse = !query && count > COLLAPSE_THRESHOLD;
+
+      const section = document.createElement(shouldCollapse ? 'details' : 'section');
+      section.className = 'year-section';
+      if (shouldCollapse && idx === 0) section.open = true;
+
+      const head = document.createElement(shouldCollapse ? 'summary' : 'div');
+      head.className = 'year-head';
+      head.innerHTML = `<h2>${year} Session</h2><span>${count} ${count === 1 ? 'case' : 'cases'}</span>`;
+      section.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'case-list';
+
+      byYear[year].forEach(b => {
+        const a = document.createElement('a');
+        a.className = 'case-row';
+        a.href = b.link;
+        a.setAttribute('data-case', b.caseNumber);
+
+        const tagsHtml = (b.tags || [])
+          .map(t => `<span class="tag">${highlight(t, query)}</span>`)
+          .join('');
+        const stampClass = b.status || 'pending';
+        const stampText = STAMP_TEXT[stampClass] || 'Pending';
+
+        a.innerHTML = `
+          <div class="case-body">
+            <div class="case-main">
+              <span class="bill-name">${highlight(b.bill, query)}</span>
+              <h3>${highlight(b.title, query)}</h3>
+              <p>${highlight(b.summary, query)}</p>
+              <div class="tags">${tagsHtml}</div>
+            </div>
+            <div class="stamp ${stampClass}">${stampText}</div>
+          </div>
+          <div class="case-foot">
+            <span>${highlight(b.voteLine || '', query)}</span>
+            <span class="open">Open case file →</span>
+          </div>
+        `;
+        list.appendChild(a);
+      });
+
+      section.appendChild(list);
+      groupsEl.appendChild(section);
+    });
+  }
+
+  searchInput.addEventListener('input', render);
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.focus();
+    render();
   });
+
+  render();
 </script>
 
 </body>
