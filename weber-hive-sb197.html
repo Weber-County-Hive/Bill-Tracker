@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-197 — S.B. 197, Transportation Funding and Governance Amendments — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(26px,4.3vw,40px);line-height:1.14;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--green);color:var(--green);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{border-left:2px solid var(--rule);margin:6px 0 4px 6px;padding-left:20px;}
+  .timeline .tl-item{position:relative;padding-bottom:16px;}
+  .timeline .tl-item:last-child{padding-bottom:0;}
+  .timeline .tl-item::before{content:"";position:absolute;left:-25px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--gold);}
+  .timeline .tl-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+  .timeline .tl-item.hot::before{background:var(--red);width:12px;height:12px;left:-26.5px;top:4px;}
+  .timeline .tl-item.hot .tl-date{color:var(--red);font-weight:600;}
+
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:18px;padding-top:16px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:34px;color:var(--red);border:3px solid var(--red);border-radius:8px;padding:4px 16px;transform:rotate(-3deg);}
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">← Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-197</span>
+  <p class="eyebrow">S.B. 197 · 2026 General Session</p>
+  <h1>Whoever Moved It Isn't On the Record — Transportation Funding and Governance Amendments</h1>
+  <p class="dek">This bill rewrote the exact statute that carves up sales-tax growth for every HTRZ, RDA, UFAIR, and Point of the Mountain project in the state — and restructured who controls Utah's largest transit agency. Nine days before it became law, someone quietly pushed its own funding trigger back a full year, by voice vote, with no name attached anywhere in the public record.</p>
+  <div class="stampline">
+    <span>Chief Sponsor: <strong>Sen. Wayne Harper</strong></span>
+    <span>House Sponsor: <strong>Rep. Kay Christofferson</strong></span>
+    <span>Signed: <strong>Mar 26, 2026</strong></span>
+    <span class="stamp-status">Became Law</span>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>What the bill actually does — two things, not one</h2>
+    <p><strong>1. Restructures UTA's governance.</strong> Repeals the Utah Transit Authority's board of trustees and replaces it with a "transit commission": 2 members appointed by the House Speaker, 2 by the Senate President, and 3 by the Governor (with Senate confirmation) from county-nominated candidates. The Governor also gains direct appointment power over UTA's executive director — previously a board-appointed position. Governance changes took effect May 6, 2026; the tax provisions below took effect July 1, 2026.</p>
+    <p><strong>2. Rewrites Utah Code §59-12-103</strong> — the core statute governing how state sales/use tax "new growth" gets distributed. This is the same section that already contains the HTRZ 15% increment transfer, the convention-center reinvestment zone's 50% increment mechanism, UFAIR's full-increment transfer, and the Point of the Mountain Authority's 50% increment distribution. Beginning FY2028, S.B. 197 adds a new claimant on that same pool of statewide sales-tax growth: a "Transit Transportation Investment Fund," layered on top of everything already drawing from it.</p>
+  </section>
+
+  <section>
+    <h2>One legislator, six bills, one statute</h2>
+    <p>Sen. Wayne Harper sponsored four tax-increment-adjacent bills in the 2026 session alone — S.B. 197 (this bill), S.B. 206 (Tax Amendments), S.B. 228 <em>[note: a different, 2026 "Community Reinvestment Agency Amendments" bill, not the 2019 PID Act]</em>, and S.B. 39 (Investment Zones) — on top of a continuous HTRZ-family sponsorship record running back to 2022 (S.B. 140, S.B. 84 in 2023, S.B. 268 in 2024, and S.B. 221 in 2026). Harper also chairs the Streamline Sales Tax Governing Board, the interstate body that helps set the tax-administration rules touching the same revenue streams these bills redirect.</p>
+    <p>He personally chairs the Senate Transportation, Public Utilities, Energy, and Technology Committee — the committee of jurisdiction for S.B. 197 — and personally moved to pass his own bill out of that committee favorably, 5-0-3, on Jan. 30, 2026. The same committee's own minutes record no testimony or discussion of the §59-12-103 tax-fund provision; the recorded hearing focused on UTA governance restructuring, not the sales-tax mechanics.</p>
+  </section>
+
+  <section>
+    <h2>The base-year amendment</h2>
+    <div class="finding">
+      <p><strong>The bill's own "base year" for the new Transit Transportation Investment Fund was pushed back a full year — from July 1, 2025 to July 1, 2027 — nine days before final passage, via an unnamed House floor amendment adopted by voice vote.</strong> The trigger year moved with it, from FY2027 to FY2028.</p>
+    </div>
+    <p>Both the bill as introduced and Sen. Harper's own S1 substitute (adopted 12-0-0 in House committee on Feb. 26) kept the original base year unchanged. The shift happened later — House Amendment 2, dated March 6, 2026, on the House floor. The amendment document itself carries the strike/insert marks (base year "2025" struck, "2027" inserted; trigger year "2027" struck, "2028" inserted) but names no mover, consistent with how Utah's bill-status tables record floor amendments generally: "floor amendment #N," voice vote, no sponsor attached.</p>
+    <p>Kay Christofferson was House floor sponsor throughout S.B. 197's House passage, and floor-sponsored three more Harper Senate bills the same session — a repeated pairing that makes him the strongest lead toward identifying who moved or supported the amendment. It is not confirmed he personally moved it. The Utah House Journal for March 6, 2026 would likely name the mover, but that record is not accessible through automated means; a definitive answer would require a human pulling that specific page directly.</p>
+  </section>
+
+  <section>
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-date">Jan 26, 2026</span>Introduced, numbered S.B. 197</div>
+      <div class="tl-item"><span class="tl-date">Jan 30, 2026</span>Senate Transportation Committee, 5–0–3 — Harper presents and personally moves passage of his own bill</div>
+      <div class="tl-item"><span class="tl-date">Feb 20, 2026</span>Senate 2nd reading, floor amendment #1 (voice vote) — passed 23–2–4</div>
+      <div class="tl-item"><span class="tl-date">Feb 23, 2026</span>Senate 3rd reading passed 27–1–1, sent to House</div>
+      <div class="tl-item"><span class="tl-date">Feb 26, 2026</span>House Transportation Committee substitutes in Harper's S1 (12–0–0); Rep. Thurston's Amendment #1 — a single-word technical fix, unrelated to the base year — adopted 12–0–0; favorable 11–1–0 (Rep. Ivory dissenting)</div>
+      <div class="tl-item hot"><span class="tl-date">Mar 6, 2026, 4:34pm</span>House floor amendment #2 — voice vote, no mover named in the record. This is the amendment that moved the base year.</div>
+      <div class="tl-item"><span class="tl-date">Mar 6, 2026, 4:39pm</span>House 3rd reading passed 65–2–8</div>
+      <div class="tl-item"><span class="tl-date">Mar 6, 2026, 8:21pm</span>Senate concurred with House amendment, 28–1–0</div>
+      <div class="tl-item"><span class="tl-date">Mar 26, 2026</span>Signed by the Governor</div>
+    </div>
+    <p style="margin-top:16px;">Every recorded vote on this bill was lopsided or near-unanimous, including the final concurrence vote taken <em>after</em> the base-year change — meaning the amendment produced no visible floor fight or roll-call opposition at any stage.</p>
+  </section>
+
+  <section>
+    <h2>Does it square with the sponsors' own platforms?</h2>
+    <p>Christofferson's own campaign materials center on tax cuts — "putting more money back into the hands of individuals, families, retirees and businesses" — and separately promise "clear purpose," transparency, and accountable government. HTRZ, RDA, and UFAIR mechanisms redirect the <em>growth</em> in sales tax revenue away from general government funds (schools, counties, public services) into specific development zones — a different use of new tax dollars than the tax-cut messaging emphasizes, and not mentioned on his own campaign pages. Presented as a fair question to ask him directly, not a verdict.</p>
+  </section>
+
+  <section>
+    <h2>Graded against the collective rubric</h2>
+    <div class="rubric-row"><span class="crit">Power</span><span class="val">Sponsoring committee chair personally moved his own bill through his own committee; a substantive funding-timeline change made anonymously at the floor stage</span></div>
+    <div class="rubric-row"><span class="crit">Transparency</span><span class="val">The base-year mover is not identified anywhere in the accessible public record — a real, documented transparency gap, not a characterization</span></div>
+    <div class="rubric-row"><span class="crit">Financial Accountability</span><span class="val">Adds a new statewide claimant on sales-tax growth already split among HTRZ, UFAIR, and Point of the Mountain — layering a further draw on the same pool</span></div>
+    <div class="rubric-row"><span class="crit">Environmental Impact</span><span class="val">Not established</span></div>
+    <div class="rubric-row"><span class="crit">Community Impact</span><span class="val">UTA governance shift moves appointment power toward the Governor and legislative leadership, away from local/county nomination weight — not yet independently assessed for community effect</span></div>
+    <div class="grade-final">
+      <span class="grade-badge">D</span>
+      <p style="margin:0;">A real, substantive change to a statewide tax-distribution statute — moved with no named mover, adopted without recorded opposition, by a legislator who personally chairs the committee that first passed it.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <ul class="plain">
+      <li>S.B. 197 full text, all substitutes, and status/vote history — le.utah.gov</li>
+      <li>House Amendment 2 (3/6/2026 floor amendment document, strike/insert text)</li>
+      <li>Senate Transportation, Public Utilities, Energy, and Technology Committee minutes, Jan 30, 2026</li>
+      <li>House Transportation Committee minutes, Feb 26, 2026</li>
+      <li>Utah Code §59-12-103, as amended</li>
+      <li>Sen. Harper 2026 legislative sponsorship list, le.utah.gov</li>
+      <li>Rep. Christofferson campaign materials ("Keeping Utah Affordable," "Limited &amp; Accountable Government" pages)</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, committee minutes, and floor vote records. Compiled by The Weber County Hive.
+</footer>
+
+</body>
+</html>
