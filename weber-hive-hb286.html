@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-286 — H.B. 286, AI Transparency Act — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .quote-inline{font-style:italic;}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .excuse-box{background:var(--paper-light);border:2px solid var(--red);}
+  .excuse-box h2{border-bottom-color:var(--red);}
+  .excuse-quote{background:rgba(165,48,30,0.08);border-left:4px solid var(--red);padding:14px 18px;margin:12px 0;font-style:italic;font-size:17px;}
+  .excuse-quote cite{display:block;margin-top:8px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .excuse-note{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);letter-spacing:0.02em;margin:0 0 14px;}
+
+  .agenda-box{background:var(--paper-light);border:2px solid var(--gold);}
+  .agenda-list{list-style:none;padding:0;margin:0 0 14px;}
+  .agenda-list li{padding:10px 0;border-bottom:1px dashed var(--rule);font-size:15px;line-height:1.55;}
+  .agenda-list li:last-child{border-bottom:none;}
+  .agenda-list .adate{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:3px;}
+  .agenda-list .alaw{color:var(--green);font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  /* Jump nav */
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  /* Flip-card glossary */
+  .glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+  .flip-card{perspective:1000px;height:110px;cursor:pointer;}
+  .flip-card-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+  .flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;}
+  .flip-front{background:var(--manila-dark);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.03em;}
+  .flip-back{background:var(--navy-deep);color:var(--paper-light);font-size:12.5px;line-height:1.4;transform:rotateY(180deg);}
+
+  /* Flow diagram */
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  /* Bill provisions table */
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+
+  /* Rhetoric vs reality grid */
+  .rvr-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+  @media(max-width:600px){.rvr-grid{grid-template-columns:1fr;}}
+  .rvr-col{border-radius:4px;padding:16px;}
+  .rvr-col.rhetoric{background:rgba(63,107,59,0.08);border:1px solid var(--green);}
+  .rvr-col.reality{background:rgba(165,48,30,0.08);border:1px solid var(--red);}
+  .rvr-col h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;margin:0 0 10px;}
+  .rvr-col.rhetoric h4{color:var(--green);}
+  .rvr-col.reality h4{color:var(--red);}
+  .rvr-col .rq{font-style:italic;font-size:13.5px;line-height:1.5;margin:0 0 8px;}
+  .rvr-col .rq cite{display:block;margin-top:4px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);}
+
+  /* Money comparison table */
+  table.money-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.money-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.money-table td{padding:10px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;}
+  table.money-table tr:last-child td{border-bottom:none;}
+  table.money-table td:first-child{font-weight:600;width:28%;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">← Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-286</span>
+  <p class="eyebrow">H.B. 286 · 2026 General Session</p>
+  <h1>The Bill the White House Helped Kill</h1>
+  <p class="dek">H.B. 286 passed committee 8-0-2 with Democrats and Republicans both voting yes. Then a White House letter arrived, and it died on the House floor calendar without a single recorded vote against it. The Legislature's own Federalism Commission — built to "push back against federal overreach" — said nothing.</p>
+  <div class="stampline">
+    <span>Chief Sponsor: <strong>Rep. Doug Fiefia</strong></span>
+    <span>Senate Sponsor: <strong>Sen. Michael K. McKell</strong></span>
+    <span>Would-be Effective Date: <strong>May 6, 2026</strong></span>
+    <span class="stamp-status">Failed</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button>
+  <button data-scroll-to="protect">What It Protected</button>
+  <button data-scroll-to="whatit">The Bill Itself</button>
+  <button data-scroll-to="timeline">The Timeline</button>
+  <button data-scroll-to="excuse">The Excuse</button>
+  <button data-scroll-to="agenda">The Agenda</button>
+  <button data-scroll-to="federalism">Federalism Commission</button>
+  <button data-scroll-to="money">The Money</button>
+  <button data-scroll-to="rubric">The Grade</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">A group of Utah lawmakers wrote a rule for companies that make AI chatbots and AI tools.</p>
+    <p>The rule said: if your AI is big enough and powerful enough, you have to tell the state what could go wrong with it, keep kids safer when they talk to your chatbot, and let your own employees speak up without getting fired if they see something dangerous. If a company broke the rule, the state could fine them a lot of money.</p>
+    <p>Almost everyone who voted on it — Republicans and Democrats — said yes. Then someone from the White House sent a letter asking Utah to stop. Utah's leaders never voted no on the bill in public. They just let it quietly die on the very last night, without ever explaining why.</p>
+    <p>The rest of this page shows exactly how that happened, and exactly what the bill would have protected.</p>
+  </section>
+
+  <section>
+    <h2>Quick Glossary — Tap a Term</h2>
+    <div class="glossary-grid">
+      <div class="flip-card" data-flip tabindex="0" role="button">
+        <div class="flip-card-inner">
+          <div class="flip-front">GRAMA</div>
+          <div class="flip-back">Utah's public records law. Some AI incident reports could be shielded from public view under GRAMA's existing "protected record" categories.</div>
+        </div>
+      </div>
+      <div class="flip-card" data-flip tabindex="0" role="button">
+        <div class="flip-card-inner">
+          <div class="flip-front">EO 14365</div>
+          <div class="flip-back">The Dec. 2025 executive order directing federal agencies to challenge state AI laws and consider cutting grant funding to states that keep them.</div>
+        </div>
+      </div>
+      <div class="flip-card" data-flip tabindex="0" role="button">
+        <div class="flip-card-inner">
+          <div class="flip-front">NFI</div>
+          <div class="flip-back">National Federalism Initiative — the Utah Legislature's own program, statutorily built to train lawmakers on resisting federal overreach.</div>
+        </div>
+      </div>
+      <div class="flip-card" data-flip tabindex="0" role="button">
+        <div class="flip-card-inner">
+          <div class="flip-front">Frontier Model</div>
+          <div class="flip-back">A very large, powerful AI model — H.B. 286 defined it by training compute above roughly 10^26 operations, the industry's biggest systems.</div>
+        </div>
+      </div>
+      <div class="flip-card" data-flip tabindex="0" role="button">
+        <div class="flip-card-inner">
+          <div class="flip-front">AG</div>
+          <div class="flip-back">Attorney General — the office that would have enforced H.B. 286's penalties against noncompliant AI companies.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="protect">
+    <h2>What It Was Supposed to Protect — and How</h2>
+    <table class="protect-table">
+      <thead>
+        <tr><th>What it protected</th><th>How the bill did it</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kids using AI chatbots</td>
+          <td>Any company running a chatbot kids could talk to had to have a written "child protection plan" in place.</td>
+        </tr>
+        <tr>
+          <td>The public, from hidden AI risks</td>
+          <td>The biggest AI companies (over $500 million a year in revenue) had to publish a public safety plan explaining the worst things their AI could realistically do.</td>
+        </tr>
+        <tr>
+          <td>The state's ability to catch problems early</td>
+          <td>Companies had to report safety incidents to a new state office — the Office of AI Policy — so problems didn't just stay secret inside the company.</td>
+        </tr>
+        <tr>
+          <td>Employees who see something dangerous</td>
+          <td>If a worker got fired or punished for reporting a safety problem, they could personally sue the company in court.</td>
+        </tr>
+        <tr>
+          <td>Actual accountability, not just a rule on paper</td>
+          <td>Real fines: up to $1,000,000 for a first violation, $3,000,000 for every violation after that, collected by the Attorney General.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="whatit">
+    <h2>What the Bill Itself Would Have Done</h2>
+    <table class="parts-table">
+      <thead><tr><th colspan="2">Part 1 — Transparency &amp; Child Protection</th></tr></thead>
+      <tbody>
+        <tr><td>Who it applied to</td><td>"Large frontier developers" — AI companies with ≥$500M annual revenue building models trained on ~10^26 operations</td></tr>
+        <tr><td>Public safety plans</td><td>Required disclosure of catastrophic-risk assessments to the public</td></tr>
+        <tr><td>Incident reports</td><td>Filed with a new state Office of AI Policy</td></tr>
+        <tr><td>Child protection plan</td><td>Required for any developer operating a "covered chatbot"</td></tr>
+      </tbody>
+      <thead><tr><th colspan="2">Part 2 — Whistleblower Protection</th></tr></thead>
+      <tbody>
+        <tr><td>Employee right of action</td><td>Employees could personally sue for retaliation after reporting safety violations</td></tr>
+      </tbody>
+      <thead><tr><th colspan="2">Enforcement</th></tr></thead>
+      <tbody>
+        <tr><td>Who enforced it</td><td>The Attorney General</td></tr>
+        <tr><td>Penalties</td><td>Up to $1M first violation, $3M each violation after — deposited into a new AI Transparency Enforcement Restricted Account</td></tr>
+        <tr><td>The gap</td><td>Some incident reports/risk assessments could be withheld under existing GRAMA protected-record categories; safety-plan redaction also allowed for trade-secret, cybersecurity, or national-security reasons — a real weakness, not a blanket exemption</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="timeline">
+    <h2>A Bipartisan Committee, Then Silence</h2>
+    <div class="flow">
+      <div class="flow-step"><span class="fdate">Jan 27</span>Committee passes 8-0-2</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="fdate">Feb 5</span>Circled on 3rd Reading</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step hot"><span class="fdate">Feb 12</span>White House letter arrives</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="fdate">26 days</span>No floor action</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span class="fdate">Mar 3</span>Sent back to Rules</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step hot"><span class="fdate">Mar 6, 11:59 PM</span>Enacting clause struck</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="date">Jan 27, 2026</span>House Economic Development and Workforce Services Committee hears the bill. Witnesses in favor include Utah Parents United, Child First Policy Center, and Digital Childhood Institute; in opposition, TechNet and the Abundance Institute. The committee substitutes and passes it favorably, <strong>8-0-2</strong> — two members absent, zero votes against.</li>
+      <li><span class="date">Feb 5, 2026</span>Reaches 3rd Reading. Majority Leader Casey Snider moves to "circle" the bill — pulling it from an immediate floor vote — after Fiefia discusses a teenager's death on the floor.</li>
+      <li class="flag"><span class="date">Feb 12, 2026</span>The White House Office of Intergovernmental Affairs sends a letter to Sen. Kirk Cullimore Jr. opposing the bill. White House officials separately hold direct conversations with Fiefia, telling him no changes would satisfy them.</li>
+      <li><span class="date">26 days</span>The bill sits with no floor action while the pressure campaign runs.</li>
+      <li><span class="date">Mar 3, 2026</span>Sent from the 3rd Reading Calendar back to House Rules — three days before the session ends. The same day, 50+ Republican state legislators from 22 states send Trump a joint letter opposing the pressure campaign on federalism grounds.</li>
+      <li class="flag"><span class="date">Mar 6, 2026, 11:59 PM</span>Enacting clause struck by the Clerk of the House on the session's final night. No floor vote was ever recorded. It is the same kill mechanism already documented in this project's H.B. 468 case file — used here for a second time in as many sessions.</li>
+    </ul>
+  </section>
+
+  <section class="excuse-box" id="excuse">
+    <h2>What the White House Actually Said the Problem Was</h2>
+    <p class="excuse-note">This is the entire stated justification. There isn't more of it.</p>
+    <div class="excuse-quote">
+      "We are categorically opposed to Utah HB 286 and view it as an unfixable bill that goes against the Administration's AI Agenda."
+      <cite>— White House Office of Intergovernmental Affairs, letter to Sen. Kirk Cullimore Jr., Feb. 12, 2026 (obtained by Axios, viewed by Deseret News)</cite>
+    </div>
+    <p>Utah Public Radio reported plainly: the one-page letter "did not provide a legal justification for its opposition." No specific provision was named. No section of the bill was identified as the problem. "Unfixable" was never explained.</p>
+    <p>After Child First Policy Center put up billboards in Salt Lake City calling out White House AI adviser David Sacks by name, a spokesperson offered a second line of defense to Axios: the administration "fully supports child safety and has never told a State that it cannot enact child safety protections." That statement doesn't address the bulk of what H.B. 286 actually did — the frontier-model safety-plan and catastrophic-risk disclosure requirements that applied regardless of child safety.</p>
+    <p>The broader policy argument, offered separately by Sacks and echoed by Cullimore, Senate President Stuart Adams, and floor sponsor Sen. McKell, was about a "patchwork" of state AI laws: the fear that 50 different state rules would create compliance chaos for AI companies and slow the U.S. down in an AI race with China. Cullimore drew his own distinction publicly — he argued it's acceptable to regulate how AI is *used* by consumer-facing products, but not to regulate "the underlying technology" itself, which is what H.B. 286's frontier-model provisions did. That is a policy position, not a legal one, and Congress itself has spent years discussing federal AI legislation without passing any.</p>
+  </section>
+
+  <section class="agenda-box" id="agenda">
+    <h2>What "The Administration's AI Agenda" Actually Is</h2>
+    <p>The White House letter cited an "Administration's AI Agenda" as the reason H.B. 286 was unfixable. Here's what that agenda actually consists of, in order. Only one item on this list is an actual law passed by Congress — everything else is executive action, which a future president could reverse with a signature.</p>
+    <ul class="agenda-list">
+      <li><span class="adate">Jan. 23, 2025</span>Executive Order 14179, "Removing Barriers to American Leadership in AI" — revokes the prior administration's AI executive order; sets deregulation as the starting posture.</li>
+      <li><span class="adate">May 19, 2025</span><span class="alaw">TAKE IT DOWN Act (S.146) — signed into law.</span> The only AI-specific federal statute actually enacted under this administration. Criminalizes knowing publication of nonconsensual AI-generated intimate imagery and requires platform takedowns within 48 hours of a valid request. Does not touch chatbot safety, frontier-model risk disclosure, or whistleblower protections — the subjects H.B. 286 covered.</li>
+      <li><span class="adate">June 2025</span>A second executive order amending/superseding EO 14179.</li>
+      <li><span class="adate">July 2025</span>"America's AI Action Plan" released — a policy document, not legislation, setting out the administration's deregulatory approach to AI development.</li>
+      <li><span class="adate">July 23, 2025</span>Executive Order 14319, "Preventing Woke AI in the Federal Government."</li>
+      <li><span class="adate">Nov. 2025</span>"Genesis Mission" launched — a Department of Energy AI-infrastructure initiative.</li>
+      <li><span class="adate">Dec. 11, 2025</span>Executive Order 14365, "Ensuring a National Policy Framework for Artificial Intelligence" — the order behind the H.B. 286 pressure campaign. Directs federal agencies to identify and challenge state AI laws seen as creating "an unworkable patchwork," and to consider conditioning discretionary federal grant funding on states that don't drop conflicting laws. Carves out state child-safety protections from preemption, but doesn't define how broadly that carve-out applies.</li>
+      <li><span class="adate">June 2, 2026</span>A second frontier-AI-security executive order, "Promoting Advanced Artificial Intelligence Innovation and Security" — signing delayed from May 21 amid industry pushback.</li>
+    </ul>
+    <p>Six weeks after killing Utah's bill, the White House released its own national AI policy framework document on March 20, 2026 — asking Congress to eventually pass child-safety requirements for AI platforms, with no bill text and no timeline attached. Utah had a bill ready to sign that already did this.</p>
+  </section>
+
+  <section class="question-box">
+    <h2>A Question Worth Asking</h2>
+    <p class="big-q">If the goal is winning the AI race against China, how does requiring a chatbot company to have a child-safety plan slow that race down?</p>
+    <p>The "patchwork of state laws" argument makes sense for rules that touch how fast a company can train or deploy a frontier model — compute limits, development restrictions, things that could genuinely cost a company time or money in a global race. H.B. 286's child protection plan requirement wasn't that. It didn't restrict what a company could build. It required a plan for keeping kids safer when they talked to a chatbot that was already built and already on the market.</p>
+    <p>No one in this record — not the White House's letter, not Sacks, not Cullimore — has explained specifically how a child-safety plan requirement makes American AI development slower or less competitive. If there's an answer, it hasn't been made public. Readers can decide for themselves whether "national competitiveness" was really the reason this particular provision had to go.</p>
+  </section>
+
+  <section class="question-box">
+    <h2>A Second Question Worth Asking</h2>
+    <p class="big-q">Utah lawmakers substitute and rewrite bills constantly — including this one, once, in committee. So why didn't they rewrite H.B. 286 again to save what the White House would accept, instead of letting the whole thing die untouched?</p>
+    <p>H.B. 286 already went through one substitute (S1) in committee on Jan. 27, before any federal pressure existed. Utah's Legislature routinely narrows, reshapes, or guts-and-replaces bills mid-session to get something passable out the other end — it's a normal, frequently used tool here. During the 26 days the bill sat circled after the White House letter arrived, no second substitute was ever filed. No amendment. No attempt to strip out whatever the administration found "unfixable" and pass the rest.</p>
+    <p>McKell told Deseret News that if they had to "walk away" from the bill, they would still focus on AI child safety — but no replacement bill, narrower version, or child-safety-only substitute has been documented as introduced before the session ended. The Legislature had the tool it uses on other bills all the time. It didn't use it here.</p>
+  </section>
+
+  <section>
+    <h2>Why the White House got involved</h2>
+    <p>David Sacks, the administration's AI and crypto czar, is named by multiple outlets as driving opposition to state AI transparency bills generally; public reporting does not establish that he personally ordered the Feb. 12 letter to Cullimore. EO 14365 (above) carves out state child-safety protections from preemption — and H.B. 286 did include a child protection plan requirement — but the bill's larger provisions, requiring catastrophic-risk transparency for frontier AI models generally, fall outside that carve-out entirely. No outlet has published which specific provision made the bill "unfixable" in the administration's view.</p>
+  </section>
+
+  <section id="federalism">
+    <h2>Where Was the Federalism Commission?</h2>
+    <p>Utah has an entire government body statutorily built for exactly this moment. The Federalism Commission — chaired by Sen. Keven Stratton and Rep. Ken Ivory — exists, per state law, to develop training on "state sovereignty" and "limits on federal government power." No discussion of H.B. 286 appears anywhere in the Commission's publicly available agendas or minutes.</p>
+    <div class="rvr-grid">
+      <div class="rvr-col rhetoric">
+        <h4>What Schultz Says About Federalism</h4>
+        <p class="rq">"The NFI is about pushing back against federal overreach, re-educating states on their rights, and getting back to the principles our founders intended."<cite>X, Sept. 26, 2025</cite></p>
+        <p class="rq">"Every state deserves the authority to serve its own people."<cite>Facebook, Aug. 13</cite></p>
+        <p class="rq">"Sign us up" — pitching Utah as a "national experiment" to "discontinue the federal oversight" on Medicaid, education, and public lands.<cite>ABC4, April 9, 2025</cite></p>
+      </div>
+      <div class="rvr-col reality">
+        <h4>What He Said When It Actually Happened</h4>
+        <p class="rq">Lawmakers would "continue studying the legislation" because he "understands the Trump administration's concerns."<cite>Utah Public Radio, on the H.B. 286 letter</cite></p>
+        <p class="rq">No public statement invoking state sovereignty, federal overreach, or the Constitution in response to the White House killing an actual Utah law.</p>
+        <p class="rq">No record of Schultz raising H.B. 286 at any Federalism Commission meeting, summit, or public forum.</p>
+      </div>
+    </div>
+    <p>Federalism, in other words, gets invoked when the state is asking Washington for more control — not when Washington reaches in and overrides a law the state's own committee passed without a single no vote.</p>
+  </section>
+
+  <section id="access">
+    <h2>Access, Not Distance</h2>
+    <p>Four months after H.B. 286 died, Schultz stood in the Oval Office on July 13, 2026, as Trump signed proclamations cutting Bears Ears by roughly 91% and Grand Staircase-Escalante by roughly 90% — an unrelated fight, but the same posture: present, supportive, photographed. The Salt Lake Tribune's own editorial board wrote afterward that Utah's political class should "be quiet and stay out of the photos."</p>
+    <p>Schultz has also personally hosted Donald Trump Jr. and Kimberly Guilfoyle for a weekend hunting trip at his own Croydon ranch, alongside Attorney General Sean Reyes and other Utah Republicans — access that predates H.B. 286's death but illustrates the same relationship: close, not adversarial, regardless of what the administration does to state law.</p>
+  </section>
+
+  <section id="money">
+    <h2>The Money Behind the Two Sponsors</h2>
+    <p>The bill's two chief sponsors carried it into very different financial rooms. The records available don't establish that campaign money influenced either sponsor's actual position on H.B. 286 — they do establish that the two lawmakers carrying the same bill entered the debate from markedly different financial constituencies.</p>
+    <table class="money-table">
+      <thead><tr><th></th><th>Rep. Doug Fiefia (House sponsor)</th><th>Sen. Michael K. McKell (Senate sponsor)</th></tr></thead>
+      <tbody>
+        <tr><td>Primary funding base</td><td>Recurring individual donors</td><td>PACs, trade associations, corporate committees</td></tr>
+        <tr><td>Notable vendor spending</td><td>—</td><td>$16,500 to Irish Elk LLC; $20,000 to In The Field LLC</td></tr>
+        <tr><td>Public tone on the pressure campaign</td><td>"I appreciate the White House's engagement... and look forward to continuing the dialogue."</td><td>Called it "refreshing" for the White House to engage</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series — not whether any one person likes the outcome: <strong>1. Power</strong> — does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> — does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law — collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>As Designed</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Adds real oversight over frontier AI developers — a private-sector decision space the public otherwise has no visibility into</span></div>
+        <div class="rubric-row"><span class="crit">Transparency</span><span class="val">Public safety plans, incident reports, and penalties — weakened by a GRAMA protected-record pathway and trade-secret redaction allowances</span></div>
+        <div class="grade-final"><span class="grade-badge b">B+</span><p style="margin:0;">A genuine transparency mandate with real enforcement teeth, undercut only by its own carve-outs.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>As It Happened</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Killed by out-of-state pressure with no recorded floor vote — the public never saw who opposed it or why</span></div>
+        <div class="rubric-row"><span class="crit">Transparency</span><span class="val">Zero — a bill built entirely around disclosure died by the least transparent mechanism the Legislature has: a struck enacting clause at 11:59 PM</span></div>
+        <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">A transparency bill killed in the dark, by a body that stayed silent when it mattered most.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources ▸</span><span class="hide">Hide sources ▾</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain">
+        <li>H.B. 286 S1, official bill text, sponsor list, and status history — le.utah.gov</li>
+        <li>House Economic Development and Workforce Services Committee, official minutes, Jan. 27, 2026</li>
+        <li>Axios, "Scoop: White House pressures Utah lawmaker to kill AI transparency bill," Feb. 15, 2026, and "Utah billboards call out David Sacks over AI bill," Feb. 26, 2026</li>
+        <li>Deseret News, "Utah lawmakers respond to Trump White House memo on AI bill," Feb. 17, 2026, and related coverage through March 2026</li>
+        <li>Utah Public Radio, "Utah AI regulation bill stalled after opposition from the White House," March 18, 2026</li>
+        <li>Model Republic, "Utah's AI bill is everything David Sacks asked for. He still wants it dead."</li>
+        <li>PYMNTS.com, "Utah Becomes Site of Last Flashpoint Between States and the White House Over AI Regs"</li>
+        <li>KSL.com, "Utah built a shield against AI harm; the White House knocked it down," March 16, 2026</li>
+        <li>Governing magazine, "Utah's Blueprint for Governing Emerging Technology," Q3 2026 (Cullimore profile, S.B. 149, ALEC model legislation)</li>
+        <li>Executive Order 14365, "Ensuring a National Policy Framework for Artificial Intelligence," Federal Register, Dec. 2025</li>
+        <li>Utah Public Radio, Speaker Schultz statement on the White House letter</li>
+        <li>ABC4/Inside Utah Politics (Lindsay Aerts), "State leaders tell Trump cabinet members that Utah should run its own federal programs," April 9, 2025</li>
+        <li>Speaker Mike Schultz, X (@mschultz_12) and Facebook, National Federalism Initiative Summit posts</li>
+        <li>KUER, Salt Lake Tribune, Utah News Dispatch — Bears Ears/Grand Staircase-Escalante Oval Office signing coverage, July 13, 2026</li>
+        <li>KSL.com, Donald Trump Jr. Utah visit and Croydon ranch hunting trip coverage</li>
+        <li>Utah Federalism Commission roster and statutory duties, Utah Code § 53H-4-703; National Federalism Initiative program materials, UVU Center for Constitutional Studies</li>
+        <li>Campaign finance: Utah State Division of Elections disclosures, Fiefia and McKell committees</li>
+      </ul>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>
