@@ -185,5 +185,16 @@ const BILLS = [
     status: "law",
     voteLine: "House 65–2–8 · Senate concurred 28–1–0 · Signed Mar 26, 2026",
     link: "weber-hive-sb197.html"
+  },
+  {
+    caseNumber: "CASE 2026-286",
+    bill: "H.B. 286",
+    year: "2026",
+    title: "The Bill the White House Helped Kill — AI Transparency Act",
+    summary: "A bipartisan AI transparency and child-safety bill passed committee 8-0-2 with zero no votes — then a one-line White House letter arrived, and it died without a single recorded vote against it. The Legislature's own Federalism Commission said nothing.",
+    tags: ["Federalism", "AI Policy", "Process Concern", "Child Safety"],
+    status: "failed",
+    voteLine: "Committee 8–0–2 favorable · Circled Feb 5 · Enacting clause struck 11:59 PM Mar 6, 2026",
+    link: "weber-hive-hb286.html"
   }
 ];
