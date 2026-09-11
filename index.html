@@ -83,6 +83,28 @@
     display:inline-block;
   }
 
+  .full-tracker-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:14px;
+    margin-left:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    color:var(--manila);
+    text-decoration:none;
+    border:1px solid rgba(217,201,163,0.3);
+    border-radius:20px;
+    padding:6px 14px;
+    background:rgba(255,255,255,0.04);
+    transition:background 0.15s ease, border-color 0.15s ease;
+  }
+  .full-tracker-link:hover{
+    background:rgba(255,255,255,0.09);
+    border-color:var(--gold);
+  }
+
   /* Bill count stat block — animated count-up, mirrors the main tracker's masthead stat */
   .stat-block{
     max-width:960px;
@@ -481,6 +503,7 @@
   <h1>The Legislative Docket</h1>
   <p>Every bill filed here gets the same treatment a case file gets: what it actually did, who paid for it, who voted which way, and what it still doesn't tell you. No spin either direction — just the record.</p>
   <div class="pub" id="pub-line">Utah Legislature</div>
+  <a class="full-tracker-link" href="weber-hive-full-tracker.html">See the full 59-bill research tracker →</a>
 
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search bill number, title, sponsor, tag…" autocomplete="off">
