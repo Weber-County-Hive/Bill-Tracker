@@ -83,6 +83,45 @@
     display:inline-block;
   }
 
+  /* Bill count stat block — animated count-up, mirrors the main tracker's masthead stat */
+  .stat-block{
+    max-width:960px;
+    margin:26px auto 0;
+    padding:22px 28px 0;
+    border-top:1px solid rgba(217,201,163,0.2);
+    text-align:left;
+  }
+  .stat-number{
+    font-family:'Special Elite', monospace;
+    font-weight:400;
+    font-size:clamp(40px, 7vw, 64px);
+    line-height:1;
+    color:var(--gold);
+    letter-spacing:-0.01em;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--paper-light);
+    margin-top:8px;
+  }
+  .stat-sub{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-style:italic;
+    font-size:14px;
+    color:rgba(237,231,216,0.55);
+    margin-top:4px;
+  }
+  .stat-updated{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:rgba(237,231,216,0.45);
+    margin-top:12px;
+  }
+
   /* Search bar */
   .search-wrap{
     margin-top:26px;
@@ -170,6 +209,33 @@
     margin-bottom:22px;
     border-bottom:2px solid var(--gold);
     padding-bottom:10px;
+  }
+
+  /* Pinned case section — sits above all year groups, always */
+  .pinned-section{
+    margin-bottom:44px;
+  }
+  .pinned-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--red);
+    padding-bottom:10px;
+  }
+  .pinned-head h2{
+    font-family:'Special Elite', monospace;
+    font-size:15px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin:0;
+    font-weight:400;
+  }
+  .pinned-head span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:rgba(237,231,216,0.45);
   }
   .year-head h2{
     font-family:'Special Elite', monospace;
@@ -307,7 +373,6 @@
   }
 
   .stamp{
-    justify-self:end;
     font-family:'Special Elite', monospace;
     text-transform:uppercase;
     font-size:15px;
@@ -324,18 +389,51 @@
   .stamp.failed{color:var(--red); border:3px solid var(--red);}
   .stamp.pending{color:var(--gold); border:3px solid var(--gold);}
 
+  .stamp-col{
+    justify-self:end;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+  }
+  .grade-chip{
+    font-family:'Special Elite', monospace;
+    font-size:20px;
+    line-height:1;
+    border-radius:6px;
+    padding:5px 12px;
+    white-space:nowrap;
+  }
+  .grade-chip.a,.grade-chip.b{color:var(--green); border:2px solid var(--green);}
+  .grade-chip.c{color:var(--gold); border:2px solid var(--gold);}
+  .grade-chip.d,.grade-chip.f{color:var(--red); border:2px solid var(--red);}
+
   .case-foot{
     border-top:1px dashed var(--rule);
     padding:12px 32px 16px;
     display:flex;
     justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px;
     color:var(--ink-soft);
   }
+  .case-foot .foot-left{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .case-foot .updated{
+    font-size:10.5px;
+    letter-spacing:0.03em;
+    color:rgba(74,68,58,0.65);
+  }
   .case-foot .open{
     color:var(--red);
     font-weight:600;
+    white-space:nowrap;
   }
 
   .ghost-row{
@@ -364,7 +462,8 @@
 
   @media (max-width:600px){
     .case-body{grid-template-columns:1fr;}
-    .stamp{justify-self:start;}
+    .stamp-col{justify-self:start; align-items:flex-start;}
+    .case-foot{flex-direction:column; align-items:flex-start;}
   }
 </style>
 </head>
@@ -389,12 +488,21 @@
     <button class="clear-btn" id="clear-btn" aria-label="Clear search">✕</button>
   </div>
   <div class="search-meta" id="search-meta"></div>
+
+  <div class="stat-block">
+    <div class="stat-number" id="bill-counter" data-target="0">0</div>
+    <div class="stat-label">Bills Tracked &mdash; And Counting</div>
+    <div class="stat-sub">Every one gets the same treatment: what it did, who voted, what it still doesn't tell you</div>
+    <div class="stat-updated" id="stat-updated-line"></div>
+  </div>
 </header>
 
 <main class="docket">
   <div class="docket-head">
     <h2 id="case-count">— filed</h2>
   </div>
+
+  <div id="pinned-group"></div>
 
   <div id="year-groups"></div>
 
@@ -410,7 +518,7 @@
   Sourced from official Utah Legislature bill text, floor votes, and fiscal notes. Compiled by The Weber County Hive.
 </footer>
 
-<script src="weber-hive-bills-data.js?v=9"></script>
+<script src="weber-hive-bills-data.js?v=10"></script>
 <script>
   const STAMP_TEXT = {
     law: "Became Law",
@@ -421,6 +529,7 @@
   const COLLAPSE_THRESHOLD = 10;
 
   const groupsEl = document.getElementById('year-groups');
+  const pinnedEl = document.getElementById('pinned-group');
   const noResultsEl = document.getElementById('no-results');
   const ghostRowEl = document.getElementById('ghost-row');
   const searchMetaEl = document.getElementById('search-meta');
@@ -436,6 +545,35 @@
     document.getElementById('pub-line').textContent = allYears[0] + ' General Session · Utah Legislature';
   }
 
+  // Animated bill-count stat block, tied to the live BILLS array so it never goes stale
+  (function(){
+    const el = document.getElementById('bill-counter');
+    const target = BILLS.length;
+    el.setAttribute('data-target', target);
+    const duration = 1400;
+    let start = null;
+    function step(ts){
+      if(!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if(progress < 1){
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+
+    // "Last updated" reflects the most recent lastUpdated date found across all cases
+    const dated = BILLS.map(b => b.lastUpdated).filter(Boolean);
+    const updatedLine = document.getElementById('stat-updated-line');
+    if (dated.length) {
+      const mostRecent = dated.sort((a, b) => new Date(b) - new Date(a))[0];
+      updatedLine.textContent = 'Last updated: ' + mostRecent;
+    }
+  })();
+
   function escapeHtml(s){
     return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
@@ -450,10 +588,54 @@
 
   function matches(bill, query){
     if (!query) return true;
-    const haystack = [bill.bill, bill.title, bill.summary, bill.voteLine, ...(bill.tags || [])]
+    const haystack = [bill.bill, bill.title, bill.summary, bill.voteLine, bill.lastUpdated, ...(bill.tags || [])]
+      .filter(Boolean)
       .join(' ')
       .toLowerCase();
     return haystack.includes(query.toLowerCase());
+  }
+
+  // Builds one clickable case-row <a> element. Shared by the pinned section and the normal year groups.
+  function buildCaseRow(b, query){
+    const a = document.createElement('a');
+    a.className = 'case-row';
+    a.href = b.link;
+    a.setAttribute('data-case', b.caseNumber);
+
+    const tagsHtml = (b.tags || [])
+      .map(t => `<span class="tag">${highlight(t, query)}</span>`)
+      .join('');
+    const stampClass = b.status || 'pending';
+    const stampText = STAMP_TEXT[stampClass] || 'Pending';
+    const updatedHtml = b.lastUpdated
+      ? `<span class="updated">Updated ${highlight(b.lastUpdated, query)}</span>`
+      : '';
+    const gradeHtml = b.grade
+      ? `<span class="grade-chip ${b.grade.toLowerCase()}">${highlight(b.grade, query)}</span>`
+      : '';
+
+    a.innerHTML = `
+      <div class="case-body">
+        <div class="case-main">
+          <span class="bill-name">${highlight(b.bill, query)}</span>
+          <h3>${highlight(b.title, query)}</h3>
+          <p>${highlight(b.summary, query)}</p>
+          <div class="tags">${tagsHtml}</div>
+        </div>
+        <div class="stamp-col">
+          <div class="stamp ${stampClass}">${stampText}</div>
+          ${gradeHtml}
+        </div>
+      </div>
+      <div class="case-foot">
+        <div class="foot-left">
+          <span>${highlight(b.voteLine || '', query)}</span>
+          ${updatedHtml}
+        </div>
+        <span class="open">Open case file →</span>
+      </div>
+    `;
+    return a;
   }
 
   function render(){
@@ -473,6 +655,7 @@
       : '';
 
     groupsEl.innerHTML = '';
+    pinnedEl.innerHTML = '';
     ghostRowEl.style.display = query ? 'none' : 'flex';
 
     if (query && filtered.length === 0) {
@@ -481,9 +664,32 @@
     }
     noResultsEl.style.display = 'none';
 
-    // Group filtered bills by year (falls back to "Undated" if a bill has no year field)
+    // Pinned cases render in their own section at the very top, above every
+    // year group, and are excluded from the normal grouped list below so
+    // they never appear twice. A pinned case still respects the active
+    // search filter — it just disappears from view like anything else that
+    // doesn't match, rather than being force-shown.
+    const pinned = filtered.filter(b => b.pinned);
+    const rest = filtered.filter(b => !b.pinned);
+
+    if (pinned.length) {
+      const section = document.createElement('section');
+      section.className = 'pinned-section';
+      const head = document.createElement('div');
+      head.className = 'pinned-head';
+      head.innerHTML = `<h2>Featured Case</h2><span>Pinned to the top</span>`;
+      section.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'case-list';
+      pinned.forEach(b => list.appendChild(buildCaseRow(b, query)));
+      section.appendChild(list);
+      pinnedEl.appendChild(section);
+    }
+
+    // Group the remaining (non-pinned) filtered bills by year
     const byYear = {};
-    filtered.forEach(b => {
+    rest.forEach(b => {
       const y = b.year || 'Undated';
       if (!byYear[y]) byYear[y] = [];
       byYear[y].push(b);
@@ -514,35 +720,7 @@
       const list = document.createElement('div');
       list.className = 'case-list';
 
-      byYear[year].forEach(b => {
-        const a = document.createElement('a');
-        a.className = 'case-row';
-        a.href = b.link;
-        a.setAttribute('data-case', b.caseNumber);
-
-        const tagsHtml = (b.tags || [])
-          .map(t => `<span class="tag">${highlight(t, query)}</span>`)
-          .join('');
-        const stampClass = b.status || 'pending';
-        const stampText = STAMP_TEXT[stampClass] || 'Pending';
-
-        a.innerHTML = `
-          <div class="case-body">
-            <div class="case-main">
-              <span class="bill-name">${highlight(b.bill, query)}</span>
-              <h3>${highlight(b.title, query)}</h3>
-              <p>${highlight(b.summary, query)}</p>
-              <div class="tags">${tagsHtml}</div>
-            </div>
-            <div class="stamp ${stampClass}">${stampText}</div>
-          </div>
-          <div class="case-foot">
-            <span>${highlight(b.voteLine || '', query)}</span>
-            <span class="open">Open case file →</span>
-          </div>
-        `;
-        list.appendChild(a);
-      });
+      byYear[year].forEach(b => list.appendChild(buildCaseRow(b, query)));
 
       section.appendChild(list);
       groupsEl.appendChild(section);
