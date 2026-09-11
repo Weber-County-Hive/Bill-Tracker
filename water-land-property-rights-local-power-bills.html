@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water, Land, Property Rights &amp; Local Power — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --card:#F7F5EF;
+    --card-border:#E3DCC8;
+    --gold:#9C7A1F;
+    --warm-gold:#8B6F3F;
+    --cream:#1A1815;
+    --gray:#5A564C;
+    --dim:#6B675A;
+    --green:#3D6B44;
+    --green-soft:#E4EDE2;
+    --red:#8B3A30;
+    --red-soft:#F5E4E1;
+    --orange:#8B5A22;
+    --orange-soft:#F3E2C9;
+    --slate:#514E47;
+    --slate-soft:#EAE8E2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Newsreader', Georgia, serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{ background:var(--gold); color:#FFFFFF; }
+
+  .wrap{ max-width:840px; margin:0 auto; padding:0 24px; }
+
+  header.masthead{
+    padding:56px 24px 40px;
+    text-align:center;
+    border-bottom:1px solid var(--card-border);
+  }
+  .hex{
+    width:46px; height:46px; margin:0 auto 14px;
+    display:block;
+  }
+  .hex polygon{ fill:none; stroke:var(--gold); stroke-width:1.6; }
+  .hex circle{ fill:var(--gold); }
+  .lockup{ font-family:'IBM Plex Mono', monospace; }
+  .lockup .hive{
+    display:block; color:var(--gold); font-weight:600;
+    letter-spacing:0.32em; font-size:13px; text-transform:uppercase;
+  }
+  .lockup .county{
+    display:block; color:var(--gray); font-weight:400;
+    letter-spacing:0.28em; font-size:10.5px; text-transform:uppercase; margin-top:4px;
+  }
+  h1.page-title{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(30px, 5vw, 46px);
+    line-height:1.12;
+    color:var(--cream);
+    margin:26px 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .page-sub{
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--warm-gold);
+    font-size:18px;
+    margin:0;
+  }
+
+  main{ padding:48px 0 90px; }
+
+  h2.h-block{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:26px;
+    color:var(--gold);
+    margin:0 0 14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--card-border);
+  }
+
+  .intro p{ color:var(--cream); }
+  .intro-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin:26px 0 8px;
+  }
+  @media (max-width:680px){ .intro-cols{ grid-template-columns:1fr; } }
+  .intro-box{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-left:2px solid var(--gold);
+    padding:18px 20px;
+  }
+  .intro-box h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--warm-gold);
+    margin:0 0 10px;
+    font-weight:600;
+  }
+  .intro-box ul{ margin:0; padding-left:18px; }
+  .intro-box li{ margin-bottom:8px; color:var(--gray); font-size:16px; line-height:1.55; }
+  .intro-box li:last-child{ margin-bottom:0; }
+  .intro-note{
+    font-size:15px; color:var(--dim); font-style:italic;
+    margin-top:22px; border-top:1px solid var(--card-border); padding-top:16px;
+  }
+
+  section.rubric{ margin-top:56px; }
+  .rubric-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--card-border);
+    border:1px solid var(--card-border);
+    margin:20px 0 20px;
+  }
+  @media (max-width:760px){ .rubric-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:420px){ .rubric-grid{ grid-template-columns:1fr; } }
+  .rubric-item{
+    background:var(--bg);
+    padding:18px 16px;
+  }
+  .rubric-item .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold); display:block; margin-bottom:8px;
+  }
+  .rubric-item .def{ font-size:14.5px; color:var(--gray); line-height:1.5; }
+
+  .grade-note{
+    font-size:15.5px; color:var(--gray); background:var(--card);
+    border:1px solid var(--card-border); padding:16px 18px; margin-top:18px;
+  }
+  .grade-note strong{ color:var(--cream); }
+
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px 10px;
+    margin:22px 0 4px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+  }
+
+  .tier-section{ margin-top:56px; }
+  .tier-title{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600; font-size:22px; color:var(--gold);
+    margin:0 0 6px;
+  }
+  .section-blurb{
+    color:var(--gray); font-size:15.5px; margin:0 0 22px; font-style:italic;
+  }
+
+  .bill-card{
+    background:var(--card);
+    border:1px solid var(--card-border);
+    padding:20px 22px;
+    margin-bottom:14px;
+  }
+  .bill-card.sub{
+    margin-left:0;
+    border-left:2px solid var(--warm-gold);
+    background:#F1EBDD;
+  }
+  .bill-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:14px; flex-wrap:wrap;
+  }
+  .bill-title{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600; font-size:18.5px; color:var(--cream);
+    margin:0; line-height:1.32; flex:1 1 320px;
+  }
+  .badges{ display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0; }
+  .badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; letter-spacing:0.04em;
+    padding:4px 9px;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .st-passed{ background:var(--green-soft); color:var(--green); border-color:#B9D2B6; }
+  .st-died{ background:var(--red-soft); color:var(--red); border-color:#E0BDB6; }
+  .st-vetoed{ background:var(--red-soft); color:var(--red); border-color:#E0BDB6; }
+  .st-pending{ background:var(--slate-soft); color:var(--slate); border-color:#D3D0C7; }
+  .st-inforce{ background:#F1E6C9; color:#8A6A16; border-color:#DEC786; }
+
+  .gr-a{ background:var(--green-soft); color:var(--green); border-color:#B9D2B6; }
+  .gr-b{ background:#EBF0DF; color:#4C6B3C; border-color:#C7D6B4; }
+  .gr-c{ background:#F3E9D6; color:#8B6F24; border-color:#E2CE9E; }
+  .gr-d{ background:var(--orange-soft); color:var(--orange); border-color:#E0BD8E; }
+  .gr-f{ background:var(--red-soft); color:var(--red); border-color:#E0BDB6; }
+  .gr-ng{ background:var(--slate-soft); color:var(--slate); border-color:#D3D0C7; }
+  .gr-outcome{ background:transparent; color:var(--dim); border-color:var(--card-border); }
+
+  .bill-sponsor{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--warm-gold);
+    margin:10px 0 4px;
+  }
+  .bill-desc{ color:var(--cream); font-size:16px; margin:8px 0 8px; }
+  .bill-note{ color:var(--gray); font-size:14.5px; font-style:italic; margin:8px 0 0; }
+
+  .group-block{
+    margin:8px 0 20px;
+    padding:18px 18px 4px;
+    background:#FBF8F0;
+    border:1px solid var(--card-border);
+  }
+  .group-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:8px;
+  }
+  .group-note{ color:var(--gray); font-size:14.5px; margin:0 0 16px; font-style:italic; }
+
+  .not-built{
+    margin-top:40px;
+  }
+  .not-built ul{ padding-left:20px; color:var(--gray); font-size:15.5px; }
+  .not-built li{ margin-bottom:10px; }
+  .not-built strong{ color:var(--cream); font-family:'IBM Plex Mono', monospace; font-size:14.5px; }
+
+  .major-divider{
+    margin:80px 0 8px;
+    text-align:center;
+    position:relative;
+  }
+  .major-divider .line{
+    border-top:1px solid var(--card-border);
+    margin-bottom:-14px;
+  }
+  .major-divider span{
+    background:var(--bg);
+    padding:0 18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--gold);
+  }
+  h1.section-h1{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600; font-size:clamp(26px,4vw,36px);
+    color:var(--cream); text-align:center; margin:8px 0 48px;
+  }
+
+  .closing-note{
+    margin-top:56px;
+    padding:20px 22px;
+    background:var(--card);
+    border:1px solid var(--card-border);
+    border-left:2px solid var(--gold);
+    color:var(--gray); font-size:15.5px;
+  }
+  .closing-note strong{ color:var(--cream); }
+
+  footer{
+    border-top:1px solid var(--card-border);
+    padding:44px 24px 60px;
+    text-align:center;
+  }
+  footer .foot-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px;
+  }
+  footer .foot-url{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--dim);
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <svg class="hex" viewBox="0 0 100 100" aria-hidden="true">
+    <polygon points="50,4 91,27 91,73 50,96 9,73 9,27"></polygon>
+    <circle cx="50" cy="27" r="4.2"></circle>
+  </svg>
+  <div class="lockup">
+    <span class="hive">The Hive</span>
+    <span class="county">Weber County</span>
+  </div>
+  <h1 class="page-title">Water, Land, Property Rights<br>&amp; Local Power</h1>
+  <p class="page-sub">A bill tracker, 2018–2026</p>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h2 class="h-block">Introduction</h2>
+    <p>This is the working list of bills The Weber County Hive has researched so far touching water, land, environment, and property rights — and where each one lands on removing or protecting local and public power. It spans 2018 through the 2026 General Session, pulled from every case file, thread, and prior conversation on file.</p>
+    <div class="intro-cols">
+      <div class="intro-box">
+        <h3>What's Covered</h3>
+        <ul>
+          <li>12 bills (plus the standing SITLA zoning exemption) directly on water, land, and property rights, ranked by scope of impact</li>
+          <li>~40 more bills researched along the way that don't fit that core theme directly — taxation, school finance/bonding, cybersecurity, tribal affairs, and education technology privacy — included for completeness, and because several share sponsors, drafting attorneys, or procedural patterns with the core list</li>
+        </ul>
+      </div>
+      <div class="intro-box">
+        <h3>What's Still Open</h3>
+        <ul>
+          <li>Sponsors not yet confirmed on a meaningful number of bills</li>
+          <li>Several bills flagged "not yet reviewed" with no findings pulled at all</li>
+          <li>H.B. 410 and H.B. 348's sponsors, the Stratos water package</li>
+          <li>Whether S.B. 337's concept was revived under a new bill number</li>
+          <li>Reconciling against the older 91-bill "Legislative Capture Ecosystem" spreadsheet</li>
+        </ul>
+      </div>
+    </div>
+    <p class="intro-note">Every grade in this document is a first-pass draft, not a final call. This is the starting point for the next round of research, not the finished product.</p>
+  </section>
+
+  <section class="rubric">
+    <h2 class="h-block">The Rubric</h2>
+    <p style="color:var(--gray); font-size:15.5px;">Every bill below is graded A–F against the standing collective rubric:</p>
+    <div class="rubric-grid">
+      <div class="rubric-item"><span class="label">Power</span><span class="def">Does it add or remove a check on power the public would otherwise have?</span></div>
+      <div class="rubric-item"><span class="label">Transparency</span><span class="def">Can the public see the process — hearings, financials, conflicts?</span></div>
+      <div class="rubric-item"><span class="label">Financial Accountability</span><span class="def">Who actually pays, who's protected from paying, disclosed plainly?</span></div>
+      <div class="rubric-item"><span class="label">Environmental Impact</span><span class="def">Real effect on water, wetlands, wildlife — a constraint or a box to check?</span></div>
+      <div class="rubric-item"><span class="label">Community Impact</span><span class="def">Who bears the cost or holds a stake, and did they get real standing to be heard?</span></div>
+    </div>
+    <div class="grade-note">
+      <strong>A note on the grades:</strong> most of these are a first-pass assessment against the rubric, built from what's documented — not grades already assigned, except where marked "your existing grade." Treat every grade as a draft. Where a bill <strong>died</strong>, it's graded on its content — what it would have done if enacted — with the real-world outcome marked N/A, since a good bill that died protected no one and a bad bill that died harmed no one.
+    </div>
+  </section>
+
+  <section class="tier-section">
+    <h3 class="tier-title">TIER 1 — Statewide, Structural, Affects Every County</h3>
+    <p class="section-blurb">The broadest local-power removals in the set — statewide reach, permanent or near-permanent mechanisms.</p>
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">§17-27a-304 / §17-79-306 — SITLA County-Zoning Exemption (standing statute)</h4>
+        <div class="badges"><span class="badge st-inforce">In force (decades old)</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">N/A — standing statute, not a single bill.</p>
+      <p class="bill-desc">Exempts school trust land, and any developer leasing or permitting it, from all county and municipal zoning. SITLA's own counsel on record: “counties have no legal basis for asserting a zoning preference.” Applies statewide.</p>
+      <p class="bill-note">Total, structural removal of local zoning power with no public process attached.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 258 (2024) — “Preliminary Municipality” Pilot Program</h4>
+        <div class="badges"><span class="badge st-passed">Passed (2024), still active/expanding</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed in your files.</p>
+      <p class="bill-desc">Lets a developer with ≤ 3 landowners self-incorporate private land as a town, bypassing county zoning entirely. 2/year cap, sunsets 2031. Produced 4 Wasatch/Summit applications in 2026 alone; residents outside the boundary get no vote.</p>
+      <p class="bill-note">Removes county land-use authority statewide with minimal public standing built in.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 337 (2025) — Beehive Development Agency (“BDA”)</h4>
+        <div class="badges"><span class="badge st-died">Died — no Senate floor vote, cross-partisan opposition</span><span class="badge gr-f">Grade: F</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Sen. Kirk A. Cullimore, chief sponsor.</p>
+      <p class="bill-desc">Would have created a governor-adjacent super-authority able to designate project areas statewide, capture up to 75% of taxes in them, and form PIDs on top.</p>
+      <p class="bill-note">Would have been the single largest power concentration in this set.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 60 (2026) — Water Rights Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Senate sponsor Sen. Keven Stratton; House chief sponsor not yet confirmed.</p>
+      <p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application — removes the grounds used to protest Speaker Schultz's own applications.</p>
+      <p class="bill-note">Direct, statewide removal of public standing to challenge water use.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 439 / S.B. 284 (2026) — Water Planning + Local Land Use Modifications</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">H.B. 439 — Shallenberger / Stratton. S.B. 284 — Lincoln Fillmore (Senate), Jill Koford (House floor).</p>
+      <p class="bill-desc">Absorbed a dead land-use bill across substitutes; creates a water-exaction “kill switch” not enforceable until Jan. 1, 2028.</p>
+      <p class="bill-note">Real accountability language on paper, undercut by an ~18-month enforcement gap and a scope-creep drafting pattern.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">TIER 2 — Statewide Mechanism, Narrower Subject Area</h3>
+    <p class="section-blurb">Still statewide, but each targets a single sector or fund rather than land-use power broadly.</p>
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 207 (2025) — Local Impact Mitigation Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/25/25</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sen. Ronald M. Winterton, House sponsor Rep. R. Neil Walter.</p>
+      <p class="bill-desc">Preempts counties from setting their own oil/gas mitigation fees; replaces with a smaller, time-limited state tax.</p>
+      <p class="bill-note">Clean statewide preemption of a local revenue tool, though the replacement mechanism is disclosed and time-limited.</p>
+    </article>
+    <div class="group-block">
+      <div class="group-label">PACKAGE — 2026 Stratos Water Bills</div>
+      <p class="group-note">Same drafting attorney (Patricia Owen) and overlapping sponsors/funders across all four; moved in coordination before the Stratos data center project was publicly announced. Grouped here because they function as one mechanism — standing removed, new water opened up, then the public shielded from seeing how it's used — but each bill is graded on its own.</p>
+      
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 60 (2026) — Water Rights Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Senate sponsor Sen. Keven Stratton; House chief sponsor not yet confirmed.</p>
+      <p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application.</p>
+      <p class="bill-note">See full entry in Tier 1 above.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 410 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Creates an agricultural-to-industrial water conversion pathway.</p>
+      <p class="bill-note">Opens a new large-scale water-reallocation mechanism; not enough independent process detail yet to grade lower with confidence.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 348 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Streamlines approval for previously-unavailable water.</p>
+      <p class="bill-note">Same caveat as H.B. 410 — streamlining removes a review step, but the process detail isn't fully documented yet.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 76 (2026) — Data Center Water Transparency Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Jill Koford / Sen. Scott D. Sandall.</p>
+      <p class="bill-desc">Promised facility-level public water-use data; a late substitute let operators claim it as proprietary, leaving only anonymized county aggregates public.</p>
+      <p class="bill-note">The clearest bait-and-switch in the package — transparency was the bill's entire stated purpose.</p>
+    </article>
+    </div>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 37 (2025) — Utah Housing Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/26/25</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Rep. James A. Dunnigan, Senate/Floor Sen. Lincoln Fillmore.</p>
+      <p class="bill-desc">Amends the incorporation statute S.B. 258 depends on; ties transportation funding to housing-compliance reporting.</p>
+      <p class="bill-note">Real fiscal lever over local governments, but the headline population-threshold change turned out to be cosmetic — a separate clause kept the real floor unchanged.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 492 (2026) — Transportation, Infrastructure, and Housing Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/25/26</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Rep. Calvin Roberts, Senate Sen. Kirk A. Cullimore; final substitute sponsored by Rep. Ken Ivory.</p>
+      <p class="bill-desc">New ethics exemption for officials on affordable-housing matters; an $18M loan originally labeled for prison infrastructure was relabeled with no disclosure.</p>
+      <p class="bill-note">Real housing investment, but the relabeled loan and ethics carve-out are undisclosed financial-accountability problems.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">TIER 3 — Regional / County-Specific, Same Statutory Hooks</h3>
+    <p class="section-blurb">The named, on-the-ground cases that show Tier 1 and 2's mechanisms actually being used.</p>
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">Duchesne County Ordinance #24-409 (2024) vs. S.B. 207 (2025)</h4>
+        <div class="badges"><span class="badge st-died">Superseded by S.B. 207 (2025, passed)</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">N/A — county ordinance, presented by Community Development Director Mike Hyde; preempted by S.B. 207 (sponsors above).</p>
+      <p class="bill-desc">County's own well-negotiated per-mile fee, preempted by the state the following session.</p>
+      <p class="bill-note">The county process itself was transparent; the preemption that followed wasn't disclosed to the county as it happened.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">Wasatch Highlands / Philo Development — SITLA 740-Acre Parcel (2026 application)</h4>
+        <div class="badges"><span class="badge st-pending">Pending / unresolved as of Aug. 2026</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">N/A — a developer application against the standing SITLA exemption above.</p>
+      <p class="bill-desc">County rejected the request three times; SITLA has publicly threatened to override a “no.”</p>
+      <p class="bill-note">Live example of #1's real-world use.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 125 / H.B. 157 (2026) — Water-Litigation-Funding Bait-and-Switch</h4>
+        <div class="badges"><span class="badge st-passed">Passed (funding ultimately removed)</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Sen. Keven Stratton confirmed on H.B. 125; House-side sponsors not yet confirmed.</p>
+      <p class="bill-desc">$5M in DNR water-litigation funding was stripped from H.B. 157, reinserted into H.B. 125, then stripped again six hours later.</p>
+      <p class="bill-note">Clean example of public litigation funding erased through procedural maneuvering.</p>
+    </article>
+  </section>
+  <div class="not-built">
+    <h2 class="h-block">Not Yet Fully Built Out</h2>
+    <p style="color:var(--gray); font-size:15px; margin-top:0;">Grades not yet assessable — flagged so they don't get silently skipped in the next research pass.</p>
+    <ul>
+<li><strong>H.B. 509</strong> (Wetlands Study Amendments) — sponsor/status/grade not yet pulled</li><li><strong>H.B. 349</strong> (Statewide Water Storage) — Died (11:59pm strike, 3/6/26); sponsor/grade not yet pulled</li><li><strong>H.B. 378</strong> (Fugitive Dust Mitigation) — sponsor/status/grade not yet pulled</li><li><strong>S.B. 12 (2026)</strong> — sponsor not yet confirmed. Passed. Grade F — selectively excluded 4 environmental statutes from an otherwise broad sunset extension</li>
+    </ul>
+  </div>
+
+  <div class="major-divider"><div class="line"></div><span>All Other Bills Researched</span></div>
+  <h1 class="section-h1">Not Water, Land, or Property</h1>
+
+
+  <section class="tier-section">
+    <h3 class="tier-title">Process / “Did the Opposite” Bills (2018–2026)</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 2001 (2019, 2nd Special Session)</h4>
+        <div class="badges"><span class="badge st-died">Passed, then repealed before the referendum could reach the ballot</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Raised the grocery sales tax from 1.75% to 4.85%, packaged with an income-tax cut. Passed without a two-thirds majority; a 152,000-signature referendum drive followed.</p>
+      <p class="bill-note">Regressive tax hike passed in a way specifically vulnerable to, then mooted, direct democracy.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 185 (2020)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Francis Gibson / Lyle Hillyard.</p>
+      <p class="bill-desc">Repealed S.B. 2001 in its entirety, introduced the second day of the next session specifically to kill the referendum.</p>
+      <p class="bill-note">Good for the public on substance, but the mechanism itself was designed to short-circuit a citizen referendum already in motion.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 491 (2023) — “Great Salt Lake Commissioner Act”</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Tied to Speaker Mike Schultz via his Keller Cattle Corp benefiting from the bill; not independently confirmed as chief sponsor of record.</p>
+      <p class="bill-desc">Carved water rights and the State Engineer out of the new Commissioner's authority; added a GRAMA exemption shielding water-rights records.</p>
+      <p class="bill-note">Named sponsor benefit, new secrecy exemption, framed opposite its own stated purpose.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 373 (2024)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Senate sponsor Sen. Scott Sandall; House chief sponsor not yet confirmed.</p>
+      <p class="bill-desc">Repealed the Air Quality Policy Advisory Board, shifted rulemaking to the industry-aligned Board of Oil, Gas and Mining.</p>
+      <p class="bill-note">Removed an independent balanced-science board in favor of an industry-aligned one.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 530 (2025) — Nucleus Institute Act</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Auditor-selection language weakened, then partly restored by a floor amendment.</p>
+      <p class="bill-note">Ended in a better place than it started, but took two separate interventions to get there.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 254 (2026)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Retitled from Critical Minerals to Extracted Natural Resources Amendments, scope broadened.</p>
+      <p class="bill-note">Content not fully documented — not yet assessable.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 475 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Renamed from Economic Opportunity Coordinating Council to Economic Development Council; required oversight work group dropped two minutes before final passage.</p>
+      <p class="bill-note">Oversight mechanism removed at the last possible moment.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 273 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed (weakened by “the bill's own Senate sponsor,” name not captured in your files).</p>
+      <p class="bill-desc">Instructional-tech standard weakened to let general-purpose tools (Google Gemini) qualify.</p>
+      <p class="bill-note">Otherwise a genuine guardrails bill (AI standards, screen-time limits); this one standard was weakened toward a named vendor's benefit.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 17 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">PID meeting-location bill — committee-stripped “retreat” exception (letting boards meet away from the public) was reinstated before final passage, with no record of who did it.</p>
+      <p class="bill-note">A transparency fix was quietly reversed in the final version.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 422 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — enacting clause struck 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Jill Koford.</p>
+      <p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p>
+      <p class="bill-note">Real accountability gain.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.J.R. 7 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism as H.B. 422, same night</span><span class="badge gr-ng">Grade: N/G</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Jill Koford.</p>
+      <p class="bill-desc">Property Tax Modifications constitutional amendment.</p>
+      <p class="bill-note">Not fully documented — insufficient detail to grade.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 236 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Karen Peterson / Daniel McCay, with Katy Hall as co-sponsor.</p>
+      <p class="bill-desc">New “property tax impact schedule” disclosure requirement, paired with a 1-year enforcement grace period.</p>
+      <p class="bill-note">Real disclosure gain undercut by a built-in enforcement holiday.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 477 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died as its own bill number</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Jill Koford / Kirk Cullimore (floor).</p>
+      <p class="bill-desc">Land Use Regulation Revisions — died on its own, substance absorbed into S.B. 284.</p>
+      <p class="bill-note">See S.B. 284 in Tier 1 above.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.C.R. 9 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed under its new title</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Joseph Elison, Senate Scott Sandall; Jill Koford cosponsor on the final version.</p>
+      <p class="bill-desc">Entire subject swapped mid-bill from a national-debt resolution to a Great Salt Lake resolution, same bill number.</p>
+      <p class="bill-note">The final content is a legitimate GSL resolution, but the subject-swap mechanism itself is a transparency concern.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 12 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Broad sunset-extension bill that skipped renewing 4 environmental statutes.</p>
+      <p class="bill-note">See Tier 1 entry above.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Taxation Bills</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 228 (2019)</h4>
+        <div class="badges"><span class="badge st-inforce">Passed, in force</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Foundational Public Infrastructure District Act.</p>
+      <p class="bill-note">Your existing grade.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 197 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">HTRZ/RDA/UFAIR increment-distribution rewrite plus anonymous base-year floor amendment.</p>
+      <p class="bill-note">Your existing grade.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 242 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Weber County 0.2% sales tax enabling statute plus deleted tow-data privacy protection.</p>
+      <p class="bill-note">Your existing grade.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 77 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      
+      <p class="bill-note">Your existing grade.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 60 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Sen. Daniel McCay.</p>
+      <p class="bill-desc">Income Tax Rate Amendments — House committee vote 8-2-1, not unanimous.</p>
+      <p class="bill-note">Not deeply documented beyond the split vote; treat as provisional.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 575 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Cal Roberts, Senate Brady Brammer.</p>
+      <p class="bill-desc">Fuel Tax and Supply Amendments — new refinery-data secrecy regime (protected record + confidential commercial info + trade secret, GRAMA-exempt); gas tax cut paired with an alternative-fuel tax hike.</p>
+      <p class="bill-note">Your existing grade, and the newer of two on file — the taxation-for-beginners page originally graded this C+, then it was re-graded down to D on 9/9/26 after the refinery-secrecy provision was found. Using D as current.</p>
+    </article>
+    <div class="group-block">
+      <div class="group-label">GROUP — Baseline Taxation Bills</div>
+      <p class="group-note">Part of the existing taxation-for-beginners baseline; each gets its own grade line since each needs its own future research pass.</p>
+      
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 106 (year not yet confirmed)</h4>
+        <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 333 (year not yet confirmed)</h4>
+        <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 69 (year not yet confirmed)</h4>
+        <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    </div>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 562 (2026?) (UFAIR)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet confirmed — marked “Not graded” in your own tracker</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      
+      <p class="bill-note">Your own status.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 206 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Wayne Harper, House R. Neil Walter.</p>
+      <p class="bill-desc">TIF disclosure — timing requirement weakened between substitutes (before → after authorization).</p>
+      <p class="bill-note">Your existing grade.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">School Finance / Bonding Bills</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 188 (2025)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/17/25</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Sen. Keith Grover, no cosponsors listed. Cap exemption added by Rep. Matt MacPherson's committee amendment.</p>
+      <p class="bill-desc">Exempted reorganized-district lease revenue bonds from the borrowing cap via an unrecorded voice vote. Alpine's $201M followed.</p>
+      <p class="bill-note">Major debt-capacity change made via voice vote with no recorded roll call.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 332 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism, 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Tiara Auxier.</p>
+      <p class="bill-desc">Would have required voter approval before a school district issues a lease revenue bond.</p>
+      <p class="bill-note">Direct fix for S.B. 188's gap.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 37 (2025)</h4>
+        <div class="badges"><span class="badge st-vetoed">Passed the Legislature, then VETOED by Gov. Cox</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Sen. Lincoln Fillmore.</p>
+      <p class="bill-desc">Would have rerouted minimum basic property tax levy through a new state fund.</p>
+      <p class="bill-note">As designed, centralizes control of locally-raised education money.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 65 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — no House floor vote, filed 3/6/26</span><span class="badge gr-d">Grade: D</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Lincoln Fillmore (chief), Val L. Peterson (House).</p>
+      <p class="bill-desc">Same concept as S.B. 37, reattempted.</p>
+      <p class="bill-note">Same concern as S.B. 37.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Cybersecurity Cluster (2026)</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 42 (2026)</h4>
+        <div class="badges"><span class="badge st-pending">Stalled/absorbed, likely died independently</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox.</p>
+      <p class="bill-desc">School Cybersecurity Amendments — substance appears folded into H.B. 44.</p>
+      <p class="bill-note">Not separately assessable — see H.B. 44.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 44 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/19/26</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox, Senate Ann Millner.</p>
+      <p class="bill-desc">School Security Personnel Standards — device restrictions, new “AI glasses” definition, new Cybersecurity Commission appointment power.</p>
+      <p class="bill-note">Genuine security/oversight content, offset by a drafting conflict with S.B. 123 that leaves actual commission membership unresolved.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 123 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/17/26</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Wayne A. Harper, House Ryan D. Wilcox.</p>
+      <p class="bill-desc">Privacy and Cybersecurity Amendments — expands duties to cover LEAs, adds a UETN seat.</p>
+      <p class="bill-note">Same drafting-conflict issue as H.B. 44.</p>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Tribal / Native American Bills (2026)</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 61 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Christine Watkins / Ronald Winterton.</p>
+      <p class="bill-desc">Navajo Trust Fund Amendments — new GRAMA exemption, downgraded reporting detail, no evidence of tribal consultation.</p>
+      <p class="bill-note">New secrecy exemption plus reduced reporting to the tribe itself.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 75 (2026)</h4>
+        <div class="badges"><span class="badge st-pending">Committee-passed 9-0-2; final floor status not yet confirmed</span><span class="badge gr-a">Grade: A</span></div>
+      </div>
+      <p class="bill-sponsor">Watkins/Winterton, same pair and committee as H.B. 61.</p>
+      <p class="bill-desc">Opposite pattern from H.B. 61 — adds a reporting category, requires state board presentation, adds mandatory tribal-consultation language.</p>
+      <p class="bill-note">A genuine accountability gain — useful contrast to H.B. 61.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 588 (2026)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet reviewed</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Angela Romero.</p>
+      <p class="bill-desc">Murdered and Missing Indigenous Relatives (MMIR) Amendments.</p>
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 52 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
+      </div>
+      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-desc">Tribal Endorsement of Utah Driver License Amendments.</p>
+      <p class="bill-note">Expands an individual right with no power-removal concern identified.</p>
+    </article>
+    <div class="group-block">
+      <div class="group-label">GROUP — SITLA Cultural/Scientific Sites Bills (Shipp/Stratton)</div>
+      <p class="group-note">Two separate bills found only via a Preservation Utah legislative roundup — bill numbers not yet confirmed, so each is a placeholder line until pulled individually.</p>
+      
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">SITLA Culturally/Scientifically Significant Sites Nomination Bill (2026?)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Shipp / Stratton.</p>
+      
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    <article class="bill-card sub">
+      <div class="bill-head">
+        <h4 class="bill-title">Cultural Site Stewardship Program Bill (2026?)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <p class="bill-sponsor">Shipp / Stratton (unconfirmed whether same sponsors as above — needs checking).</p>
+      
+      <p class="bill-note">Not yet assessable.</p>
+    </article>
+    </div>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Education Technology / Privacy</h3>
+    
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 55 (2025)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Tiara Auxier.</p>
+      <p class="bill-desc">Privacy Compliance for Education Technology Vendors — stricter audits/termination, following the BYU/Internet Safety Labs study (52% of DPA-covered apps over-collected data).</p>
+      <p class="bill-note">Genuine accountability gain, though the underlying board rule (R277-487) still lets vendors avoid real independent audits by default.</p>
+    </article>
+  </section>
+
+  <div class="closing-note">
+    <strong>Status:</strong> This is a living document. We are actively researching and will keep updating it as new findings come in.
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-tag">Independent · Accountability · Journalism</div>
+  <div class="foot-url">webercountyhive.substack.com</div>
+</footer>
+
+</body>
+</html>
