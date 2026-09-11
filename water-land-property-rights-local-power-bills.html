@@ -78,6 +78,46 @@
     margin:0;
   }
 
+  .stat-block{
+    max-width:840px;
+    margin:0 auto;
+    padding:28px 24px 0;
+    text-align:center;
+  }
+  .stat-number{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:700;
+    font-size:clamp(48px, 9vw, 76px);
+    line-height:1;
+    color:var(--gold);
+    letter-spacing:-0.01em;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--cream);
+    margin-top:8px;
+  }
+  .stat-sub{
+    font-family:'Fraunces', Georgia, serif;
+    font-style:italic;
+    font-size:14.5px;
+    color:var(--dim);
+    margin-top:6px;
+  }
+  .stat-updated{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--dim);
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid var(--card-border);
+    display:inline-block;
+  }
+
   main{ padding:48px 0 90px; }
 
   h2.h-block{
@@ -186,12 +226,13 @@
     font-weight:600; font-size:18.5px; color:var(--cream);
     margin:0; line-height:1.32; flex:1 1 320px;
   }
-  .badges{ display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0; }
+  .badges{ display:flex; gap:6px; flex-wrap:wrap; flex-shrink:0; max-width:100%; }
   .badge{
     font-family:'IBM Plex Mono', monospace;
     font-size:10.5px; letter-spacing:0.04em;
     padding:4px 9px;
-    white-space:nowrap;
+    white-space:normal;
+    max-width:100%;
     border:1px solid transparent;
   }
   .st-passed{ background:var(--green-soft); color:var(--green); border-color:#B9D2B6; }
@@ -215,6 +256,20 @@
   }
   .bill-desc{ color:var(--cream); font-size:16px; margin:8px 0 8px; }
   .bill-note{ color:var(--gray); font-size:14.5px; font-style:italic; margin:8px 0 0; }
+
+  .bill-details{ margin:8px 0 0; }
+  .bill-details > summary{
+    cursor:pointer; list-style:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+    padding:4px 0;
+  }
+  .bill-details > summary::-webkit-details-marker{ display:none; }
+  .bill-details > summary::before{ content:"▸ "; }
+  .bill-details[open] > summary::before{ content:"▾ "; }
+  .bill-details[open] > summary{ margin-bottom:4px; }
+  .bill-details .bill-desc{ margin-top:8px; }
 
   .group-block{
     margin:8px 0 20px;
@@ -299,31 +354,53 @@
   <p class="page-sub">A bill tracker, 2018–2026</p>
 </header>
 
+<div class="stat-block">
+  <div class="stat-number" id="bill-counter" data-target="59">0</div>
+  <div class="stat-label">Bills Researched So Far</div>
+  <div class="stat-sub">More being added as research continues</div>
+  <div class="stat-updated" id="last-updated">Last updated: September 11, 2026</div>
+</div>
+
+<script>
+  (function(){
+    var el = document.getElementById('bill-counter');
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var duration = 1400;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if(progress < 1){
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  })();
+</script>
+
 <main class="wrap">
 
   <section class="intro">
     <h2 class="h-block">Introduction</h2>
-    <p>This is the working list of bills The Weber County Hive has researched so far touching water, land, environment, and property rights — and where each one lands on removing or protecting local and public power. It spans 2018 through the 2026 General Session, pulled from every case file, thread, and prior conversation on file.</p>
+    <p>This is the working list of bills The Weber County Hive has researched touching water, land, environment, and property rights — and where each one lands on removing or protecting local and public power. It spans 2018 through the 2026 General Session.</p>
     <div class="intro-cols">
       <div class="intro-box">
-        <h3>What's Covered</h3>
+        <h3>Core List</h3>
         <ul>
           <li>12 bills (plus the standing SITLA zoning exemption) directly on water, land, and property rights, ranked by scope of impact</li>
-          <li>~40 more bills researched along the way that don't fit that core theme directly — taxation, school finance/bonding, cybersecurity, tribal affairs, and education technology privacy — included for completeness, and because several share sponsors, drafting attorneys, or procedural patterns with the core list</li>
         </ul>
       </div>
       <div class="intro-box">
-        <h3>What's Still Open</h3>
+        <h3>Also Included</h3>
         <ul>
-          <li>Sponsors not yet confirmed on a meaningful number of bills</li>
-          <li>Several bills flagged "not yet reviewed" with no findings pulled at all</li>
-          <li>H.B. 410 and H.B. 348's sponsors, the Stratos water package</li>
-          <li>Whether S.B. 337's concept was revived under a new bill number</li>
-          <li>Reconciling against the older 91-bill "Legislative Capture Ecosystem" spreadsheet</li>
+          <li>~40 more bills that don't fit that core theme directly — taxation, school finance/bonding, cybersecurity, tribal affairs, and education technology privacy — included for completeness, and because several share sponsors, drafting attorneys, or procedural patterns with the core list</li>
         </ul>
       </div>
     </div>
-    <p class="intro-note">Every grade in this document is a first-pass draft, not a final call. This is the starting point for the next round of research, not the finished product.</p>
   </section>
 
   <section class="rubric">
@@ -337,7 +414,7 @@
       <div class="rubric-item"><span class="label">Community Impact</span><span class="def">Who bears the cost or holds a stake, and did they get real standing to be heard?</span></div>
     </div>
     <div class="grade-note">
-      <strong>A note on the grades:</strong> most of these are a first-pass assessment against the rubric, built from what's documented — not grades already assigned, except where marked "your existing grade." Treat every grade as a draft. Where a bill <strong>died</strong>, it's graded on its content — what it would have done if enacted — with the real-world outcome marked N/A, since a good bill that died protected no one and a bad bill that died harmed no one.
+      Where a bill <strong>died</strong>, it's graded on its content — what it would have done if enacted — with the real-world outcome marked N/A, since a good bill that died protected no one and a bad bill that died harmed no one.
     </div>
   </section>
 
@@ -351,17 +428,15 @@
         <div class="badges"><span class="badge st-inforce">In force (decades old)</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">N/A — standing statute, not a single bill.</p>
-      <p class="bill-desc">Exempts school trust land, and any developer leasing or permitting it, from all county and municipal zoning. SITLA's own counsel on record: “counties have no legal basis for asserting a zoning preference.” Applies statewide.</p>
-      <p class="bill-note">Total, structural removal of local zoning power with no public process attached.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Exempts school trust land, and any developer leasing or permitting it, from all county and municipal zoning. SITLA's own counsel on record: “counties have no legal basis for asserting a zoning preference.” Applies statewide.</p><p class="bill-note">Total, structural removal of local zoning power with no public process attached.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">S.B. 258 (2024) — “Preliminary Municipality” Pilot Program</h4>
         <div class="badges"><span class="badge st-passed">Passed (2024), still active/expanding</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed in your files.</p>
-      <p class="bill-desc">Lets a developer with ≤ 3 landowners self-incorporate private land as a town, bypassing county zoning entirely. 2/year cap, sunsets 2031. Produced 4 Wasatch/Summit applications in 2026 alone; residents outside the boundary get no vote.</p>
-      <p class="bill-note">Removes county land-use authority statewide with minimal public standing built in.</p>
+      <p class="bill-sponsor">Chief Sponsor Sen. Curtis S. Bramble, House Sponsor Rep. James A. Dunnigan.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Lets a developer with ≤ 3 landowners self-incorporate private land as a town, bypassing county zoning entirely. 2/year cap, sunsets 2031. Produced 4 Wasatch/Summit applications in 2026 alone; residents outside the boundary get no vote.</p><p class="bill-note">Removes county land-use authority statewide with minimal public standing built in.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -369,17 +444,15 @@
         <div class="badges"><span class="badge st-died">Died — no Senate floor vote, cross-partisan opposition</span><span class="badge gr-f">Grade: F</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Sen. Kirk A. Cullimore, chief sponsor.</p>
-      <p class="bill-desc">Would have created a governor-adjacent super-authority able to designate project areas statewide, capture up to 75% of taxes in them, and form PIDs on top.</p>
-      <p class="bill-note">Would have been the single largest power concentration in this set.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have created a governor-adjacent super-authority able to designate project areas statewide, capture up to 75% of taxes in them, and form PIDs on top.</p><p class="bill-note">Would have been the single largest power concentration in this set. Passed two Senate committees (Economic Development and Workforce Services 3-2, Revenue and Taxation 3-2-1) with extensive testimony before running out of session time without ever getting a Senate floor vote.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 60 (2026) — Water Rights Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Senate sponsor Sen. Keven Stratton; House chief sponsor not yet confirmed.</p>
-      <p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application — removes the grounds used to protest Speaker Schultz's own applications.</p>
-      <p class="bill-note">Direct, statewide removal of public standing to challenge water use.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. David Shallenberger, Senate Sponsor Sen. Keven J. Stratton. Drafting attorney: Patricia Owen. Fiscal analyst: Lacey K. Moore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application — removes the grounds used to protest Speaker Schultz's own applications. Shallenberger and Stratton are also the sponsor pair on H.B. 439.</p><p class="bill-note">Direct, statewide removal of public standing to challenge water use. Veracity Enterprises LLC, whose registered agent is Stratton Law Group PLLC (members: Keven J Stratton Jr, Keven John Stratton Sr., Scott Owen Stratton), describes itself publicly as a political consulting firm. Its disclosed contributions (3/21/2024–10/29/2025, ~$32,861 total) went to the Utah Republican Party and Prosperous Utah Communities PAC, whose director David Herring shares Veracity's business address. No contribution to Sen. Stratton or Rep. Ken Ivory appears in that record; 2026 filings aren't due yet.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -387,8 +460,7 @@
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">H.B. 439 — Shallenberger / Stratton. S.B. 284 — Lincoln Fillmore (Senate), Jill Koford (House floor).</p>
-      <p class="bill-desc">Absorbed a dead land-use bill across substitutes; creates a water-exaction “kill switch” not enforceable until Jan. 1, 2028.</p>
-      <p class="bill-note">Real accountability language on paper, undercut by an ~18-month enforcement gap and a scope-creep drafting pattern.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Absorbed a dead land-use bill across substitutes; creates a water-exaction “kill switch” not enforceable until Jan. 1, 2028.</p><p class="bill-note">Real accountability language on paper, undercut by an ~18-month enforcement gap and a scope-creep drafting pattern.</p></details>
     </article>
   </section>
   <section class="tier-section">
@@ -401,48 +473,43 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/25/25</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sen. Ronald M. Winterton, House sponsor Rep. R. Neil Walter.</p>
-      <p class="bill-desc">Preempts counties from setting their own oil/gas mitigation fees; replaces with a smaller, time-limited state tax.</p>
-      <p class="bill-note">Clean statewide preemption of a local revenue tool, though the replacement mechanism is disclosed and time-limited.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Preempts counties from setting their own oil/gas mitigation fees; replaces with a smaller, time-limited state tax.</p><p class="bill-note">Clean statewide preemption of a local revenue tool, though the replacement mechanism is disclosed and time-limited.</p></details>
     </article>
     <div class="group-block">
-      <div class="group-label">PACKAGE — 2026 Stratos Water Bills</div>
-      <p class="group-note">Same drafting attorney (Patricia Owen) and overlapping sponsors/funders across all four; moved in coordination before the Stratos data center project was publicly announced. Grouped here because they function as one mechanism — standing removed, new water opened up, then the public shielded from seeing how it's used — but each bill is graded on its own.</p>
+      <div class="group-label">PACKAGE — 2026 “Stratos Water Bills”</div>
+      <p class="group-note">H.B. 410 and H.B. 348 create Great Salt Lake water-leasing/dedication mechanisms with agricultural-land caps and reporting requirements; both passed committee and floor votes in both chambers, unanimous or near-unanimous. Veracity Enterprises LLC's registered agent is Stratton Law Group PLLC (members: Keven J Stratton Jr, Keven John Stratton Sr., Scott Owen Stratton). Veracity Enterprises LLC's disclosed contributions, 3/21/2024–10/29/2025, totaled ~$32,861, to the Utah Republican Party (State) and Prosperous Utah Communities PAC. Prosperous Utah Communities PAC's director is David Herring, at the same Orem street address and suite as Veracity Enterprises LLC's own business address. No contribution to Sen. Stratton or Rep. Ken Ivory appears in the 2024–2025 contribution record; 2026 filings aren't due yet.</p>
       
     <article class="bill-card sub">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 60 (2026) — Water Rights Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Senate sponsor Sen. Keven Stratton; House chief sponsor not yet confirmed.</p>
-      <p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application.</p>
-      <p class="bill-note">See full entry in Tier 1 above.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. David Shallenberger, Senate Sponsor Sen. Keven J. Stratton. Drafting attorney: Patricia Owen.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Narrows the “public welfare” standard a state engineer can use to deny a water application.</p><p class="bill-note">See full entry in Tier 1 — the only bill in this grouping built around removing public standing rather than protecting the Great Salt Lake.</p></details>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 410 (2026)</h4>
-        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+        <h4 class="bill-title">H.B. 410 (2026) — Water Leasing Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Creates an agricultural-to-industrial water conversion pathway.</p>
-      <p class="bill-note">Opens a new large-scale water-reallocation mechanism; not enough independent process detail yet to grade lower with confidence.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford, Senate Sponsor Sen. Scott D. Sandall. Cosponsors: Joseph Elison, Stephanie Pitcher, John Arthur, Jake Fitisemanu, David Shallenberger, Jennifer Dailey-Provost, Sahara Hayes, Jason E. Thompson, James A. Dunnigan, Clinton D. Okerlund. Drafting attorney: Patricia Owen.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates the Great Salt Lake Preservation Program: a board leases agricultural water from farmers for the Great Salt Lake, with state-engineer monitoring, an annual public report, and a July 1, 2030 sunset date. The appropriation was $5,000,000 as introduced and in the first substitute, reduced to $2,750,000 in the final bill. A safeguard capping agricultural-land water removal at two growing seasons out of five, present in the broader standardized-leasing section (§73-3-30.5) as introduced, was removed in the first substitute; a similar cap specific to this program (§73-34-302) remained. Vote record: House 3rd Reading 69-1-5 (2/17/26); Senate 2nd/3rd 22-0-7 (3/4/26, with a floor amendment); the House did not concur with the Senate amendment, and a conference committee produced the final version, adopted by voice vote in both chambers. Final passage: Senate 25-0-4, House 71-1-3 (3/5/26).</p><p class="bill-note">Real program with funding, monitoring, and public reporting, offset by the funding cut and the removed agricultural-land safeguard. Testimony support at the committee stage: Dept. of Agriculture and Food, the State Engineer, Grow the Flow, Jordan River Commission, PERC, Utah Wool Growers Association, Farm Bureau.</p></details>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 348 (2026)</h4>
-        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
+        <h4 class="bill-title">H.B. 348 (2026) — Dedicated Water Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Streamlines approval for previously-unavailable water.</p>
-      <p class="bill-note">Same caveat as H.B. 410 — streamlining removes a review step, but the process detail isn't fully documented yet.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford, Senate Sponsor Sen. Scott D. Sandall. Cosponsors: Stephanie Pitcher, Sahara Hayes. Drafting attorney: Patricia Owen. Fiscal analyst: Sean C. Faherty.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates a “dedicated water application”: a water-right holder or state division (Wildlife Resources, State Parks, Forestry/Fire/State Lands) can add an instream-flow, sovereign-lands, or Colorado River drought-contingency use to an existing water right without changing the underlying right. The state engineer prioritizes processing and may deny an application that would keep agricultural land out of production more than two of five years. No money appropriated. Vote record: House committee 13-0-1 (2/5/26), House floor 70-0-5 (2/17/26), Senate committee 4-0-3 (2/24/26), Senate floor 26-0-3 (3/6/26).</p><p class="bill-note">Approval does not require the applicant to actually deliver the dedicated water in a given year or quantity — a real accountability gap, present in the bill as introduced. Testimony support: DEQ, Dept. of Agriculture and Food, Trout Unlimited, Great Salt Lake Rising, Jordan River Commission, Great Basin Water Network, Mormon Women for Ethical Government, Utah Association of REALTORS, Farm Bureau, GSL Commissioner Brian Steed.</p></details>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 76 (2026) — Data Center Water Transparency Amendments</h4>
-        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
+        <div class="badges"><span class="badge st-passed">Passed — Senate committee 4-0-3 (3/3/26)</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Rep. Jill Koford / Sen. Scott D. Sandall.</p>
-      <p class="bill-desc">Promised facility-level public water-use data; a late substitute let operators claim it as proprietary, leaving only anonymized county aggregates public.</p>
-      <p class="bill-note">The clearest bait-and-switch in the package — transparency was the bill's entire stated purpose.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Promised facility-level public water-use data; a late substitute let operators claim it as proprietary, leaving only anonymized county aggregates public. Went through at least three substitutes — Senate committee replaced S01 with S03 before passing it.</p><p class="bill-note">The clearest bait-and-switch in the package — transparency was the bill's entire stated purpose. Senate committee testimony: Mormon Women for Ethical Government, a Salt Lake City resident, Weber Basin Water Conservancy District's general manager, and the Utah Association of Conservation Districts all spoke in favor; Utah Rivers Council spoke to the bill without a stated position. Sen. Stratton personally moved final passage.</p></details>
     </article>
     </div>
     <article class="bill-card">
@@ -451,8 +518,7 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/26/25</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. James A. Dunnigan, Senate/Floor Sen. Lincoln Fillmore.</p>
-      <p class="bill-desc">Amends the incorporation statute S.B. 258 depends on; ties transportation funding to housing-compliance reporting.</p>
-      <p class="bill-note">Real fiscal lever over local governments, but the headline population-threshold change turned out to be cosmetic — a separate clause kept the real floor unchanged.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Amends the incorporation statute S.B. 258 depends on; ties transportation funding to housing-compliance reporting.</p><p class="bill-note">Real fiscal lever over local governments, but the headline population-threshold change turned out to be cosmetic — a separate clause kept the real floor unchanged.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -460,8 +526,7 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/25/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Calvin Roberts, Senate Sen. Kirk A. Cullimore; final substitute sponsored by Rep. Ken Ivory.</p>
-      <p class="bill-desc">New ethics exemption for officials on affordable-housing matters; an $18M loan originally labeled for prison infrastructure was relabeled with no disclosure.</p>
-      <p class="bill-note">Real housing investment, but the relabeled loan and ethics carve-out are undisclosed financial-accountability problems.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">New ethics exemption for officials on affordable-housing matters; an $18M loan originally labeled for prison infrastructure was relabeled with no disclosure.</p><p class="bill-note">Real housing investment, but the relabeled loan and ethics carve-out are undisclosed financial-accountability problems.</p></details>
     </article>
   </section>
   <section class="tier-section">
@@ -474,8 +539,7 @@
         <div class="badges"><span class="badge st-died">Superseded by S.B. 207 (2025, passed)</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">N/A — county ordinance, presented by Community Development Director Mike Hyde; preempted by S.B. 207 (sponsors above).</p>
-      <p class="bill-desc">County's own well-negotiated per-mile fee, preempted by the state the following session.</p>
-      <p class="bill-note">The county process itself was transparent; the preemption that followed wasn't disclosed to the county as it happened.</p>
+      <p class="bill-desc">County's own well-negotiated per-mile fee, preempted by the state the following session.</p><p class="bill-note">The county process itself was transparent; the preemption that followed wasn't disclosed to the county as it happened.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -483,27 +547,17 @@
         <div class="badges"><span class="badge st-pending">Pending / unresolved as of Aug. 2026</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">N/A — a developer application against the standing SITLA exemption above.</p>
-      <p class="bill-desc">County rejected the request three times; SITLA has publicly threatened to override a “no.”</p>
-      <p class="bill-note">Live example of #1's real-world use.</p>
+      <p class="bill-desc">County rejected the request three times; SITLA has publicly threatened to override a “no.”</p><p class="bill-note">Live example of #1's real-world use.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 125 / H.B. 157 (2026) — Water-Litigation-Funding Bait-and-Switch</h4>
         <div class="badges"><span class="badge st-passed">Passed (funding ultimately removed)</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Sen. Keven Stratton confirmed on H.B. 125; House-side sponsors not yet confirmed.</p>
-      <p class="bill-desc">$5M in DNR water-litigation funding was stripped from H.B. 157, reinserted into H.B. 125, then stripped again six hours later.</p>
-      <p class="bill-note">Clean example of public litigation funding erased through procedural maneuvering.</p>
+      <p class="bill-sponsor">H.B. 125: Rep. Rex Shipp, Senate sponsor Sen. Keven Stratton. H.B. 157 sponsors not identified.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">$5M in DNR water-litigation funding was stripped from H.B. 157, reinserted into H.B. 125 (introduced as unrelated “Aquatic Invasive Species Amendments”), then stripped again six hours later. Senate committee (3/3/26) adopted a substitute and passed it 4-0-3, with the Division of Law Enforcement (DNR), the Utah Sportsmen's Caucus, and the Utah Association of Conservation Districts all testifying in favor.</p><p class="bill-note">Clean example of public litigation funding erased through procedural maneuvering.</p></details>
     </article>
   </section>
-  <div class="not-built">
-    <h2 class="h-block">Not Yet Fully Built Out</h2>
-    <p style="color:var(--gray); font-size:15px; margin-top:0;">Grades not yet assessable — flagged so they don't get silently skipped in the next research pass.</p>
-    <ul>
-<li><strong>H.B. 509</strong> (Wetlands Study Amendments) — sponsor/status/grade not yet pulled</li><li><strong>H.B. 349</strong> (Statewide Water Storage) — Died (11:59pm strike, 3/6/26); sponsor/grade not yet pulled</li><li><strong>H.B. 378</strong> (Fugitive Dust Mitigation) — sponsor/status/grade not yet pulled</li><li><strong>S.B. 12 (2026)</strong> — sponsor not yet confirmed. Passed. Grade F — selectively excluded 4 environmental statutes from an otherwise broad sunset extension</li>
-    </ul>
-  </div>
-
   <div class="major-divider"><div class="line"></div><span>All Other Bills Researched</span></div>
   <h1 class="section-h1">Not Water, Land, or Property</h1>
 
@@ -517,9 +571,8 @@
         <h4 class="bill-title">S.B. 2001 (2019, 2nd Special Session)</h4>
         <div class="badges"><span class="badge st-died">Passed, then repealed before the referendum could reach the ballot</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Raised the grocery sales tax from 1.75% to 4.85%, packaged with an income-tax cut. Passed without a two-thirds majority; a 152,000-signature referendum drive followed.</p>
-      <p class="bill-note">Regressive tax hike passed in a way specifically vulnerable to, then mooted, direct democracy.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Raised the grocery sales tax from 1.75% to 4.85%, packaged with an income-tax cut. Passed without a two-thirds majority; a 152,000-signature referendum drive followed.</p><p class="bill-note">Regressive tax hike passed in a way specifically vulnerable to, then mooted, direct democracy.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -527,71 +580,79 @@
         <div class="badges"><span class="badge st-passed">Passed, signed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Francis Gibson / Lyle Hillyard.</p>
-      <p class="bill-desc">Repealed S.B. 2001 in its entirety, introduced the second day of the next session specifically to kill the referendum.</p>
-      <p class="bill-note">Good for the public on substance, but the mechanism itself was designed to short-circuit a citizen referendum already in motion.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Repealed S.B. 2001 in its entirety, introduced the second day of the next session specifically to kill the referendum.</p><p class="bill-note">Good for the public on substance, but the mechanism itself was designed to short-circuit a citizen referendum already in motion.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 491 (2023) — “Great Salt Lake Commissioner Act”</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Tied to Speaker Mike Schultz via his Keller Cattle Corp benefiting from the bill; not independently confirmed as chief sponsor of record.</p>
-      <p class="bill-desc">Carved water rights and the State Engineer out of the new Commissioner's authority; added a GRAMA exemption shielding water-rights records.</p>
-      <p class="bill-note">Named sponsor benefit, new secrecy exemption, framed opposite its own stated purpose.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Mike Schultz, Senate Sponsor Sen. Scott D. Sandall. Drafting attorney: Patricia Owen.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Carved water rights and the State Engineer out of the new Commissioner's authority; added a GRAMA exemption shielding water-rights records.</p><p class="bill-note">Named sponsor benefit, new secrecy exemption, framed opposite its own stated purpose.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 373 (2024)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Senate sponsor Sen. Scott Sandall; House chief sponsor not yet confirmed.</p>
-      <p class="bill-desc">Repealed the Air Quality Policy Advisory Board, shifted rulemaking to the industry-aligned Board of Oil, Gas and Mining.</p>
-      <p class="bill-note">Removed an independent balanced-science board in favor of an industry-aligned one.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Casey Snider, Senate Sponsor Sen. Scott Sandall.</p>
+      <p class="bill-desc">Repealed the Air Quality Policy Advisory Board, shifted rulemaking to the industry-aligned Board of Oil, Gas and Mining.</p><p class="bill-note">Removed an independent balanced-science board in favor of an industry-aligned one.</p>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 509 (2026)</h4>
+        <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Rep. Doug Owens, Senate Sponsor Sen. Michael K. McKell.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Introduced as “Wetlands Protection Modifications”; retitled “Wetlands Study Amendments” by the final substitute. As introduced, directed a statewide wetlands study including a five-year wetland-acreage-change baseline, impacts on recreation and aquatic species, and recommendations to improve wetland health and mitigate wetland loss, plus a separate required study on an in-lieu fee program for wetland mitigation (consulting DEQ, the Army Corps of Engineers, Fish and Wildlife Service, and EPA). The final version narrows the study to counties of the first or second class only, drops the acreage-change baseline, the aquatic-species and recreational-loss provisions, and the improve/mitigate language, and removes the in-lieu fee program study entirely.</p><p class="bill-note">Title softened from “Protection” to “Study,” geographic scope narrowed to exclude rural counties, and the one provision that could have led to a real wetland-mitigation funding mechanism — the in-lieu fee program study — was removed entirely between introduction and passage.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 378 (2026) — Fugitive Dust Mitigation Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed — House committee 7-1-4 (2/3/26), House floor 71-2-2 (2/12/26, Nays: Chew, Hansen), Senate committee 4-0-4 (2/19/26), Senate floor 26-0-3 (2/25/26, Consent Calendar); signed 3/25/26, effective 5/6/26</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Rep. Stephanie Gricius, Senate Sponsor Sen. Derrin R. Owens. Drafting attorney: Ryan C. Williams. Fiscal analyst: Lacey K. Moore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates an “aggregate compliance fee” the Division of Air Quality MAY impose on aggregate (rock/sand/gravel) operations based on emissions, capped by statute ($750–$4,500 depending on emissions) for one year (7/1/27–6/30/28), then set by Air Quality Board rule with no statutory cap after July 2028. Requires fugitive dust facilities to post public signage listing the facility name, permit and business ID numbers, and contact information for both the facility and the division. As introduced, the bill required every fugitive dust facility to operate under an approved dust control plan, made the compliance fee mandatory (“there is imposed” rather than “may impose”), and created a full noncompliance enforcement mechanism — written notice of noncompliance, required corrective action reports and monitoring logs, and up to three inspections a week for six weeks at a noncompliant facility (with reduced inspections for facilities with a clean three-year record). The final substitute removed the mandatory dust-control-plan requirement, the entire noncompliance enforcement mechanism, and changed the fee from mandatory to discretionary.</p><p class="bill-note">The public-signage requirement is a real, concrete transparency gain, but it's nearly all that survived. The requirement that a facility even have an approved dust-control plan before operating was removed entirely, the full noncompliance enforcement mechanism (notice, corrective action reports, monitoring logs, increased inspections) was removed entirely, and the compliance fee itself was weakened from mandatory to discretionary between introduction and passage. House floor Nays: Rep. Scott Chew and Rep. L. Hansen — Hansen's third dissenting vote on a water/environmental bill this session, after H.B. 410 and H.B. 349.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 530 (2025) — Nucleus Institute Act</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Auditor-selection language weakened, then partly restored by a floor amendment.</p>
-      <p class="bill-note">Ended in a better place than it started, but took two separate interventions to get there.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
+      <p class="bill-desc">Auditor-selection language weakened, then partly restored by a floor amendment.</p><p class="bill-note">Ended in a better place than it started, but took two separate interventions to get there.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 254 (2026)</h4>
-        <div class="badges"><span class="badge st-pending">Not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+        <h4 class="bill-title">S.B. 254 (2026) — Extracted Natural Resources Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed — Senate committee 4-1-2 (2/9/26), Senate floor 28-1-0 (2/23/26), House committee 9-0-5 (3/2/26), House floor 60-12-3 (3/5/26, as Substitute #3, still under the original title)</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Retitled from Critical Minerals to Extracted Natural Resources Amendments, scope broadened.</p>
-      <p class="bill-note">Content not fully documented — not yet assessable.</p>
+      <p class="bill-sponsor">Chief Sponsor Sen. Ann Millner, Floor Sponsor Rep. David Shallenberger. Drafting attorney: Patricia Owen (same drafter as H.B. 60/410/348/76/439). Fiscal analyst: Travis D. Eisenbacher.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Retitled from “Critical Minerals Amendments” to “Extracted Natural Resources Amendments.” Creates a statewide critical-minerals development framework: an 11-member Critical Minerals Council (state agency directors, governor appointees, a mining-industry-association president, two at-large members) with authority to designate “critical minerals zones” where counties and municipalities may not offer development incentives outside the zone system. Zones use a property-tax-differential (tax-increment) mechanism — the same structure already documented across PIDs, CRAs, and HTRZs elsewhere in this project — splitting growth revenue between a new Critical Minerals Development Account and local taxing entities. Creates fast-track, parallel permitting between DEQ and the Division of Oil, Gas, and Mining for critical-minerals projects. Creates the State Reinvestment Restricted Account, diverting severance tax revenue above set thresholds toward income tax relief, water infrastructure, Great Salt Lake preservation, transit, energy development, and critical minerals development. Appropriates roughly $25.8M combined across FY2026-27. Between introduction and final passage, the mining-exploration tax credit's caps were reduced — the per-mine aggregate cap fell from $20M to $10M (elevated cap for import-reliant minerals: $30M to $15M), and the maximum years a claimant may receive the credit fell from 20 to 10. The severance-tax-revenue transfer originally targeted for a critical-minerals-only development account was redirected to the broader, multi-purpose State Reinvestment Restricted Account instead, and the mining-industry council seat was narrowed from “a representative” to specifically “the president” of the mining association. This bill's own coordination clause references a separate “H.B. 373, Higher Education Innovation” (2026) — a different bill from the H.B. 373 (2024) Air Quality Policy Advisory Board repeal tracked elsewhere in this document, despite sharing a bill number.</p><p class="bill-note">Real stated objectives (workforce development, minerals security, Great Salt Lake and water infrastructure funding) delivered through a now-familiar structure: a new appointed council with zone-designation and tax-increment authority, local governments barred from offering incentives outside the state-controlled zone system, and a large new restricted account funded by diverted tax revenue — the same accountability pattern already documented across this project's PID/CRA/TIF cases. Every recorded vote through the House floor (Senate committee, Senate floor, House committee, House floor) happened under the bill's original “Critical Minerals Amendments” title — the retitle to “Extracted Natural Resources Amendments” and the substantive changes (reduced tax-credit caps, the funding redirect) happened the SAME DAY as the House floor vote, sometime between 10:46am and 8:09pm on 3/5/26. The House floor vote (60-12-3) is by far the most contested recorded on this bill — Nays: Arthur, Dailey-Provost, Dominguez, L. Hansen, Hayes, Hollins, Matthews, G. Miller, Moss, Nguyen, D. Owens, Romero. Rep. L. Hansen's Nay here is her FOURTH dissenting vote on a water/land/resource bill this session, after H.B. 410, H.B. 349, and H.B. 378. Sen. Nate Blouin cast the Senate's own lone dissent on both committee (4-1-2) and floor (28-1-0).</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 475 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Renamed from Economic Opportunity Coordinating Council to Economic Development Council; required oversight work group dropped two minutes before final passage.</p>
-      <p class="bill-note">Oversight mechanism removed at the last possible moment.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Calvin Roberts, Senate Sponsor Sen. Kirk A. Cullimore.</p>
+      <p class="bill-desc">Renamed from Economic Opportunity Coordinating Council to Economic Development Council; required oversight work group dropped two minutes before final passage.</p><p class="bill-note">Oversight mechanism removed at the last possible moment.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 273 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed (weakened by “the bill's own Senate sponsor,” name not captured in your files).</p>
-      <p class="bill-desc">Instructional-tech standard weakened to let general-purpose tools (Google Gemini) qualify.</p>
-      <p class="bill-note">Otherwise a genuine guardrails bill (AI standards, screen-time limits); this one standard was weakened toward a named vendor's benefit.</p>
+      <p class="bill-sponsor">Senate Sponsor Sen. Chris H. Wilson. The weakening amendment was proposed by Rep. Matt MacPherson.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Instructional-tech standard weakened to let general-purpose tools (Google Gemini) qualify.</p><p class="bill-note">Otherwise a genuine guardrails bill (AI standards, screen-time limits); this one standard was weakened toward a named vendor's benefit.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 17 (2026)</h4>
-        <div class="badges"><span class="badge st-passed">Passed, signed 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
+        <h4 class="bill-title">H.B. 17 (2026) — Public Infrastructure District Meeting Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed unanimously at every stage, signed 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">PID meeting-location bill — committee-stripped “retreat” exception (letting boards meet away from the public) was reinstated before final passage, with no record of who did it.</p>
-      <p class="bill-note">A transparency fix was quietly reversed in the final version.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Doug Welton, Senate Sponsor Sen. Brady Brammer. Recommended by the Political Subdivisions Interim Committee (legislative vote 14-1-2).</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Requires PID board meetings to be held within the district's own boundaries, with exceptions. As introduced, one of those exceptions let a board hold an unlimited-topic “retreat” once a year outside the district (with public notice, but no final action or votes other than to adjourn). A House floor amendment struck that entire retreat exception and replaced it with a narrower one: meetings may be held outside the district if the location is within the boundaries of the entity that created the PID. The enrolled (final, signed) bill text contains only the “creating entity” exception, plus the no-adequate-location and emergency-circumstances exceptions — the retreat exception is not present in the version that became law.</p><p class="bill-note">The retreat exception it replaced was narrow: once a year, planning/education only, no final action or votes allowed. What replaced it has no frequency limit, no purpose restriction, and no ban on votes or final action — a board may now meet anywhere within the boundaries of the entity that created the PID, which is typically a much larger city or county. For any PID whose creating entity is a whole county, the requirement that meetings happen “within the boundaries of the public infrastructure district” is functionally hollowed out. Beyond the loophole itself, the section contains no enforcement mechanism at all: no penalty for noncompliance, no requirement to disclose which exception a board relied on, and no reporting or audit function tied specifically to meeting location — the only reporting requirement in the section is the pre-existing general annual report to the creating entity, which wouldn't surface a violation. A requirement nobody has to disclose compliance with, and nothing enforces, isn't a functioning transparency rule. Full vote record: House committee 11-0-1, House floor 70-0-5 (1/23/26), Senate committee 5-0-3 (1/30/26), Senate 2nd reading 24-0-5 (2/5/26), Senate 3rd reading 26-0-3 (2/6/26) — zero recorded opposition at any stage, consistent with a change that reads as reasonable on its face and was never scrutinized on the floor.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -599,17 +660,23 @@
         <div class="badges"><span class="badge st-died">Died — enacting clause struck 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Rep. Jill Koford.</p>
-      <p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p>
-      <p class="bill-note">Real accountability gain.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.J.R. 7 (2026)</h4>
-        <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism as H.B. 422, same night</span><span class="badge gr-ng">Grade: N/G</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+        <h4 class="bill-title">H.J.R. 7 (2026) — Proposal to Amend Utah Constitution, Property Tax Modifications</h4>
+        <div class="badges"><span class="badge st-died">Died — no recorded committee vote found; filed 3/6/26, same 11:59pm mechanism as H.B. 422, same night</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
-      <p class="bill-sponsor">Rep. Jill Koford.</p>
-      <p class="bill-desc">Property Tax Modifications constitutional amendment.</p>
-      <p class="bill-note">Not fully documented — insufficient detail to grade.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford. Drafting attorney: Andrea Valenti Arthur. Fiscal analyst: Jared Gibbs.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">A constitutional amendment (Utah Constitution Article XIII, Section 3) that would have authorized the Legislature to exempt up to 60% of the fair market value of residential property from property tax, up from the current 45% cap. Would have required direct voter approval at the next general election, with a contingent effective date of January 1, 2027 if approved.</p><p class="bill-note">A real homeowner property-tax relief measure that, unlike most mechanisms in this tracker, would have required a direct public vote before taking effect — a higher transparency/accountability bar than typical legislation. As a constitutional amendment, it also needed a two-thirds vote in EACH chamber to reach voters at all, a far higher bar than ordinary legislation's simple majority. No analysis found of how a larger residential exemption would shift tax burden onto renters, commercial property, or local government revenue. Seen even less than most bills in this cluster: assigned to House Revenue and Taxation Committee 1/30/26, sat there over a month with no recorded vote, then was simply 'recommended returned to Rules' 3/2/26 — no committee vote tally appears anywhere in the bill's status record, unlike H.B. 422's real 5-0-2. It was killed via the same 11:59pm mechanism 3/6/26, Koford's second bill hit that same night, without ever getting a recorded committee vote, let alone the floor supermajority it needed.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 349 (2026) — Statewide Water Storage</h4>
+        <div class="badges"><span class="badge st-died">Died — passed House committee, House floor, AND Senate committee; killed via the same 11:59pm mechanism, 3/6/26</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Rep. Walt Brooks, Senate Sponsor Sen. Evan J. Vickers. Drafting attorney: Patricia Owen. Fiscal analyst: Lacey K. Moore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates a nonbinding process for the Board of Water Resources to recommend state funding for new dam/reservoir construction or capacity increases to sedimentation-affected reservoirs, with evaluation criteria and an annual report to the Natural Resources, Agriculture, and Environmental Quality Appropriations Subcommittee. As introduced, the bill instead authorized actual loans from the existing Water Infrastructure Restricted Account for these same projects, with defined repayment terms, required data verification, independent review of construction and repayment plans, regular updates to the Legislative Management Committee, and annual reporting to the Legislative Water Development Commission on loans issued and project progress. The first substitute removed the loan-authorization mechanism and all of its repayment/verification/review provisions, leaving only the nonbinding recommendation process — the “recommendations are nonbinding” clause was added at the same time the loan authority was removed.</p><p class="bill-note">The nonbinding recommendation process in the final substitute is a real but modest structure on its own terms. The version as introduced would have created an actual state loan program for water storage with real repayment and independent-verification requirements — that entire mechanism was removed before the bill ever reached a floor vote in either form. Content graded on the substitute, since that's the version that would have become law; the real-world outcome is N/A since neither version passed. Seen extensively before dying: House committee 11-0-3 (2/2/26) — Utah Rivers Council (Zachary Frankel) testified in OPPOSITION, Utah Division of Water Resources' Deputy Director testified in favor, Utah Farm Bureau Federation spoke without a stated position — then House floor 63-1-11 (2/12/26, lone dissent Rep. L. Hansen, who also cast the only No vote on H.B. 410), and Senate Natural Resources, Agriculture, and Environment Committee 4-0-3 (3/3/26, presented by Rep. Brooks, attorney Peter Gessel spoke to the bill). It still died three days later without a Senate floor vote — one of the most thoroughly-vetted bills in this cluster, with real recorded opposition, to still be killed.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -617,8 +684,7 @@
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Karen Peterson / Daniel McCay, with Katy Hall as co-sponsor.</p>
-      <p class="bill-desc">New “property tax impact schedule” disclosure requirement, paired with a 1-year enforcement grace period.</p>
-      <p class="bill-note">Real disclosure gain undercut by a built-in enforcement holiday.</p>
+      <p class="bill-desc">New “property tax impact schedule” disclosure requirement, paired with a 1-year enforcement grace period.</p><p class="bill-note">Real disclosure gain undercut by a built-in enforcement holiday.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -626,8 +692,7 @@
         <div class="badges"><span class="badge st-died">Died as its own bill number</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Jill Koford / Kirk Cullimore (floor).</p>
-      <p class="bill-desc">Land Use Regulation Revisions — died on its own, substance absorbed into S.B. 284.</p>
-      <p class="bill-note">See S.B. 284 in Tier 1 above.</p>
+      <p class="bill-desc">Land Use Regulation Revisions — died on its own, substance absorbed into S.B. 284.</p><p class="bill-note">See S.B. 284 in Tier 1.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -635,17 +700,23 @@
         <div class="badges"><span class="badge st-passed">Passed, signed under its new title</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Joseph Elison, Senate Scott Sandall; Jill Koford cosponsor on the final version.</p>
-      <p class="bill-desc">Entire subject swapped mid-bill from a national-debt resolution to a Great Salt Lake resolution, same bill number.</p>
-      <p class="bill-note">The final content is a legitimate GSL resolution, but the subject-swap mechanism itself is a transparency concern.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Entire subject swapped mid-bill from a national-debt resolution to a Great Salt Lake resolution, same bill number.</p><p class="bill-note">The final content is a legitimate GSL resolution, but the subject-swap mechanism itself is a transparency concern.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 12 (2026)</h4>
-        <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
+        <h4 class="bill-title">H.B. 163 (2020) — Cultural Stewardship Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed — House committee 11-0-2, House floor 72-0-3, Senate committee 3-0-4, Senate floor 27-0-2; signed 3/28/20, effective 5/12/20</span><span class="badge gr-a">Grade: A</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Broad sunset-extension bill that skipped renewing 4 environmental statutes.</p>
-      <p class="bill-note">See Tier 1 entry above.</p>
+      <p class="bill-sponsor">Chief Sponsor Rep. Timothy D. Hawkes, Senate Sponsor Sen. Scott D. Sandall. ~25 cosponsors. Drafting attorney: Peter Asplund. Fiscal analyst: Andrea Wilko.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates the Cultural Site Stewardship Program — recruits, trains, and certifies unpaid volunteers to monitor archaeological and paleontological sites; builds a site inventory; sets rules for reporting vandalism; runs public education; coordinates with landowners, agencies, tribes, and (added by House committee amendment) industry groups. House committee amendments also updated “Indian” to “Native American” tribes and added a savings clause preserving the division's existing duties under a separate code section. House NR&amp;E Committee hearing (2/5/20) included State Historical Preservation Office archaeologist Chris Merritt and a retired state archaeologist in support; Senate committee hearing (2/24/20) drew support from the Utah Mining Association and the Utah Rock Art Research Association.</p><p class="bill-note">A genuinely uncontroversial, broadly-supported land-stewardship program — unanimous or near-unanimous at every recorded stage, with archaeologists, citizens, the mining industry, and a rock-art preservation group all on record in favor. No SITLA connection found in any document reviewed; tracked here as a standalone cultural/land-stewardship bill rather than filling either of the two still-open SITLA cultural-sites bill number gaps.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">S.B. 12 (2026) — Sunset and Repeal Date Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Sen. Todd Weiler, House Sponsor Rep. Andrew Stoddard. Drafting attorney: Mike Curtis. Fiscal analyst: Steven M. Allred.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">As introduced, this bill did one thing: extend the sunset date of the Alternative Dispute Resolution Act from 2026 to 2036. The first substitute expanded it into an omnibus bill extending sunset/repeal dates for roughly 16 additional boards, committees, and licensing acts (State Weed Committee, Bears Ears Visitor Center Advisory Committee, Land Use and Eminent Domain Advisory Board, Rare Disease Advisory Council, Newborn Hearing Screening Committee, Mobile Crisis Outreach Team Grant Program, Behavioral Health Receiving Center Grant Program, Child Care Advisory Committee, Health Care Providers Immunity from Liability Act, Behavior Analyst Licensing Act, Behavioral Health Crisis Response Committee, Utah Commission on Aging, and more), most extended to 2029–2036, plus a $19,000 appropriation for the Rare Disease Advisory Council. In the same code section this expansion touched line by line (§63I-1-219, repeal dates under Title 19), the Air Conservation Act, Safe Drinking Water Act, Water Quality Act, and Solid and Hazardous Waste Act's July 1, 2029 repeal dates were not added to the extension list.</p><p class="bill-note">The bill grew from a single-item Alternative Dispute Resolution sunset extension into a roughly 16-item omnibus sunset bill, unchanged from its first substitute through the second that passed. Nearly every other program and licensing act in the same code sections got years added to its sunset date in that expansion — the four core environmental-protection statutes, sitting in the identical subsections, were not. THREE separate votes — Senate committee (4-0-5, 2/4/26, no testimony given — Weiler simply presented the bill and the committee moved straight to a vote), the Senate's own 2nd Reading floor vote (25-0-4, 2/20/26), AND the House Judiciary Committee (10-0-1, 2/26/26, where Seth Stewart, a resident, testified in opposition — the only opposition voice found anywhere on this bill's narrow original form) — all happened under the bill's ORIGINAL, narrow title. The substitution to the roughly 16-item omnibus bill happened sometime after 2/26/26 (the S02 compare document is dated 3/4/26), meaning no committee or floor vote in either chamber is confirmed to have specifically considered the expanded content before it became law.</p></details>
     </article>
   </section>
   <section class="tier-section">
@@ -657,36 +728,32 @@
         <h4 class="bill-title">S.B. 228 (2019)</h4>
         <div class="badges"><span class="badge st-inforce">Passed, in force</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Chief Sponsor Sen. Daniel McCay, House Sponsor Rep. James A. Dunnigan.</p>
       <p class="bill-desc">Foundational Public Infrastructure District Act.</p>
-      <p class="bill-note">Your existing grade.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">S.B. 197 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       <p class="bill-desc">HTRZ/RDA/UFAIR increment-distribution rewrite plus anonymous base-year floor amendment.</p>
-      <p class="bill-note">Your existing grade.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">S.B. 242 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       <p class="bill-desc">Weber County 0.2% sales tax enabling statute plus deleted tow-data privacy protection.</p>
-      <p class="bill-note">Your existing grade.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 77 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       
-      <p class="bill-note">Your existing grade.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -695,7 +762,6 @@
       </div>
       <p class="bill-sponsor">Sen. Daniel McCay.</p>
       <p class="bill-desc">Income Tax Rate Amendments — House committee vote 8-2-1, not unanimous.</p>
-      <p class="bill-note">Not deeply documented beyond the split vote; treat as provisional.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -704,48 +770,43 @@
       </div>
       <p class="bill-sponsor">Cal Roberts, Senate Brady Brammer.</p>
       <p class="bill-desc">Fuel Tax and Supply Amendments — new refinery-data secrecy regime (protected record + confidential commercial info + trade secret, GRAMA-exempt); gas tax cut paired with an alternative-fuel tax hike.</p>
-      <p class="bill-note">Your existing grade, and the newer of two on file — the taxation-for-beginners page originally graded this C+, then it was re-graded down to D on 9/9/26 after the refinery-secrecy provision was found. Using D as current.</p>
     </article>
     <div class="group-block">
       <div class="group-label">GROUP — Baseline Taxation Bills</div>
-      <p class="group-note">Part of the existing taxation-for-beginners baseline; each gets its own grade line since each needs its own future research pass.</p>
+      <p class="group-note">Part of the existing taxation baseline; each needs its own future research pass.</p>
       
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 106 (year not yet confirmed)</h4>
+        <h4 class="bill-title">H.B. 106 (year not identified)</h4>
         <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 333 (year not yet confirmed)</h4>
+        <h4 class="bill-title">S.B. 333 (year not identified)</h4>
         <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 69 (year not yet confirmed)</h4>
+        <h4 class="bill-title">S.B. 69 (year not identified)</h4>
         <div class="badges"><span class="badge st-passed">Passed (baseline list, not yet individually detailed)</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
       
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     </div>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 562 (2026?) (UFAIR)</h4>
-        <div class="badges"><span class="badge st-pending">Not yet confirmed — marked “Not graded” in your own tracker</span><span class="badge gr-ng">Grade: N/G</span></div>
+        <h4 class="bill-title">H.B. 562 (2024) (UFAIR)</h4>
+        <div class="badges"><span class="badge st-pending">Status not identified — marked “Not graded” in the baseline tracker</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      
-      <p class="bill-note">Your own status.</p>
+      <p class="bill-sponsor">Bill Sponsor Rep. Ryan D. Wilcox, Floor Sponsor Sen. Lincoln Fillmore, Substitute Sponsor Rep. Ryan D. Wilcox. Cosponsors: Albrecht, Ballard, Barlow, Burton, Clancy, Gwynn, Hayes, Hollins, Lesser, Lisonbee, Lund, Moss, V. Peterson, Rohner, Romero, Stoddard.</p>
+      <p class="bill-desc">Utah Fairpark Area Investment and Restoration District Amendments.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -754,7 +815,6 @@
       </div>
       <p class="bill-sponsor">Chief Wayne Harper, House R. Neil Walter.</p>
       <p class="bill-desc">TIF disclosure — timing requirement weakened between substitutes (before → after authorization).</p>
-      <p class="bill-note">Your existing grade.</p>
     </article>
   </section>
   <section class="tier-section">
@@ -767,8 +827,7 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/17/25</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Sen. Keith Grover, no cosponsors listed. Cap exemption added by Rep. Matt MacPherson's committee amendment.</p>
-      <p class="bill-desc">Exempted reorganized-district lease revenue bonds from the borrowing cap via an unrecorded voice vote. Alpine's $201M followed.</p>
-      <p class="bill-note">Major debt-capacity change made via voice vote with no recorded roll call.</p>
+      <p class="bill-desc">Exempted reorganized-district lease revenue bonds from the borrowing cap via an unrecorded voice vote. Alpine's $201M followed.</p><p class="bill-note">Major debt-capacity change made via voice vote with no recorded roll call.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -776,8 +835,7 @@
         <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism, 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Rep. Tiara Auxier.</p>
-      <p class="bill-desc">Would have required voter approval before a school district issues a lease revenue bond.</p>
-      <p class="bill-note">Direct fix for S.B. 188's gap.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required voter approval before a school district issues a lease revenue bond.</p><p class="bill-note">Direct fix for S.B. 188's gap. Heard in House Political Subdivisions Committee, where three school-district officials testified against it; the committee unanimously recommended a substitute, then unanimously voted to hold it in the same meeting, before it was killed without ever getting a floor vote.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -785,8 +843,7 @@
         <div class="badges"><span class="badge st-vetoed">Passed the Legislature, then VETOED by Gov. Cox</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Sen. Lincoln Fillmore.</p>
-      <p class="bill-desc">Would have rerouted minimum basic property tax levy through a new state fund.</p>
-      <p class="bill-note">As designed, centralizes control of locally-raised education money.</p>
+      <p class="bill-desc">Would have rerouted minimum basic property tax levy through a new state fund.</p><p class="bill-note">As designed, centralizes control of locally-raised education money.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -794,8 +851,7 @@
         <div class="badges"><span class="badge st-died">Died — no House floor vote, filed 3/6/26</span><span class="badge gr-d">Grade: D</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Lincoln Fillmore (chief), Val L. Peterson (House).</p>
-      <p class="bill-desc">Same concept as S.B. 37, reattempted.</p>
-      <p class="bill-note">Same concern as S.B. 37.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Same concept as S.B. 37, reattempted.</p><p class="bill-note">Same concern as S.B. 37. Passed a full Senate floor vote (18-11) after a Senate committee hearing with opposition testimony, but was never substantively heard in the House — placed last on a seven-bill committee agenda, only “introduced” with no presentation or discussion, before that meeting adjourned and the bill was later killed.</p></details>
     </article>
   </section>
   <section class="tier-section">
@@ -808,8 +864,7 @@
         <div class="badges"><span class="badge st-pending">Stalled/absorbed, likely died independently</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox.</p>
-      <p class="bill-desc">School Cybersecurity Amendments — substance appears folded into H.B. 44.</p>
-      <p class="bill-note">Not separately assessable — see H.B. 44.</p>
+      <p class="bill-desc">School Cybersecurity Amendments — substance appears folded into H.B. 44.</p><p class="bill-note">Not separately assessable — see H.B. 44.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -817,8 +872,7 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/19/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox, Senate Ann Millner.</p>
-      <p class="bill-desc">School Security Personnel Standards — device restrictions, new “AI glasses” definition, new Cybersecurity Commission appointment power.</p>
-      <p class="bill-note">Genuine security/oversight content, offset by a drafting conflict with S.B. 123 that leaves actual commission membership unresolved.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">School Security Personnel Standards — device restrictions, new “AI glasses” definition, new Cybersecurity Commission appointment power.</p><p class="bill-note">Genuine security/oversight content, offset by a drafting conflict with S.B. 123 that leaves actual commission membership unresolved.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -826,8 +880,7 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/17/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Wayne A. Harper, House Ryan D. Wilcox.</p>
-      <p class="bill-desc">Privacy and Cybersecurity Amendments — expands duties to cover LEAs, adds a UETN seat.</p>
-      <p class="bill-note">Same drafting-conflict issue as H.B. 44.</p>
+      <p class="bill-desc">Privacy and Cybersecurity Amendments — expands duties to cover LEAs, adds a UETN seat.</p><p class="bill-note">Same drafting-conflict issue as H.B. 44.</p>
     </article>
   </section>
   <section class="tier-section">
@@ -840,17 +893,15 @@
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Christine Watkins / Ronald Winterton.</p>
-      <p class="bill-desc">Navajo Trust Fund Amendments — new GRAMA exemption, downgraded reporting detail, no evidence of tribal consultation.</p>
-      <p class="bill-note">New secrecy exemption plus reduced reporting to the tribe itself.</p>
+      <p class="bill-desc">Navajo Trust Fund Amendments — new GRAMA exemption, downgraded reporting detail, no evidence of tribal consultation.</p><p class="bill-note">New secrecy exemption plus reduced reporting to the tribe itself.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 75 (2026)</h4>
-        <div class="badges"><span class="badge st-pending">Committee-passed 9-0-2; final floor status not yet confirmed</span><span class="badge gr-a">Grade: A</span></div>
+        <div class="badges"><span class="badge st-pending">Committee-passed 9-0-2; final floor status not identified</span><span class="badge gr-a">Grade: A</span></div>
       </div>
       <p class="bill-sponsor">Watkins/Winterton, same pair and committee as H.B. 61.</p>
-      <p class="bill-desc">Opposite pattern from H.B. 61 — adds a reporting category, requires state board presentation, adds mandatory tribal-consultation language.</p>
-      <p class="bill-note">A genuine accountability gain — useful contrast to H.B. 61.</p>
+      <p class="bill-desc">Opposite pattern from H.B. 61 — adds a reporting category, requires state board presentation, adds mandatory tribal-consultation language.</p><p class="bill-note">A genuine accountability gain — useful contrast to H.B. 61.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -859,38 +910,34 @@
       </div>
       <p class="bill-sponsor">Rep. Angela Romero.</p>
       <p class="bill-desc">Murdered and Missing Indigenous Relatives (MMIR) Amendments.</p>
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     <article class="bill-card">
       <div class="bill-head">
         <h4 class="bill-title">H.B. 52 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
       </div>
-      <p class="bill-sponsor">Not yet confirmed.</p>
-      <p class="bill-desc">Tribal Endorsement of Utah Driver License Amendments.</p>
-      <p class="bill-note">Expands an individual right with no power-removal concern identified.</p>
+      <p class="bill-sponsor">Sponsor not identified.</p>
+      <p class="bill-desc">Tribal Endorsement of Utah Driver License Amendments.</p><p class="bill-note">Expands an individual right with no power-removal concern identified.</p>
     </article>
     <div class="group-block">
       <div class="group-label">GROUP — SITLA Cultural/Scientific Sites Bills (Shipp/Stratton)</div>
-      <p class="group-note">Two separate bills found only via a Preservation Utah legislative roundup — bill numbers not yet confirmed, so each is a placeholder line until pulled individually.</p>
+      <p class="group-note">Two separate bills found via a Preservation Utah legislative roundup; bill numbers not identified.</p>
       
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">SITLA Culturally/Scientifically Significant Sites Nomination Bill (2026?)</h4>
-        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+        <h4 class="bill-title">SITLA Culturally/Scientifically Significant Sites Nomination Bill (year not identified)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not identified</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
       <p class="bill-sponsor">Shipp / Stratton.</p>
       
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">Cultural Site Stewardship Program Bill (2026?)</h4>
-        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not yet confirmed</span><span class="badge gr-ng">Grade: N/G</span></div>
+        <h4 class="bill-title">Cultural Site Stewardship Program Bill (year not identified)</h4>
+        <div class="badges"><span class="badge st-pending">Not yet reviewed, bill number not identified</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
-      <p class="bill-sponsor">Shipp / Stratton (unconfirmed whether same sponsors as above — needs checking).</p>
+      <p class="bill-sponsor">Shipp / Stratton (unconfirmed whether same sponsors as above).</p>
       
-      <p class="bill-note">Not yet assessable.</p>
     </article>
     </div>
   </section>
@@ -904,8 +951,48 @@
         <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
       </div>
       <p class="bill-sponsor">Rep. Tiara Auxier.</p>
-      <p class="bill-desc">Privacy Compliance for Education Technology Vendors — stricter audits/termination, following the BYU/Internet Safety Labs study (52% of DPA-covered apps over-collected data).</p>
-      <p class="bill-note">Genuine accountability gain, though the underlying board rule (R277-487) still lets vendors avoid real independent audits by default.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Privacy Compliance for Education Technology Vendors — stricter audits/termination, following the BYU/Internet Safety Labs study (52% of DPA-covered apps over-collected data).</p><p class="bill-note">Genuine accountability gain, though the underlying board rule (R277-487) still lets vendors avoid real independent audits by default.</p></details>
+    </article>
+  </section>
+
+  <div class="major-divider"><div class="line"></div><span>What Didn't Make It</span></div>
+
+
+  <section class="tier-section">
+    <h3 class="tier-title">Bills That Didn't Pass — But Would Have Been Good for the State</h3>
+    <p class="section-blurb">Graded B or higher on content alone, and killed anyway — mostly via the same 11:59pm enacting-clause-strike mechanism at the end of the 2026 session. These aren't bills we're neutral on; the record suggests the state would be better off had they passed.</p>
+    
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 422 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — enacting clause struck 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Jill Koford.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 332 (2026)</h4>
+        <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism, 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Rep. Tiara Auxier.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required voter approval before a school district issues a lease revenue bond.</p><p class="bill-note">Direct fix for S.B. 188's gap. Heard in House Political Subdivisions Committee, where three school-district officials testified against it; the committee unanimously recommended a substitute, then unanimously voted to hold it in the same meeting, before it was killed without ever getting a floor vote.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.J.R. 7 (2026) — Proposal to Amend Utah Constitution, Property Tax Modifications</h4>
+        <div class="badges"><span class="badge st-died">Died — no recorded committee vote found; filed 3/6/26, same 11:59pm mechanism as H.B. 422, same night</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford. Drafting attorney: Andrea Valenti Arthur. Fiscal analyst: Jared Gibbs.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">A constitutional amendment (Utah Constitution Article XIII, Section 3) that would have authorized the Legislature to exempt up to 60% of the fair market value of residential property from property tax, up from the current 45% cap. Would have required direct voter approval at the next general election, with a contingent effective date of January 1, 2027 if approved.</p><p class="bill-note">A real homeowner property-tax relief measure that, unlike most mechanisms in this tracker, would have required a direct public vote before taking effect — a higher transparency/accountability bar than typical legislation. As a constitutional amendment, it also needed a two-thirds vote in EACH chamber to reach voters at all. No recorded committee vote found anywhere in its status history — assigned to House Revenue and Taxation 1/30/26, then simply returned to Rules 3/2/26 with no tally shown, before being killed 3/6/26.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title">H.B. 349 (2026) — Statewide Water Storage</h4>
+        <div class="badges"><span class="badge st-died">Died — passed House committee, House floor, AND Senate committee; killed via the same 11:59pm mechanism, 3/6/26</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
+      </div>
+      <p class="bill-sponsor">Chief Sponsor Rep. Walt Brooks, Senate Sponsor Sen. Evan J. Vickers. Drafting attorney: Patricia Owen. Fiscal analyst: Lacey K. Moore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">As introduced, would have authorized actual state loans from the existing Water Infrastructure Restricted Account for new dam/reservoir construction and capacity increases to sedimentation-affected reservoirs, with real repayment terms, required data verification, independent review, and annual reporting to the Legislative Water Development Commission. The first substitute stripped the loan authority down to a nonbinding recommendation process before the bill died — so even the version that reached final votes was already a diminished remnant of the original.</p><p class="bill-note">Seen and supported at every formal stage — House committee 11-0-3, House floor 63-1-11, Senate committee 4-0-3 — with real recorded opposition (Utah Rivers Council) on the record, and it still died without ever getting a Senate floor vote.</p></details>
     </article>
   </section>
 
