@@ -84,25 +84,29 @@
   }
 
   .full-tracker-link{
-    display:inline-flex;
+    display:flex;
+    width:fit-content;
     align-items:center;
-    gap:6px;
-    margin-top:14px;
-    margin-left:0;
+    gap:8px;
+    margin-top:20px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.03em;
-    color:var(--manila);
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--navy-deep);
     text-decoration:none;
-    border:1px solid rgba(217,201,163,0.3);
-    border-radius:20px;
-    padding:6px 14px;
-    background:rgba(255,255,255,0.04);
-    transition:background 0.15s ease, border-color 0.15s ease;
+    border:none;
+    border-radius:6px;
+    padding:14px 24px;
+    background:var(--gold);
+    box-shadow:0 6px 16px -4px rgba(169,130,47,0.5);
+    transition:background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
   .full-tracker-link:hover{
-    background:rgba(255,255,255,0.09);
-    border-color:var(--gold);
+    background:#C29A3D;
+    transform:translateY(-1px);
+    box-shadow:0 10px 22px -4px rgba(169,130,47,0.6);
   }
 
   /* Bill count stat block — animated count-up, mirrors the main tracker's masthead stat */
