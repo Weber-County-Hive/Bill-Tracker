@@ -19,6 +19,11 @@
 //              added later. Use sparingly — meant for a single flagship
 //              case, not a general "featured" list. Omit (or false) for
 //              every normal case.
+// grade:       the Overall letter grade (A–F) from that case's own linked
+//              page — must match exactly what the case-file page itself
+//              states, never invented here. Only add this field once you've
+//              confirmed the grade inside the actual linked page; leave it
+//              off entirely rather than guess. Shown as a badge on the card.
 const BILLS = [
   {
     caseNumber: "CASE 2026-249",
@@ -198,6 +203,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-286",
+    grade: "F",
     bill: "H.B. 286",
     year: "2026",
     title: "The Bill the White House Helped Kill — AI Transparency Act",
@@ -210,6 +216,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-017",
+    grade: "F",
     bill: "H.B. 17",
     year: "2026",
     title: "The Loophole That Replaced the Loophole",
@@ -222,6 +229,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-349",
+    grade: "B",
     bill: "H.B. 349",
     year: "2026",
     title: "The Loan Program That Got Downgraded to a Suggestion",
@@ -234,6 +242,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-378",
+    grade: "D",
     bill: "H.B. 378",
     year: "2026",
     title: "The Dust Rule With No Rules Left",
@@ -246,6 +255,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-012",
+    grade: "F",
     bill: "S.B. 12",
     year: "2026",
     title: "Sixteen Extensions, Four Exceptions",
@@ -258,6 +268,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-254",
+    grade: "D",
     bill: "S.B. 254",
     year: "2026",
     title: "Renamed, Recut, and Redirected in Nine Hours",
@@ -270,6 +281,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-HJR7",
+    grade: "B",
     bill: "H.J.R. 7",
     year: "2026",
     title: "Never Got Its Vote",
@@ -282,6 +294,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2026-509",
+    grade: "F",
     bill: "H.B. 509",
     year: "2026",
     title: "From Protection to Just a Study",
@@ -294,6 +307,7 @@ const BILLS = [
   },
   {
     caseNumber: "CASE 2020-163",
+    grade: "A",
     bill: "H.B. 163",
     year: "2020",
     title: "The One That Actually Worked",
