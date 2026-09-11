@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-017 — H.B. 17, The Loophole That Replaced the Loophole — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">← Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-017</span>
+  <p class="eyebrow">H.B. 17 · 2026 General Session</p>
+  <h1>The Loophole That Replaced the Loophole</h1>
+  <p class="dek">A rule requiring public infrastructure district board meetings inside their own district looked like a real fix once the old &ldquo;annual retreat&rdquo; exception was removed &mdash; but what replaced it lets a board meet anywhere in the much larger city or county that created it, with no limit on how often, and nothing that requires anyone to say when they've used it.</p>
+  <div class="stampline">
+    <span>Chief Sponsor: <strong>Rep. Doug Welton</strong></span><span>Senate Sponsor: <strong>Sen. Brady Brammer</strong></span>
+    <span>Effective: <strong>May 6, 2026</strong></span>
+    <span class="stamp-status law">Became Law</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">A Public Infrastructure District (PID) is a small government created to pay for things like roads and sewer lines in a new development — with the power to issue its own debt and set its own budget.</p>
+    <p>This bill said a PID's board has to hold its meetings inside its own district. That's a real rule for public access.</p>
+    <p>But the bill also lists exceptions. As introduced, one exception let a board meet outside the district once a year, for planning only, with no votes allowed. A House floor amendment removed that exception — but replaced it with one that lets a board meet anywhere inside the much bigger city or county that created it, any time, taking real votes. And nothing in the law requires the board to explain when it's used that exception, or checks how often it does.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th colspan="2">As Introduced</th></tr></thead><tbody><tr><td>Exception for meeting outside the district</td><td>Once a year, for planning/education only, no final action or votes, public notice required</td></tr></tbody><thead><tr><th colspan="2">Replaced By a House Floor Amendment</th></tr></thead><tbody><tr><td>New exception</td><td>Any meeting may be held within the boundaries of the entity that created the PID &mdash; no frequency limit, no purpose restriction, votes allowed</td></tr></tbody><thead><tr><th colspan="2">What's Actually Enforced</th></tr></thead><tbody><tr><td>Reporting requirement</td><td>None specific to meeting location. Only the district's pre-existing general annual report to its creating entity &mdash; which would not surface a violation.</td></tr></tbody></table>
+  </section>
+
+  <section id="timeline">
+    <h2>A Quiet, Unanimous Path to a Real Loophole</h2>
+    <div class="flow"><div class="flow-step"><span class="fdate">Jan 21</span>House Comm. 11-0-1</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Jan 23</span>House Floor 70-0-5</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Jan 30</span>Senate Comm. 5-0-3</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Feb 5</span>Senate 2nd 24-0-5</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Feb 6</span>Senate 3rd 26-0-3</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">May 6</span>Signed</div></div>
+    <ul class="timeline"><li><span class="date">Jan 21, 2026</span>House committee adopts amendments &mdash; including the retreat-exception swap described above &mdash; and gives the bill a favorable recommendation, 11-0-1.</li><li><span class="date">Jan 23, 2026</span>Passes the House floor 70-0-5.</li><li><span class="date">Jan 30 &amp;ndash; Feb 6, 2026</span>Passes Senate committee and both floor readings, 5-0-3, 24-0-5, and 26-0-3 &mdash; zero recorded opposition at any stage in either chamber.</li><li><span class="date">May 6, 2026</span>Signed into law.</li></ul>
+  </section>
+
+  
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>The Rule As It Reads</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Requires PID boards to meet inside their own district</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">A specific, clear geographic boundary</span></div>
+        <div class="grade-final"><span class="grade-badge b">B</span><p style="margin:0;">On its face, a real requirement with a clear boundary.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>What The Exception Actually Allows</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">A PID whose creating entity is a whole county can meet anywhere in that county, any time, with full voting power</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">No penalty, no disclosure, no audit tied to meeting location</span></div>
+        <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">The requirement survives in name only. A narrow exception was traded for a broader one, and neither version of the law has any way to check compliance.</p></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill f">F</span></td><td>A geographic boundary requirement was replaced with an exception broad enough to cover an entire county &mdash; the check on where a board can meet is functionally gone.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill f">F</span></td><td>No requirement to disclose when the exception is used, and no audit or penalty tied to meeting location.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>This bill doesn't touch how a PID raises or spends money.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not applicable to a meeting-location rule.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Residents near a PID lose the practical ability to observe board meetings if the board chooses to meet elsewhere in a large creating county.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge f">F</span><p>A transparency requirement that reads well and enforces nothing.</p></div>
+    
+  </section>
+  
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <p>The bill didn't need to choose between the old retreat exception and the new creating-entity exception. A version that actually protected the public could have:</p>
+    <ul class="plain"><li>Kept the exception narrow and specific &mdash; limited to a defined radius around the district, not the entire boundary of whatever city or county happens to have created it</li><li>Required a board to publicly state, in its own meeting notice, which exception it's relying on and why, every time it meets outside the district</li><li>Required an annual public report specifically listing every out-of-district meeting held that year &mdash; not buried inside a general annual report that doesn't mention location at all</li><li>Made a decision reached at an out-of-district meeting void if the board can't show one of the stated exceptions actually applied</li></ul>
+  </section>
+
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources ▸</span><span class="hide">Hide sources ▾</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>H.B. 17, official bill text (introduced, amended, and enrolled versions) &mdash; le.utah.gov</li><li>H.B. 17 voting record &mdash; le.utah.gov Bill Status/Votes page</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-349 — H.B. 349, The Loan Program That Got Downgraded to a Suggestion — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">← Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-349</span>
+  <p class="eyebrow">H.B. 349 · 2026 General Session</p>
+  <h1>The Loan Program That Got Downgraded to a Suggestion</h1>
+  <p class="dek">As introduced, this bill would have let the state loan real money to build or expand dam and reservoir capacity, with repayment terms and independent review. A substitute stripped all of that to a nonbinding recommendation &mdash; and even that watered-down version still died at 11:59 p.m. without ever reaching a Senate floor vote.</p>
+  <div class="stampline">
+    <span>Chief Sponsor: <strong>Rep. Walt Brooks</strong></span><span>Senate Sponsor: <strong>Sen. Evan J. Vickers</strong></span>
+    <span>Effective: <strong>Would have been May 6, 2026</strong></span>
+    <span class="stamp-status failed">Failed</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">Utah wanted a way to help pay for new dams and reservoirs, and to fix old ones that have filled up with sediment.</p>
+    <p>The bill as written would have let the state actually loan money for these projects, with real payback terms, a review process to double-check the numbers, and reports the Legislature could see every year.</p>
+    <p>Before it ever got a final vote, a substitute stripped the loan program down to just an idea. The Board of Water Resources could recommend a project to the Legislature &mdash; but couldn't actually offer anyone a loan.</p>
+    <p>Even that weaker version &mdash; after passing a House committee, the full House, and a Senate committee &mdash; still died in the last hours of the session without ever getting a Senate floor vote.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th colspan="2">As Introduced</th></tr></thead><tbody><tr><td>Loan authority</td><td>Real loans from the Water Infrastructure Restricted Account, with defined repayment terms</td></tr><tr><td>Oversight</td><td>Required data verification, independent review of construction and repayment plans, regular Legislative Management Committee updates</td></tr><tr><td>Reporting</td><td>Annual report to the Legislative Water Development Commission on loans issued and project progress</td></tr></tbody><thead><tr><th colspan="2">After the First Substitute (What Actually Reached a Vote)</th></tr></thead><tbody><tr><td>Loan authority</td><td>Removed entirely</td></tr><tr><td>What's left</td><td>The Board of Water Resources may recommend a project to the Legislature &mdash; a nonbinding suggestion only</td></tr><tr><td>Oversight</td><td>None of the original verification, review, or reporting requirements survived</td></tr></tbody></table>
+  </section>
+
+  <section id="timeline">
+    <h2>Thoroughly Vetted, Then Killed Anyway</h2>
+    <div class="flow"><div class="flow-step"><span class="fdate">Feb 2</span>House Comm. 11-0-3</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Feb 12</span>House Floor 63-1-11</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Mar 3</span>Senate Comm. 4-0-3</div><div class="flow-arrow">→</div><div class="flow-step hot"><span class="fdate">Mar 6, 11:59 PM</span>Enacting clause struck</div></div>
+    <ul class="timeline"><li><span class="date">Feb 2, 2026</span>House committee hears the bill. Utah Rivers Council's Zachary Frankel testifies in opposition &mdash; the only recorded opposition found anywhere in this bill's path. Passes 11-0-3.</li><li><span class="date">Feb 12, 2026</span>Passes the House floor 63-1-11. The lone No vote, Rep. L. Hansen, would go on to cast the only recorded No vote on three more water and land bills before the session ended.</li><li><span class="date">Mar 3, 2026</span>Passes Senate committee 4-0-3.</li><li class="flag"><span class="date">Mar 6, 2026, 11:59 PM</span>Enacting clause struck by the Clerk of the House. The bill never received a Senate floor vote.</li></ul>
+  </section>
+
+  
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>As Introduced</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Creates a real state financing tool for water infrastructure, with independent checks on how it's used</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Required annual reporting to a legislative oversight commission</span></div>
+        <div class="grade-final"><span class="grade-badge a">A</span><p style="margin:0;">A genuine funding mechanism with real accountability built in.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>As It Happened</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Even the diminished, recommendation-only version never became law &mdash; killed without a floor vote</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Died via the same enacting-clause-strike mechanism used on several other bills the same night, with no public explanation</span></div>
+        <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">Seen and supported at every formal stage, including real opposition testimony on the record &mdash; and still killed in the dark.</p></div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill a">A</span></td><td>Would have created a real state financing tool for water infrastructure, with independent review built in.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill a">A</span></td><td>Required annual reporting to a legislative oversight commission on loans issued and progress.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill b">B</span></td><td>Real repayment terms and required data verification &mdash; a genuine, if modest, financing structure.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>Helps fund water storage broadly but doesn't itself weigh the tradeoffs of new dam construction.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>No community-specific provisions in the bill text.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge b">B</span><p>A real, accountable funding mechanism &mdash; graded on content only, since the bill never became law.</p></div>
+    
+  </section>
+  
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Helped the Public</h2>
+    <p>The version as introduced was the stronger public-benefit bill. If lawmakers had concerns about it, there were ways to address them without eliminating the loan program entirely:</p>
+    <ul class="plain"><li>Keep the loan authority, but add whatever fiscal guardrails or approval thresholds critics wanted &mdash; rather than removing the mechanism outright</li><li>Require any substitute that strips a bill's central funding mechanism to get its own committee hearing, specifically on that removal, before reaching the floor</li><li>If the loan program truly needed more study, pass a one-year pilot version with real reporting requirements instead of downgrading it to a recommendation with no funding behind it at all</li></ul>
+  </section>
+
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources ▸</span><span class="hide">Hide sources ▾</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>H.B. 349, official bill text (introduced and 1st substitute) &mdash; le.utah.gov</li><li>House Natural Resources, Agriculture, and Environment Committee, official minutes, Feb. 2, 2026</li><li>Senate Natural Resources, Agriculture, and Environment Committee, official minutes, Mar. 3, 2026</li><li>H.B. 349 House floor roll call, Feb. 12, 2026</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>
