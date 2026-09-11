@@ -5,10 +5,20 @@
 // IMPORTANT: the "link" value below must exactly match the real
 // filename of the case-file page you upload to GitHub.
 //
-// status: "law" | "vetoed" | "failed" | "pending"  (controls stamp color/text)
-// year:   the session year this case is filed under. For multi-bill
-//         cases spanning two sessions, use the year the case actually
-//         resolved (signed/failed), not the year it was introduced.
+// status:      "law" | "vetoed" | "failed" | "pending"  (controls stamp color/text)
+// year:        the session year this case is filed under. For multi-bill
+//              cases spanning two sessions, use the year the case actually
+//              resolved (signed/failed), not the year it was introduced.
+// lastUpdated: the date this case entry (or its linked case-file page) was
+//              last verified/edited — shown on the card and searchable.
+//              Format as shown below ("Mon D, YYYY"). NOTE: cases filed
+//              before Sep 11, 2026 do not yet have this field backfilled —
+//              add it the next time each of those is touched.
+// pinned:      true keeps a case permanently at the very top of the docket,
+//              above all year groups, regardless of how many new cases get
+//              added later. Use sparingly — meant for a single flagship
+//              case, not a general "featured" list. Omit (or false) for
+//              every normal case.
 const BILLS = [
   {
     caseNumber: "CASE 2026-249",
@@ -195,6 +205,103 @@ const BILLS = [
     tags: ["Federalism", "AI Policy", "Process Concern", "Child Safety"],
     status: "failed",
     voteLine: "Committee 8–0–2 favorable · Circled Feb 5 · Enacting clause struck 11:59 PM Mar 6, 2026",
-    link: "weber-hive-hb286.html"
+    link: "weber-hive-hb286.html",
+    pinned: true
+  },
+  {
+    caseNumber: "CASE 2026-017",
+    bill: "H.B. 17",
+    year: "2026",
+    title: "The Loophole That Replaced the Loophole",
+    summary: "A rule requiring public infrastructure district board meetings inside their own district looked like a real fix once the old \"annual retreat\" exception was removed — but what replaced it lets a board meet anywhere in the much larger city or county that created it, with no limit on how often, and nothing that requires anyone to say when they've used it.",
+    tags: ["PID", "Public Infrastructure Districts", "Open Meetings", "Process Concern", "Enforcement Gap"],
+    status: "law",
+    voteLine: "House 70–0–5 · Senate 26–0–3 · Signed May 6, 2026",
+    link: "weber-hive-hb17.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-349",
+    bill: "H.B. 349",
+    year: "2026",
+    title: "The Loan Program That Got Downgraded to a Suggestion",
+    summary: "As introduced, this bill would have let the state loan real money to build or expand dam and reservoir capacity, with repayment terms and independent review. A substitute stripped all of that to a nonbinding recommendation — and even that watered-down version still died at 11:59 p.m. without ever reaching a Senate floor vote.",
+    tags: ["Water Infrastructure", "Process Concern", "Died in Session", "Killed at Midnight"],
+    status: "failed",
+    voteLine: "House Committee 11–0–3 · House 63–1–11 · Senate Committee 4–0–3 · Enacting clause struck 11:59 PM Mar 6, 2026",
+    link: "weber-hive-hb349.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-378",
+    bill: "H.B. 378",
+    year: "2026",
+    title: "The Dust Rule With No Rules Left",
+    summary: "The introduced bill required every dust-producing facility to operate under an approved control plan and imposed a mandatory compliance fee with real enforcement. What became law kept only a public-signage requirement and an optional fee the state isn't required to ever charge.",
+    tags: ["Air Quality", "Aggregate Industry", "Process Concern", "Enforcement Gap"],
+    status: "law",
+    voteLine: "House Committee 7–1–4 · House 71–2–2 · Senate 26–0–3 · Signed Mar 25, 2026",
+    link: "weber-hive-hb378.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-012",
+    bill: "S.B. 12",
+    year: "2026",
+    title: "Sixteen Extensions, Four Exceptions",
+    summary: "Introduced as a single-issue bill extending one committee's sunset date, a substitute quietly grew it into an omnibus extending roughly sixteen more programs by years — while leaving Utah's Air Conservation Act, Safe Drinking Water Act, Water Quality Act, and Solid and Hazardous Waste Act to expire on schedule, in the same section, untouched.",
+    tags: ["Sunset Law", "Environmental Statutes", "Process Concern", "Scope Expansion"],
+    status: "law",
+    voteLine: "Senate Committee 4–0–5 · Senate 25–0–4 · House Committee 10–0–1 · Signed, effective May 6, 2026",
+    link: "weber-hive-sb12.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-254",
+    bill: "S.B. 254",
+    year: "2026",
+    title: "Renamed, Recut, and Redirected in Nine Hours",
+    summary: "A critical-minerals bill passed both chambers' floors under one name and one set of numbers — then, in a roughly nine-hour window the same day, was retitled, had its tax-credit caps cut, and had its funding stream redirected to a broader account, without ever going back through a floor vote on what actually changed.",
+    tags: ["Critical Minerals", "Tax Increment", "Mining Industry", "Process Concern"],
+    status: "law",
+    voteLine: "Senate Committee 4–1–2 · Senate 28–1–0 · House Committee 9–0–5 · House 60–12–3",
+    link: "weber-hive-sb254.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-HJR7",
+    bill: "H.J.R. 7",
+    year: "2026",
+    title: "Never Got Its Vote",
+    summary: "A constitutional amendment to let homeowners exempt up to 60% of their home's value from property tax needed a two-thirds vote in each chamber just to reach the ballot. No record shows it ever getting a committee vote at all before it was killed at 11:59 p.m.",
+    tags: ["Property Tax", "Constitutional Amendment", "Died in Session", "Killed at Midnight"],
+    status: "failed",
+    voteLine: "No recorded committee vote found · Enacting clause struck 11:59 PM Mar 6, 2026",
+    link: "weber-hive-hjr7.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-509",
+    bill: "H.B. 509",
+    year: "2026",
+    title: "From Protection to Just a Study",
+    summary: "Introduced as \"Wetlands Protection Modifications,\" this bill was narrowed to a study only — scope cut from statewide to the state's largest counties, its acreage baseline and species-impact provisions struck, and a required study on a real wetland-mitigation funding mechanism removed entirely before passage.",
+    tags: ["Wetlands", "Environmental Statutes", "Process Concern", "Scope Narrowed"],
+    status: "law",
+    voteLine: "Signed, effective May 6, 2026",
+    link: "weber-hive-hb509.html",
+    lastUpdated: "Sep 11, 2026"
+  },
+  {
+    caseNumber: "CASE 2020-163",
+    bill: "H.B. 163",
+    year: "2020",
+    title: "The One That Actually Worked",
+    summary: "A volunteer archaeological and paleontological site-monitoring program passed near-unanimously at every stage, with archaeologists, citizens, and even the mining industry on record in support — a rare case in this docket where the process held up start to finish.",
+    tags: ["Cultural Sites", "Public Lands", "Volunteer Program"],
+    status: "law",
+    voteLine: "House 72–0–3 · Senate 27–0–2 · Signed Mar 28, 2020",
+    link: "weber-hive-hb163.html",
+    lastUpdated: "Sep 11, 2026"
   }
 ];

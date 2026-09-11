@@ -210,6 +210,33 @@
     border-bottom:2px solid var(--gold);
     padding-bottom:10px;
   }
+
+  /* Pinned case section — sits above all year groups, always */
+  .pinned-section{
+    margin-bottom:44px;
+  }
+  .pinned-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:22px;
+    border-bottom:2px solid var(--red);
+    padding-bottom:10px;
+  }
+  .pinned-head h2{
+    font-family:'Special Elite', monospace;
+    font-size:15px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin:0;
+    font-weight:400;
+  }
+  .pinned-head span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:rgba(237,231,216,0.45);
+  }
   .year-head h2{
     font-family:'Special Elite', monospace;
     font-size:15px;
@@ -457,6 +484,8 @@
     <h2 id="case-count">— filed</h2>
   </div>
 
+  <div id="pinned-group"></div>
+
   <div id="year-groups"></div>
 
   <div class="no-results" id="no-results" style="display:none;">No cases match that search.</div>
@@ -482,6 +511,7 @@
   const COLLAPSE_THRESHOLD = 10;
 
   const groupsEl = document.getElementById('year-groups');
+  const pinnedEl = document.getElementById('pinned-group');
   const noResultsEl = document.getElementById('no-results');
   const ghostRowEl = document.getElementById('ghost-row');
   const searchMetaEl = document.getElementById('search-meta');
@@ -547,6 +577,43 @@
     return haystack.includes(query.toLowerCase());
   }
 
+  // Builds one clickable case-row <a> element. Shared by the pinned section and the normal year groups.
+  function buildCaseRow(b, query){
+    const a = document.createElement('a');
+    a.className = 'case-row';
+    a.href = b.link;
+    a.setAttribute('data-case', b.caseNumber);
+
+    const tagsHtml = (b.tags || [])
+      .map(t => `<span class="tag">${highlight(t, query)}</span>`)
+      .join('');
+    const stampClass = b.status || 'pending';
+    const stampText = STAMP_TEXT[stampClass] || 'Pending';
+    const updatedHtml = b.lastUpdated
+      ? `<span class="updated">Updated ${highlight(b.lastUpdated, query)}</span>`
+      : '';
+
+    a.innerHTML = `
+      <div class="case-body">
+        <div class="case-main">
+          <span class="bill-name">${highlight(b.bill, query)}</span>
+          <h3>${highlight(b.title, query)}</h3>
+          <p>${highlight(b.summary, query)}</p>
+          <div class="tags">${tagsHtml}</div>
+        </div>
+        <div class="stamp ${stampClass}">${stampText}</div>
+      </div>
+      <div class="case-foot">
+        <div class="foot-left">
+          <span>${highlight(b.voteLine || '', query)}</span>
+          ${updatedHtml}
+        </div>
+        <span class="open">Open case file →</span>
+      </div>
+    `;
+    return a;
+  }
+
   function render(){
     const query = searchInput.value.trim();
     clearBtn.style.display = query ? 'block' : 'none';
@@ -564,6 +631,7 @@
       : '';
 
     groupsEl.innerHTML = '';
+    pinnedEl.innerHTML = '';
     ghostRowEl.style.display = query ? 'none' : 'flex';
 
     if (query && filtered.length === 0) {
@@ -572,9 +640,32 @@
     }
     noResultsEl.style.display = 'none';
 
-    // Group filtered bills by year (falls back to "Undated" if a bill has no year field)
+    // Pinned cases render in their own section at the very top, above every
+    // year group, and are excluded from the normal grouped list below so
+    // they never appear twice. A pinned case still respects the active
+    // search filter — it just disappears from view like anything else that
+    // doesn't match, rather than being force-shown.
+    const pinned = filtered.filter(b => b.pinned);
+    const rest = filtered.filter(b => !b.pinned);
+
+    if (pinned.length) {
+      const section = document.createElement('section');
+      section.className = 'pinned-section';
+      const head = document.createElement('div');
+      head.className = 'pinned-head';
+      head.innerHTML = `<h2>Featured Case</h2><span>Pinned to the top</span>`;
+      section.appendChild(head);
+
+      const list = document.createElement('div');
+      list.className = 'case-list';
+      pinned.forEach(b => list.appendChild(buildCaseRow(b, query)));
+      section.appendChild(list);
+      pinnedEl.appendChild(section);
+    }
+
+    // Group the remaining (non-pinned) filtered bills by year
     const byYear = {};
-    filtered.forEach(b => {
+    rest.forEach(b => {
       const y = b.year || 'Undated';
       if (!byYear[y]) byYear[y] = [];
       byYear[y].push(b);
@@ -605,41 +696,7 @@
       const list = document.createElement('div');
       list.className = 'case-list';
 
-      byYear[year].forEach(b => {
-        const a = document.createElement('a');
-        a.className = 'case-row';
-        a.href = b.link;
-        a.setAttribute('data-case', b.caseNumber);
-
-        const tagsHtml = (b.tags || [])
-          .map(t => `<span class="tag">${highlight(t, query)}</span>`)
-          .join('');
-        const stampClass = b.status || 'pending';
-        const stampText = STAMP_TEXT[stampClass] || 'Pending';
-        const updatedHtml = b.lastUpdated
-          ? `<span class="updated">Updated ${highlight(b.lastUpdated, query)}</span>`
-          : '';
-
-        a.innerHTML = `
-          <div class="case-body">
-            <div class="case-main">
-              <span class="bill-name">${highlight(b.bill, query)}</span>
-              <h3>${highlight(b.title, query)}</h3>
-              <p>${highlight(b.summary, query)}</p>
-              <div class="tags">${tagsHtml}</div>
-            </div>
-            <div class="stamp ${stampClass}">${stampText}</div>
-          </div>
-          <div class="case-foot">
-            <div class="foot-left">
-              <span>${highlight(b.voteLine || '', query)}</span>
-              ${updatedHtml}
-            </div>
-            <span class="open">Open case file →</span>
-          </div>
-        `;
-        list.appendChild(a);
-      });
+      byYear[year].forEach(b => list.appendChild(buildCaseRow(b, query)));
 
       section.appendChild(list);
       groupsEl.appendChild(section);
