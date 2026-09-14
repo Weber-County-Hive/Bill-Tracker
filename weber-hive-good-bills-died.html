@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ones That Didn't Make It — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF6;
+    --ink:#17140F;
+    --gold:#D4AF37;
+    --gold-warm:#B8956A;
+    --rule:#DCD5C2;
+    --rule-soft:#EAE5D6;
+    --maroon:#6B2A2A;
+    --maroon-soft:#8C4646;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Newsreader',serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---- masthead ---- */
+  header.masthead{
+    border-bottom:1px solid var(--ink);
+    padding:40px 0 22px;
+  }
+  .brandrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:30px;
+  }
+  .hex{width:22px;height:22px;flex:none;}
+  .brandname{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+  .brandname .b1{color:var(--gold-warm);}
+  .brandname .b2{color:#6b6455;}
+  .backlink{
+    margin-left:auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#6b6455;
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+  }
+  h1.pagetitle{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:44px;
+    line-height:1.06;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .dek{
+    font-family:'Newsreader',serif;
+    font-size:19px;
+    color:#3a362c;
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* ---- intro ---- */
+  .intro{
+    padding:34px 0 8px;
+    border-bottom:1px solid var(--rule);
+  }
+  .intro p{margin:0 0 18px;}
+  .intro p:first-child{
+    font-size:19px;
+  }
+  .intro p:first-child::first-letter{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:3.4em;
+    float:left;
+    line-height:.82;
+    margin:.03em .07em 0 0;
+    color:var(--ink);
+  }
+  .finding{
+    background:var(--rule-soft);
+    border-left:3px solid var(--gold);
+    padding:16px 20px;
+    margin:22px 0 26px;
+    font-family:'Newsreader',serif;
+    font-size:16px;
+  }
+  .finding .label{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--gold-warm);
+    margin-bottom:6px;
+  }
+
+  /* ---- registry list ---- */
+  section.registry{padding:14px 0 10px;}
+  .registry-head{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.06em;
+    color:#6b6455;
+    padding:18px 0 6px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:0;
+  }
+
+  article.entry{
+    padding:34px 0;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  article.entry:last-child{border-bottom:none;}
+
+  .entry-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .billname{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:25px;
+    margin:0;
+  }
+  .billname .num{color:var(--maroon);font-style:italic;}
+  .yeartag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#6b6455;
+  }
+
+  .sponsor-line{
+    font-family:'Newsreader',serif;
+    font-style:italic;
+    color:#5b5647;
+    margin:4px 0 16px;
+  }
+
+  dl.vitals{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    row-gap:10px;
+    column-gap:16px;
+    margin:0 0 18px;
+    padding:14px 18px;
+    background:#fff;
+    border:1px solid var(--rule);
+  }
+  dl.vitals dt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.04em;
+    color:var(--gold-warm);
+    align-self:start;
+  }
+  dl.vitals dd{margin:0;font-size:15.5px;}
+  dl.vitals dd.cause{color:var(--maroon-soft);}
+
+  .entry p.body-text{margin:0 0 14px;}
+
+  .vote-ledger{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:#4a463b;
+    line-height:1.9;
+    padding:12px 16px;
+    border-left:2px solid var(--rule);
+  }
+  .vote-ledger .stage{color:#8a8471;margin-right:8px;}
+
+  .rubric-strip{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+  }
+  .rubric-strip span{
+    padding:4px 9px;
+    border:1px solid var(--rule);
+    color:#6b6455;
+  }
+  .rubric-strip span b{color:var(--ink);font-weight:500;}
+
+  /* ---- footer ---- */
+  footer{
+    padding:38px 0 60px;
+    border-top:1px solid var(--ink);
+    margin-top:20px;
+  }
+  footer p{
+    font-size:14.5px;
+    color:#5b5647;
+    max-width:58ch;
+  }
+  footer .publine{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.05em;
+    color:#8a8471;
+    margin-top:22px;
+  }
+
+  @media (max-width:560px){
+    h1.pagetitle{font-size:32px;}
+    dl.vitals{grid-template-columns:1fr;row-gap:4px;}
+    dl.vitals dt{margin-top:8px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="brandrow">
+      <svg class="hex" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2 L35.3 11 V29 L20 38 L4.6 29 V11 Z" stroke="#D4AF37" stroke-width="1.6"/>
+        <circle cx="12" cy="10.5" r="2" fill="#D4AF37"/>
+      </svg>
+      <span class="brandname"><span class="b1">THE HIVE</span> <span class="b2">WEBER COUNTY</span></span>
+      <a class="backlink" href="index.html">← Legislative Docket</a>
+    </div>
+    <h1 class="pagetitle">The Ones That Didn't Make It</h1>
+    <p class="dek">A registry of bills that passed every visible test — committee, testimony, floor votes — and still died, graded good by the Hive's own standing rubric before they were killed.</p>
+  </header>
+
+  <div class="intro">
+    <p>A reader asked us a plain question after seeing how many bills in our tracker die: if a bill would genuinely help the public, why does it die at all? Shouldn't the good ones survive?</p>
+    <p>We went back through every bill on our tracker that both (a) died and (b) still earned a B or better on our standing five-part rubric — meaning the bill's actual content, not our opinion of it, would have protected the public on power, transparency, financial accountability, environmental impact, or community standing. Four bills met that bar, spanning three legislative sessions and two decades. What they share isn't a party, a topic, or a single villain. It's how they died.</p>
+    <div class="finding">
+      <span class="label">What the record shows</span>
+      None of these bills lost a debate the public can actually read. Each was killed by a mechanism that doesn't require anyone to explain, on the record, why a good bill didn't become law — a floor vote with no spoken debate, a procedural clause-strike instead of an up-or-down vote, or a midnight deadline that ends a session before a vote happens at all.
+    </div>
+  </div>
+
+  <section class="registry">
+    <div class="registry-head">Four entries, 2006–2026</div>
+
+    <article class="entry">
+      <div class="entry-top">
+        <h2 class="billname"><span class="num">H.B. 120</span> — Election and Referendum Procedures</h2>
+        <span class="yeartag">2006 General Session</span>
+      </div>
+      <p class="sponsor-line">Rep. David L. Hogue, chief sponsor</p>
+      <dl class="vitals">
+        <dt>What it fixed</dt>
+        <dd>Utah Code said a local ordinance challenged by referendum "remains in effect until repealed by the voters" — the opposite of Utah Constitution Art. VI, which says a challenged law has no force until voters approve it. This bill rewrote the statute to match the Constitution.</dd>
+        <dt>Cause of death</dt>
+        <dd class="cause">Failed on the House floor, 27–46, with no recorded debate — floor audio for the vote contains no spoken testimony for or against it.</dd>
+      </dl>
+      <div class="vote-ledger">
+        <span class="stage">House committee</span>8–0–3, favorable, no witnesses either way<br>
+        <span class="stage">House floor</span>27–46–2, failed — bill never reached the Senate
+      </div>
+      <div class="rubric-strip">
+        <span><b>Power</b> B+</span>
+        <span><b>Transparency</b> N/A</span>
+        <span><b>Financial</b> N/A</span>
+        <span><b>Environmental</b> N/A</span>
+        <span><b>Community</b> A</span>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-top">
+        <h2 class="billname"><span class="num">S.B. 66</span> — Referendum Revisions</h2>
+        <span class="yeartag">2013 General Session</span>
+      </div>
+      <p class="sponsor-line">Sen. Stuart C. Reid, chief sponsor · Rep. Don L. Ipson, House floor sponsor</p>
+      <dl class="vitals">
+        <dt>What it fixed</dt>
+        <dd>The same statutory conflict H.B. 120 tried to fix seven years earlier — a challenged local law taking effect before voters ever got to weigh in, contrary to the Constitution.</dd>
+        <dt>Cause of death</dt>
+        <dd class="cause">Passed the Senate 27–1. The House never held a recorded floor vote at all — it struck the bill's enacting clause instead, which kills a bill without anyone voting no on the record.</dd>
+      </dl>
+      <div class="vote-ledger">
+        <span class="stage">Senate committee</span>6–0–1, favorable<br>
+        <span class="stage">Senate floor</span>27–1–1, passed<br>
+        <span class="stage">House</span>enacting clause struck — no floor vote taken
+      </div>
+      <div class="rubric-strip">
+        <span><b>Power</b> B+</span>
+        <span><b>Transparency</b> N/A</span>
+        <span><b>Financial</b> N/A</span>
+        <span><b>Environmental</b> N/A</span>
+        <span><b>Community</b> A</span>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-top">
+        <h2 class="billname"><span class="num">H.B. 349</span> — Statewide Water Storage</h2>
+        <span class="yeartag">2026 General Session</span>
+      </div>
+      <p class="sponsor-line">Rep. Walt Brooks, chief sponsor · Sen. Evan J. Vickers, Senate sponsor</p>
+      <dl class="vitals">
+        <dt>What it fixed</dt>
+        <dd>As introduced, authorized real loans from the state's Water Infrastructure Restricted Account for dam and reservoir projects, with repayment terms and independent review. (A later substitute stripped that to a nonbinding recommendation — the version that eventually died was already the weaker one.)</dd>
+        <dt>Cause of death</dt>
+        <dd class="cause">Cleared every committee and floor vote it faced — including a lopsided House floor vote — then was killed at 11:59pm via an enacting-clause strike, with no Senate floor vote ever taken.</dd>
+      </dl>
+      <div class="vote-ledger">
+        <span class="stage">House committee</span>11–0–3, favorable<br>
+        <span class="stage">House floor</span>63–1–11, passed<br>
+        <span class="stage">Senate committee</span>4–0–3, favorable<br>
+        <span class="stage">Senate floor</span>never held — enacting clause struck at 11:59pm
+      </div>
+      <div class="rubric-strip">
+        <span><b>Power</b> —</span>
+        <span><b>Transparency</b> —</span>
+        <span><b>Financial</b> —</span>
+        <span><b>Environmental</b> —</span>
+        <span><b>Overall</b> <b>B</b></span>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-top">
+        <h2 class="billname"><span class="num">H.J.R. 7</span> — Property Tax Modifications</h2>
+        <span class="yeartag">2026 General Session</span>
+      </div>
+      <p class="sponsor-line">Rep. Jill Koford, chief sponsor</p>
+      <dl class="vitals">
+        <dt>What it fixed</dt>
+        <dd>A proposed constitutional amendment raising the residential property-tax exemption from 45% to 60% of market value — subject to direct voter approval, and requiring a two-thirds vote in each chamber just to reach the ballot.</dd>
+        <dt>Cause of death</dt>
+        <dd class="cause">No recorded committee vote was ever found — the bill sat untouched for over a month before being quietly returned to Rules with no tally shown, then killed the same midnight as H.B. 349, above.</dd>
+      </dl>
+      <div class="vote-ledger">
+        <span class="stage">House committee</span>assigned 1/30/26, no hearing found, "returned to Rules" 3/2/26<br>
+        <span class="stage">House floor</span>never reached — enacting clause struck at 11:59pm, 3/6/26
+      </div>
+      <div class="rubric-strip">
+        <span><b>Overall</b> <b>B</b> (content-only, required a 2/3 supermajority and never got the hearing that bar deserved)</span>
+      </div>
+    </article>
+
+  </section>
+
+  <footer>
+    <p>Grades are drawn from the Hive's standing five-part rubric — Power, Transparency, Financial Accountability, Environmental Impact, Community Impact — applied the same way to every bill, board, and financing structure this publication covers. These aren't a personal opinion of any bill; they're the same published standard every time.</p>
+    <p>The 2006 and 2013 entries above addressed the same underlying statutory conflict. It has since been corrected in current Utah Code — a challenged local law now has no force or effect until voters approve it — meaning some later bill did eventually succeed where these two didn't. That bill isn't yet identified here.</p>
+    <div class="publine">INDEPENDENT · ACCOUNTABILITY · JOURNALISM</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
