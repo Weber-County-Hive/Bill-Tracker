@@ -109,6 +109,26 @@
     box-shadow:0 10px 22px -4px rgba(169,130,47,0.6);
   }
 
+  .obit-link{
+    display:flex;
+    width:fit-content;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.03em;
+    color:var(--manila);
+    text-decoration:none;
+    border-bottom:1px solid rgba(217,201,163,0.4);
+    padding-bottom:2px;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  .obit-link:hover{
+    color:var(--gold);
+    border-color:var(--gold);
+  }
+
   /* Bill count stat block — animated count-up, mirrors the main tracker's masthead stat */
   .stat-block{
     max-width:960px;
@@ -508,6 +528,7 @@
   <p>Every bill filed here gets the same treatment a case file gets: what it actually did, who paid for it, who voted which way, and what it still doesn't tell you. No spin either direction — just the record.</p>
   <div class="pub" id="pub-line">Utah Legislature</div>
   <a class="full-tracker-link" href="weber-hive-full-tracker.html">See the full 59-bill research tracker →</a>
+  <a class="obit-link" href="weber-hive-good-bills-died.html">The Ones That Didn't Make It — good bills that died →</a>
 
   <div class="search-wrap">
     <input type="text" id="search-input" placeholder="Search bill number, title, sponsor, tag…" autocomplete="off">
