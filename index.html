@@ -129,7 +129,6 @@
     border-color:var(--gold);
   }
 
-  /* Bill count stat block — animated count-up, mirrors the main tracker's masthead stat */
   .stat-block{
     max-width:960px;
     margin:26px auto 0;
@@ -168,7 +167,6 @@
     margin-top:12px;
   }
 
-  /* Search bar */
   .search-wrap{
     margin-top:26px;
     position:relative;
@@ -244,7 +242,6 @@
     padding:44px 28px 100px;
   }
 
-  /* Year section header */
   .year-section{
     margin-bottom:38px;
   }
@@ -257,7 +254,6 @@
     padding-bottom:10px;
   }
 
-  /* Pinned case section — sits above all year groups, always */
   .pinned-section{
     margin-bottom:44px;
   }
@@ -298,7 +294,6 @@
     color:rgba(237,231,216,0.5);
   }
 
-  /* Collapsible past-year sections (kicks in once a year exceeds 10 cases) */
   details.year-section{
     margin-bottom:38px;
   }
@@ -527,7 +522,7 @@
   <h1>The Legislative Docket</h1>
   <p>Every bill filed here gets the same treatment a case file gets: what it actually did, who paid for it, who voted which way, and what it still doesn't tell you. No spin either direction — just the record.</p>
   <div class="pub" id="pub-line">Utah Legislature</div>
-  <a class="full-tracker-link" href="water-land-property-rights-local-power-bills.html">See the full 61-bill research tracker →</a>
+  <a class="full-tracker-link" href="water-land-property-rights-local-power-bills.html">See the full 62-bill research tracker →</a>
   <a class="obit-link" href="weber-hive-good-bills-died.html">The Ones That Didn't Make It — good bills that died →</a>
 
   <div class="search-wrap">
@@ -585,7 +580,6 @@
   const clearBtn = document.getElementById('clear-btn');
   const searchIcon = document.getElementById('search-icon');
 
-  // Set the masthead session line to the most recent year present, using the full unfiltered set
   const allYears = [...new Set(BILLS.map(b => b.year || 'Undated'))]
     .filter(y => y !== 'Undated')
     .sort((a, b) => Number(b) - Number(a));
@@ -593,7 +587,6 @@
     document.getElementById('pub-line').textContent = allYears[0] + ' General Session · Utah Legislature';
   }
 
-  // Animated bill-count stat block, tied to the live BILLS array so it never goes stale
   (function(){
     const el = document.getElementById('bill-counter');
     const target = BILLS.length;
@@ -613,7 +606,6 @@
     }
     requestAnimationFrame(step);
 
-    // "Last updated" reflects the most recent lastUpdated date found across all cases
     const dated = BILLS.map(b => b.lastUpdated).filter(Boolean);
     const updatedLine = document.getElementById('stat-updated-line');
     if (dated.length) {
@@ -626,7 +618,6 @@
     return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
 
-  // Wraps matches of `query` in <mark> for display, on already-escaped text
   function highlight(text, query){
     const escaped = escapeHtml(text);
     if (!query) return escaped;
@@ -643,7 +634,6 @@
     return haystack.includes(query.toLowerCase());
   }
 
-  // Builds one clickable case-row <a> element. Shared by the pinned section and the normal year groups.
   function buildCaseRow(b, query){
     const a = document.createElement('a');
     a.className = 'case-row';
@@ -712,11 +702,6 @@
     }
     noResultsEl.style.display = 'none';
 
-    // Pinned cases render in their own section at the very top, above every
-    // year group, and are excluded from the normal grouped list below so
-    // they never appear twice. A pinned case still respects the active
-    // search filter — it just disappears from view like anything else that
-    // doesn't match, rather than being force-shown.
     const pinned = filtered.filter(b => b.pinned);
     const rest = filtered.filter(b => !b.pinned);
 
@@ -735,7 +720,6 @@
       pinnedEl.appendChild(section);
     }
 
-    // Group the remaining (non-pinned) filtered bills by year
     const byYear = {};
     rest.forEach(b => {
       const y = b.year || 'Undated';
@@ -743,7 +727,6 @@
       byYear[y].push(b);
     });
 
-    // Sort years newest-first; "Undated" sinks to the bottom
     const years = Object.keys(byYear).sort((a, b) => {
       if (a === 'Undated') return 1;
       if (b === 'Undated') return -1;
@@ -752,8 +735,6 @@
 
     years.forEach((year, idx) => {
       const count = byYear[year].length;
-      // Collapsing only applies with no active search — while searching,
-      // every matching year stays open so results are never hidden.
       const shouldCollapse = !query && count > COLLAPSE_THRESHOLD;
 
       const section = document.createElement(shouldCollapse ? 'details' : 'section');
