@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.B. 545 (2026) — Budgetary Modifications | The Weber County Hive Bill-Tracker</title>
+<style>
+  :root{
+    --navy:#16233d;
+    --navy-deep:#0e182c;
+    --manila:#e9dfc4;
+    --manila-dark:#d9caa2;
+    --paper:#faf5e8;
+    --ink:#221f1a;
+    --ink-soft:#4a4438;
+    --stamp:#8c2f22;
+    --stamp-soft:#b4543f;
+    --good:#3c5e3f;
+    --good-bg:#e7efe1;
+    --gold:#a9832f;
+    --rule:#c9b98d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--manila);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,"Iowan Old Style",serif;
+    line-height:1.55;
+  }
+  @font-face{font-family:"Newsreader";src:local("Georgia");}
+
+  a{color:var(--stamp);}
+
+  .topband{
+    background:var(--navy-deep);
+    color:var(--manila);
+    padding:10px 24px;
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:0.72rem;
+    letter-spacing:.06em;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .topband a{color:var(--manila-dark);text-decoration:none;border-bottom:1px solid rgba(233,223,196,.35);}
+  .topband a:hover{border-bottom-color:var(--manila);}
+
+  header.case-header{
+    background:var(--navy);
+    color:var(--paper);
+    padding:56px 24px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.case-header::after{
+    content:"";
+    position:absolute;
+    right:-60px;top:-60px;
+    width:260px;height:260px;
+    border:1px solid rgba(233,223,196,.12);
+    border-radius:50%;
+  }
+  .case-wrap{max-width:880px;margin:0 auto;position:relative;}
+  .case-eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    color:var(--gold);
+    margin:0 0 14px;
+  }
+  .case-title{
+    font-size:2.6rem;
+    line-height:1.12;
+    margin:0 0 10px;
+    font-weight:600;
+    max-width:16ch;
+  }
+  .case-sub{
+    font-size:1.15rem;
+    color:var(--manila-dark);
+    font-style:italic;
+    margin:0 0 28px;
+    max-width:52ch;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+  }
+  .meta-pill{
+    border:1px solid rgba(233,223,196,.3);
+    padding:6px 12px;
+    border-radius:2px;
+    color:var(--manila-dark);
+  }
+
+  main{max-width:880px;margin:0 auto;padding:48px 24px 100px;}
+
+  section{margin-bottom:56px;}
+  h2.section-head{
+    font-size:1.5rem;
+    margin:0 0 18px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px;
+  }
+
+  p{margin:0 0 16px;max-width:68ch;}
+
+  .lede{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+
+  /* stamp / grade block */
+  .stamp-block{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:22px 26px;
+    margin:0 0 36px;
+  }
+  .stamp{
+    flex:0 0 auto;
+    width:88px;height:88px;
+    border:4px solid var(--stamp);
+    border-radius:50%;
+    color:var(--stamp);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:700;
+    font-size:2.4rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-8deg);
+  }
+  .stamp-text .stamp-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+    display:block;
+  }
+  .stamp-text p{margin:0;font-size:.98rem;max-width:52ch;}
+
+  /* design vs outcome */
+  .dvo{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:0 0 8px;
+  }
+  .dvo > div{background:var(--paper);padding:20px 22px;}
+  .dvo h3{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    margin:0 0 12px;
+    color:var(--ink-soft);
+  }
+  .dvo p{font-size:.96rem;margin:0 0 10px;}
+  .dvo p:last-child{margin-bottom:0;}
+  @media (max-width:640px){.dvo{grid-template-columns:1fr;}}
+
+  /* rubric table */
+  table.rubric{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    font-size:.95rem;
+  }
+  table.rubric caption{
+    text-align:left;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.74rem;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    caption-side:top;
+  }
+  table.rubric th,table.rubric td{
+    border:1px solid var(--rule);
+    padding:12px 14px;
+    text-align:left;
+    vertical-align:top;
+  }
+  table.rubric th{
+    background:var(--navy);
+    color:var(--manila);
+    font-weight:600;
+    width:15%;
+  }
+  table.rubric td.grade{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:700;
+    text-align:center;
+    width:8%;
+    font-size:1.1rem;
+  }
+  tr.overall th, tr.overall td{
+    background:#efe6cf;
+    font-weight:700;
+  }
+
+  /* vote record */
+  .vote-record{
+    background:var(--paper);
+    border:1px solid var(--rule);
+  }
+  .vote-stage{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 20px;
+    border-bottom:1px solid var(--rule);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .vote-stage:last-child{border-bottom:none;}
+  .vote-stage .stage-name{font-weight:600;}
+  .vote-stage .stage-date{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.78rem;
+    color:var(--ink-soft);
+  }
+  .vote-tally{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.9rem;
+    white-space:nowrap;
+  }
+  .vote-tally .y{color:var(--good);}
+  .vote-tally .n{color:var(--stamp);}
+
+  /* pattern callout */
+  .pattern{
+    background:var(--navy);
+    color:var(--paper);
+    padding:24px 26px;
+    margin-top:20px;
+  }
+  .pattern .pattern-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.74rem;
+    letter-spacing:.06em;
+    color:var(--gold);
+    display:block;
+    margin-bottom:10px;
+  }
+  .pattern p{color:var(--manila-dark);margin-bottom:0;}
+  .pattern strong{color:var(--paper);}
+
+  /* fix section */
+  .fix-box{
+    background:var(--good-bg);
+    border:1px solid var(--good);
+    padding:24px 26px;
+  }
+  .fix-box h2.section-head{
+    border-bottom-color:var(--good);
+    color:var(--good);
+  }
+  .fix-box ul{margin:0;padding-left:20px;}
+  .fix-box li{margin-bottom:12px;}
+  .fix-box li:last-child{margin-bottom:0;}
+
+  details{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:16px 20px;
+    margin-top:8px;
+  }
+  details summary{
+    cursor:pointer;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.8rem;
+    letter-spacing:.04em;
+    color:var(--stamp);
+  }
+  details[open] summary{margin-bottom:12px;}
+  details p:last-child{margin-bottom:0;}
+
+  .open-question{
+    border-left:3px solid var(--gold);
+    padding-left:16px;
+    margin:18px 0;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .qa dt{
+    font-weight:600;
+    margin-top:18px;
+  }
+  .qa dt:first-child{margin-top:0;}
+  .qa dd{
+    margin:6px 0 0;
+    color:var(--ink-soft);
+  }
+
+  .sources-block summary{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.85rem;
+    letter-spacing:.04em;
+    color:var(--ink);
+    padding:14px 0;
+  }
+  .sources-block{
+    background:transparent;
+    border:none;
+    border-top:2px solid var(--ink);
+    padding:0;
+    margin-top:8px;
+  }
+  .sources-block ol{
+    margin:0 0 16px;
+    padding-left:20px;
+    font-size:.92rem;
+    color:var(--ink-soft);
+  }
+  .sources-block li{margin-bottom:10px;}
+
+  footer{
+    background:var(--navy-deep);
+    color:var(--manila-dark);
+    padding:32px 24px;
+    text-align:center;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+    letter-spacing:.04em;
+  }
+  footer a{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="topband">
+  <span>THE WEBER COUNTY HIVE — BILL-TRACKER</span>
+  <a href="index.html">← Full case docket</a>
+</div>
+
+<header class="case-header">
+  <div class="case-wrap">
+    <p class="case-eyebrow">2026 GENERAL SESSION · CASE FILE</p>
+    <h1 class="case-title">H.B. 545 — Budgetary Modifications</h1>
+    <p class="case-sub">An omnibus funds bill quietly touched the account at the center of a legislative audit — and the office that would normally catch it.</p>
+    <div class="meta-row">
+      <span class="meta-pill">Chief Sponsor: Rep. Val L. Peterson</span>
+      <span class="meta-pill">Senate Sponsor: Sen. Jerry W. Stevenson</span>
+      <span class="meta-pill">Signed into law, effective 7/1/2026</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="stamp-block">
+    <div class="stamp">D</div>
+    <div class="stamp-text">
+      <span class="stamp-label">COLLECTIVE RUBRIC — OVERALL GRADE</span>
+      <p>Weakens the independently elected State Auditor's control over her own office's expenses, and adds oversight language to the Industrial Assistance Account with no funding, no staffing, and an official finding that it isn't even a new program.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">What this bill actually is</h2>
+    <p class="lede">H.B. 545 is a 38-section, 1,600-line "budgetary modifications" bill — the kind of housekeeping legislation that renames a few restricted accounts, repeals a handful of dormant funds, and cleans up cross-references. Most of it is exactly that: the Colorado River Authority Restricted Account gets folded into a line item, the Navajo Water Rights Negotiation Account is repealed, a wildlife easement account with a $407,900 balance gets closed out.</p>
+    <p>Inside that same bill, two other things happen. The <strong>Industrial Assistance Account</strong> — the Governor's Office of Economic Development's discretionary grant and loan account — gets new review and reporting language. A legislative audit released the same year found GOED could not consistently show how nearly $249 million moved through its pass-through and Industrial Assistance Account programs between fiscal years 2023 and 2025 ($164 million in pass-through grants, nearly $85 million through the IAA) actually was used. And the <strong>State Auditor's</strong> control over her own office's operating expenses gets subjected to review by the Board of Examiners, a body the Governor chairs.</p>
+    <p>Utah's own Legislature agrees these aren't incidental: the bill's official subject tags, added as it moved through substitutes, came to include <em>Governor's Office of Economic Opportunity</em>, <em>State Auditor</em>, and <em>Energy</em> — alongside the generic public-funds tags it started with.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">Design vs. outcome</h2>
+    <div class="dvo">
+      <div>
+        <h3>AS INTRODUCED</h3>
+        <p>The Industrial Assistance Account's governing statute already required the administrator (GOEO's executive director) to manage the account and pay its own administrative costs from it. No board sign-off requirement, no recipient-review requirement existed in statute.</p>
+        <p>The State Auditor's expense authority read plainly: she "is not limited in the selection of personnel or in the determination of the reasonable and necessary expenses of the state auditor's office."</p>
+      </div>
+      <div>
+        <h3>AS ENACTED</h3>
+        <p>The GOEO board's advisory role over Industrial Assistance Account grants is now written into statute for the first time, and the office must "review the activities and progress of grant recipients... on a regular basis" and report the economic impact of each grant annually.</p>
+        <p>The Auditor's expense authority is now "subject to Title 63G, Chapter 9, Part 3, Review of Claims" — the Board of Examiners, which the Governor chairs and on which she sits as one of three members.</p>
+      </div>
+    </div>
+    <div class="open-question">
+      The Legislative Fiscal Analyst's own note on the bill found it creates no new program, expands no existing program, and carries no cost anywhere in the Industrial Assistance Account language. A separate section of the same bill rewrites how state agencies generally disburse grant funds — requiring receipts or independent verification before payment — but that provision's own definitions exclude "an incentive" from the term "grant," and the Industrial Assistance Account is generally described as an incentive program. Whether the new documentation requirement reaches the account the audit was actually about is an open legal question the bill itself doesn't resolve. The audit itself, Report No. 2026-18, does credit GOED's current leadership — in place since May 2025 — with taking initial steps to address the gaps it documents, including hiring a compliance officer and terminating a $3.2 million contract flagged for a conflict of interest.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Who opposed it, and when</h2>
+    <p>State Auditor Tina Cannon and her Chief of Staff, BJ Griffin, testified in opposition to the bill in the House Economic Development and Workforce Services Committee — the only organized opposition testimony the bill drew at any stage. Immediately afterward, the committee adopted an amendment narrowing the Auditor's expense authority to the language that became law.</p>
+    <div class="vote-record">
+      <div class="vote-stage">
+        <div><span class="stage-name">House Committee — first vote</span><br><span class="stage-date">House Economic Development &amp; Workforce Services, 2/20/2026</span></div>
+        <div class="vote-tally"><span class="y">Y 8</span> · <span class="n">N 1</span> · Abs 1</div>
+      </div>
+      <div class="vote-stage">
+        <div><span class="stage-name">House Committee — reconsidered vote</span><br><span class="stage-date">Same meeting, after a motion to reconsider</span></div>
+        <div class="vote-tally"><span class="y">Y 7</span> · <span class="n">N 3</span></div>
+      </div>
+      <div class="vote-stage">
+        <div><span class="stage-name">House 3rd Reading — final passage</span><br><span class="stage-date">2/26/2026</span></div>
+        <div class="vote-tally"><span class="y">Y 71</span> · <span class="n">N 1</span> · N/V 3</div>
+      </div>
+      <div class="vote-stage">
+        <div><span class="stage-name">House concurrence with Senate amendment</span><br><span class="stage-date">3/6/2026</span></div>
+        <div class="vote-tally"><span class="y">Y 66</span> · <span class="n">N 1</span> · N/V 8</div>
+      </div>
+    </div>
+    <details>
+      <summary>Why did the committee vote twice?</summary>
+      <p>The bill passed committee cleanly, 8-1, immediately after the amendment narrowing the Auditor's expenses language was adopted. The committee then moved on to other bills. Later in the same meeting, a member moved to reconsider the already-passed vote on H.B. 545 — a step that reopens a decided matter without any new testimony or stated reason on the record. On the second vote, two members who had voted yes the first time voted no, and the bill passed 7-3 instead of 8-1.</p>
+    </details>
+  </section>
+
+  <section>
+    <div class="pattern">
+      <span class="pattern-label">ONE VOTE, EVERY STAGE</span>
+      <p>Only one legislator opposed H.B. 545 at every recorded vote where a no vote was cast: <strong>Rep. Leah Hansen</strong>, House District 51. She was the sole no in the committee's first vote, the reconsidered vote, the House floor's 71-1 final passage, and the 66-1 concurrence vote that sent the bill to the Governor. Rep. Hansen holds the seat vacated in 2025 by Jefferson Moss, who left the Legislature to become the Governor's Office of Economic Opportunity's executive director — the office whose governing account this bill amends.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Graded by the collective rubric</h2>
+    <table class="rubric">
+      <caption>Power · Transparency · Financial Accountability · Environmental Impact · Community Impact</caption>
+      <tr><th>Power</th><td class="grade">D</td><td>Narrows an independently elected constitutional officer's control over her own office's operating expenses, subjecting it to a board the Governor chairs — adopted over the Auditor's own recorded objection.</td></tr>
+      <tr><th>Transparency</th><td class="grade">D</td><td>Adds an annual grant-review and economic-impact-reporting requirement to the Industrial Assistance Account with no funding, no staffing, and an official legislative finding that it does not constitute a new or expanded program.</td></tr>
+      <tr><th>Financial accountability</th><td class="grade">D</td><td>The one provision in the bill with real teeth — requiring receipts or independent verification before an agency pays out grant funds — may not legally reach the Industrial Assistance Account at all, since the account is generally treated as an incentive program and the new rule's definitions exclude incentives.</td></tr>
+      <tr><th>Environmental impact</th><td class="grade">N/A</td><td>The bill's environmental-adjacent provisions (Colorado River Authority restructuring, a new nuclear-infrastructure loan fund) are unrelated to the Industrial Assistance Account or Auditor provisions.</td></tr>
+      <tr><th>Community impact</th><td class="grade">D</td><td>Weakens independent financial oversight of public funds in the same account and the same period a legislative audit found that oversight wanting, without a corresponding public benefit tied to either the audited account or the Auditor's office.</td></tr>
+      <tr class="overall"><th>Overall</th><td class="grade">D</td><td>Paper compliance layered onto an account already flagged for weak oversight, passed in the same bill that narrows the independence of the office built to catch exactly that kind of problem.</td></tr>
+    </table>
+  </section>
+
+  <section class="fix-box">
+    <h2 class="section-head">How this could have actually helped</h2>
+    <ul>
+      <li><strong>Fund the oversight it created.</strong> A grant-review requirement with no appropriation and no staff is a promise, not a mechanism. Pairing the new Industrial Assistance Account reporting language with even a modest staffing appropriation would have given the requirement something to run on.</li>
+      <li><strong>Close the "incentive" loophole explicitly.</strong> If lawmakers intended the new receipt-and-verification rule to cover Industrial Assistance Account grants, the bill could have said so directly instead of leaving it to turn on whether IAA awards count as "incentives" under a definition written for an unrelated purpose.</li>
+      <li><strong>Keep the Auditor's expense authority separate from this bill entirely.</strong> Auditor independence and Industrial Assistance Account oversight are two different subjects. Folding a change to the Auditor's own operating authority into the same 38-section omnibus bill as unrelated fund repeals and a nuclear loan program made it one vote instead of two, and buried a change to a constitutional officer's independence inside routine-sounding "budgetary modifications."</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-head">Common questions</h2>
+    <dl class="qa">
+      <dt>Did this bill cause the oversight problems at the Industrial Assistance Account?</dt>
+      <dd>No. The audit that documented those problems reviewed activity from fiscal years 2023 through 2025 — before this bill passed. H.B. 545 is the Legislature's response, written in the same session the audit was released, not the cause of what the audit found.</dd>
+
+      <dt>Does this mean Industrial Assistance Account money was stolen or misused?</dt>
+      <dd>The audit did not find new instances of misspending in the accounts it reviewed for this bill's provisions. It found that GOED could not consistently document how the money was used or whether it achieved its intended results — a records and monitoring failure, not a finding of theft. A separate, earlier State Auditor report did find that a specific pass-through grant was misused; that case is described in the audit as the reason GOED's oversight gaps matter.</dd>
+
+      <dt>Is the State Auditor still independent?</dt>
+      <dd>Her constitutional role is unchanged. What changed is her office's control over determining its own "reasonable and necessary expenses" — that determination is now made subject to review by the Board of Examiners, a three-member body the Governor chairs and on which the Auditor herself sits. She testified against this specific change before it passed.</dd>
+
+      <dt>Who is responsible for the account today?</dt>
+      <dd>The Industrial Assistance Account is administered by GOED's executive director. Ryan Starks held that role for nearly the entire period the audit reviewed (January 2023–May 2025); Jefferson Moss has led the office since.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <details class="sources-block">
+      <summary>Sources</summary>
+      <ol>
+        <li>H.B. 545, "Budgetary Modifications," 2026 General Session — Introduced, 1st through 4th Substitutes, and Enrolled text; Fiscal Note (Feb. 13, 2026); Legislative Auditor General bill subject tags. le.utah.gov.</li>
+        <li>House Economic Development and Workforce Services Standing Committee, meeting minutes, February 20, 2026 — H.B. 545 presentation, Auditor testimony, Amendment #1, and the committee's reconsideration vote.</li>
+        <li>Utah House of Representatives floor vote records — 3rd Reading/Final Passage (Feb. 26, 2026) and Concurrence with Senate Amendment (March 6, 2026).</li>
+        <li>Office of the Legislative Auditor General, Report No. 2026-18, "A Systemic Performance Audit of the Governor's Office of Economic Development: A Review of Oversight and Outcomes" (Sept. 15, 2026).</li>
+        <li>Utah Code §67-3-1, §63G-9-201, §63G-9-301, §63N-3-103, §63N-3-105, §63N-3-106, §63G-6b-101, §63G-6b-201 — current and pre-H.B. 545 versions.</li>
+      </ol>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  THE WEBER COUNTY HIVE · INDEPENDENT · ACCOUNTABILITY · JOURNALISM<br>
+  <a href="https://webercountyhive.substack.com">webercountyhive.substack.com</a>
+</footer>
+
+</body>
+</html>
