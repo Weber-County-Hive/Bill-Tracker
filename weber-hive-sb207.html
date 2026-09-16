@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2025-207 — S.B. 207, The State Took the Fee Before the County Could Charge It — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  .related-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .related-box ul.plain li{margin-bottom:10px;}
+  .related-box a{color:var(--navy);font-weight:600;text-decoration:underline;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">← Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2025-207</span>
+  <p class="eyebrow">S.B. 207 · 2025 General Session</p>
+  <h1>The State Took the Fee Before the County Could Charge It</h1>
+  <p class="dek">Duchesne County spent more than a year negotiating its own road-impact fee on oil and gas drilling. Before the county could finish it, the sponsoring senator's own wife told a county hearing his bill would make the ordinance unnecessary — and the bill that passed the next year doesn't just replace the county's fee, it bars counties from charging one at all, permanently. A provision that would have let the ban expire in 2030 was quietly dropped in committee before the bill reached a single floor vote.</p>
+  <div class="stampline">
+    <span>Chief Sponsor: <strong>Sen. Ronald M. Winterton</strong></span><span>House Sponsor: <strong>Rep. R. Neil Walter</strong></span>
+    <span>Signed: <strong>March 25, 2025</strong></span><span>Effective: <strong>May 7, 2025</strong></span>
+    <span class="stamp-status law">Became Law</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">The Two Fees</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">County vs. State</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button><button data-scroll-to="related">Related Cases</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">Duchesne County spent more than a year building its own fee on oil and gas drilling companies, meant to pay for the road damage all that truck traffic causes.</p>
+    <p>Before the county could finish that process, Sen. Ron Winterton's wife told the county's own public hearing that her husband was working on state bills that would make the county's fee unnecessary.</p>
+    <p>The following year, his bill — S.B. 207 — became law. It doesn't just offer a state alternative alongside the county's fee. It bars counties from imposing this kind of fee themselves, and replaces it with a smaller, temporary, state-run tax instead.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>The Two Fees, Side by Side</h2>
+    <table class="parts-table"><thead><tr><th colspan="2">Duchesne County's Proposed Ordinance (#24-409)</th></tr></thead><tbody><tr><td>Structure</td><td>A flat fee of roughly $14,244 per well, per mile of county road used</td></tr><tr><td>Who sets it</td><td>The county, using an outside engineering cost study (Jones &amp; DeMille Engineering)</td></tr><tr><td>Who collects it</td><td>Duchesne County directly</td></tr><tr><td>Sunset</td><td>None discussed — a standing county fee</td></tr></tbody><thead><tr><th colspan="2">S.B. 207 As Introduced</th></tr></thead><tbody><tr><td>Gas rate</td><td>1 cent per MCF of gas</td></tr><tr><td>Ban on county fees</td><td>Sits inside the Local Impact Mitigation Tax Act, which a separate section schedules for automatic repeal July 1, 2030</td></tr></tbody><thead><tr><th colspan="2">S.B. 207 As Enacted (changed in the 1st Substitute, Feb. 12, 2025)</th></tr></thead><tbody><tr><td>Structure</td><td>A production tax: 5 cents per barrel of oil, plus a quarter-cent per thousand cubic feet of gas — the gas rate cut 75% from the introduced bill</td></tr><tr><td>Who sets it</td><td>The Legislature, statewide, applying the same rate everywhere</td></tr><tr><td>Who collects it</td><td>The State Tax Commission, which retains up to 1.5% as an administrative charge, then redistributes the remainder to the county of origin within 60 days</td></tr><tr><td>Sunset</td><td>The tax itself applies only to production between January 1, 2026 and January 1, 2029 — but the 2030 automatic-repeal provision that would have sunset the entire Act, including the county-fee ban, was removed in the same substitute. The ban on counties has no expiration date.</td></tr><tr><td>Counties' own fees</td><td>The law's own definition of a barred "oil or gas mitigation fee" explicitly names the two mechanisms Duchesne's ordinance used: a transportation service fee under the County Land Use, Development, and Management Act, and an impact fee under the Impact Fees Act</td></tr><tr><td>After the tax sunsets</td><td>Each county that received revenue must report to the Legislature's Natural Resources, Agriculture, and Environment Interim Committee by September 1, 2029 — eight months after the tax itself expires — with any recommendation on whether to reauthorize it. The report requirement does not extend to the county-fee ban, which remains in force regardless of what the report recommends.</td></tr></tbody></table>
+  </section>
+
+  <section id="timeline">
+    <h2>A County Fee, Negotiated in Public — Then Preempted</h2>
+    <div class="flow"><div class="flow-step"><span class="fdate">Jul 22, 2024</span>County begins drafting its own fee</div><div class="flow-arrow">→</div><div class="flow-step hot"><span class="fdate">Nov 18, 2024</span>Winterton's wife tells county his bill is coming</div><div class="flow-arrow">→</div><div class="flow-step hot"><span class="fdate">Feb 12, 2025</span>Senate Comm.: gas rate cut, sunset dropped; Brammer's own Nay</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Feb 18</span>Senate 22-3-4</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Feb 27</span>House Comm. 10-0-4</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Mar 6</span>House 69-0-6</div><div class="flow-arrow">→</div><div class="flow-step"><span class="fdate">Mar 7</span>Senate concurs 25-0-4</div></div>
+    <ul class="timeline">
+      <li><span class="date">Jul 22, 2024</span>Duchesne County holds its earliest working session on Ordinance #24-409, a proposed fee on oil and gas drilling tied to road repair costs.</li>
+      <li><span class="date">Oct 21, 2024</span>At a county hearing, the Utah Petroleum Association proposes cutting the per-mile repair-cost estimate used in the county's fee formula from $876,000 to $350,000. County Commissioners Killian and Miles push back, arguing the lower figure understates the industry's actual road use.</li>
+      <li class="flag"><span class="date">Nov 18, 2024</span>At the county's hearing on the ordinance, Lori Winterton — Sen. Ron Winterton's wife — tells the commissioners her husband "is working on bills that would divert some money to the County for road repairs," that "he needs support to pass these bills," and that "this ordinance wouldn't be required" if those bills passed.</li>
+      <li><span class="date">2025 General Session</span>Sen. Winterton introduces S.B. 207, "Local Impact Mitigation Amendments," with Rep. R. Neil Walter as House sponsor. As introduced, the gas tax rate is 1 cent per MCF, and a separate section schedules the entire Local Impact Mitigation Tax Act — including the ban on county fees — to automatically repeal on July 1, 2030.</li>
+      <li class="flag"><span class="date">Feb 12, 2025</span>Senate Revenue and Taxation Committee: Sen. Brammer moves to substitute the bill (original → 1st Substitute), passing 4-0-3. This substitute cuts the gas rate from 1 cent to 1/4 cent per MCF — a 75% reduction — and removes the 2030 automatic-repeal provision entirely, leaving the county-fee ban with no expiration date. The committee then votes to pass the substitute favorably, 4-1-2 — with Sen. Brammer himself casting the lone Nay, against the same substitute he had just moved. No public testimony is recorded on the bill at this hearing.</li>
+      <li><span class="date">Feb 18, 2025</span>The Senate passes the bill on 2nd Reading, 22-3-4, on its way through the legislative process.</li>
+      <li><span class="date">Feb 27, 2025</span>House Natural Resources, Agriculture, and Environment Committee passes the bill favorably, 10-0-4. No testimony is recorded; Sen. Winterton presents the bill in person to the House committee.</li>
+      <li><span class="date">Mar 6, 2025</span>The House passes 3rd Reading (Substitute 3), final passage, 69-0-6 — unanimous, with no recorded opposition.</li>
+      <li><span class="date">Mar 7, 2025</span>The Senate concurs with the House's version, 25-0-4 — also unanimous, closing out the legislative process.</li>
+      <li><span class="date">Mar 25, 2025</span>Signed by Gov. Cox.</li>
+    </ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Two Designs, Graded Side by Side</h2>
+    <p class="rubric-note">This isn't a personal opinion of either approach. The grade below asks two questions, applied the same way to every bill in this series: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process? Here, the two approaches are graded side by side rather than before-and-after, since the county's ordinance and the state's bill were two different, competing designs for the same problem, not two versions of the same bill.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>County's Proposed Ordinance</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Kept the fee-setting decision with the local government bearing the actual road costs</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Set through multiple public hearings, with industry and commissioners debating specific cost figures on the record</span></div>
+        <div class="grade-final"><span class="grade-badge b">B</span><p style="margin:0;">A locally-negotiated fee, built on a real engineering cost study, worked out in public over more than a year.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>S.B. 207's Enacted Mechanism</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Removes the county's authority to set its own fee permanently — the automatic-repeal provision that would have sunset the ban was cut from the bill before passage</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">The gas rate cut and the removal of the 2030 sunset both happened in a single committee substitute with no public testimony recorded, for or against</span></div>
+        <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">Revenue is tracked and returned to the county of origin, but the county has no authority to set the rate, the rate itself was cut before passage, and the ban on the county's own fee never expires.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Power</td><td class="grade-cell"><span class="grade-pill f">F</span></td><td>The bill doesn't just create a state alternative — it explicitly bars counties from imposing their own oil and gas mitigation fee, and the provision that would have automatically repealed that ban in 2030 was removed before passage. The ban has no expiration date at all, while the tax that replaced the county's revenue is itself temporary (2026–2029).</td></tr>
+        <tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>The title, "Local Impact Mitigation Amendments," doesn't signal that the bill bars local governments from setting their own mitigation fees. The gas-rate cut and the removal of the automatic 2030 repeal both happened in the same committee substitute, with no public testimony recorded anywhere in the bill's path — not in either committee hearing, not on either floor.</td></tr>
+        <tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Revenue is tracked, restricted to transportation mitigation, and redistributed to the county of origin within 60 days — real accountability — but the gas tax rate was cut 75% (from 1 cent to 1/4 cent per MCF) between the introduced bill and the substitute that passed, the State Tax Commission retains up to 1.5% as an administrative charge, and the per-unit rate wasn't tied to the kind of per-county engineering cost study Duchesne's own ordinance process had commissioned.</td></tr>
+        <tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>The bill sets a road-impact fee mechanism; it doesn't itself regulate the environmental effects of drilling.</td></tr>
+        <tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Duchesne County spent over a year building a fee through public hearings with direct resident and industry testimony. That process was preempted before the county could finalize or collect anything under its own ordinance.</td></tr>
+      </tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge f">F</span><p>Revenue for road impacts still flows to the county, but the county that bears the costs has no authority to set the fee that funds it, the ban on setting one never expires, and the tax rate itself was cut in half for gas before the bill even reached the floor — with no public testimony on any of it, at any stage.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Helped the Public</h2>
+    <p>If the goal was consistency across counties rather than removing local authority entirely, there were ways to do both:</p>
+    <ul class="plain">
+      <li>Let counties choose between the state's mechanism and their own locally-tailored fee, rather than barring the local option outright</li>
+      <li>Keep the automatic 2030 repeal on the entire Act, including the county-fee ban, so the prohibition doesn't outlive the temporary tax that was supposed to replace it</li>
+      <li>Base the state's per-unit rate on the same kind of engineering cost study local ordinances are expected to commission, rather than a single statewide flat rate</li>
+      <li>Preserve county authority to supplement the state tax with a local fee for costs specific to that county's own road network</li>
+    </ul>
+  </section>
+
+  <section class="related-box" id="related">
+    <h2>Related Cases</h2>
+    <ul class="plain">
+      <li><strong>S.B. 107 (2023), Oil and Gas Severance Tax Amendments</strong> — <a href="weber-hive-sb107.html">Read the case file →</a>. Sen. Winterton's earlier bill on the same underlying subject: the Senate-passed version of that bill also created a dedicated funding mechanism for extraction-impacted local governments, which was removed before final passage.</li>
+      <li>See both bills together in the <a href="water-land-property-rights-local-power-bills.html">full research tracker</a> (Tier 2).</li>
+    </ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources ▸</span><span class="hide">Hide sources ▾</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain">
+        <li>S.B. 207, official bill text and status/vote record — le.utah.gov (drafting attorney Gus Harb, fiscal analyst Travis D. Eisenbacher)</li>
+        <li>Duchesne County Commission, official meeting minutes, Jul. 22, 2024, Oct. 21, 2024, and Nov. 18, 2024</li>
+        <li>Senate Revenue and Taxation Committee, official minutes, Feb. 12, 2025</li>
+        <li>House Natural Resources, Agriculture, and Environment Committee, official minutes, Feb. 27, 2025</li>
+        <li>S.B. 207 bill-version comparison documents (Introduced vs. 1st Substitute vs. 3rd Substitute/Enrolled) — le.utah.gov</li>
+        <li>S.B. 207 House 3rd Reading final passage vote (69-0-6), Mar. 6, 2025 — le.utah.gov</li>
+        <li>S.B. 207 Senate concurrence final passage vote (25-0-4), Mar. 7, 2025, including the Senate Revenue and Taxation Committee's substitution vote (4-1-2) — le.utah.gov</li>
+        <li>Utah State Tax Commission — local impact mitigation tax rate and administration details, tax.utah.gov</li>
+        <li>Utah Code §59-32 — local impact mitigation tax exemptions</li>
+      </ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, Duchesne County Commission minutes, and state tax records. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>

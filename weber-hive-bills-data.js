@@ -180,6 +180,32 @@ const BILLS = [
     link: "weber-hive-sb228.html"
   },
   {
+    caseNumber: "CASE 2023-107",
+    grade: "D",
+    bill: "S.B. 107",
+    year: "2023",
+    title: "The Fund That Got Swapped for a Highway Account",
+    summary: "The Senate-passed version gave extraction-impacted counties and cities a real path to apply for oil and gas revenue. The House swapped it out for a statewide highway fund before final passage — removing local governments' only access point to that money entirely.",
+    tags: ["Severance Tax", "Uintah Basin", "Local Power", "Process Concern"],
+    status: "law",
+    voteLine: "Senate 21–6–2 · House 54–14–7 · Senate concurred 19–7–3 · Signed Mar 20, 2023",
+    link: "weber-hive-sb107.html",
+    lastUpdated: "Sep 16, 2026"
+  },
+  {
+    caseNumber: "CASE 2025-207",
+    grade: "F",
+    bill: "S.B. 207",
+    year: "2025",
+    title: "The State Took the Fee Before the County Could Charge It",
+    summary: "Duchesne County spent over a year building its own road-impact fee on oil and gas drilling. The sponsoring senator's own wife told the county's hearing his bill would make it unnecessary — and the enacted law bars counties from charging such a fee permanently, while the gas tax rate meant to replace it was cut 75% in the same committee vote that dropped the ban's own expiration date.",
+    tags: ["Severance Tax", "Uintah Basin", "Local Power", "Duchesne County"],
+    status: "law",
+    voteLine: "Senate 22–3–4 · House 69–0–6 · Senate concurred 25–0–4 · Signed Mar 25, 2025",
+    link: "weber-hive-sb207.html",
+    lastUpdated: "Sep 16, 2026"
+  },
+  {
     caseNumber: "CASE 2026-242",
     bill: "S.B. 242",
     year: "2026",
