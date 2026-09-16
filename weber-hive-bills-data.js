@@ -228,6 +228,19 @@ const BILLS = [
     link: "weber-hive-sb197.html"
   },
   {
+    caseNumber: "CASE 2026-545",
+    grade: "D",
+    bill: "H.B. 545",
+    year: "2026",
+    title: "A Paper Fix, and a Weakened Watchdog",
+    summary: "An audit found the state's economic development office couldn't account for how it spent nearly $249 million — and the Legislature's fix came with no funding or staff attached. The same bill narrowed the State Auditor's control over her own office's budget, over her recorded objection, in a committee vote that flipped against the bill mid-meeting before it passed anyway.",
+    tags: ["Economic Development", "State Auditor Independence", "Process Concern"],
+    status: "law",
+    voteLine: "House Committee 8–1–1, reconsidered 7–3–0 · House 71–1–3 · Senate concurrence 66–1–8 · Signed Mar 25, 2026 · Effective Jul 1, 2026",
+    link: "weber-hive-hb545.html",
+    lastUpdated: "Sep 16, 2026"
+  },
+  {
     caseNumber: "CASE 2026-286",
     grade: "F",
     bill: "H.B. 286",
