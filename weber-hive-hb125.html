@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-125-BSW — H.B. 157 &amp; H.B. 125, Six Hours, Two Bills, $5 Million — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-125-BSW</span>
+  <p class="eyebrow">H.B. 157 &amp; H.B. 125 &middot; 2026 General Session &middot; Bait-and-Switch</p>
+  <h1>Six Hours, Two Bills, $5 Million</h1>
+  <p class="dek">A new DNR water-litigation-funding authority and its $5 million appropriation were stripped from one bill the same day the Senate killed it outright — then reinserted word-for-word into an unrelated bill hours later. The appropriation was dropped again six hours after that. The authority is now law; the money is not.</p>
+  <div class="stampline">
+    <span>H.B. 157: <strong>Rep. Rex P. Shipp / Sen. Keven J. Stratton</strong></span><span>H.B. 125: <strong>Senate Sponsor Sen. David Hinkins</strong></span>
+    <span>Effective: <strong>May 6, 2026</strong></span>
+    <span class="stamp-status law">H.B. 125: Law &middot; H.B. 157: Died</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">H.B. 157 started as routine Department of Natural Resources housekeeping. Its third substitute added something new: a law letting DNR fund water-related litigation (§73-1-22), plus a $5,000,000 appropriation to pay for it.</p>
+    <p>The Senate's next substitute of H.B. 157 removed both the new litigation authority and the $5M appropriation &mdash; and the Senate struck the bill's enacting clause outright that same day, March 6, killing it.</p><p>Hours later, on the same day, H.B. 125 &mdash; until then a bill about aquatic invasive species with no water-rights content at all &mdash; was substituted to reinsert the identical litigation-authority language word-for-word, plus the $5M appropriation. Six hours after that, a further H.B. 125 substitute kept the litigation authority but dropped the $5 million appropriation again. That is the version that became law.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th colspan="2">H.B. 157, 3rd Substitute (2/11/2026)</th></tr></thead><tbody><tr><td>New provisions</td><td>&sect;73-1-22 (DNR litigation funding authority) and a $5,000,000 General Fund appropriation, appearing together for the first time</td></tr></tbody><thead><tr><th colspan="2">H.B. 157, 4th Substitute (3/4/2026)</th></tr></thead><tbody><tr><td>Removed</td><td>Both &sect;73-1-22 and the $5M appropriation</td></tr><tr><td>Bill's fate</td><td>Enacting clause struck by the Senate, 3/6/2026 &mdash; bill killed</td></tr></tbody><thead><tr><th colspan="2">H.B. 125, 2nd Substitute (3/6/2026, 4:52pm)</th></tr></thead><tbody><tr><td>Added</td><td>&sect;73-1-22 and the $5M appropriation, reinserted word-for-word from H.B. 157</td></tr></tbody><thead><tr><th colspan="2">H.B. 125, 3rd Substitute (3/6/2026, 10:30pm)</th></tr></thead><tbody><tr><td>Removed again</td><td>The $5M appropriation. &sect;73-1-22 itself stayed &mdash; this is the enacted version.</td></tr></tbody></table>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow"><div class="flow-step"><span class="fdate">2/11</span>HB157 S03 Adds $5M</div><div class="flow-arrow">&rarr;</div><div class="flow-step hot"><span class="fdate">3/4</span>HB157 S04 Drops It</div><div class="flow-arrow">&rarr;</div><div class="flow-step hot"><span class="fdate">3/6, 4:52pm</span>HB125 S02 Adds It Back</div><div class="flow-arrow">&rarr;</div><div class="flow-step hot"><span class="fdate">3/6, 10:30pm</span>HB125 S03 Drops $5M Again</div></div>
+    <ul class="timeline"><li><span class="date">Feb 11, 2026</span>H.B. 157's 3rd substitute adds &sect;73-1-22 and the $5M appropriation together for the first time. Passes House 57-1-17.</li><li><span class="date">Mar 2, 2026</span>Passes Senate 2nd reading 22-0-7.</li><li class="flag"><span class="date">Mar 4, 2026</span>H.B. 157's 4th substitute (filed by Senate sponsor Stratton) drops &sect;73-1-22 and the $5M appropriation.</li><li class="flag"><span class="date">Mar 6, 2026</span>The Senate strikes H.B. 157's enacting clause, killing it outright.</li><li class="flag"><span class="date">Mar 6, 2026, 4:52pm</span>H.B. 125's 2nd substitute (filed by Senate sponsor Hinkins) reinserts &sect;73-1-22 and the $5M appropriation word-for-word.</li><li class="flag"><span class="date">Mar 6, 2026, 10:30pm</span>H.B. 125's 3rd substitute (filed by House sponsor Shipp) drops the $5M appropriation again. &sect;73-1-22 remains.</li><li><span class="date">May 6, 2026</span>H.B. 125 effective &mdash; &sect;73-1-22 is now law, with no funding source specified.</li></ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>As a Single Bill's Path</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">A new litigation-funding authority for the state, with money attached, moving through ordinary substitutes</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Each substitute is a matter of public record on its own</span></div>
+        <div class="grade-final"><span class="grade-badge c">C</span><p style="margin:0;">Ordinary process, on its own.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>What Happened Across Both Bills, Same Day</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Language killed in one bill was moved whole into an unrelated bill hours later, with the funding stripped a second time</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">No public record names who requested either removal</span></div>
+        <div class="grade-final"><span class="grade-badge c">C</span><p style="margin:0;">Legally available, but the six-hour cross-bill sequence is hard to follow without piecing together two bills' full substitute histories.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>A new state litigation-funding authority is now law with no dedicated funding source in the statute.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>Each individual substitute is public, but reconstructing the full sequence requires tracking two separate bill numbers across a single day.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>The $5M appropriation was added and removed twice with no explanation of who requested either change.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>The underlying authority concerns water-rights litigation funding, not an environmental standard itself.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>No testimony or public comment specific to this provision has been located.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge c">C</span><p>A real authority is now law with an unresolved funding question, moved across two bills in a way that's hard to trace without deliberately cross-referencing both.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Require a floor note whenever substitute language is moved from a bill that died the same day into a different, unrelated bill</li><li>Specify a funding source in the statute itself when a new spending authority is created, rather than leaving it to a separate, since-removed appropriation</li><li>Publish who requested a specific provision's addition or removal in a substitute, at least for provisions carrying a dollar figure</li></ul>
+  </section>
+
+  <div class="crosslink-native" style="max-width:800px;margin:0 auto 22px;padding:0 28px;">
+    <section style="background:#fdf6e9;border:2px dashed #A9822F;">
+      <h2 style="border-bottom-color:#A9822F;">Part of a Larger Pattern</h2>
+      <p>This case is one of eight in <a href="https://weber-county-hive.github.io/bait-and-switch/#case-6" target="_blank" rel="noopener" style="color:#A5301E;font-weight:600;">"Bills That Did the Opposite,"</a> a cross-bill tracker documenting Utah legislation where the public description stayed the same while the substance was quietly swapped out mid-process.</p>
+    </section>
+  </div>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>H.B. 157 and H.B. 125, official bill text, all substitutes &mdash; le.utah.gov</li><li>H.B. 157 and H.B. 125 floor vote records &mdash; le.utah.gov Bill Status/Votes page</li><li>Direct turn-by-turn comparison of every substitute of both bills</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>
