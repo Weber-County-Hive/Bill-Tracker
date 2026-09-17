@@ -30,7 +30,8 @@
   .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
   .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
   .stampline strong{color:var(--paper-light);}
-  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--green);color:var(--green);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
 
   main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
   section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
@@ -43,109 +44,229 @@
   ul.plain{padding-left:20px;margin:0 0 14px;}
   ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
 
-  table.votes{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;margin:6px 0 4px;}
-  table.votes th{text-align:left;border-bottom:2px solid var(--gold);padding:6px 8px;color:var(--ink-soft);}
-  table.votes td{border-bottom:1px dashed var(--rule);padding:8px;vertical-align:top;}
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
 
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
   .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
   .rubric-row:last-child{border-bottom:none;}
-  .rubric-row .crit{font-weight:600;}
-  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;max-width:52%;}
-  .grade-final{display:flex;align-items:center;gap:16px;margin-top:18px;padding-top:16px;border-top:2px solid var(--gold);}
-  .grade-badge{font-family:'Special Elite',monospace;font-size:34px;color:var(--red);border:3px solid var(--red);border-radius:8px;padding:4px 16px;transform:rotate(-3deg);}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
 
   footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
 </style>
 </head>
 <body>
 
-<a class="back" href="index.html">← Back to The Legislative Docket</a>
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
 
 <header class="masthead">
   <span class="case-tag">CASE 2026-242</span>
-  <p class="eyebrow">S.B. 242 · 2026 General Session</p>
-  <h1>The Bill Behind the Tax — Transportation Amendments</h1>
-  <p class="dek">Utah's House called it "the session's most wide-ranging transit bill." Buried in its fourth substitute is the exact code section that lets Weber County collect a new 0.2% sales tax starting this fall — and missing from that same substitute is a consumer privacy protection that existed when the bill was introduced.</p>
+  <p class="eyebrow">S.B. 242 &middot; 2026 General Session</p>
+  <h1>The Bill Behind the Tax &mdash; Transportation Amendments</h1>
+  <p class="dek">Utah's House called it &quot;the session's most wide-ranging transit bill.&quot; Buried in its fourth substitute is the exact code section that lets Weber County collect a new 0.2% sales tax starting this fall &mdash; and missing from that same substitute is a consumer privacy protection that existed when the bill was introduced.</p>
   <div class="stampline">
-    <span>Chief Sponsor: <strong>Sen. Wayne Harper</strong></span>
-    <span>House Sponsor: <strong>Rep. Kay Christofferson</strong></span>
-    <span>Signed: <strong>Mar 25, 2026</strong></span>
-    <span class="stamp-status">Became Law</span>
+    Chief Sponsor: Sen. Wayne Harper &middot; House Sponsor: Rep. Kay Christofferson
+    <span>Effective: <strong>October 1, 2026 (Weber County tax provision)</strong></span>
+    <span class="stamp-status law">Became Law</span>
   </div>
 </header>
 
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
 <main>
 
-  <section>
-    <h2>What the bill actually does</h2>
-    <p>S.B. 242 went through at least four substitutes (introduced, S01, S02, S04) before passing. On its face, it's a broad transportation package: it requires commercial EVs over 6,001 lbs gross combined weight to pay a road usage charge with a higher cap; exempts UDOT from certain real-property conveyance requirements; exempts UDOT transit construction materials from sales tax; clarifies land-use rules near FrontRunner stations to speed the double-tracking project; and lets transit buses cross lane lines while "loading or unloading passengers, or making an operational adjustment."</p>
-    <p>Two provisions are attributed to House sponsor Christofferson by name in the House's own 2026 session recap: ending the program that let EVs use HOV lanes (tied to an expired federal policy), and routing corridor-preservation funding directly from the state to local governments.</p>
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">Utah's House called this “the session's most wide-ranging transit bill.” Buried in its fourth substitute is the exact code section that lets Weber County collect a new 0.2% sales tax starting this fall &mdash; and missing from that same substitute is a consumer privacy protection that existed when the bill was introduced.</p>
+    <p>S.B. 242 went through at least four substitutes (introduced, S01, S02, S04) before passing. On its face, it's a broad transportation package: it requires commercial EVs over 6,001 lbs gross combined weight to pay a road usage charge with a higher cap; exempts UDOT from certain real-property conveyance requirements; exempts UDOT transit construction materials from sales tax; clarifies land-use rules near FrontRunner stations to speed the double-tracking project; and lets transit buses cross lane lines while &quot;loading or unloading passengers, or making an operational adjustment.&quot;</p>
+<p>Two provisions are attributed to House sponsor Christofferson by name in the House's own 2026 session recap: ending the program that let EVs use HOV lanes (tied to an expired federal policy), and routing corridor-preservation funding directly from the state to local governments.</p>
   </section>
 
-  <section>
-    <h2>The Weber County tax connection</h2>
-    <div class="finding">
-      <p><strong>Section 9 of this bill amends Utah Code §59-12-2220</strong> — the exact statute governing county-option sales tax for highways and transit — setting the 0.2% rate and the distribution formulas by county classification and transit-district status.</p>
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th>Provision</th><th>What it does</th></tr></thead><tbody><tr><td>Weber County tax connection</td><td>Section 9 amends Utah Code &sect;59-12-2220 &mdash; the exact statute governing county-option sales tax for highways and transit &mdash; setting the 0.2% rate and distribution formulas by county classification and transit-district status. That's the section behind Weber County's new &quot;5th 5th&quot; local-option sales tax: 0.2%, effective October 1, 2026, projected to raise roughly $13.1 million a year. Commissioner Gage Froerer publicly described it as &quot;an alternative to boosting property taxes.&quot; KSL's own coverage referred to it as language &quot;inserted in a state transportation bill&quot; &mdash; this bill, confirmed directly against the amended code section.</td></tr><tr><td>The deletion no record explains</td><td>A consumer privacy protection present in the introduced and S01 versions was deleted by S04 &mdash; the version that actually became law. The removed language would have barred towing dispatch vendors from selling a vehicle owner's personal information, sharing it with third parties, using it beyond the tow itself, or retaining it longer than administratively necessary. That protection does not exist in the enacted law, and the public record &mdash; bill text, committee minutes, floor debate &mdash; does not explain why it was removed.</td></tr></tbody></table><div class="crosslink" style="margin-top:16px;border-left:4px solid var(--gold);padding:10px 16px;background:rgba(169,130,47,0.08);">
+<p style="margin:0 0 10px;"><strong>Real, organized opposition &mdash; that didn't stop it:</strong> at the Senate Transportation, Public Utilities, Energy &amp; Technology Committee hearing, a genuine coalition testified against the bill: Dave Iltis (President, Cycling Utah), Julia Lyon (President, Wasatch Elementary PTA), Julian Jurkoic (Treasurer, Sweet Streets Salt Lake City), and six named residents. Only one witness &mdash; Salt Lake City Council Member Alejandro Puy &mdash; spoke in favor.</p>
+<p style="margin:0 0 10px;">One plausible, checkable explanation: the bill exempts transit buses from lane-discipline rules specifically while loading, unloading, or making an operational adjustment &mdash; meaning a bus can legally block a bike lane during that window. Not confirmed as the reason bike-safety advocates opposed the bill, but a specific candidate worth naming.</p>
+<p style="margin:0;">Opposition was genuinely cross-partisan. House passage (Substitute 4) was 55-14-6 &mdash; most Nays were Democrats, but four Republicans crossed over (Abbott, Gwynn, Ward, Welton). On Senate concurrence (18-9-2), Nays mixed both parties: Democrats Blouin, Escamilla, Kwan, Plumb, and Riebe alongside Republicans Balderree, Brammer, Buss, and Pitcher.</p>
+</div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+  <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">Privacy protection intact</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">S01<br><span style="font-weight:400;font-size:11px;">Still intact</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">S04<br><span style="font-weight:400;font-size:11px;">Privacy provision gone</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">House 55-14-6<br><span style="font-weight:400;font-size:11px;">Mar 6, 2026</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Signed<br><span style="font-weight:400;font-size:11px;">Mar 25, 2026</span></div>
+</div>
+    <ul class="timeline">
+<li>Introduced &mdash; consumer privacy protection for tow-dispatch data present in the bill text.</li>
+<li>S01 substitute &mdash; privacy protection still present.</li>
+<li class="flag">S02/S04 substitutes &mdash; the tow-dispatch privacy protection is deleted, with no committee minutes, floor debate, or bill-text note explaining why. The bill is the version that becomes law.</li>
+<li>Mar 6, 2026, 11:46am &mdash; House final passage (Substitute 4), 55-14-6. Most Nays were Democrats, but four Republicans crossed over (Abbott, Gwynn, Ward, Welton).</li>
+<li>Mar 6, 2026, 8:17pm &mdash; Senate concurred with House amendment, 18-9-2. Nays mixed both parties: Democrats Blouin, Escamilla, Kwan, Plumb, Riebe; Republicans Balderree, Brammer, Buss, Pitcher.</li>
+<li>Mar 25, 2026 &mdash; Signed by the Governor.</li>
+<li>Open: nothing in the public legislative record explains why the tow-dispatch privacy protection was removed between S01 and S04 &mdash; it's the kind of provision a reader following only the bill's stated transportation-funding purpose would have no reason to expect was ever in play, let alone struck.</li>
+</ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+  <h3>As Designed</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">Introduced as a broad transportation package with a genuine tow-dispatch consumer-privacy protection included</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">A tax-enabling code section and other substantive provisions sit inside a title that reads as general transportation policy, not tax or privacy law</span></div>
+  <div class="grade-final"><span class="grade-badge c">C</span><p style="margin:0;">A broad but not unusual transportation bill, with a real consumer protection intact at introduction.</p></div>
+</div>
+<div class="rubric-col">
+  <h3>As It Happened</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">The tow-dispatch privacy protection was quietly removed by the substitute that actually became law, alongside the tax provision Weber County has since relied on</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">No committee minutes, floor debate, or bill text explains why the privacy protection was removed between S01 and S04</span></div>
+  <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">A real consumer protection disappeared between substitutes with zero explanation anywhere in the accessible public record.</p></div>
+</div>
     </div>
-    <p>That's the section behind Weber County's new "5th 5th" local-option sales tax: 0.2%, effective October 1, 2026, projected to raise roughly $13.1 million a year. Weber County Commissioner Gage Froerer publicly described the tax as "an alternative to boosting property taxes." The specific language enabling it is what KSL's own coverage referred to as language "inserted in a state transportation bill" — this bill, confirmed directly against the amended code section.</p>
   </section>
 
-  <section>
-    <h2>The deletion no record explains</h2>
-    <div class="finding">
-      <p><strong>A consumer privacy protection present in the introduced and S01 versions of the bill was deleted by S04</strong> — the version that actually became law. The removed language would have barred towing dispatch vendors from selling a vehicle owner's personal information, sharing it with third parties, using it beyond the tow itself, or retaining it longer than administratively necessary.</p>
-    </div>
-    <p>That protection does not exist in the enacted law. The public legislative record — bill text, committee minutes, floor debate — does not explain why it was removed between S01 and S04. It's the kind of provision a reader following only the bill's stated purpose (transportation funding and governance) would have no reason to expect was ever in play, let alone struck.</p>
-  </section>
-
-  <section>
-    <h2>Real, organized opposition — that didn't stop it</h2>
-    <p>At the Senate Transportation, Public Utilities, Energy &amp; Technology Committee hearing, a genuine coalition testified against the bill: Dave Iltis (President, Cycling Utah), Julia Lyon (President, Wasatch Elementary PTA), Julian Jurkoic (Treasurer, Sweet Streets Salt Lake City), and six named residents. Only one witness — Salt Lake City Council Member Alejandro Puy — spoke in favor.</p>
-    <p>One plausible, checkable explanation for that opposition: the bill exempts transit buses from lane-discipline rules specifically while loading, unloading, or making an operational adjustment — meaning a bus can legally block a bike lane during that window. Not confirmed as the reason bike-safety advocates opposed the bill, but a specific candidate worth naming.</p>
-    <p>Opposition was genuinely cross-partisan, not party-line. House passage (as Substitute 4) was 55-14-6 — most Nays were Democrats, but four Republicans crossed over (Abbott, Gwynn, Ward, Welton). On the Senate concurrence vote (18-9-2), Nays mixed both parties: Democrats Blouin, Escamilla, Kwan, Plumb, and Riebe alongside Republicans Balderree, Brammer, Buss, and Pitcher.</p>
-  </section>
-
-  <section>
-    <h2>Vote &amp; process history</h2>
-    <table class="votes">
-      <tr><th>Stage</th><th>Vote</th></tr>
-      <tr><td>House final passage (Substitute 4)</td><td>55–14–6, Mar 6, 2026, 11:46am</td></tr>
-      <tr><td>Senate concurrence with House amendment</td><td>18–9–2, Mar 6, 2026, 8:17pm</td></tr>
-      <tr><td>Signed by Governor</td><td>Mar 25, 2026</td></tr>
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>A tax-enabling provision and a privacy-protection deletion both moved inside a broad, unrelated-sounding transportation title, four substitutes deep.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill f">F</span></td><td>No public record explains why the tow-data privacy protection was removed between S01 and S04.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>The 0.2% sales tax it enables is publicly disclosed by Weber County and tied to a stated purpose (property-tax alternative) &mdash; genuine disclosure, once located.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not established &mdash; bill text doesn't reach environmental questions directly.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>Mixed &mdash; real, organized bike/pedestrian-safety opposition was heard and overridden; the tax itself funds public transportation infrastructure.</td></tr></tbody>
     </table>
+    <div class="overall-box"><span class="grade-badge d">D</span><p>A consumer privacy protection deleted with no record explaining why, inside the same bill that enables a live, current county tax &mdash; real public benefit bundled with a real, unexplained loss.</p></div>
   </section>
 
-  <section>
-    <h2>Graded against the collective rubric</h2>
-    <div class="rubric-row"><span class="crit">Power</span><span class="val">A tax-enabling provision and a privacy-protection deletion both moved inside a broad, unrelated-sounding transportation title, four substitutes deep</span></div>
-    <div class="rubric-row"><span class="crit">Transparency</span><span class="val">No public record explains why the tow-data privacy protection was removed between S01 and S04</span></div>
-    <div class="rubric-row"><span class="crit">Financial Accountability</span><span class="val">The 0.2% sales tax it enables is publicly disclosed by Weber County and tied to a stated purpose (property-tax alternative) — genuine disclosure, once located</span></div>
-    <div class="rubric-row"><span class="crit">Environmental Impact</span><span class="val">Not established — bill text doesn't reach environmental questions directly</span></div>
-    <div class="rubric-row"><span class="crit">Community Impact</span><span class="val">Mixed — real, organized bike/pedestrian-safety opposition was heard and overridden; the tax itself funds public transportation infrastructure</span></div>
-    <div class="grade-final">
-      <span class="grade-badge">D</span>
-      <p style="margin:0;">A consumer privacy protection deleted with no record explaining why, inside the same bill that enables a live, current county tax — real public benefit bundled with a real, unexplained loss.</p>
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Kept the tow-dispatch consumer-privacy protection in every substitute, or documented on the record exactly why and by whom it was removed</li><li>Required a tax-rate-setting provision like &sect;59-12-2220 to be flagged as its own titled section, not folded into a broad transportation bill's general substitute process</li><li>Addressed, on the record, the specific bike/pedestrian-safety concern raised by the organized opposition &mdash; the lane-discipline exemption for loading/unloading buses &mdash; rather than passing over it unaddressed through four substitutes</li><li>Published a redline summary alongside each substitute specifically flagging any provision removed since the previous version, not just the ones added</li></ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>S.B. 242 full text and status history &mdash; le.utah.gov</li><li>CP SB0242S01 To SB0242S04.pdf &mdash; introduced-to-final redline comparison, le.utah.gov</li><li>Utah Code &sect;59-12-2220, as amended</li><li>Senate Transportation, Public Utilities, Energy &amp; Technology Committee minutes</li><li>House 2026 general session recap article (House's own summary)</li><li>KSL coverage of Weber County's 0.2% &quot;5th 5th&quot; local option sales tax</li><li>House and Senate floor vote records, Mar 6, 2026</li></ul>
     </div>
-  </section>
-
-  <section>
-    <h2>Sources</h2>
-    <ul class="plain">
-      <li>S.B. 242 full text and status history — le.utah.gov</li>
-      <li>CP SB0242S01 To SB0242S04.pdf — introduced-to-final redline comparison, le.utah.gov</li>
-      <li>Utah Code §59-12-2220, as amended</li>
-      <li>Senate Transportation, Public Utilities, Energy &amp; Technology Committee minutes</li>
-      <li>House 2026 general session recap article (House's own summary)</li>
-      <li>KSL coverage of Weber County's 0.2% "5th 5th" local option sales tax</li>
-      <li>House and Senate floor vote records, Mar 6, 2026</li>
-    </ul>
-  </section>
-
+  </details>
 </main>
 
 <footer>
-  Sourced from official Utah Legislature bill text, floor votes, and Weber County's own public statements. Compiled by The Weber County Hive.
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
 </footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
 
 </body>
 </html>
