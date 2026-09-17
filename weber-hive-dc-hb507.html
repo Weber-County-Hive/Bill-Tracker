@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The One-Year Gap — H.B. 507's Data Center Rules — The Weber County Hive</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+:root{
+--paper:#f2ede2;
+--ink:#20241f;
+--ink-soft:#4a4f45;
+--line:#c9c0a8;
+--rule:#8a8265;
+--flag:#8a2e1f;
+--flag-soft:#f4e2dc;
+--gold:#8a6a1f;
+--gold-soft:#f4ecdc;
+--serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+--sans:"Helvetica Neue",Arial,sans-serif;
+--mono:"Courier New",Courier,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+.sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+.masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+.masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+.masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+.file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+.dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+.byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+.byline-row span b{color:var(--ink);font-weight:700;}
+blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+blockquote p{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+.accordion{border-top:2px solid var(--gold);}
+.acc-item{border-bottom:1px solid var(--line);}
+.acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+.acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+.acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+.acc-item.open .acc-toggle{transform:rotate(45deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.acc-item.open .acc-body{max-height:5000px;}
+.acc-inner{padding:0 2px 22px;}
+.acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+.acc-inner p:last-child{margin-bottom:0;}
+.timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+.tl-item{position:relative;padding:2px 0 20px 22px;font-family:var(--sans);}
+.tl-item::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);}
+.tl-item.clash::before{background:var(--flag);}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+.tl-item.clash .tl-date{color:var(--flag);}
+.tl-text{font-size:14.5px;color:var(--ink);}
+.stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+.stat{flex:1;min-width:130px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+.stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
+.stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+.verdict-strip{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;}
+.verdict{flex:1;min-width:150px;border:1px solid var(--line);background:#fff;padding:12px 14px;}
+.verdict .vlabel{font-family:var(--mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+.verdict .vtext{font-family:var(--sans);font-size:12.5px;color:var(--ink);margin-top:4px;font-weight:700;}
+.verdict.confirmed{border-left:3px solid var(--gold);}
+.verdict.open{border-left:3px solid var(--flag);}
+.caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+.caveat b{color:var(--ink);}
+.caveat.caveat--first{margin-top:0;}
+.mermaid{background:#fff;border:1px solid var(--line);padding:18px 10px;margin:20px 0 24px;display:flex;justify-content:center;overflow-x:auto;}
+.crosslink{background:var(--gold-soft);border:1px solid var(--line);border-left:3px solid var(--gold);padding:16px 20px;margin:24px 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+.crosslink a{color:var(--flag);font-weight:700;text-decoration:underline;}
+footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="name">The Weber County Hive</div>
+  <div class="date">September 2026</div>
+</div>
+<div class="file-tag">H.B. 507 / 2026 General Session</div>
+
+<h1>The One-Year Gap</h1>
+<p class="dek">H.B. 507 promises to restrict local tax incentives for the largest data centers in Utah. It also builds in a full year, plus a permanent grandfather clause, during which none of that restriction applies — a window that opened four months before Meta announced its latest Eagle Mountain expansion.</p>
+
+<div class="byline-row">
+  <span>Sources: <b>H.B. 507 enrolled text, Server Country policy tracker, Gov. Cox's Executive Order 2026-03</b></span>
+  <span>Method: <b>Public records and the bill's own text, no comment requested</b></span>
+</div>
+
+<blockquote>
+  <p>A facility has to clear both a 150,000-square-foot minimum and a 100-megawatt threshold to count as a "large load data center" under this bill — a scale limited to the largest hyperscale campuses, not a typical server farm.</p>
+  <cite>From the bill's own definitions, Utah Code §§59-12-102, 54-26-101</cite>
+</blockquote>
+
+<div class="accordion" id="accordion">
+
+<div class="acc-item open">
+  <div class="acc-head"><h2>What the Bill Actually Restricts</h2><div class="acc-toggle">+</div></div>
+  <div class="acc-body"><div class="acc-inner">
+    <p>Beginning May 6, 2027, political subdivisions are barred from offering new financial incentives to a "large load data center" outside a "Regionally Significant Development Zone" (RSDZ) — the new tax-increment tool this bill creates. Inside an RSDZ, the restriction doesn't apply at all: a data-center-specific zone subtype can capture up to 60% of property tax increment and divert up to 100% of personal property tax revenue, with up to 80% of that usable directly as an incentive. That 100% figure was raised from 80% during the bill's own drafting process, not lowered.</p>
+    <p>In practice, the bill doesn't close the door on data center incentives. It routes them through a new "Increment Authorization Committee" instead of a simple local vote — a more structured process, but not a smaller one.</p>
+  </div></div>
+</div>
+
+<div class="acc-item open">
+  <div class="acc-head"><h2>The Gap Nobody's Pointed Out</h2><div class="acc-toggle">+</div></div>
+  <div class="acc-body"><div class="acc-inner">
+    <p>The bill itself took effect May 6, 2026. Its own restriction on data-center incentives doesn't start until May 6, 2027 — a full year later. Any incentive agreement signed in that year-long window is grandfathered permanently: it "can continue under its existing terms" forever, outside the new RSDZ review process entirely, so long as it isn't later extended or increased.</p>
+    <p>Meta announced its latest Eagle Mountain expansion on September 14, 2026 — four months into that window, with eight months still remaining before the restriction takes effect. Whether Eagle Mountain or Utah County has used, or plans to use, that window for this specific expansion isn't established. What is established, directly from the bill's own dates, is that doing so would be entirely legal.</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">12 mo</div><div class="label">between the law taking effect and its own restriction starting</div></div>
+      <div class="stat"><div class="num">100%</div><div class="label">of personal property tax divertible inside an RSDZ</div></div>
+      <div class="stat"><div class="num">$0</div><div class="label">confirmed penalty applied to date under the new reporting rules</div></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="acc-item open">
+  <div class="acc-head"><h2>The Governor's Office Already Cited It</h2><div class="acc-toggle">+</div></div>
+  <div class="acc-body"><div class="acc-inner">
+    <p>Gov. Cox's Executive Order 2026-03 — creating a "Data Center Framework" for the Utah Inland Port Authority — explicitly directs UIPA to this bill's own new code sections (17C-6, 63N-3a) as part of the state's response to the Tooele Valley data center controversy on the Great Salt Lake's southern shore. That's real-world confirmation this bill's framework is already in active use, in a live, contested project, not sitting untested.</p>
+  </div></div>
+</div>
+
+<div class="acc-item open">
+  <div class="acc-head"><h2>Timeline</h2><div class="acc-toggle">+</div></div>
+  <div class="acc-body"><div class="acc-inner">
+    <div class="timeline">
+      <li class="tl-item"><span class="tl-date">May 6, 2026</span><div class="tl-text">H.B. 507 takes effect statewide.</div></li>
+      <li class="tl-item clash"><span class="tl-date">Sep 14, 2026</span><div class="tl-text">Meta announces Eagle Mountain expansion, squarely inside the grandfather window.</div></li>
+      <li class="tl-item"><span class="tl-date">May 6, 2027</span><div class="tl-text">The bill's own incentive restriction finally starts — one year after the law itself took effect.</div></li>
+    </div>
+    <div class="mermaid">
+flowchart LR
+A["May 6, 2026<br/>Law takes effect"] --> B["12-month window:<br/>old rules still apply"]
+B --> C["Sep 14, 2026<br/>Meta announces<br/>expansion"]
+B --> D["May 6, 2027<br/>Restriction finally starts"]
+C -.->|"any deal signed before<br/>this date is grandfathered<br/>forever"| D
+    </div>
+  </div></div>
+</div>
+
+<div class="acc-item open">
+  <div class="acc-head"><h2>What's Confirmed, What Isn't</h2><div class="acc-toggle">+</div></div>
+  <div class="acc-body"><div class="acc-inner">
+    <div class="verdict-strip">
+      <div class="verdict confirmed"><div class="vlabel">Confirmed</div><div class="vtext">The 12-month gap and grandfather clause, from the bill's own text</div></div>
+      <div class="verdict confirmed"><div class="vlabel">Confirmed</div><div class="vtext">Meta's expansion clears both thresholds by a wide margin</div></div>
+      <div class="verdict confirmed"><div class="vlabel">Confirmed</div><div class="vtext">Cox's own executive order already cites this bill's RSDZ sections</div></div>
+    </div>
+    <div class="verdict-strip">
+      <div class="verdict open"><div class="vlabel">Still open</div><div class="vtext">Whether any incentive has actually been signed for Meta's expansion in this window</div></div>
+      <div class="verdict open"><div class="vlabel">Unverified</div><div class="vtext">Whether the bill's promised public database and reporting penalty have ever operated</div></div>
+    </div>
+    <div class="caveat caveat--first"><b>The through-line:</b> a bill sold as a new restriction on data-center incentives spends its own first year fully exempt from that restriction, then locks in whatever gets signed during that year permanently. The full mechanics — every threshold, every dollar figure, and the bill's complete legislative history — are covered in its own case file, linked below.</div>
+    <div class="crosslink">
+      <p><b>Cross-reference:</b> Full case file for H.B. 507, including its complete legislative history, the conflict-of-interest safeguard removed before passage, and a second live example at UIPA's Tooele Valley project, is in the <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html" target="_blank" rel="noopener">Bill-Tracker</a> repo. Meta's own Eagle Mountain history back to 2018 is covered in <a href="weber-hive-dc-meta-eagle-mountain.html">"The Deal That Started With a Fake Name."</a></p>
+    </div>
+  </div></div>
+</div>
+
+</div>
+
+<footer>
+  <span>The Weber County Hive</span>
+  <span>Built from H.B. 507's own enrolled text and Utah's official legislative records — no comment requested</span>
+</footer>
+
+</div>
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#f4ecdc',
+    primaryTextColor: '#20241f',
+    primaryBorderColor: '#8a6a1f',
+    lineColor: '#8a8265',
+    secondaryColor: '#f4e2dc',
+    tertiaryColor: '#e2e8e0',
+    fontFamily: 'Helvetica Neue, Arial, sans-serif',
+    fontSize: '13px'
+  }
+});
+document.querySelectorAll('.acc-head').forEach(function(head){
+  head.addEventListener('click', function(){
+    head.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
