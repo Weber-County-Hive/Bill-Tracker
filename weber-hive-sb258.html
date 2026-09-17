@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2024-258 — S.B. 258, Municipal Incorporation Amendments — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2024-258</span>
+  <p class="eyebrow">S.B. 258 &middot; 2024 General Session</p>
+  <h1>Municipal Incorporation Amendments</h1>
+  <p class="dek">A 2024 law lets as few as one landowner turn their own land into a brand-new town, with no county approval required &mdash; and in its first heavy-use year, demand for it in just two counties doubled the statewide annual cap.</p>
+  <div class="stampline">
+    Chief Sponsor: Sen. Curtis S. Bramble &middot; House Sponsor: Rep. James A. Dunnigan
+    <span>Effective: <strong>May 1, 2024</strong></span>
+    <span class="stamp-status law">Became Law</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">"A 2024 law lets as few as one landowner turn their own land into a brand-new town &mdash; no county approval required. Passed almost unanimously, with almost no public debate about what it would let a handful of large landowners do."</p>
+    <p>S.B. 258 created a fast-track path to incorporation known as a &quot;preliminary municipality.&quot; Under the law, up to three landowners who together control a piece of land can petition the state directly to turn it into a new town &mdash; bypassing the county the land currently sits in entirely. The state caps acceptance at two applications per year, statewide.</p>
+<p>Supporters have framed it as a tool for rural landowners to control their own development future. Critics &mdash; including the counties where it's actually being used &mdash; say it hands a handful of large landowners a way around the ordinary zoning and rezone process, with no seat at the table for the county government whose infrastructure, roads, and services the new town will eventually need. The bill passed nearly unanimously with almost no recorded floor debate about that trade-off.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th>Provision</th><th>What it does</th></tr></thead><tbody><tr><td>The "preliminary municipality" fast track</td><td>Up to three landowners who together control a piece of land can petition the state directly for preliminary-municipality status, bypassing the county entirely. The lieutenant governor and county clerk have defined administrative roles; a feasibility study is required; the law also lays out the governance structure and the eventual transition to full town incorporation.</td></tr><tr><td>A statewide annual cap of two applications</td><td>The state accepts at most two preliminary-municipality applications per year, statewide &mdash; regardless of how many landowners apply. In 2026, four separate applications came out of Wasatch and Summit counties alone: twice the statewide cap in one region in one year.</td></tr><tr><td>No county role built into the application itself</td><td>The process runs through the lieutenant governor's office and a feasibility study, with no county-approval step, no traffic-study requirement, and no independent-review mechanism a county could invoke before an application is filed or accepted.</td></tr></tbody></table><div class="crosslink" style="margin-top:16px;border-left:4px solid var(--rule);padding:10px 16px;background:#fff;">
+<p style="margin:0 0 10px;"><strong>What it looked like in practice, 2026:</strong> four preliminary-municipality applications came out of Wasatch and Summit counties alone in a single year &mdash; twice the statewide annual cap.</p>
+<table class="parts-table" style="margin:0;"><thead><tr><th>Application</th><th>Outcome</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Wasatch Highlands</td><td>Accepted</td><td>2,700 acres east of Heber, adjacent to Red Ledges. ~700 homes, hotel, glamping, retail. Sponsored by Philo Ventures after the same project failed twice at the city/county level.</td></tr>
+<tr><td>Bear Canyon</td><td>Rejected</td><td>~2,300 acres near Sundance. Initially accepted, then rejected &mdash; boundaries didn't meet contiguity requirements. Second rejection after an earlier version had too many landowners.</td></tr>
+<tr><td>Lost Creek</td><td>Rejected</td><td>490 acres, Browns Canyon, Summit County. Rejected &mdash; filed after the annual cap was reached. Owner tied to the Garff-Rogers Ranch family; will pursue a standard county rezone instead. Ivory Homes, Utah's largest homebuilder, is the company behind this application.</td></tr>
+<tr><td>Smooth Hollow</td><td>Rejected</td><td>Wasatch County, south of Wallsburg. Also rejected for filing after the cap was reached.</td></tr>
+</tbody></table>
+<p style="margin:10px 0 0;color:var(--ink-soft);font-size:14px;">A persistent problem regardless of outcome: with four applications and a two-per-year statewide cap, half the projects that show up in any given year are guaranteed to be turned away &mdash; not on the merits, but on timing.</p>
+</div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+  <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">2024 General Session</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Senate 29-0-0<br><span style="font-weight:400;font-size:11px;">Unanimous</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">House 71-1-3<br><span style="font-weight:400;font-size:11px;">Near-unanimous</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Signed<br><span style="font-weight:400;font-size:11px;">Mar 21, 2024</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">2026: 4 applications<br><span style="font-weight:400;font-size:11px;">2x the annual cap</span></div>
+</div>
+    <ul class="timeline">
+<li>Feb 21, 2024 &mdash; Senate Business and Labor Committee, favorable recommendation, 6-0-2.</li>
+<li>Feb 23, 2024 &mdash; Senate 2nd reading passes, 21-0-8.</li>
+<li>Feb 26, 2024 &mdash; Senate 3rd reading passes, 29-0-0.</li>
+<li>Mar 1, 2024 &mdash; House 3rd reading passes, 71-1-3; Senate concurs with the House amendment the same day, 29-0-0.</li>
+<li>Mar 21, 2024 &mdash; Signed by the Governor.</li>
+<li class="flag">2026 &mdash; four preliminary-municipality applications filed from Wasatch and Summit counties alone (Wasatch Highlands, Bear Canyon, Lost Creek, Smooth Hollow) against a statewide annual cap of two.</li>
+<li>Jan 2026 &mdash; Wasatch Highlands accepted, the first of the four.</li>
+<li class="flag">Mar 6, 2026 &mdash; H.B. 510, a bill to give counties a real role before an application is filed, fails on the Senate floor 14-12, one vote short, after passing the House 68-0. See <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb510.html" target="_blank" rel="noopener">CASE 2026-510, &quot;Municipal Incorporation Modifications&quot;</a> for the full vote and donation record.</li>
+</ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+  <h3>As Designed</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">Gives a handful of large landowners a direct-to-state incorporation path that bypasses the county entirely, with no county-approval step built into the process itself</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">The statute's mechanics &mdash; the landowner threshold, the feasibility study, the 2-per-year cap &mdash; are plainly written into the law itself</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">A real bypass of ordinary county land-use authority, disclosed plainly in the statute but adopted with almost no recorded floor debate on that trade-off.</p></div>
+</div>
+<div class="rubric-col">
+  <h3>As It Happened</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">In its first heavy-use year, the statewide 2-per-year cap was overwhelmed by demand from two counties alone, and the one 2026 attempt to add county oversight failed by a single vote</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Which applications get accepted vs. rejected for hitting the cap is a matter of timing, not disclosed merit criteria that landowners or counties can plan around</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">The law is working exactly as designed &mdash; which is itself the finding: a narrow bypass mechanism is now the subject of real demand it wasn't built to handle, with the one reform attempt falling one vote short.</p></div>
+</div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Lets as few as one to three landowners bypass county zoning and rezone authority entirely by petitioning the state directly &mdash; a real transfer of land-use power away from the county government whose infrastructure and services the new town will eventually need.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>The statute's mechanics are written plainly into law and the state does track/report accepted and rejected applications &mdash; but there is no disclosed, appealable merit standard beyond the annual cap and contiguity requirements, and the 2024 floor debate left little public record of the trade-off being considered.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not directly applicable &mdash; the statute doesn't itself appropriate or redirect public money.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not established from the statute's own text; any environmental effect depends on what gets built once incorporation succeeds, case by case.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>The counties actually living with this law &mdash; Wasatch and Summit &mdash; have no seat at the table before an application is filed or accepted, and the one 2026 effort to give them one failed by a single vote in the Senate.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge d">D</span><p>A real, disclosed bypass of county land-use authority passed almost unanimously with little recorded debate about the trade-off &mdash; and by 2026, demand for it from a single region had already outrun the statewide cap, with the one attempt to add county oversight failing by a single vote.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Given the county where the land sits a real role &mdash; the right to commission a traffic study, hire its own consultant, or pause the process pending independent review &mdash; before an application is filed, not after</li><li>Set the statewide annual cap based on actual demand data rather than a flat number that four applications from two counties alone can double in a single year</li><li>Published a disclosed, appealable merit standard for which applications get accepted when the cap is reached, rather than leaving the outcome to filing-order timing</li><li>Required a specific public record of any floor debate addressing the county-bypass trade-off before a bill this consequential passes 71-1 with so little recorded discussion</li></ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>S.B. 258, &quot;Municipal Incorporation Amendments,&quot; enrolled bill text &mdash; le.utah.gov</li><li>Senate and House floor and committee vote records, 2024 General Session &mdash; le.utah.gov, LegiScan</li><li>2026 preliminary-municipality application records for Wasatch Highlands, Bear Canyon, Lost Creek, and Smooth Hollow &mdash; le.utah.gov, county records</li><li>H.B. 510 (2026) bill status and vote history &mdash; le.utah.gov, LegiScan</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>

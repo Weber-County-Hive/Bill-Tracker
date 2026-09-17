@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-510 — H.B. 510, Municipal Incorporation Modifications — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+</head>
+<body>
+
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-510</span>
+  <p class="eyebrow">H.B. 510 &middot; 2026 General Session</p>
+  <h1>Municipal Incorporation Modifications</h1>
+  <p class="dek">A bill to give counties any real say over S.B. 258's fast-track incorporation process was watered down in committee, passed the House unanimously, and then failed in the Senate by exactly one vote.</p>
+  <div class="stampline">
+    Chief Sponsor: Rep. Tiara Auxier &middot; Senate Sponsor: Sen. Kirk Cullimore &middot; Cosponsors: Rep. Mike Kohler, Rep. Logan Monson
+    <span>Effective: <strong>Failed &mdash; did not become law</strong></span>
+    <span class="stamp-status ">Failed</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">"A bill to give counties any real say over S.B. 258's fast-track incorporation process passed the House unanimously, then failed in the Senate by exactly one vote &mdash; after being substituted down from real oversight authority to a non-binding coordination standard."</p>
+    <p>H.B. 510 would have given counties a real role before a preliminary-municipality application is filed: the right to commission a traffic study, hire their own consultant and dispute a feasibility study, and pause the incorporation process pending independent review. It passed the House 68-0.</p>
+<p>By the time it reached the Senate floor, it had already been substituted down &mdash; the traffic-study authority gone, the audit-and-dispute mechanism gone, &quot;consultation&quot; loosened into an 18-month &quot;good faith coordination&quot; standard that doesn't require county sign-off. Even that watered-down version failed on the Senate floor, 14-12, three senators absent, needing just one more &quot;yes&quot; to pass in a chamber Republicans control 22-6-1.</p>
+  </section>
+
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th>Provision</th><th>Detail</th></tr></thead><tbody><tr><td>What the bill originally proposed</td><td>The right for a county to commission its own traffic study before a preliminary-municipality application in its borders is filed; the right to hire an independent consultant and formally dispute the applicant's own feasibility study; and authority to pause the incorporation process pending that independent review.</td></tr><tr><td>What the House-passed, substituted version kept</td><td>An 18-month "good faith coordination" standard between the applicant and the county &mdash; with no requirement that the county actually sign off on anything, and none of the traffic-study, consultant, or dispute-and-pause authority from the original bill.</td></tr><tr><td>What failed with the bill</td><td>Any binding county role in the preliminary-municipality process before an application is filed remains absent from law. S.B. 258's original design &mdash; no county-approval step at all &mdash; is unchanged.</td></tr></tbody></table><div class="crosslink" style="margin-top:16px;border-left:4px solid var(--red);padding:10px 16px;background:rgba(165,48,30,0.06);">
+<p style="margin:0 0 10px;"><strong>Five senators, one bill, one vote short:</strong> Ivory Homes &mdash; the state's largest homebuilder, and the company behind the Lost Creek preliminary-municipality application &mdash; had made direct campaign contributions to five sitting senators before the vote. All five were part of the H.B. 510 decision.</p>
+<table class="parts-table" style="margin:0;"><thead><tr><th>Senator</th><th>Ivory Homes contribution</th><th>H.B. 510 vote</th></tr></thead><tbody>
+<tr><td>Ann Millner</td><td>$1,000 (2024) + $500 x2 (2022)</td><td>NO</td></tr>
+<tr><td>Jerry Stevenson</td><td>$1,000 (2022)</td><td>NO</td></tr>
+<tr><td>Evan Vickers</td><td>$1,000 (2022)</td><td>NO</td></tr>
+<tr><td>Brady Brammer</td><td>$500 (2024)</td><td>NO</td></tr>
+<tr><td>Lincoln Fillmore</td><td>$500 (2023)</td><td>ABSENT</td></tr>
+<tr><td>Kirk Cullimore</td><td>$1,000 (2023)</td><td>YES (Senate sponsor)</td></tr>
+</tbody></table>
+<p style="margin:10px 0 0;color:var(--ink-soft);font-size:14px;">Any single one of those five voting yes &mdash; or simply showing up &mdash; would have passed the bill. One senator breaks the clean pattern and deserves to be named for it: Kirk Cullimore, who also received an Ivory Homes contribution, was the bill's own Senate sponsor. He carried the reform, not opposed it, and voted yes.</p>
+<p style="margin:10px 0 0;"><strong>What this does and doesn't show:</strong> none of this proves any senator's vote was bought, traded, or even consciously influenced by a $500 or $1,000 check. What it shows is narrower and still worth stating plainly: the bill that would have given counties leverage over the exact tool a major donor was actively using needed one more vote, and four of the twelve no votes belonged to senators that donor had personally written checks to.</p>
+</div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+  <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">Feb 17, 2026</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">Committee substitute<br><span style="font-weight:400;font-size:11px;">Real authority stripped</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">House 68-0<br><span style="font-weight:400;font-size:11px;">Unanimous</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">Senate 14-12<br><span style="font-weight:400;font-size:11px;">Failed by 1 vote</span></div>
+</div>
+    <ul class="timeline">
+<li>Feb 17, 2026 &mdash; Introduced by Rep. Tiara Auxier (R-Morgan), with real county-oversight authority: traffic-study rights, an independent-consultant dispute mechanism, and pause authority pending review.</li>
+<li class="flag">Feb 25, 2026 &mdash; House Political Subdivisions Committee substitute recommendation, 9-0 (3 absent), and favorable recommendation, 9-0 (3 absent). By this version, the traffic-study authority and audit/dispute mechanism are gone, replaced by an 18-month &quot;good faith coordination&quot; standard with no county sign-off requirement.</li>
+<li>Feb 27, 2026 &mdash; House 3rd reading passes, 68-0.</li>
+<li>Mar 4, 2026 &mdash; Senate Government Operations &amp; Political Subdivisions Committee: substitute recommendation 4-0 (3 absent), favorable recommendation 5-0 (2 absent).</li>
+<li class="flag">Mar 6, 2026 &mdash; Senate floor vote fails, 14-12, three senators absent. In a chamber Republicans control 22-6-1, the bill needed one more &quot;yes&quot; to pass.</li>
+<li>Final action: filed in &quot;House file for bills not passed.&quot;</li>
+</ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+  <h3>What It Would Have Done</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">Even the watered-down, House-passed version would have created the first real county touchpoint in the preliminary-municipality process &mdash; a genuine, if modest, check on S.B. 258's county-bypass design</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">The committee substitute that stripped the original bill's real authority is a matter of public committee record, even though the floor debate over that change isn't yet in hand</span></div>
+  <div class="grade-final"><span class="grade-badge c">C</span><p style="margin:0;">A real, if modest, reform &mdash; already weakened once in committee before it ever reached the floor.</p></div>
+</div>
+<div class="rubric-col">
+  <h3>What Actually Happened</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">Failed by one vote in the Senate; S.B. 258's original no-county-role design remains fully intact and unchanged</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Four of the twelve No votes and one Absent belonged to senators who had each taken a direct campaign check from Ivory Homes, the homebuilder behind one of the year's own preliminary-municipality applications &mdash; a fact of public record, not proof of intent</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">Even a substituted-down reform failed by the narrowest possible margin, with a documented, if unproven, financial-relationship pattern among the deciding votes.</p></div>
+</div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>The one legislative attempt to give counties any binding role in S.B. 258's incorporation process failed by a single vote, leaving the original no-county-approval design fully intact.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>All floor and committee votes are public and by name, and the campaign-contribution record is independently disclosed and checkable &mdash; but the committee substitute that stripped the bill's real authority isn't explained on the record.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not directly applicable &mdash; the bill itself carried no appropriation; the financial dimension here is campaign contributions, already reflected in the Power and Transparency findings.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not established from the bill's own text.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>The counties this bill would have given a voice to &mdash; Wasatch and Summit, already fielding four applications in one year &mdash; remain without one, by a one-vote margin.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge d">D</span><p>A real reform was weakened in committee before it ever reached the floor, then failed by the narrowest possible margin in the Senate &mdash; leaving S.B. 258's county-bypass design fully intact, with a documented, if unproven, pattern of campaign contributions among several of the deciding No votes.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Restored the traffic-study, independent-consultant, and dispute-and-pause authority the committee substitute removed, rather than settling for a non-binding coordination standard</li><li>Published the specific reasoning behind the committee substitute that stripped the bill's real authority, rather than leaving only an aggregate 9-0 vote tally on the record</li><li>Required senators to publicly disclose, at the time of the vote, any campaign contribution from an entity with a pending application under the exact law being amended</li><li>Brought the bill back for a second vote given how narrow the margin was, rather than letting a one-vote failure stand as the final word for the session</li></ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li><a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb258.html" target="_blank" rel="noopener">CASE 2024-258, &quot;Municipal Incorporation Amendments&quot;</a> &mdash; the underlying S.B. 258 fast-track law this bill tried to add oversight to</li><li>H.B. 510, &quot;Municipal Incorporation Modifications,&quot; introduced and substitute bill text &mdash; le.utah.gov</li><li>House and Senate committee and floor vote records, 2026 General Session &mdash; le.utah.gov, LegiScan</li><li>Ivory Homes campaign contribution records, 2022-2024 &mdash; disclosures.utah.gov</li><li>Park Record coverage of H.B. 510's introduction and failure, Feb.-Mar. 2026</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>

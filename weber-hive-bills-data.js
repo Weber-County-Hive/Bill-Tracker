@@ -441,6 +441,45 @@ const BILLS = [
     link: "weber-hive-hb546.html"
   },
 {
+    caseNumber: "CASE 2024-258",
+    grade: "D",
+    bill: "S.B. 258",
+    year: "2024",
+    title: "Municipal Incorporation Amendments",
+    summary: "Lets as few as one landowner turn their own land into a brand-new town, no county approval required. By 2026, demand for it from Wasatch and Summit counties alone had already doubled the statewide annual cap.",
+    tags: ["Municipal Incorporation", "County Authority", "Land Use"],
+    status: "law",
+    voteLine: "Senate 29–0–0 · House 71–1–3 · Signed Mar 21, 2024",
+    link: "weber-hive-sb258.html",
+    lastUpdated: "Sep 17, 2026"
+  },
+{
+    caseNumber: "CASE 2026-510",
+    grade: "D",
+    bill: "H.B. 510",
+    year: "2026",
+    title: "Municipal Incorporation Modifications",
+    summary: "A bill to give counties real oversight of S.B. 258's fast-track incorporation process was weakened in committee, passed the House 68–0, then failed in the Senate by exactly one vote.",
+    tags: ["Municipal Incorporation", "County Authority", "Campaign Finance"],
+    status: "failed",
+    voteLine: "House 68–0 · Senate 14–12 (failed), Mar 6, 2026",
+    link: "weber-hive-hb510.html",
+    lastUpdated: "Sep 17, 2026"
+  },
+{
+    caseNumber: "CASE 2026-492-BSW",
+    grade: "C-",
+    bill: "H.B. 492",
+    year: "2026",
+    title: "The Loan That Lost Its Label",
+    summary: "An $18 million loan introduced as prison-construction money and a promised merger of two housing boards into one both quietly changed in the same unexplained committee substitute — the loan lost its label, and the merger became a second board instead.",
+    tags: ["Housing Finance", "State Boards", "Bait-and-Switch"],
+    status: "law",
+    voteLine: "House 66–5–4 · Senate 27–0–2 (final substitute) · Signed Mar 25, 2026",
+    link: "weber-hive-hb492.html",
+    lastUpdated: "Sep 17, 2026"
+  },
+{
     caseNumber: "CASE 2020-185-BSW",
     grade: "F",
     bill: "S.B. 2001 (2019 2nd Spec.) + H.B. 185 (2020)",
