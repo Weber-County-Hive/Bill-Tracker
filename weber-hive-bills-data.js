@@ -304,6 +304,7 @@ const BILLS = [
   },
 {
     caseNumber: "CASE 2025-333",
+    grade: "D",
     bill: "S.B. 333 (2025)",
     year: "2025",
     title: "A Stadium-Shaped Loophole — Major Sporting Event Venue Financing Amendments",

@@ -3,356 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Stadium-Shaped Loophole — The Weber County Hive</title>
+<title>A Stadium-Shaped Loophole — CASE 2025-333</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f2ede2;
-    --ink:#20241f;
-    --ink-soft:#4a4f45;
-    --line:#c9c0a8;
-    --rule:#8a8265;
-    --flag:#8a2e1f;
-    --flag-soft:#f4e2dc;
-    --stamp:#3c4a3e;
-    --stamp-soft:#e2e8e0;
-    --gold:#8a6a1f;
-    --gold-soft:#f4ecdc;
-    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
-    --sans:"Helvetica Neue",Arial,sans-serif;
-    --mono:"Courier New",Courier,monospace;
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
-  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
 
-  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
-  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
-  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
-  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
 
-  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
-  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
 
-  .related{
-    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
-    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
   }
-  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
 
-  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
-  .byline-row span b{color:var(--ink);font-weight:700;}
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
 
-  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
-  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
-  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
-  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
-  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
-  .start-here.open .start-here-toggle{transform:rotate(45deg);}
-  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-  .start-here.open .start-here-body{max-height:2400px;}
-  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
-
-  .step-list{list-style:none;margin:16px 0 0;padding:0;}
-  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
-  .step-item:last-child{border-bottom:none;}
-  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
-
-  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
-  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
-  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
-  .gterm::after{content:" +";font-weight:400;}
-  .gterm.active::after{content:" \2212";}
-  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
-  .gdef.show{display:block;}
-
-  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
-  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
-  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
-
-  .accordion{border-top:2px solid var(--gold);}
-  .acc-item{border-bottom:1px solid var(--line);}
-  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
-  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
-  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
-  .acc-item.open .acc-toggle{transform:rotate(45deg);}
-  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-  .acc-item.open .acc-body{max-height:4000px;}
-  .acc-inner{padding:0 2px 22px;}
-  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
-  .acc-inner p:last-child{margin-bottom:0;}
-  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
-  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
-
-  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
-  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
-  .stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
-  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
-
-  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
-  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
-  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
-  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
-  .tl-text{font-size:13.5px;color:var(--ink);}
-
-  .flip-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-    gap:12px;
-    margin:18px 0 20px;
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
   }
-  .flipcard{perspective:1200px;height:150px;}
-  .flip-toggle{position:absolute;opacity:0;pointer-events:none;}
-  .flip-inner{
-    position:relative;
-    width:100%;height:100%;
-    transition:transform .5s cubic-bezier(.4,.2,.2,1);
-    transform-style:preserve-3d;
-    cursor:pointer;
-    display:block;
-  }
-  .flip-toggle:checked ~ .flip-inner{transform:rotateY(180deg);}
-  .flip-toggle:focus-visible ~ .flip-inner{outline:2px solid var(--gold);outline-offset:2px;}
-  .flip-front,.flip-back{
-    position:absolute; inset:0;
-    backface-visibility:hidden;
-    border-radius:2px;
-    padding:14px 14px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    overflow-y:auto;
-  }
-  .flip-front{background:#fff;border:1px solid var(--gold);text-align:center;}
-  .flip-front .fc-num{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--gold);
-    margin-bottom:6px;
-  }
-  .flip-front .fc-term{
-    font-family:var(--sans);
-    font-size:13px;
-    font-weight:700;
-    color:var(--ink);
-    line-height:1.35;
-  }
-  .flip-front .fc-tap{
-    margin-top:8px;
-    font-family:var(--mono);
-    font-size:9px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    opacity:.65;
-  }
-  .flip-back{
-    background:var(--gold);
-    color:#fff;
-    transform:rotateY(180deg);
-    font-family:var(--sans);
-    font-size:12.5px;
-    line-height:1.42;
-    justify-content:flex-start;
-    scrollbar-width:thin;
-  }
-  .flip-back::-webkit-scrollbar{width:5px;}
-  .flip-back::-webkit-scrollbar-thumb{background:rgba(255,255,255,.5);border-radius:3px;}
 
-  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
-  .caveat b{color:var(--ink);}
-  .caveat.caveat--first{margin-top:0;}
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
 
-  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
 
-  @media (max-width:560px){
-    .byline-row{flex-wrap:wrap;gap:10px 20px;}
-  }
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
 </style>
 </head>
 <body>
-<div class="sheet">
 
-  <div class="masthead">
-    <div class="name">The Weber County Hive</div>
-    <div class="date">August 2026</div>
-  </div>
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
 
-  <div class="file-tag">Land Use &amp; State Authorities</div>
+<header class="masthead">
+  <span class="case-tag">CASE 2025-333</span>
+  <p class="eyebrow">Land Use &amp; State Authorities &middot; S.B. 333 (2025)</p>
   <h1>A Stadium-Shaped Loophole</h1>
   <p class="dek">MIDA's own Vice Chair wrote a new law letting any city or county carve out a 40-year tax-capture zone around a sporting venue &mdash; using the exact same toolkit this Hive has already documented for MIDA and the Inland Port Authority.</p>
-
-  <div class="related">Companion piece: <a href="weber-hive-sb337.html">The One Authority to Rule Them All</a> &mdash; S.B. 337, the related 2025 bill that would have created a seventh authority in this same family. Died without a vote.</div>
-
-  <div class="byline-row">
-    <span>Sources: <b>le.utah.gov, LegiScan</b></span>
-    <span>Method: <b>Public records only, no comment requested</b></span>
+  <div class="stampline">
+    Chief Sponsor: Sen. Jerry W. Stevenson &middot; House Sponsor: Rep. Jon Hawkins
+    <span>Effective: <strong>January 1, 2026</strong></span>
+    <span class="stamp-status law">Law</span>
   </div>
+</header>
 
-  <div class="start-here" id="startHere">
-    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
-      <div>
-        <h2>Start Here &mdash; the 60-second version</h2>
-        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
-      </div>
-      <div class="start-here-toggle">+</div>
-    </div>
-    <div class="start-here-body">
-      <div class="start-here-inner">
-        <ol class="step-list">
-          <li class="step-item"><div class="step-num">1</div><div class="step-text">S.B. 333 (2025) creates a brand-new tool, the "Major Sporting Event Venue Zone Act" &mdash; any Utah city or county can now carve out a zone around a major sporting venue and capture the property and sales tax growth inside it for up to 40 years.</div></li>
-          <li class="step-item"><div class="step-num">2</div><div class="step-text">Its chief sponsor is Sen. Jerry W. Stevenson &mdash; who also happens to be the sitting Vice Chair of MIDA, the state's original land-use/tax-capture authority, already documented at length in this Hive's reporting.</div></li>
-          <li class="step-item"><div class="step-num">3</div><div class="step-text">The new zone can levy resort-communities sales taxes, county energy and telecom taxes, use a Public Infrastructure District or a community reinvestment agency as its "fiscal agent," and bond against the captured revenue.</div></li>
-          <li class="step-item"><div class="step-num">4</div><div class="step-text">It went through five substitutes before passing &mdash; a sign of real, ongoing negotiation over its scope, not a bill that sailed through untouched.</div></li>
-          <li class="step-item"><div class="step-num">5</div><div class="step-text">Summit County has already moved to use it &mdash; a proposed "Impacted Communities Tax" citing S.B. 333 by name, aimed at 2034 Olympics infrastructure around Park City. Whether the County Council actually adopted it hasn't been confirmed yet.</div></li>
-        </ol>
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
 
-        <div class="glossary">
-          <div class="glossary-label">Quick glossary &mdash; click a term</div>
-          <span class="gterm" data-term="msevz">Major sporting event venue zone</span>
-          <div class="gdef" data-def="msevz">The new zone type S.B. 333 creates &mdash; a defined area around a major sporting venue where a city or county can capture property and sales tax growth for its own use, for 25 to 40 years, subject to state committee approval.</div>
+<main>
 
-          <span class="gterm" data-term="fiscalagent">Fiscal agent</span>
-          <div class="gdef" data-def="fiscalagent">The entity that actually administers a zone's captured funds &mdash; the bill allows either a community reinvestment agency or a Public Infrastructure District (PID) to fill this role.</div>
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">Utah already has MIDA, the Inland Port Authority, and a growing list of tax-increment tools built for specific purposes. S.B. 333 adds a new one, purpose-built for sporting venues, sponsored by the senator who sits at the top of MIDA's own board.</p>
+    <p>It uses the identical toolkit &mdash; tax increment capture, a PID as fiscal agent, decades-long terms, state-committee sign-off &mdash; this Hive has already documented for MIDA and UIPA. Worth noting up front: this is a separate, general statewide law. It is not the mechanism behind Salt Lake City's Delta Center renovation, which runs on a different law, the Capital City Revitalization Zone Act (2024).</p>
+<p>Sen. Jerry W. Stevenson (SD-6) is MIDA's sitting Vice Chair, one of the authority's three longest-serving current members &mdash; on the board since 2008, one year after MIDA was created. S.B. 333 doesn't touch MIDA's own statute (Title 63H); it's a standalone law extending the same basic model &mdash; a defined capture zone, decades-long tax-increment terms, a state committee sign-off process, and a PID available as fiscal agent &mdash; to a new category of project, statewide.</p>
+<p><strong>Companion piece:</strong> <a href="weber-hive-sb337.html">"The One Authority to Rule Them All"</a> &mdash; S.B. 337, the related 2025 bill that would have created a seventh authority in this same family. Died without a vote.</p>
+  </section>
 
-          <span class="gterm" data-term="taxincrement">Tax increment</span>
-          <div class="gdef" data-def="taxincrement">The growth in tax revenue above a frozen starting point ("base year"). A zone captures that growth for itself; the underlying taxing entities (schools, county, city) keep only what the base year already generated.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th>Provision</th><th>What it does</th></tr></thead><tbody><tr><td>Creates the zone</td><td>Lets a municipality or county establish a &quot;major sporting event venue zone&quot; to capture property tax increment and local sales and use tax increment within a defined area around a major sporting venue.</td></tr><tr><td>25–40 year capture</td><td>Sets the capture term at 25 to 40 years for both property tax increment and local sales/use tax increment, as approved by a state review committee.</td></tr><tr><td>Extra taxes allowed</td><td>Authorizes the creating entity to impose, under certain conditions: a resort communities sales and use tax, an additional resort communities sales and use tax, and &mdash; if the creating entity is a county &mdash; a municipal energy tax and a municipal telecommunications tax within the zone.</td></tr><tr><td>Multi-venue counties</td><td>Lets a third-class county with three or more major sporting event venues implement a resort communities tax in its unincorporated areas, same as an eligible municipality, using the revenue for public infrastructure or transit.</td></tr><tr><td>PID as fiscal agent</td><td>Authorizes the creating entity to designate a community reinvestment agency or a Public Infrastructure District as &quot;fiscal agent&quot; for the zone's funds, and to bond against them.</td></tr><tr><td>Construction tax break</td><td>Provides a sales and use tax exemption for construction materials used to remodel or refurbish a major sporting event venue.</td></tr><tr><td>GOEO review required</td><td>Requires a proposal to go to the Governor's Office of Economic Opportunity, which creates a review committee to evaluate and approve &mdash; with or without modifications &mdash; each proposed zone.</td></tr><tr><td>Overlap rules</td><td>Sets out procedures for a zone that overlaps an existing community reinvestment project, housing and transit reinvestment zone, first home investment zone, or revitalization zone.</td></tr></tbody></table>
+  </section>
 
-  <p style="font-size:1.06rem;">Utah already has MIDA, the Inland Port Authority, and a growing list of tax-increment tools built for specific purposes. S.B. 333 adds a new one, purpose-built for sporting venues, sponsored by the senator who sits at the top of MIDA's own board. It uses the identical toolkit &mdash; tax increment capture, a PID as fiscal agent, decades-long terms, state-committee sign-off &mdash; this Hive has already documented for MIDA and UIPA. Worth noting up front: this is a separate, general statewide law. It is not the mechanism behind Salt Lake City's Delta Center renovation, which runs on a different law, the Capital City Revitalization Zone Act (2024).</p>
-
-  <div class="accordion" id="accordion">
-
-    <div class="acc-item open">
-      <div class="acc-head"><h2>What The Bill Does</h2><div class="acc-toggle">+</div></div>
-      <div class="acc-body"><div class="acc-inner">
-        <p>S.B. 333, "Major Sporting Event Venue Financing Amendments," 2025 General Session. Chief Sponsor Sen. Jerry W. Stevenson; House Sponsor Rep. Jon Hawkins. Enacts a new chapter of state law, the Major Sporting Event Venue Zone Act (Utah Code Title 63N, Chapter 3, Part 17). Tap a card below to see what each piece actually does.</p>
-
-        <div class="flip-grid">
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b1" class="flip-toggle">
-            <label for="fc-b1" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">01</div><div class="fc-term">Creates the zone</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Lets a municipality or county establish a "major sporting event venue zone" to capture property tax increment and local sales and use tax increment within a defined area around a major sporting venue.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b2" class="flip-toggle">
-            <label for="fc-b2" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">02</div><div class="fc-term">25&ndash;40 year capture</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Sets the capture term at 25 to 40 years for both property tax increment and local sales/use tax increment, as approved by a state review committee.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b3" class="flip-toggle">
-            <label for="fc-b3" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">03</div><div class="fc-term">Extra taxes allowed</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Authorizes the creating entity to impose, under certain conditions: a resort communities sales and use tax, an additional resort communities sales and use tax, and &mdash; if the creating entity is a county &mdash; a municipal energy tax and a municipal telecommunications tax within the zone.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b4" class="flip-toggle">
-            <label for="fc-b4" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">04</div><div class="fc-term">Multi-venue counties</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Lets a third-class county with three or more major sporting event venues implement a resort communities tax in its unincorporated areas, same as an eligible municipality, using the revenue for public infrastructure or transit.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b5" class="flip-toggle">
-            <label for="fc-b5" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">05</div><div class="fc-term">PID as fiscal agent</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Authorizes the creating entity to designate a community reinvestment agency or a Public Infrastructure District as "fiscal agent" for the zone's funds, and to bond against them.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b6" class="flip-toggle">
-            <label for="fc-b6" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">06</div><div class="fc-term">Construction tax break</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Provides a sales and use tax exemption for construction materials used to remodel or refurbish a major sporting event venue.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b7" class="flip-toggle">
-            <label for="fc-b7" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">07</div><div class="fc-term">GOEO review required</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Requires a proposal to go to the Governor's Office of Economic Opportunity, which creates a review committee to evaluate and approve &mdash; with or without modifications &mdash; each proposed zone.</div>
-            </label>
-          </div>
-
-          <div class="flipcard">
-            <input type="checkbox" id="fc-b8" class="flip-toggle">
-            <label for="fc-b8" class="flip-inner">
-              <div class="flip-front"><div class="fc-num">08</div><div class="fc-term">Overlap rules</div><div class="fc-tap">Tap to flip</div></div>
-              <div class="flip-back">Sets out procedures for a zone that overlaps an existing community reinvestment project, housing and transit reinvestment zone, first home investment zone, or revitalization zone.</div>
-            </label>
-          </div>
-
-        </div>
-      </div></div>
-    </div>
-
-    <div class="acc-item open">
-      <div class="acc-head"><h2>The Sponsor Sits On MIDA's Own Board</h2><div class="acc-toggle">+</div></div>
-      <div class="acc-body"><div class="acc-inner">
-        <p>Sen. Jerry W. Stevenson (SD-6) is MIDA's sitting Vice Chair, one of the authority's three longest-serving current members &mdash; on the board since 2008, one year after MIDA was created. This Hive has already documented his MIDA seat, and his history sponsoring MIDA's own power-expansion bills, at length in a separate profile.</p>
-        <p>S.B. 333 doesn't touch MIDA's own statute (Title 63H) &mdash; it's a standalone law, not a MIDA Act amendment. But the underlying toolkit is the same one MIDA already runs on: a defined capture zone, decades-long tax-increment terms, a state committee sign-off process, and a PID available as fiscal agent. The senator who helped build and expand one authority working on that model wrote the law extending the same basic model to a new category of project, statewide.</p>
-      </div></div>
-    </div>
-
-    <div class="acc-item open">
-      <div class="acc-head"><h2>Five Substitutes &mdash; What Changed</h2><div class="acc-toggle">+</div></div>
-      <div class="acc-body"><div class="acc-inner">
-        <div class="stat-strip">
-          <div class="stat"><div class="num">5</div><div class="label">Substitute versions before passage</div></div>
-          <div class="stat"><div class="num">25&ndash;40</div><div class="label">Years, tax increment capture term</div></div>
-          <div class="stat"><div class="num">3+</div><div class="label">Venues needed for a county's expanded resort tax option</div></div>
-        </div>
-        <p>The bill moved through five substitutes between introduction and passage. Notable changes along the way: an "accommodation tax" authority present in the original bill and the 3rd substitute was dropped from later versions. A provision requiring GOEO to "initiate an analysis of the feasibility" of a proposed zone, present in the 3rd and 4th substitutes, was also removed by the final version &mdash; leaving the review committee's own evaluation as the primary check, without a separate mandated feasibility study.</p>
-      </div></div>
-    </div>
-
-    <div class="acc-item open">
-      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
-      <div class="acc-body"><div class="acc-inner">
-        <p><b>Correction (8/26/26):</b> Summit County's own government website explicitly names S.B. 333 as the authorizing statute for a proposed "Impacted Communities Tax" &mdash; using the bill's provision letting a third-class county with three or more major sporting event venues impose up to a 1.1% sales tax in its unincorporated areas. The Snyderville Basin/Park City area qualifies on venue count (Deer Valley, Utah Olympic Park, and others). Estimated revenue: roughly $17 million a year at the full 1.1% rate. Restricted by statute to "public infrastructure and infrastructure improvements, including transportation and transit projects" &mdash; the county's stated targets are Kimball Junction/I-80 interchange work, a transit center and bus rapid transit along SR-224, structured parking with workforce housing, and a pedestrian bridge over SR-224, explicitly framed around 2034 Olympics preparation. A County Council work session was held October 22, 2025, with a vote on the ordinance scheduled October 29, 2025 &mdash; imposed by ordinance alone, no public vote required.</p>
-        <div class="caveat caveat--first"><b>What isn't confirmed yet:</b> whether Summit County's Council actually adopted the ordinance on October 29, 2025 or since &mdash; the county's public meeting-minutes archive for that date wasn't locatable through search. The bill's exact floor vote tallies and governor's signature date also haven't been pulled from the official record, though ABC4 (Dec 30, 2025) confirms S.B. 333 took effect January 1, 2026, among that year's batch of new Utah laws. The review committee's exact membership (referenced in the bill but not detailed here) hasn't been pulled either. This is a live thread worth a direct follow-up with Summit County (Finance Officer Matt Leavitt, mleavitt@summitcountyutah.gov) rather than a closed question.</div>
-      </div></div>
-    </div>
-
-  </div>
-
-  <footer>
-    <span>The Weber County Hive</span>
-    <span>Built from le.utah.gov &amp; LegiScan &mdash; no comment requested</span>
-  </footer>
-
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+  <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">2025 General Session</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">5 substitutes<br><span style="font-weight:400;font-size:11px;">Accommodation tax, feasibility study dropped</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Passed<br><span style="font-weight:400;font-size:11px;">Senate Econ. Dev. Cmte 4-0-2</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Effective<br><span style="font-weight:400;font-size:11px;">Jan 1, 2026</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">Summit County acts<br><span style="font-weight:400;font-size:11px;">Cites S.B. 333 by name, Oct 2025</span></div>
 </div>
+    <ul class="timeline">
+<li>2025 General Session &mdash; S.B. 333, &quot;Major Sporting Event Venue Financing Amendments,&quot; introduced by Chief Sponsor Sen. Jerry W. Stevenson (SD-6, MIDA Vice Chair) and House Sponsor Rep. Jon Hawkins.</li>
+<li>Moved through five substitutes before passage. An &quot;accommodation tax&quot; authority present in the original bill and the 3rd substitute was dropped from later versions.</li>
+<li class="flag">A provision requiring GOEO to &quot;initiate an analysis of the feasibility&quot; of a proposed zone, present in the 3rd and 4th substitutes, was removed from the final version &mdash; leaving the review committee's own evaluation as the sole check, with no separate mandated feasibility study.</li>
+<li>Passed the Senate Economic Development and Workforce Services Committee 4-0-2 favorable; passed both chambers. Enacts a new chapter of state law, the Major Sporting Event Venue Zone Act (Utah Code Title 63N, Chapter 3, Part 17).</li>
+<li>Took effect January 1, 2026, per ABC4's year-end roundup of new Utah laws.</li>
+<li class="flag">October 22, 2025 &mdash; Summit County held a Council work session on a proposed &quot;Impacted Communities Tax,&quot; explicitly citing S.B. 333's provision letting a third-class county with three or more major sporting event venues impose up to a 1.1% sales tax in its unincorporated areas (Snyderville Basin/Park City qualifies via Deer Valley, Utah Olympic Park, and others). Estimated revenue: roughly $17 million a year at the full rate, restricted to public infrastructure/transit, framed around 2034 Olympics preparation. A vote on the ordinance was scheduled for October 29, 2025 &mdash; by ordinance alone, no public vote required.</li>
+<li>Open: whether Summit County's Council actually adopted the ordinance on or after October 29, 2025 hasn't been confirmed &mdash; the county's public meeting-minutes archive for that date wasn't locatable through search. The bill's exact floor vote tallies, governor's signature date, and the review committee's exact membership also haven't been pulled from the official record.</li>
+</ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+  <h3>As Designed</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">A 25&ndash;40 year tax-capture zone approved by a single executive-branch review committee (GOEO), with no legislative or voter check written into the approval step itself</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">The bill itself moved through 5 public substitutes on the record, but its final version dropped the one provision requiring GOEO to conduct an actual feasibility analysis before approving a zone</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">A decades-long capture mechanism whose only real gate is an internal executive-branch review, and even that gate lost its feasibility-study requirement before passage.</p></div>
+</div>
+<div class="rubric-col">
+  <h3>As It Happened</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">Summit County cited the statute within months of its effective date to impose a new sales tax by ordinance alone &mdash; no public vote required</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Summit County's own government website discloses the plan and the statute it relies on, but whether the Council actually adopted the ordinance on the scheduled date isn't confirmed in the public record</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">The tool is already being used as designed &mdash; a real, sizable ($~17M/yr) tax imposed without a public vote, within a year of the law taking effect.</p></div>
+</div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Creates a new 25&ndash;40 year tax-capture mechanism approved solely by an executive-branch review committee (GOEO), with the one legislative-style feasibility-study check removed before final passage.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>The bill's own process was public (5 substitutes, LegiScan record), but the final version removed the requirement that GOEO produce an actual feasibility analysis before approving a zone.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Diverts future property and sales tax growth away from schools and other taxing entities for up to 40 years; Summit County's own example shows roughly $17M/year captured by ordinance, with no public vote.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>The statute doesn't address environmental effects.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Summit County's Impacted Communities Tax was scheduled for a Council vote, not a public vote, despite an estimated $17M/year in new local sales tax.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge d">D</span><p>A new decades-long tax-capture tool, approved by a single executive-branch committee with its feasibility check removed, already being used by a county to raise millions by ordinance alone.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Kept the feasibility-analysis requirement mandatory for every proposed zone, not optional depending on which substitute happened to be in effect</li><li>Required any zone above a set revenue or duration threshold to go before the affected county's voters, not just its Council, before taking effect</li><li>Disclosed in the bill's own materials that its chief sponsor sits on the board of an existing authority (MIDA) built on the same toolkit</li><li>Required a public report a set number of years after a zone's creation, showing actual revenue captured against what was projected when the review committee approved it</li></ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>S.B. 333, &quot;Major Sporting Event Venue Financing Amendments,&quot; 2025 General Session &mdash; le.utah.gov bill text and substitute history</li><li>LegiScan bill tracking page for S.B. 333 (2025)</li><li>Summit County government website, &quot;Impacted Communities Tax&quot; project page, accessed 8/26/26</li><li>ABC4, &quot;New Utah laws taking effect,&quot; Dec 30, 2025</li><li>This Hive's existing MIDA board profile, documenting Sen. Jerry W. Stevenson's Vice Chair seat and tenure</li></ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
+</footer>
 
 <script>
-  document.querySelectorAll('.gterm').forEach(function(term){
-    term.addEventListener('click', function(){
-      var key = term.getAttribute('data-term');
-      var def = document.querySelector('.gdef[data-def="' + key + '"]');
-      var isOpen = def.classList.contains('show');
-      def.classList.toggle('show', !isOpen);
-      term.classList.toggle('active', !isOpen);
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
     });
   });
-  document.querySelectorAll('.acc-head').forEach(function(head){
-    head.addEventListener('click', function(){
-      head.parentElement.classList.toggle('open');
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
     });
   });
 </script>
+
 </body>
 </html>
