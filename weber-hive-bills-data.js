@@ -184,6 +184,7 @@ const BILLS = [
   },
 {
     caseNumber: "CASE 2026-197",
+    grade: "D",
     bill: "S.B. 197",
     year: "2026",
     title: "Whoever Moved It Isn't On the Record — Transportation Funding and Governance Amendments",

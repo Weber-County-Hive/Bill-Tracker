@@ -26,11 +26,12 @@
   .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
   .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
   .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
-  .masthead h1{font-size:clamp(26px,4.3vw,40px);line-height:1.14;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
   .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
   .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
   .stampline strong{color:var(--paper-light);}
-  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--green);color:var(--green);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
 
   main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
   section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
@@ -39,127 +40,235 @@
   section p:last-child{margin-bottom:0;}
   .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
   .finding p{color:var(--ink);}
-  .crosslink{border-left:4px solid var(--gold);padding:4px 0 4px 18px;margin:16px 0;background:rgba(169,130,47,0.08);}
-  .crosslink p{color:var(--ink);}
-  .crosslink a{color:var(--red);font-weight:600;text-decoration:underline;}
 
   ul.plain{padding-left:20px;margin:0 0 14px;}
   ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
 
-  .timeline{border-left:2px solid var(--rule);margin:6px 0 4px 6px;padding-left:20px;}
-  .timeline .tl-item{position:relative;padding-bottom:16px;}
-  .timeline .tl-item:last-child{padding-bottom:0;}
-  .timeline .tl-item::before{content:"";position:absolute;left:-25px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--gold);}
-  .timeline .tl-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
-  .timeline .tl-item.hot::before{background:var(--red);width:12px;height:12px;left:-26.5px;top:4px;}
-  .timeline .tl-item.hot .tl-date{color:var(--red);font-weight:600;}
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
 
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
   .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
   .rubric-row:last-child{border-bottom:none;}
-  .rubric-row .crit{font-weight:600;}
-  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right;max-width:52%;}
-  .grade-final{display:flex;align-items:center;gap:16px;margin-top:18px;padding-top:16px;border-top:2px solid var(--gold);}
-  .grade-badge{font-family:'Special Elite',monospace;font-size:34px;color:var(--red);border:3px solid var(--red);border-radius:8px;padding:4px 16px;transform:rotate(-3deg);}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
 
   footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
 </style>
 </head>
 <body>
 
-<a class="back" href="index.html">← Back to The Legislative Docket</a>
+<a class="back" href="weber-hive-bill-docket.html">&larr; Back to The Legislative Docket</a>
 
 <header class="masthead">
   <span class="case-tag">CASE 2026-197</span>
-  <p class="eyebrow">S.B. 197 · 2026 General Session</p>
-  <h1>Whoever Moved It Isn't On the Record — Transportation Funding and Governance Amendments</h1>
-  <p class="dek">This bill rewrote the exact statute that carves up sales-tax growth for every HTRZ, RDA, UFAIR, and Point of the Mountain project in the state — and restructured who controls Utah's largest transit agency. Nine days before it became law, someone quietly pushed its own funding trigger back a full year, by voice vote, with no name attached anywhere in the public record.</p>
+  <p class="eyebrow">S.B. 197 &middot; 2026 General Session</p>
+  <h1>Whoever Moved It Isn't On the Record &mdash; Transportation Funding and Governance Amendments</h1>
+  <p class="dek">This bill rewrote the exact statute that carves up sales-tax growth for every HTRZ, RDA, UFAIR, and Point of the Mountain project in the state &mdash; and restructured who controls Utah's largest transit agency. Nine days before it became law, someone quietly pushed its own funding trigger back a full year, by voice vote, with no name attached anywhere in the public record.</p>
   <div class="stampline">
-    <span>Chief Sponsor: <strong>Sen. Wayne Harper</strong></span>
-    <span>House Sponsor: <strong>Rep. Kay Christofferson</strong></span>
-    <span>Signed: <strong>Mar 26, 2026</strong></span>
-    <span class="stamp-status">Became Law</span>
+    Chief Sponsor: Sen. Wayne Harper &middot; House Sponsor: Rep. Kay Christofferson
+    <span>Effective: <strong>May 6, 2026 (governance) / July 1, 2026 (tax provisions)</strong></span>
+    <span class="stamp-status law">Became Law</span>
   </div>
 </header>
 
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="whatit">What Changed</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button>
+</nav>
+
 <main>
 
-  <section>
-    <h2>What the bill actually does — two things, not one</h2>
-    <p><strong>1. Restructures UTA's governance.</strong> Repeals the Utah Transit Authority's board of trustees and replaces it with a "transit commission": 2 members appointed by the House Speaker, 2 by the Senate President, and 3 by the Governor (with Senate confirmation) from county-nominated candidates. The Governor also gains direct appointment power over UTA's executive director — previously a board-appointed position. Governance changes took effect May 6, 2026; the tax provisions below took effect July 1, 2026.</p>
-    <p><strong>2. Rewrites Utah Code §59-12-103</strong> — the core statute governing how state sales/use tax "new growth" gets distributed. This is the same section that already contains the HTRZ 15% increment transfer, the convention-center reinvestment zone's 50% increment mechanism, UFAIR's full-increment transfer, and the Point of the Mountain Authority's 50% increment distribution. Beginning FY2028, S.B. 197 adds a new claimant on that same pool of statewide sales-tax growth: a "Transit Transportation Investment Fund," layered on top of everything already drawing from it.</p>
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">This bill does two unrelated things at once: it restructures who controls Utah's largest transit agency, and it rewrites the exact statute that carves up sales-tax growth for every HTRZ, RDA, UFAIR, and Point of the Mountain project in the state.</p>
+    <p>Nine days before it became law, someone quietly pushed the new tax fund's own start date back a full year &mdash; by voice vote, on the House floor, with no name attached anywhere in the accessible public record.</p>
+<p>Sen. Wayne Harper, the bill's chief sponsor, personally chairs the Senate committee that first passed it and sponsored three other tax-increment-adjacent bills the same session &mdash; part of a sponsorship record on this family of tools running back to 2022. He also served on the conference committee for <a href="weber-hive-hb507.html">H.B. 507</a>, the same session's broader tax-increment-financing rewrite, which touches the same family of entities and carries the same anonymous-late-amendment pattern.</p>
   </section>
 
-  <section>
-    <h2>One legislator, six bills, one statute</h2>
-    <p>Sen. Wayne Harper sponsored four tax-increment-adjacent bills in the 2026 session alone — S.B. 197 (this bill), S.B. 206 (Tax Amendments), S.B. 228 <em>[note: a different, 2026 "Community Reinvestment Agency Amendments" bill, not the 2019 PID Act]</em>, and S.B. 39 (Investment Zones) — on top of a continuous HTRZ-family sponsorship record running back to 2022 (S.B. 140, S.B. 84 in 2023, S.B. 268 in 2024, and S.B. 221 in 2026). Harper also chairs the Streamline Sales Tax Governing Board, the interstate body that helps set the tax-administration rules touching the same revenue streams these bills redirect.</p>
-    <p>He personally chairs the Senate Transportation, Public Utilities, Energy, and Technology Committee — the committee of jurisdiction for S.B. 197 — and personally moved to pass his own bill out of that committee favorably, 5-0-3, on Jan. 30, 2026. The same committee's own minutes record no testimony or discussion of the §59-12-103 tax-fund provision; the recorded hearing focused on UTA governance restructuring, not the sales-tax mechanics.</p>
-    <div class="crosslink">
-      <p><strong>Cross-reference:</strong> Harper's hand in this system runs well beyond this one bill. He chief-sponsored the 2021 act creating Housing and Transit Reinvestment Zones and the 2024 act creating First Home Investment Zones, sponsored the 2026 bill (S.B. 39) consolidating nearly all of these zone tools into one chapter, and personally served on the conference committee for <a href="weber-hive-hb507.html">H.B. 507</a> — the same session's sweeping tax-increment-financing rewrite, which replaces several of the tools he built with a new "Regionally Significant Development Zone." H.B. 507 and this bill passed the same session, touch the same underlying family of entities (HTRZ, UFAIR, Point of the Mountain), and share the same anonymous-late-amendment pattern documented below.</p>
+  <section id="whatit">
+    <h2>What Changed, Section by Section</h2>
+    <table class="parts-table"><thead><tr><th>Provision</th><th>What it does</th></tr></thead><tbody><tr><td>UTA governance</td><td>Repeals the Utah Transit Authority's board of trustees and replaces it with a &quot;transit commission&quot;: 2 members appointed by the House Speaker, 2 by the Senate President, and 3 by the Governor (with Senate confirmation) from county-nominated candidates. The Governor also gains direct appointment power over UTA's executive director &mdash; previously a board-appointed position. Took effect May 6, 2026.</td></tr><tr><td>Utah Code &sect;59-12-103</td><td>Rewrites the core statute governing how state sales/use tax &quot;new growth&quot; gets distributed &mdash; the same section already containing the HTRZ 15% increment transfer, the convention-center reinvestment zone's 50% mechanism, UFAIR's full-increment transfer, and the Point of the Mountain Authority's 50% distribution. Beginning FY2028, adds a new claimant on that same pool: a &quot;Transit Transportation Investment Fund,&quot; layered on top of everything already drawing from it. Took effect July 1, 2026.</td></tr></tbody></table><div class="crosslink" style="margin-top:16px;border-left:4px solid var(--gold);padding:10px 16px;background:rgba(169,130,47,0.08);">
+<p style="margin:0;"><strong>One legislator, six bills, one statute:</strong> Sen. Harper sponsored four tax-increment-adjacent bills in the 2026 session alone &mdash; S.B. 197, S.B. 206 (Tax Amendments), S.B. 228 (2026 &quot;Community Reinvestment Agency Amendments&quot; &mdash; a different bill from the 2019 PID Act of the same number), and S.B. 39 (Investment Zones) &mdash; on top of a continuous HTRZ-family sponsorship record running back to 2022 (S.B. 140; S.B. 84 in 2023; S.B. 268 in 2024; S.B. 221 in 2026). He also chairs the Streamline Sales Tax Governing Board, the interstate body helping set tax-administration rules touching these same revenue streams, and personally moved his own bill out of his own committee, 5-0-3, on Jan. 30, 2026 &mdash; a hearing whose minutes record no testimony or discussion of the &sect;59-12-103 tax-fund provision at all.</p>
+</div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+  <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">Jan 26, 2026</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Senate Cmte 5-0-3<br><span style="font-weight:400;font-size:11px;">Harper moves own bill</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step" style="border-color:#A5301E;">Anonymous floor amdt<br><span style="font-weight:400;font-size:11px;">Mar 6, base year moved</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">House 65-2-8<br><span style="font-weight:400;font-size:11px;">Same day, 4:39pm</span></div><div class="flow-arrow">&rarr;</div>
+  <div class="flow-step">Signed<br><span style="font-weight:400;font-size:11px;">Mar 26, 2026</span></div>
+</div>
+    <ul class="timeline">
+<li>Jan 26, 2026 &mdash; Introduced, numbered S.B. 197.</li>
+<li>Jan 30, 2026 &mdash; Senate Transportation Committee, 5-0-3 &mdash; Harper presents and personally moves passage of his own bill.</li>
+<li>Feb 20, 2026 &mdash; Senate 2nd reading, floor amendment #1 (voice vote) &mdash; passed 23-2-4.</li>
+<li>Feb 23, 2026 &mdash; Senate 3rd reading passed 27-1-1, sent to House.</li>
+<li>Feb 26, 2026 &mdash; House Transportation Committee substitutes in Harper's S1 (12-0-0); Rep. Thurston's Amendment #1 &mdash; a single-word technical fix, unrelated to the base year &mdash; adopted 12-0-0; favorable 11-1-0 (Rep. Ivory dissenting).</li>
+<li class="flag">Mar 6, 2026, 4:34pm &mdash; House floor amendment #2, voice vote, no mover named in the record. This is the amendment that pushed the Transit Transportation Investment Fund's base year from July 1, 2025 to July 1, 2027 (trigger year FY2027 to FY2028). Both the introduced bill and Harper's own S1 substitute had kept the original base year unchanged.</li>
+<li>Mar 6, 2026, 4:39pm &mdash; House 3rd reading passed 65-2-8.</li>
+<li>Mar 6, 2026, 8:21pm &mdash; Senate concurred with House amendment, 28-1-0.</li>
+<li>Mar 26, 2026 &mdash; Signed by the Governor.</li>
+<li>Every recorded vote on this bill was lopsided or near-unanimous, including the final concurrence vote taken after the base-year change &mdash; the amendment produced no visible floor fight or roll-call opposition at any stage.</li>
+<li>Open: Kay Christofferson was House floor sponsor throughout, and floor-sponsored three more Harper Senate bills the same session &mdash; the strongest lead toward who moved the amendment, though it isn't confirmed he did. The Utah House Journal for March 6, 2026 would likely name the mover, but isn't accessible through automated means.</li>
+</ul>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series &mdash; not whether any one person likes the outcome: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process, regardless of who ends up holding the final decision? Design and outcome are graded separately because a bill can be structurally sound and still fail to become law, or pass in a form very different from how it started &mdash; collapsing the two into one score would hide which one actually happened.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+  <h3>As Designed</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">UTA appointment power shifts to the Governor and legislative leadership, away from county nomination weight; the bill's own committee chair personally moved his own bill through his own committee</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">Committee minutes record no testimony or discussion of the &sect;59-12-103 tax-fund provision at all &mdash; only the governance restructuring was actually discussed on the record</span></div>
+  <div class="grade-final"><span class="grade-badge d">D</span><p style="margin:0;">A real governance and tax-distribution rewrite moved through its own sponsor's committee with the tax mechanics left undiscussed.</p></div>
+</div>
+<div class="rubric-col">
+  <h3>As It Happened</h3>
+  <div class="rubric-row"><span class="crit">Power</span><span class="val">A substantive change to the new fund's own start date &mdash; pushing it back a full year &mdash; was made at the floor stage with no named mover</span></div><div class="rubric-row"><span class="crit">Transparency</span><span class="val">The mover is not identified anywhere in the accessible public record; every subsequent vote, including final concurrence, passed near-unanimously with no visible opposition to the change</span></div>
+  <div class="grade-final"><span class="grade-badge f">F</span><p style="margin:0;">A substantive funding-timeline change with literally no name attached to it in the record this Hive could access.</p></div>
+</div>
     </div>
   </section>
 
-  <section>
-    <h2>The base-year amendment</h2>
-    <div class="finding">
-      <p><strong>The bill's own "base year" for the new Transit Transportation Investment Fund was pushed back a full year — from July 1, 2025 to July 1, 2027 — nine days before final passage, via an unnamed House floor amendment adopted by voice vote.</strong> The trigger year moved with it, from FY2027 to FY2028.</p>
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake in this decision, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody><tr><td>Power</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Sponsoring committee chair personally moved his own bill through his own committee; a substantive funding-timeline change was then made anonymously at the floor stage.</td></tr><tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill f">F</span></td><td>The base-year mover is not identified anywhere in the accessible public record &mdash; a real, documented transparency gap, not a characterization.</td></tr><tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Adds a new statewide claimant on sales-tax growth already split among HTRZ, UFAIR, and Point of the Mountain &mdash; layering a further draw on the same pool.</td></tr><tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not established.</td></tr><tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>UTA governance shift moves appointment power toward the Governor and legislative leadership, away from local/county nomination weight &mdash; not yet independently assessed for community effect.</td></tr></tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge d">D</span><p>A real, substantive change to a statewide tax-distribution statute &mdash; moved with no named mover, adopted without recorded opposition, by a legislator who personally chairs the committee that first passed it.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain"><li>Required every floor amendment affecting a bill's financial provisions to name its mover in the official record, not just &quot;floor amendment #N, voice vote&quot;</li><li>Required committee minutes to specifically address any tax-distribution or fiscal provision bundled into a bill primarily framed as a governance bill</li><li>Barred a legislator who chairs the committee of jurisdiction from also personally moving passage of his own bill out of that same committee</li><li>Disclosed, in the bill's own fiscal note, exactly how much of the pool already split among HTRZ, UFAIR, and Point of the Mountain the new fund is projected to draw</li></ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain"><li>S.B. 197 full text, all substitutes, and status/vote history &mdash; le.utah.gov</li><li>House Amendment 2 (3/6/2026 floor amendment document, strike/insert text)</li><li>Senate Transportation, Public Utilities, Energy, and Technology Committee minutes, Jan 30, 2026</li><li>House Transportation Committee minutes, Feb 26, 2026</li><li>Utah Code &sect;59-12-103, as amended</li><li>Sen. Harper 2026 legislative sponsorship list, le.utah.gov</li><li>Rep. Christofferson campaign materials (&quot;Keeping Utah Affordable,&quot; &quot;Limited &amp; Accountable Government&quot; pages)</li><li>Cross-reference: H.B. 507 (2026), this docket's own case file &mdash; same session, same sponsor, same family of tax-increment entities</li></ul>
     </div>
-    <p>Both the bill as introduced and Sen. Harper's own S1 substitute (adopted 12-0-0 in House committee on Feb. 26) kept the original base year unchanged. The shift happened later — House Amendment 2, dated March 6, 2026, on the House floor. The amendment document itself carries the strike/insert marks (base year "2025" struck, "2027" inserted; trigger year "2027" struck, "2028" inserted) but names no mover, consistent with how Utah's bill-status tables record floor amendments generally: "floor amendment #N," voice vote, no sponsor attached.</p>
-    <p>Kay Christofferson was House floor sponsor throughout S.B. 197's House passage, and floor-sponsored three more Harper Senate bills the same session — a repeated pairing that makes him the strongest lead toward identifying who moved or supported the amendment. It is not confirmed he personally moved it. The Utah House Journal for March 6, 2026 would likely name the mover, but that record is not accessible through automated means; a definitive answer would require a human pulling that specific page directly.</p>
-  </section>
-
-  <section>
-    <h2>Timeline</h2>
-    <div class="timeline">
-      <div class="tl-item"><span class="tl-date">Jan 26, 2026</span>Introduced, numbered S.B. 197</div>
-      <div class="tl-item"><span class="tl-date">Jan 30, 2026</span>Senate Transportation Committee, 5–0–3 — Harper presents and personally moves passage of his own bill</div>
-      <div class="tl-item"><span class="tl-date">Feb 20, 2026</span>Senate 2nd reading, floor amendment #1 (voice vote) — passed 23–2–4</div>
-      <div class="tl-item"><span class="tl-date">Feb 23, 2026</span>Senate 3rd reading passed 27–1–1, sent to House</div>
-      <div class="tl-item"><span class="tl-date">Feb 26, 2026</span>House Transportation Committee substitutes in Harper's S1 (12–0–0); Rep. Thurston's Amendment #1 — a single-word technical fix, unrelated to the base year — adopted 12–0–0; favorable 11–1–0 (Rep. Ivory dissenting)</div>
-      <div class="tl-item hot"><span class="tl-date">Mar 6, 2026, 4:34pm</span>House floor amendment #2 — voice vote, no mover named in the record. This is the amendment that moved the base year.</div>
-      <div class="tl-item"><span class="tl-date">Mar 6, 2026, 4:39pm</span>House 3rd reading passed 65–2–8</div>
-      <div class="tl-item"><span class="tl-date">Mar 6, 2026, 8:21pm</span>Senate concurred with House amendment, 28–1–0</div>
-      <div class="tl-item"><span class="tl-date">Mar 26, 2026</span>Signed by the Governor</div>
-    </div>
-    <p style="margin-top:16px;">Every recorded vote on this bill was lopsided or near-unanimous, including the final concurrence vote taken <em>after</em> the base-year change — meaning the amendment produced no visible floor fight or roll-call opposition at any stage.</p>
-  </section>
-
-  <section>
-    <h2>Does it square with the sponsors' own platforms?</h2>
-    <p>Christofferson's own campaign materials center on tax cuts — "putting more money back into the hands of individuals, families, retirees and businesses" — and separately promise "clear purpose," transparency, and accountable government. HTRZ, RDA, and UFAIR mechanisms redirect the <em>growth</em> in sales tax revenue away from general government funds (schools, counties, public services) into specific development zones — a different use of new tax dollars than the tax-cut messaging emphasizes, and not mentioned on his own campaign pages. Presented as a fair question to ask him directly, not a verdict.</p>
-  </section>
-
-  <section>
-    <h2>Graded against the collective rubric</h2>
-    <div class="rubric-row"><span class="crit">Power</span><span class="val">Sponsoring committee chair personally moved his own bill through his own committee; a substantive funding-timeline change made anonymously at the floor stage</span></div>
-    <div class="rubric-row"><span class="crit">Transparency</span><span class="val">The base-year mover is not identified anywhere in the accessible public record — a real, documented transparency gap, not a characterization</span></div>
-    <div class="rubric-row"><span class="crit">Financial Accountability</span><span class="val">Adds a new statewide claimant on sales-tax growth already split among HTRZ, UFAIR, and Point of the Mountain — layering a further draw on the same pool</span></div>
-    <div class="rubric-row"><span class="crit">Environmental Impact</span><span class="val">Not established</span></div>
-    <div class="rubric-row"><span class="crit">Community Impact</span><span class="val">UTA governance shift moves appointment power toward the Governor and legislative leadership, away from local/county nomination weight — not yet independently assessed for community effect</span></div>
-    <div class="grade-final">
-      <span class="grade-badge">D</span>
-      <p style="margin:0;">A real, substantive change to a statewide tax-distribution statute — moved with no named mover, adopted without recorded opposition, by a legislator who personally chairs the committee that first passed it.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Sources</h2>
-    <ul class="plain">
-      <li>S.B. 197 full text, all substitutes, and status/vote history — le.utah.gov</li>
-      <li>House Amendment 2 (3/6/2026 floor amendment document, strike/insert text)</li>
-      <li>Senate Transportation, Public Utilities, Energy, and Technology Committee minutes, Jan 30, 2026</li>
-      <li>House Transportation Committee minutes, Feb 26, 2026</li>
-      <li>Utah Code §59-12-103, as amended</li>
-      <li>Sen. Harper 2026 legislative sponsorship list, le.utah.gov</li>
-      <li>Rep. Christofferson campaign materials ("Keeping Utah Affordable," "Limited &amp; Accountable Government" pages)</li>
-      <li>Cross-reference: H.B. 507 (2026), this docket's own case file — same session, same sponsor, same family of tax-increment entities.</li>
-    </ul>
-  </section>
-
+  </details>
 </main>
 
 <footer>
-  Sourced from official Utah Legislature bill text, committee minutes, and floor vote records. Compiled by The Weber County Hive.
+  Sourced from official Utah Legislature bill text, floor votes, committee minutes, and public reporting. Compiled by The Weber County Hive.
 </footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', e => {
+      if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
+    });
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
 
 </body>
 </html>
