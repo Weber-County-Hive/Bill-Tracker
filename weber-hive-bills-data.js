@@ -233,6 +233,7 @@ const BILLS = [
   },
 {
     caseNumber: "CASE 2026-242",
+    grade: "D",
     bill: "S.B. 242",
     year: "2026",
     title: "The Bill Behind the Tax — Transportation Amendments",
