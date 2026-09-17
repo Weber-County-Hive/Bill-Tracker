@@ -237,14 +237,15 @@ const BILLS = [
     bill: "S.B. 242",
     year: "2026",
     title: "The Bill Behind the Tax — Transportation Amendments",
-    summary: "A wide-ranging transit bill quietly became the enabling statute for Weber County's new 0.2% sales tax, while a consumer privacy protection for tow-truck data was deleted between substitutes with no explanation on the record.",
-    tags: ["Transportation", "Privacy", "Weber County Sales Tax", "4 Substitutes"],
+    summary: "A wide-ranging transit bill became the enabling statute for Weber County's new 0.2% sales tax, handed UDOT permanent control over Salt Lake City street projects over sustained organized opposition, and quietly stripped a tow-truck consumer-privacy protection via an amendment whose own summary never disclosed the removal.",
+    tags: ["Transportation", "Privacy", "Weber County Sales Tax", "Local Control"],
     status: "law",
     voteLine: "House 55–14–6 · Senate concurred 18–9–2 · Signed Mar 25, 2026",
     link: "weber-hive-sb242.html"
   },
 {
     caseNumber: "CASE 2026-249",
+    grade: "B-",
     bill: "H.B. 249",
     year: "2026",
     title: "Federal Funds Modifications",
@@ -429,6 +430,7 @@ const BILLS = [
   },
 {
     caseNumber: "CASE 2026-546",
+    grade: "C-",
     bill: "H.B. 546",
     year: "2026",
     title: "Public Lands Duty of Care Amendments",
