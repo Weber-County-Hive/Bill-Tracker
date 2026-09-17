@@ -241,6 +241,19 @@ const BILLS = [
     lastUpdated: "Sep 16, 2026"
   },
   {
+    caseNumber: "CASE 2026-507",
+    grade: "D",
+    bill: "H.B. 507",
+    year: "2026",
+    title: "One New Tool, One New Secrecy Rule, and a Real Penalty for Hiding Money",
+    summary: "A sweeping 60-section rewrite of Utah's tax-increment tools promises a public database with a 20% funding penalty for non-reporting agencies — but no confirmation exists that the database, the reporting deadline, or the bill's new secrecy category have actually been used since the law took effect. Graded on both what it promises and what's been shown to happen.",
+    tags: ["Tax Increment Financing", "Economic Development", "Public Infrastructure Districts", "GRAMA"],
+    status: "law",
+    voteLine: "House Committee 7–1–2 · House 69–1–5 · Senate Committee 3–0–3 · Senate 22–2–5 · Conference: Senate 27–1–1, House 57–1–17 · Signed Mar 25, 2026 · Effective May 6, 2026",
+    link: "weber-hive-hb507.html",
+    lastUpdated: "Sep 16, 2026"
+  },
+  {
     caseNumber: "CASE 2026-286",
     grade: "F",
     bill: "H.B. 286",
