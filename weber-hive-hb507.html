@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.B. 507 — State Coordination of Regional and Local Economic Development Projects Amendments | The Weber County Hive</title>
+<style>
+  :root{
+    --navy:#16233d;
+    --navy-deep:#0e182c;
+    --manila:#e9dfc4;
+    --manila-dark:#d9caa2;
+    --paper:#faf5e8;
+    --ink:#221f1a;
+    --ink-soft:#4a4438;
+    --stamp:#8c2f22;
+    --stamp-soft:#b4543f;
+    --good:#3c5e3f;
+    --good-bg:#e7efe1;
+    --gold:#a9832f;
+    --rule:#c9b98d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--manila);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,"Iowan Old Style",serif;
+    line-height:1.55;
+  }
+  a{color:var(--stamp);}
+
+  .topband{
+    background:var(--navy-deep);
+    color:var(--manila);
+    padding:10px 24px;
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:0.72rem;
+    letter-spacing:.06em;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .topband a{color:var(--manila-dark);text-decoration:none;border-bottom:1px solid rgba(233,223,196,.35);}
+  .topband a:hover{border-bottom-color:var(--manila);}
+
+  header.case-header{
+    background:var(--navy);
+    color:var(--paper);
+    padding:56px 24px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.case-header::after{
+    content:"";
+    position:absolute;
+    right:-60px;top:-60px;
+    width:260px;height:260px;
+    border:1px solid rgba(233,223,196,.12);
+    border-radius:50%;
+  }
+  .case-wrap{max-width:880px;margin:0 auto;position:relative;}
+  .case-eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    color:var(--gold);
+    margin:0 0 14px;
+  }
+  .case-title{
+    font-size:2.3rem;
+    line-height:1.14;
+    margin:0 0 10px;
+    font-weight:600;
+    max-width:22ch;
+  }
+  .case-sub{
+    font-size:1.15rem;
+    color:var(--manila-dark);
+    font-style:italic;
+    margin:0 0 28px;
+    max-width:58ch;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+  }
+  .meta-pill{
+    border:1px solid rgba(233,223,196,.3);
+    padding:6px 12px;
+    border-radius:2px;
+    color:var(--manila-dark);
+  }
+  .pub-date{
+    margin-top:14px;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+    letter-spacing:.03em;
+    color:var(--gold);
+  }
+
+  main{max-width:880px;margin:0 auto;padding:48px 24px 100px;}
+  section{margin-bottom:56px;}
+  h2.section-head{
+    font-size:1.5rem;
+    margin:0 0 18px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px;
+  }
+  p{margin:0 0 16px;max-width:68ch;}
+  .lede{font-size:1.15rem;color:var(--ink-soft);}
+
+  .stamp-block{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:22px 26px;
+    margin:0 0 36px;
+  }
+  .stamp{
+    flex:0 0 auto;
+    width:88px;height:88px;
+    border:4px solid var(--gold);
+    border-radius:50%;
+    color:var(--gold);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:700;
+    font-size:1.6rem;
+    text-align:center;
+    line-height:1.1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-8deg);
+  }
+  .stamp-text .stamp-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+    display:block;
+  }
+  .stamp-text p{margin:0;font-size:.98rem;max-width:52ch;}
+
+  .change-grid{
+    display:grid;
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .change-row{
+    display:grid;
+    grid-template-columns:210px 1fr;
+    background:var(--paper);
+  }
+  .change-row .change-label{
+    padding:18px 20px;
+    background:var(--navy);
+    color:var(--manila);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+    letter-spacing:.03em;
+    display:flex;
+    align-items:center;
+  }
+  .change-row .change-body{padding:18px 22px;}
+  .change-row .change-body p{margin:0 0 8px;font-size:.96rem;}
+  .change-row .change-body p:last-child{margin-bottom:0;}
+  @media (max-width:640px){
+    .change-row{grid-template-columns:1fr;}
+    .change-row .change-label{padding:10px 16px;}
+  }
+
+  table.rubric{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    font-size:.95rem;
+  }
+  table.rubric caption{
+    text-align:left;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.74rem;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    caption-side:top;
+  }
+  table.rubric th,table.rubric td{
+    border:1px solid var(--rule);
+    padding:12px 14px;
+    text-align:left;
+    vertical-align:top;
+  }
+  table.rubric th{
+    background:var(--navy);
+    color:var(--manila);
+    font-weight:600;
+    width:15%;
+  }
+  table.rubric td.grade{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:700;
+    text-align:center;
+    width:8%;
+    font-size:1.1rem;
+  }
+  table.rubric td.grade-demo{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:700;
+    text-align:center;
+    width:10%;
+    font-size:1.1rem;
+    color:#f0c9c0;
+  }
+  table.rubric th.subhead{
+    width:8%;
+    font-size:.68rem;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  tr.overall th, tr.overall td{
+    background:#efe6cf;
+    font-weight:700;
+  }
+  tr.overall td.grade-demo{
+    background:#3a1410 !important;
+    color:#f0c9c0;
+  }
+
+  table.votes{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.88rem;
+    margin:0 0 16px;
+  }
+  table.votes th{
+    background:var(--navy);
+    color:var(--manila);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.72rem;
+    letter-spacing:.03em;
+    padding:8px 10px;
+    text-align:left;
+  }
+  table.votes td{
+    padding:8px 10px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.votes tr:nth-child(even) td{background:var(--paper);}
+
+  .pattern{
+    background:var(--navy);
+    color:var(--paper);
+    padding:24px 26px;
+  }
+  .pattern .pattern-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.74rem;
+    letter-spacing:.06em;
+    color:var(--gold);
+    display:block;
+    margin-bottom:10px;
+  }
+  .pattern p{color:var(--manila-dark);margin-bottom:0;}
+  .pattern strong{color:var(--paper);}
+
+  .hypothetical{
+    background:repeating-linear-gradient(135deg, var(--paper), var(--paper) 12px, var(--manila-dark) 12px, var(--manila-dark) 13px);
+    border:2px dashed var(--gold);
+    padding:24px 26px;
+  }
+  .hypothetical .hyp-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.74rem;
+    letter-spacing:.06em;
+    color:var(--gold);
+    display:block;
+    margin-bottom:6px;
+  }
+  .hypothetical .hyp-sub{
+    font-size:.82rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .hypothetical h4{margin:16px 0 6px;font-size:.98rem;color:var(--navy);}
+  .hypothetical ul{margin:0 0 12px 20px;}
+  .hypothetical li{margin-bottom:6px;font-size:.92rem;}
+  .hypothetical p:last-child{margin-bottom:0;}
+
+  .chart-widget{background:var(--paper);border:1px solid var(--rule);padding:24px 26px 20px;margin:18px 0 0;}
+  .chart-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+  .chart-controls label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.03em;color:var(--ink-soft);}
+  .chart-select{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.82rem;padding:8px 14px;background:var(--navy);color:var(--manila);border:1px solid var(--navy);border-radius:2px;cursor:pointer;}
+  .chart-select:hover{background:var(--navy-deep);}
+  .chart-canvas-wrap{position:relative;height:340px;}
+  .chart-note{font-size:.82rem;color:var(--ink-soft);margin-top:14px;font-style:italic;}
+
+  table.math{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem;background:var(--paper);}
+  table.math th{background:var(--navy);color:var(--manila);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;padding:8px 12px;text-align:left;}
+  table.math td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+  table.math tr:nth-child(even) td{background:var(--manila-dark);background:rgba(217,202,162,.25);}
+  table.math td.num{font-family:"IBM Plex Mono",ui-monospace,monospace;text-align:right;font-weight:600;}
+  table.math tr.result td{font-weight:700;border-top:2px solid var(--navy);border-bottom:none;}
+  table.math tr.result td.num{color:var(--stamp);}
+
+  details{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:16px 20px;
+    margin-top:8px;
+  }
+  details summary{
+    cursor:pointer;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.8rem;
+    letter-spacing:.04em;
+    color:var(--stamp);
+  }
+  details[open] summary{margin-bottom:12px;}
+  details p:last-child{margin-bottom:0;}
+
+  .qa dt{font-weight:600;margin-top:18px;}
+  .qa dt:first-child{margin-top:0;}
+  .qa dd{margin:6px 0 0;color:var(--ink-soft);}
+
+  .ask-list{list-style:none;margin:0;padding:0;}
+  .ask-list li{
+    background:var(--paper);
+    border-left:4px solid var(--gold);
+    padding:14px 18px;
+    margin-bottom:10px;
+    font-size:.95rem;
+  }
+  .ask-list li strong{color:var(--stamp);}
+
+  .sources-block{
+    background:transparent;
+    border:none;
+    border-top:2px solid var(--ink);
+    padding:0;
+    margin-top:8px;
+  }
+  .sources-block summary{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.85rem;
+    letter-spacing:.04em;
+    color:var(--ink);
+    padding:14px 0;
+  }
+  .sources-block ol{
+    margin:0 0 16px;
+    padding-left:20px;
+    font-size:.92rem;
+    color:var(--ink-soft);
+  }
+  .sources-block li{margin-bottom:10px;}
+
+  .related-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .related-card{
+    flex:1;
+    min-width:220px;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:16px 18px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .related-card:hover{border-color:var(--stamp);}
+  .related-card .rc-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.7rem;
+    letter-spacing:.05em;
+    color:var(--stamp);
+    display:block;
+    margin-bottom:6px;
+  }
+  .related-card .rc-title{font-weight:600;font-size:.98rem;}
+
+  footer{
+    background:var(--navy-deep);
+    color:var(--manila-dark);
+    padding:32px 24px;
+    text-align:center;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.76rem;
+    letter-spacing:.04em;
+  }
+  footer a{color:var(--gold);}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 36px;}
+  .stat{background:var(--paper);padding:18px 14px;text-align:center;}
+  .stat .num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.5rem;color:var(--stamp);font-weight:700;}
+  .stat .label{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.66rem;letter-spacing:.04em;color:var(--ink-soft);margin-top:6px;text-transform:uppercase;line-height:1.3;}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+  .diagram-block{background:var(--paper);border:1px solid var(--rule);padding:18px;margin:18px 0;overflow-x:auto;text-align:center;}
+  .diagram-block .mermaid{display:inline-block;}
+  .diagram-block svg{max-width:100% !important;min-width:min(480px,100%);height:auto !important;}
+  .diagram-block.wide{width:calc(100vw - 24px);max-width:1100px;position:relative;left:50%;transform:translateX(-50%);padding:30px;}
+  .diagram-block.wide svg{min-width:100%;}
+
+  .glossary-head{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.05em;color:var(--ink-soft);text-align:center;margin:0 0 4px;text-transform:uppercase;}
+  .glossary-sub{text-align:center;font-size:.88rem;color:var(--ink-soft);margin:0 0 20px;font-style:italic;}
+  .glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:0 0 40px;perspective:1000px;}
+  .flip-card{background:transparent;height:150px;cursor:pointer;}
+  .flip-card-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+  .flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;border:1px solid var(--rule);}
+  .flip-card-front{background:var(--navy);color:var(--manila);}
+  .flip-card-front .fc-acr{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.3rem;font-weight:700;letter-spacing:.03em;}
+  .flip-card-front .fc-hint{font-size:.62rem;color:var(--manila-dark);margin-top:8px;font-family:"IBM Plex Mono",ui-monospace,monospace;letter-spacing:.03em;}
+  .flip-card-back{background:var(--paper);color:var(--ink);transform:rotateY(180deg);}
+  .flip-card-back .fc-name{font-weight:600;font-size:.82rem;margin-bottom:6px;line-height:1.25;}
+  .flip-card-back .fc-def{font-size:.72rem;color:var(--ink-soft);line-height:1.3;}
+  @media(max-width:640px){.glossary-grid{grid-template-columns:repeat(2,1fr);}}
+  .diagram-caption{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;text-align:center;}
+
+  .readmore{background:var(--paper);border:1px solid var(--rule);padding:16px 20px;margin-top:10px;}
+  .readmore summary{cursor:pointer;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.03em;color:var(--stamp);}
+  .readmore[open] summary{margin-bottom:12px;}
+  .readmore p:last-child{margin-bottom:0;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'loose',
+    flowchart: { htmlLabels: true, useMaxWidth: true, padding: 16 },
+    themeVariables: {
+      primaryColor: '#e9dfc4',
+      primaryTextColor: '#221f1a',
+      primaryBorderColor: '#16233d',
+      lineColor: '#a9832f',
+      secondaryColor: '#faf5e8',
+      secondaryTextColor: '#221f1a',
+      tertiaryColor: '#f7f1e6',
+      fontFamily: 'Verdana, Arial, sans-serif',
+      fontSize: '17px'
+    }
+  });
+</script>
+</head>
+<body>
+
+<div class="topband">
+  <span>THE WEBER COUNTY HIVE — BILL-TRACKER</span>
+  <a href="index.html">← Full case docket</a>
+</div>
+
+<header class="case-header">
+  <div class="case-wrap">
+    <p class="case-eyebrow">2026 GENERAL SESSION · SIGNED INTO LAW</p>
+    <h1 class="case-title">One New Tool, One New Secrecy Rule, and a Real Penalty for Hiding Money</h1>
+    <p class="case-sub">A sweeping bill rewrites how Utah's tax-increment tools work — creating a genuine transparency mechanism with teeth, and a new way to keep some economic development records secret, in the same 50-plus page act.</p>
+    <div class="meta-row">
+      <span class="meta-pill">Chief Sponsor: Rep. Calvin Roberts</span>
+      <span class="meta-pill">Senate Sponsor: Sen. Kirk A. Cullimore</span>
+      <span class="meta-pill">Signed Mar 25, 2026 · Effective May 6, 2026</span>
+    </div>
+    <p class="pub-date">Published Sep 16, 2026 &middot; Updated Sep 16, 2026</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="stamp-block">
+    <div class="stamp">UNPROVEN</div>
+    <div class="stamp-text">
+      <span class="stamp-label">HOW THIS PIECE GRADES THE BILL</span>
+      <p>As written, this bill's transparency mechanisms look genuinely mixed — a real reporting penalty against a real new secrecy category. As demonstrated, they don't hold up: no public confirmation exists that the database, the reporting deadline, or the new secrecy classification have actually been used since the law took effect. This piece grades both — what the bill promises, and what's actually been shown to happen — because the gap between them is the story.</p>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="num">82</div><div class="label">code sections touched</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">substitutes before passage</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">max personal property tax diversion, data center zones</div></div>
+    <div class="stat"><div class="num">20%</div><div class="label">tax increment withheld for non-reporting agencies</div></div>
+  </div>
+
+  <p class="glossary-head">Know your acronyms</p>
+  <p class="glossary-sub">This bill uses a lot of them. Tap a card to flip it.</p>
+  <div class="glossary-grid" id="glossaryGrid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">RSDZ</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Regionally Significant Development Zone</span><span class="fc-def">The new TIF tool this bill creates, replacing several older ones.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">TIF</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Tax Increment Financing</span><span class="fc-def">Using future property tax growth in an area to pay for development there now.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">PID</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Public Infrastructure District</span><span class="fc-def">A special taxing district created to fund infrastructure for a specific development.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">UIPA</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Utah Inland Port Authority</span><span class="fc-def">State authority given major new taxing and revenue-sharing power by this bill.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">MIDA</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Military Installation Development Authority</span><span class="fc-def">Another state authority named in this bill's new records-sharing provision.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">GOED</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Governor's Office of Economic Development</span><span class="fc-def">Formerly GOEO — renamed by a bill this one directly coordinates with.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">UFAIR</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Utah Fairpark Area Investment and Restoration District</span><span class="fc-def">Newest agency added to this bill's protected-record sharing list.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">GRAMA</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Government Records Access and Management Act</span><span class="fc-def">Utah's public-records law — this bill amends it to add a new secrecy category.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">CRA</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Community Reinvestment Agency</span><span class="fc-def">The local body that manages a project area's tax-increment funds.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">HTRZ</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Housing and Transit Reinvestment Zone</span><span class="fc-def">One of the older TIF tools this bill bans creating after Jan. 1, 2028.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">FHIZ</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">First Home Investment Zone</span><span class="fc-def">Another older TIF tool banned from new creation after Jan. 1, 2028.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">HOPZ</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Home Ownership Promotion Zone</span><span class="fc-def">A third older TIF tool banned from new creation after Jan. 1, 2028.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><span class="fc-acr">NDA</span><span class="fc-hint">tap to flip</span></div>
+        <div class="flip-card-back"><span class="fc-name">Nondisclosure Agreement</span><span class="fc-def">Can now be classified as a protected record under this bill's GRAMA amendment.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-head">How these pieces fit together</h2>
+    <p class="lede">Think of it like a toolbox. The Community Reinvestment Agency Act (Utah Code Title 17C) is the toolbox itself — the law that says "here's how a city or county can borrow against future tax money to help pay for building something new." Everything else on this page is either a tool that lives inside that toolbox, or a separate tool from a different toolbox that gets used alongside it.</p>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 55, 'rankSpacing': 90}, 'themeVariables': {'fontSize': '20px'}}}%%
+graph TD
+    subgraph box1 [" "]
+      TITLE["THE TOOLBOX<br/>Community Reinvestment Agency Act<br/>Utah Code Title 17C"]:::toolbox
+      CRA["CRA<br/>the worker who<br/>opens the toolbox<br/>and uses the tools"]:::tool
+      TIF["TIF<br/>the money trick:<br/>use tomorrow's extra<br/>tax money to pay<br/>for it today"]:::tool
+      RSDZ["RSDZ<br/>the newest, biggest tool<br/>this bill just added<br/>to the box"]:::tool
+      TITLE --- CRA
+      TITLE --- TIF
+      TITLE --- RSDZ
+    end
+    PID["PID<br/>a DIFFERENT toolbox<br/>(Title 17D) —<br/>related, but not<br/>inside this one"]:::outside
+    box1 -.->|"often used<br/>alongside"| PID
+    classDef toolbox fill:#16233d,stroke:#a9832f,stroke-width:2px,color:#faf5e8;
+    classDef tool fill:#e9dfc4,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    classDef outside fill:#faf5e8,stroke:#8c2f22,stroke-width:2px,color:#221f1a;
+      </pre>
+      <div class="diagram-caption">CRAs, TIF, and the new RSDZ tool all live inside the same act. PIDs are a separate, related tool from a different law.</div>
+    </div>
+    <p>In plain terms: a <strong>CRA</strong> is the local government body that actually opens the toolbox and does the work. <strong>TIF</strong> isn't a thing you can point to — it's the trick itself, the method of paying for something now using the extra tax money it's expected to generate later. The old tools this bill retires — HTRZ, FHIZ, HOPZ, convention center zones — were all different-shaped versions of that same trick, each built for a slightly different purpose. This bill's new <strong>RSDZ</strong> tool is a bigger, more flexible replacement, added right into the same toolbox. A <strong>PID</strong> is genuinely different — it comes from its own separate law (Title 17D) and works more like its own tiny mini-government with the power to charge its own tax, rather than being a project a CRA runs. The two often show up on the same project, standing next to each other, but they aren't the same tool.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">What the bill does</h2>
+    <p class="lede">H.B. 507 is a sweeping economic development and tax-increment financing bill that touches more than 60 sections of Utah Code. Its own official summary lists 20 separate "Highlighted Provisions" — this piece focuses on the ones with the most direct public impact.</p>
+    <p>The bill creates a brand-new tax-increment tool, the "Regionally Significant Development Zone" (RSDZ), managed through a new chapter of the Community Reinvestment Agency Act. It bans the creation of four existing tools — housing and transit reinvestment zones (HTRZ), first home investment zones (FHIZ), convention center reinvestment zones, and home ownership promotion zones (HOPZ) — after January 1, 2028, meaning RSDZ effectively replaces them going forward. It also creates a new statewide fund, the State Reinvestment Restricted Account, and directs money into it from several different sources.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">The tools this bill replaces, and the pattern behind them</h2>
+    <p>RSDZ isn't the first new zone tool Utah has created, and it likely won't be the last. The state has added a new TIF-style zone in nearly every legislative session since 2018:</p>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 35, 'rankSpacing': 55}, 'themeVariables': {'fontSize': '18px'}}}%%
+graph LR
+    classDef yr fill:#16233d,stroke:#a9832f,stroke-width:2px,color:#faf5e8;
+    classDef harper fill:#8c2f22,stroke:#16233d,stroke-width:2px,color:#faf5e8;
+    classDef other fill:#e9dfc4,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    A["2018<br/>Transportation<br/>Reinvestment Zone"]:::other --> B["2021<br/>HTRZ<br/>Sen. Harper"]:::harper
+    B --> C["2024<br/>FHIZ<br/>Sen. Harper"]:::harper
+    C --> D["2024<br/>HOPZ<br/>Sen. Fillmore"]:::other
+    D --> E["2025<br/>Convention Center<br/>Reinvestment Zone"]:::other
+    E --> F["2026<br/>S.B. 39 consolidates<br/>nearly all of them<br/>Sen. Harper"]:::harper
+    F --> G["2026<br/>H.B. 507 creates RSDZ,<br/>replaces four of them<br/>Sen. Harper on conference cmte."]:::harper
+      </pre>
+      <div class="diagram-caption">Sen. Wayne A. Harper's name appears at three of the six points on this timeline</div>
+    </div>
+    <p>Sen. Wayne A. Harper chief-sponsored two of the four tools this bill sunsets (HTRZ in 2021, FHIZ in 2024), sponsored the 2026 bill consolidating nearly all of them (S.B. 39), and personally served on H.B. 507's own conference committee — a hand in this system at three separate points over five years, on top of committee seats that sit directly on the same subject matter. That fuller picture, including his full committee and board portfolio, is covered in its own profile in the <a href="https://weber-county-hive.github.io/utah-senators/" target="_blank" rel="noopener">Utah Senators</a> repo.</p>
+    <p>A separate 2026 bill, S.B. 206, adds one more layer: it creates the Statewide Tax Administration and Technology Solutions (STATS) program, moving TIF and redevelopment-agency reporting from GOED to a new system administered by the Utah Association of Counties — yet another shift in who tracks this money, in the same session this bill and S.B. 39 both touched the same underlying set of tools.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">The new reporting penalty — a real enforcement mechanism</h2>
+    <p>The bill requires the Governor's Office of Economic Development to build and maintain a public-facing database of detailed financial information from every community reinvestment agency in the state — assessed value changes, funds received and spent, a project area map, and a narrative of how each project furthered its stated goals — due every June 30. GOED must also publish an annual list, by September 1, naming which agencies complied and which didn't. This reporting structure isn't new to this bill — it amends an existing section of code — and it applies to every currently active agency regardless of when it was created, meaning the first June 30 deadline after this bill's May 6, 2026 effective date gave agencies roughly seven weeks to comply.</p>
+    <p>The enforcement mechanism has two separate stages, not one. Missing a single year's report triggers an immediate response: GOED must refer that agency to the State Auditor for review and post a public notice on its own website naming the agency and describing the noncompliance. The bigger financial penalty is reserved for repeat noncompliance — if an agency fails to report for two consecutive years, GOED notifies the county auditor and treasurer by July 31 of the second year, and the county treasurer then withholds 20% of that agency's tax increment until it complies. That's a real financial penalty tied directly to transparency compliance — not just a naming-and-shaming list — but it only kicks in after a full two-year cycle of noncompliance, with the State Auditor referral acting as the first, faster check.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">The new secrecy provision</h2>
+    <p>The bill amends Utah's Government Records Access and Management Act (GRAMA) to create a new protected-record category: "confidential economic development information." This covers information a business provides to a government entity that's recruiting or negotiating with it to locate or expand in Utah, and it separately covers any nondisclosure agreement between a business and a government entity exploring an economic development deal — the NDA itself can be withheld from public records requests.</p>
+    <p>The bill also lets that protected information move freely between a specific list of government bodies — GOED, UIPA, MIDA, the Point of the Mountain State Land Authority, and the Utah Fairpark Area Investment and Restoration District, plus whichever county and municipality the project might be sited in — without any of those agencies needing to sign their own separate nondisclosure agreement first. A coordination clause with H.B. 475 adds the state's Economic Development Council to that same sharing list if both bills become law. The record stays protected no matter how many of those agencies see it, and the state risk manager must set a dollar limit on damages if one of them discloses it anyway.</p>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 60, 'rankSpacing': 100}, 'themeVariables': {'fontSize': '23px'}}}%%
+graph TD
+    classDef source fill:#e9dfc4,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    classDef protected fill:#8c2f22,stroke:#16233d,stroke-width:3px,color:#faf5e8;
+    classDef agency fill:#faf5e8,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    classDef conditional fill:#faf5e8,stroke:#a9832f,stroke-width:2px,stroke-dasharray: 5 5,color:#221f1a;
+    BIZ["A business, submitting info<br/>or signing an NDA with<br/>a government entity"]:::source
+    REC["CONFIDENTIAL ECONOMIC<br/>DEVELOPMENT INFORMATION<br/>a protected record — can be<br/>withheld from GRAMA requests"]:::protected
+    BIZ --> REC
+    REC -->|"shared freely,<br/>no new NDA needed"| GOED["GOED"]:::agency
+    REC -.->|"shared freely"| UIPA["UIPA"]:::agency
+    REC -.->|"shared freely"| MIDA["MIDA"]:::agency
+    REC -.->|"shared freely"| POM["Point of the<br/>Mountain State<br/>Land Authority"]:::agency
+    REC -.->|"shared freely"| UFAIR["UFAIR"]:::agency
+    REC -.->|"shared freely"| LOCAL["The county/city<br/>where the project<br/>might be sited"]:::agency
+    REC -.->|"if H.B. 475<br/>also passes"| EDC["Economic<br/>Development<br/>Council"]:::conditional
+      </pre>
+      <div class="diagram-caption">Once information enters the protected category, it moves freely to any of these bodies — no new paperwork required between them</div>
+    </div>
+    <p style="font-size:.95rem;">Reading top to bottom: the protection attaches at the moment a business hands over information or signs an NDA — not at some later review stage. From there, it doesn't stay with just one agency. Any of the six bodies shown can receive that same protected record directly from any other, with no separate confidentiality agreement required each time it changes hands. A seventh, the state's Economic Development Council, joins that list only if H.B. 475 also becomes law — this bill's own coordination clause makes that connection conditional on a second bill's passage. Wherever the record travels among this group, it keeps its protected status; the only backstop is a dollar limit the state risk manager has to set for damages if one of these bodies discloses it improperly.</p>
+    <div class="pattern">
+      <span class="pattern-label">THE APPEALS SYSTEM CHANGED THE YEAR BEFORE THIS</span>
+      <p>This new secrecy category was created inside a records-access system that had just been restructured. In 2025, S.B. 277 dissolved the State Records Committee — a seven-member volunteer citizen body that had heard GRAMA appeals since 1992 — and replaced it with a single government-employed director running a new Government Records Office. The bill as introduced also proposed removing GRAMA's "balancing test," the rule requiring a protected record to be released anyway if the public interest in disclosure outweighed the reason for secrecy; Utah's major media outlets publicly opposed that specific provision, and whether it survived into the final enacted law hasn't been confirmed here. Whatever the outcome on that point, the citizen appeals board that used to review disputes over records like the ones this bill now protects was already gone by the time H.B. 507 created this category.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Large load data centers — a ban outside a zone, and a real pathway inside one</h2>
+    <p>The bill doesn't set this threshold itself — it borrows two existing definitions from elsewhere in Utah Code, and a facility has to meet both to count. A "qualifying data center" (§59-12-102) must be a Utah facility built on or after July 1, 2016, housing networked server computers, totaling at least 150,000 square feet across one or more buildings. A "large load customer" (§54-26-101) is defined not by size but by its electricity request — a customer requesting a "large-scale service request" for cumulative electric demand expected to reach 100 megawatts or more within five years. Only a facility that clears both thresholds — a 150,000-square-foot-plus building drawing 100+ megawatts — counts as a "large load data center" under this bill. That's a scale limited to the largest hyperscale data center campuses, not a typical server farm.</p>
+    <p>Beginning May 6, 2027, political subdivisions are barred from offering financial incentives to a "large load data center" outside an RSDZ. But this isn't simply a ban with narrow exceptions. A "Regionally Significant Zone with Energy Implications" — a specific RSDZ subtype built for exactly this use — can capture up to 60% of property tax increment <em>and divert up to 100% of personal property tax revenue</em> generated within the zone. Of that diverted personal property tax revenue, the county or municipality that receives it may use up to 80% directly as an incentive to the data center. A county that adopts the bill's new County Energy Excise Tax can separately offer up to 80% of that tax's own revenue as an additional incentive. Any incentive agreement already in place before May 6, 2027 can continue under its existing terms, but can't be extended or increased.</p>
+    <p>In practice, this means the bill doesn't close the door on data center incentives — it routes them through a new, more structured approval process, run by a newly created "Increment Authorization Committee" (distinct from the standard RSDZ approval committee) with members including legislative appointees, the state treasurer's office, and the Governor's Office of Energy Development.</p>
+    <p>That 100% personal-property-tax diversion figure wasn't in the bill from the start: a line-by-line comparison between the 2nd and 4th substitutes shows the cap was raised from 80% to 100% before final passage — a late-stage loosening of exactly this mechanism.</p>
+    <p>One environmental standard that already exists elsewhere in UIPA's own law didn't carry over into this new pathway. Existing code bars UIPA from using property tax differential as a business incentive for any development that will consume more than 200,000 gallons of potable water per day. The new RSDZ chapter this bill creates has its own separate list of allowable zone-revenue uses, and that list doesn't include this water standard, or any equivalent one — meaning the incentive pathway built specifically for large data centers, the facility type most likely to draw exactly this kind of water concern, doesn't carry the one water-use safeguard the state's older incentive framework already has.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">A live example: Meta's Eagle Mountain expansion</h2>
+    <div class="stats" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stat"><div class="num">4.5M</div><div class="label">sq ft after expansion (vs. 150,000 sq ft threshold)</div></div>
+      <div class="stat"><div class="num">1.7+ GW</div><div class="label">clean energy addition (vs. 100 MW threshold)</div></div>
+      <div class="stat"><div class="num">$3B+</div><div class="label">total Meta investment in Utah</div></div>
+    </div>
+    <p>On September 14, 2026, Meta announced another expansion of its Eagle Mountain data center campus, clearing both of this bill's "large load data center" thresholds by a wide margin — 16 to 30 times the square-footage minimum, and about 17 times the megawatt threshold on the new energy addition alone. That makes it a real, current test case for this bill's data-center provisions, not a hypothetical one — including a question about timing covered in the next section.</p>
+    <p>The fuller Eagle Mountain story — the campus's full incentive history back to 2018, the water-confidentiality agreement with the city, QTS's adjacent campus, and an open question about whether Hemmert's lobbying firm represented both Meta and Eagle Mountain on a past incentive fight — is covered in its own case file in the <a href="https://webercountyhive-coder.github.io/Data-Centers/" target="_blank" rel="noopener">Data-Centers</a> repo.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">A second live example: UIPA's own Tooele Valley project</h2>
+    <div class="stats" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stat"><div class="num">500 MW</div><div class="label">planned data center capacity</div></div>
+      <div class="stat"><div class="num">252,000</div><div class="label">gallons/day of wastewater discharge sought</div></div>
+      <div class="stat"><div class="num">$33M</div><div class="label">in bonds already issued for infrastructure</div></div>
+    </div>
+    <p>UIPA's own Tooele Valley Project Area, on the Great Salt Lake's southern shore, is home to a 500-megawatt data center under development by Zenith Development. The live controversy is over water — the developer is seeking a permit to discharge up to 252,000 gallons a day of concentrated brine into wetlands feeding the Great Salt Lake, close to the 200,000-gallon-per-day threshold this bill's new RSDZ pathway doesn't carry forward. UIPA's own public statement distances the authority from the project; the developer has said otherwise on the record.</p>
+    <div class="pattern">
+      <span class="pattern-label">THE GOVERNOR'S OWN OFFICE HAS ALREADY INVOKED THIS BILL</span>
+      <p>Gov. Cox signed Executive Order 2026-03, creating a "Data Center Framework" that explicitly directs UIPA to Utah Code sections 17C-6 and 63N-3a — the exact new RSDZ chapters this bill creates — as part of the state's response to controversies like this one. That's independent confirmation that H.B. 507's framework is already being cited in an active, contested, real-world fight, not just sitting on the books untested.</p>
+    </div>
+    <p>The fuller Tooele Valley story — the UIPA-vs-developer contradiction in full, the public hearing, and the wetlands permit fight — is covered in its own case file in the <a href="https://webercountyhive-coder.github.io/UIPA/" target="_blank" rel="noopener">UIPA</a> repo.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">The timing question: who does the delay actually favor?</h2>
+    <p class="lede">H.B. 507 took effect May 6, 2026. Its ban on large-load-data-center incentives outside an RSDZ doesn't start until May 6, 2027 — a full year later. Meta's expansion was announced September 14, 2026, squarely inside that gap.</p>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 50, 'rankSpacing': 95}, 'themeVariables': {'fontSize': '20px'}}}%%
+graph LR
+    classDef date fill:#e9dfc4,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    classDef window fill:#8c2f22,stroke:#16233d,stroke-width:2px,color:#faf5e8;
+    classDef event fill:#a9832f,stroke:#16233d,stroke-width:2px,color:#faf5e8;
+    A["May 6, 2026<br/>H.B. 507<br/>takes effect"]:::date --> W["12-month window:<br/>old incentive rules<br/>still fully apply,<br/>no RSDZ needed"]:::window
+    W --> M["Sep 14, 2026<br/>Meta announces<br/>Eagle Mountain<br/>expansion"]:::event
+    W --> B["May 6, 2027<br/>Incentive ban<br/>outside RSDZ<br/>finally starts"]:::date
+    M -.->|"any deal signed<br/>before this date is<br/>grandfathered forever"| B
+      </pre>
+      <div class="diagram-caption">Meta's announcement lands inside the year-long gap between the law taking effect and its own restriction actually starting</div>
+    </div>
+    <table class="math">
+      <tr><th>Feature of the law</th><th>Effect on a large operator like Meta</th><th>Effect on the public</th></tr>
+      <tr><td>One-year delay before the incentive ban starts</td><td>A full year of unrestricted incentive flexibility continues after the "reform" bill takes effect</td><td>No new protection exists during this entire window</td></tr>
+      <tr><td>Grandfather clause for pre-ban agreements</td><td>Any deal signed before May 6, 2027 is locked in forever under its own terms, permanently outside RSDZ review</td><td>A deal signed in this window never has to go through the new oversight process, ever</td></tr>
+      <tr><td>80%→100% diversion cap raised during drafting</td><td>Even the "reformed" post-2027 pathway ended up more generous than the bill first proposed</td><td>The formal review process, once it applies, still permits near-total revenue capture</td></tr>
+      <tr><td>New database, 20% penalty, State Auditor referral</td><td>No effect either way — untested</td><td>Promised in theory, but per this piece's own verification check, none of it has confirmed real-world operation yet</td></tr>
+    </table>
+    <p>Reading this plainly: on the specific question of timing, the 2026 session's changes appear to favor a large operator more than they constrain one. A full year of unrestricted flexibility, a grandfather clause that locks in whatever gets signed during it, and a formal pathway afterward that got more generous while the bill was being written rather than less — all of that is confirmed directly from the bill's own dates and provisions. Whether Eagle Mountain or Utah County has actually used any of this for Meta's specific expansion is not established; what's established is that the law's own structure makes doing so both legal and, if timed before May 2027, permanently insulated from the accountability system the same bill created.</p>
+  </section>
+
+  <section>
+    <div class="hypothetical">
+      <span class="hyp-label">ANALYSIS — NOT PART OF THE BILL'S ACTUAL TEXT</span>
+      <p class="hyp-sub">A thought experiment on how the "large load data center" threshold could have been drawn differently. This is not something the bill does, and nothing in its legislative history suggests it was proposed or rejected.</p>
+      <p>The bill's current definition uses two flat, absolute measurements — 150,000 square feet and 100 megawatts. A project that falls short of either one entirely escapes the bill's incentive restrictions, no matter how large the company behind it is. That creates an obvious workaround: a well-capitalized developer could size a facility just under either line on purpose, or split one large project into several smaller buildings, and never trigger RSDZ review at all.</p>
+      <h4>One way to close that gap without sweeping in small operators</h4>
+      <p>Pair the existing size-based test with a second, independent trigger based on the developer's own financial capacity — for example, requiring RSDZ/Increment Authorization Committee review for any data center project, regardless of square footage or power draw, if the developer or its parent company has global annual revenue above some set threshold. The two tests would work as an "either/or": a project triggers review if it clears the size threshold, <em>or</em> if the company behind it clears the revenue threshold — whichever comes first.</p>
+      <ul>
+        <li>A small regional colocation provider, a hospital's own server room, or a local business's data center would stay exempt under either test — it clears neither one.</li>
+        <li>A company the scale of Meta, Google, Amazon, or Microsoft would trigger review on the revenue test alone, even if it built a facility deliberately sized just under the square-footage or megawatt line.</li>
+      </ul>
+      <p>The tradeoff is real, not free: verifying a company's global revenue is a different, harder kind of documentation than measuring a building, and it opens its own definitional fights — where exactly to set the revenue bar, whose revenue counts (the developer's or its parent's), and how to handle a subsidiary structured specifically to obscure the parent company's size. It's not a clean fix, just a different set of tradeoffs than the bill's current flat-threshold approach.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Money into the new account — UIPA's cut, and a 50% profit share for remediation land</h2>
+    <p>The Utah Inland Port Authority must now contribute 1% to 5% of tax differential revenue (as the UIPA board determines) from any new project area adopted on or after September 30, 2026 into the State Reinvestment Restricted Account. Counties and municipalities participating in project areas adopted before that date can voluntarily designate up to 5% as well.</p>
+    <p>The statute doesn't say how the board is supposed to land anywhere in that range. The entire operative text is "as determined by the board" — no formula, no listed factors, no requirement to publish a rationale for the specific percentage chosen, no minimum public notice tied to this decision specifically. A 1% contribution and a 5% contribution are both equally compliant with the law; whichever the board picks, project by project, is entirely its own call, governed by nothing more than the ordinary open-meetings-law transparency that applies to any board resolution.</p>
+    <p>The bill also creates a new "revenue sharing agreement" mechanism: when a private developer's project is supported by UIPA funding, UIPA staff can negotiate a deal for the developer to contribute a flat amount or percentage of the project's proceeds to the reinvestment account. That negotiation was mandatory in the bill as introduced — UIPA staff "shall negotiate and enter into" such an agreement — but the language was weakened during the legislative process to "may negotiate," making it discretionary rather than required in the version that passed. For land UIPA remediates and then sees redeveloped by private parties, the bill still requires UIPA to capture a share of the resulting profits for the account — up to 50% of annual revenue from that remediation project area, as set by the UIPA board in consultation with the Legislative Fiscal Analyst.</p>
+    <div class="hypothetical">
+      <span class="hyp-label">WORKED EXAMPLE — ILLUSTRATIVE NUMBERS, NOT A REAL PROJECT</span>
+      <p class="hyp-sub">Realistic, round figures used to show what the 1-5% range and the 50% profit-share actually mean in dollars.</p>
+      <p><strong>The 1-5% tax differential contribution.</strong> Say a new UIPA project area, adopted after September 30, 2026, generates $10 million a year in tax differential revenue — the extra property tax growth UIPA is entitled to capture. The board's choice of percentage, entirely its own call, changes what reaches the reinvestment account by a factor of five:</p>
+      <table class="math">
+        <tr><th>Board's choice</th><th>To reinvestment account</th><th>UIPA keeps</th></tr>
+        <tr><td>1% (the legal minimum)</td><td class="num">$100,000/yr</td><td class="num">$9,900,000/yr</td></tr>
+        <tr><td>5% (the legal maximum)</td><td class="num">$500,000/yr</td><td class="num">$9,500,000/yr</td></tr>
+        <tr class="result"><td>Difference, same project, same year</td><td class="num">$400,000/yr</td><td>—</td></tr>
+      </table>
+      <p>Over a 25-year project area life — the kind of timeframe these zones typically run — that single percentage-point choice compounds into a $10 million difference in total contributions to the account, from one project area alone, with no statutory requirement that the board ever explain why it picked one number over another.</p>
+      <p><strong>The 50% remediation profit-share.</strong> Say UIPA cleans up a contaminated site and it's redeveloped by a private company, generating $2 million a year in profit from that private-sector activity. The board, in consultation with the Legislative Fiscal Analyst, sets the actual share — capped at 50%, with no floor:</p>
+      <table class="math">
+        <tr><th>Board's choice</th><th>To reinvestment account</th><th>Developer/UIPA project keeps</th></tr>
+        <tr><td>10%</td><td class="num">$200,000/yr</td><td class="num">$1,800,000/yr</td></tr>
+        <tr><td>50% (the legal maximum)</td><td class="num">$1,000,000/yr</td><td class="num">$1,000,000/yr</td></tr>
+        <tr class="result"><td>Difference, same project, same year</td><td class="num">$800,000/yr</td><td>—</td></tr>
+      </table>
+      <p>This mechanism has one real safeguard the 1-5% contribution doesn't: the Legislative Fiscal Analyst is a required part of setting the percentage. But the statute still caps it only at the top ("no more than 50%") and sets no floor — a board could set it at 1% and remain fully compliant.</p>
+    </div>
+    <div class="pattern">
+      <span class="pattern-label">TWO BILLS, ONE ACCOUNT, ONE DAY APART</span>
+      <p>S.B. 254, this session's critical-minerals bill, also creates a "State Reinvestment Restricted Account" — funded by severance tax, for income tax relief, water infrastructure, Great Salt Lake preservation, transit, energy, and critical minerals — and passed the House floor on March 5, 2026, one day before H.B. 507 formally enacted an account by the same name in code, funded by different sources (UIPA tax differential, the new County Energy Excise Tax, UIPA's revenue-sharing agreements). H.B. 507's own coordination clauses name only H.B. 475, not S.B. 254. Whether these are the same account being fed by two bills through different mechanisms, or two separately built accounts that happen to share a name, hasn't been established from either bill's text alone.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Public infrastructure district changes</h2>
+    <p>The bill modifies several PID governance provisions. It changes how property can be annexed into or withdrawn from an existing PID, tightening the process to require both a board resolution and a 100%-surface-owner-consent petition. It creates, for the first time, a formal dissolution process: a PID's board must adopt a dissolution resolution once the district has paid all its debts, satisfied its contractual obligations, and transferred all completed infrastructure to the entity responsible for maintaining it — the board has 30 days to act once those conditions are met. Any remaining assets go first to property owners within the district, if there's an identifiable connection between the assets and a financial burden those owners bore, and otherwise to the entity that took over the infrastructure. And the bill now requires that any increase to a PID's property tax levy rate limit — beyond what the original governing document allows — get the consent of 100% of surface property owners within the district, a real check on quietly raising the ceiling later.</p>
+    <div class="hypothetical">
+      <span class="hyp-label">WORKED EXAMPLES — ILLUSTRATIVE, NOT DOCUMENTED INSTANCES</span>
+      <p class="hyp-sub">Simple scenarios showing what each of these three changes actually requires in practice.</p>
+      <p><strong>Annexation.</strong> A PID covering 50 acres wants to grow by annexing an adjacent 20-acre parcel, which happens to be owned by three separate people. Under this bill, the PID's board can pass a resolution approving the annexation, but that alone isn't enough — a petition also has to be filed carrying the signatures of all three owners of that 20-acre parcel. If two sign and the third refuses, the annexation fails outright. There's no majority-rules option and no override for the board; every surface owner in the area being added has to agree.</p>
+      <p><strong>Dissolution.</strong> Say a PID borrowed $5 million to build the roads and sewer lines for a new subdivision. Twenty years later, the bond is fully paid off, and the county has taken over maintaining those same roads and sewer lines. Once both of those things are true, the PID's board has 30 days to vote to dissolve the district — it isn't optional or open-ended. If $200,000 is left over and it can be traced to specific special assessments those specific homeowners paid, that money goes back to them. If there's no such traceable link, it goes to the county instead, since the county is now the entity responsible for the infrastructure.</p>
+      <p><strong>Raising the tax rate ceiling.</strong> A PID's original governing document caps its property tax levy at a rate that generates, say, $800 a year from a typical home in the district. If rising construction costs mean the board later wants to raise that ceiling to something closer to $1,200 a year, it can't just vote to do it. It needs signed consent from every surface property owner in the district — if there are 40 homes and even one owner objects, the increase can't go through. The board can still ask; it just can't compel.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">The new County Energy Excise Tax</h2>
+    <p>The bill lets a county levy a new excise tax on energy sold to a large-load customer or qualifying data center located on unincorporated land. Broken down into its parts:</p>
+    <table class="math">
+      <tr><th>Element</th><th>Detail</th></tr>
+      <tr><td>Maximum rate</td><td>Up to 6% of the "delivered value" of the energy sold</td></tr>
+      <tr><td>Who pays it</td><td>A "high-impact consumer" — a large-load customer or a qualifying data center — on unincorporated county land</td></tr>
+      <tr><td>Who collects it</td><td>The energy supplier, remitting quarterly, the same way it handles sales tax; must itemize it separately if passed through to the customer</td></tr>
+      <tr><td>Notice required</td><td>90 days before the tax takes effect</td></tr>
+      <tr><td>Where the revenue goes</td><td>10% to the State Reinvestment Restricted Account, 90% stays with the county</td></tr>
+      <tr><td>What the county can do with its share</td><td>Redirect up to 80% of it right back out as an incentive to the same kind of customer the tax was levied on</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="section-head">What got dropped along the way</h2>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 60, 'rankSpacing': 100}, 'themeVariables': {'fontSize': '22px'}}}%%
+graph LR
+    classDef stage fill:#e9dfc4,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    classDef cut fill:#faf5e8,stroke:#8c2f22,stroke-width:2px,color:#221f1a;
+    A["Introduced<br/>Feb 6"]:::stage --> B["Substitute 1<br/>House Comm, Feb 18"]:::stage
+    B --> C["Substitute 2<br/>House floor"]:::stage
+    C --> D["Substitute 3<br/>Senate, Mar 5"]:::stage
+    D --> E["Substitute 4<br/>Conference, Mar 6"]:::stage
+    C -.->|"COI safeguard added,<br/>later removed"| X1["Cut before<br/>final passage"]:::cut
+    D -.->|"UIPA energy tax +<br/>elevated bond rate added"| X2["Cut in<br/>conference"]:::cut
+    A -.->|"SHALL weakened<br/>to MAY"| E
+      </pre>
+      <div class="diagram-caption">What was added and later removed across the bill's four substitutes</div>
+    </div>
+    <p style="font-size:.95rem;">Reading left to right: the bill moved through four substitutes between its introduction on February 6 and final passage in conference committee on March 6. The dotted lines show provisions that existed at some point in that process but didn't survive to the end. A conflict-of-interest safeguard was written into the 2nd substitute, on the House floor, and then removed before the bill reached final passage — it never became law. The Senate's own 3rd substitute went further, adding real new taxing power for the Utah Inland Port Authority (a standalone energy tax and an elevated bond rate) — and that, too, was cut when the House and Senate reconciled their versions in conference committee. Separately, the requirement that UIPA staff negotiate revenue-sharing agreements with developers was weakened from mandatory ("shall") to optional ("may") somewhere between the introduced bill and the final version — a change that runs the entire length of the process rather than happening at any one identifiable stage.</p>
+    <p>The Senate's own version of the bill (the 3rd substitute) briefly gave the Utah Inland Port Authority real new taxing power that the final conference committee version took back out. That Senate-passed text created a new provision letting a UIPA "subsidiary district" issue bonds for advanced manufacturing or energy development projects at an elevated property tax rate — up to .02 per dollar of taxable value, above the standard .015 cap that applies to public infrastructure districts generally. In the same section, it let a UIPA infrastructure district levy its own energy tax of up to 4% on the value of energy generated within the district, and use that revenue directly to secure bonds. Both provisions — the elevated bond-rate authority and the standalone 4% energy tax — were removed before final passage.</p>
+    <p>The most significant thing cut wasn't in the original introduced bill either — it was added in the 2nd substitute and then removed before final passage. That substitute barred a regional economic development authority (UIPA, MIDA, and similar bodies) from acting as the paid consultant reviewing a zone proposal if that same authority was "directly financially impacted by the proposal" — a real conflict-of-interest safeguard, written into the bill and then struck out before it reached the floor.</p>
+    <div class="hypothetical">
+      <span class="hyp-label">AN ILLUSTRATION — NOT A DOCUMENTED INSTANCE</span>
+      <p class="hyp-sub">A worked example of what the removed safeguard would have actually stopped. This describes how the mechanism would apply, not something confirmed to have happened.</p>
+      <p>Say a developer proposes an RSDZ, and as part of that same project, UIPA separately negotiates a revenue-sharing agreement with the developer — the kind this bill allows, where UIPA takes a cut of the project's proceeds for the State Reinvestment Restricted Account. Under the zone-creation process, the reviewing committee can hire an "independent consultant" to evaluate the proposal before deciding whether to approve it. Nothing in the final law stops UIPA itself from taking that consulting role — including on the very proposal where UIPA is also the counterparty standing to collect a cut of the project's revenue.</p>
+      <p>The 2nd substitute's language would have stopped exactly this: a regional economic development authority "may not perform the duties described in Subsection (4)(a) in regard to a proposal if the regional economic development authority is directly financially impacted by the proposal." With that safeguard in place, UIPA couldn't be both the paid reviewer recommending a project and a party standing to profit from it. In the version that actually became law, that overlap is legally permitted.</p>
+    </div>
+    <details class="readmore">
+      <summary>Read more: other changes across the substitutes</summary>
+      <p>A related expansion, extending an existing elevated-tax-rate provision to cover "energy processing, transmission, or generation projects" and not just advanced manufacturing and critical mineral extraction, was also stripped back to its narrower, pre-Senate scope in conference.</p>
+      <p>The introduced bill let a zone's managing agency use zone revenue "to mitigate the impacts of the zone on local services, including solid waste disposal operations, law enforcement, and road repair and road upgrades" — a provision that would have let a zone help pay for the burden it places on the surrounding community's services. That entire provision was struck before final passage; no comparable mitigation-funding use survived in the enacted law. The zone-administration cost cap agencies can keep for themselves was also raised, from 2% of annual zone revenue in the introduced bill to 3% in the final version.</p>
+      
+      <p>The reporting requirement changed too, and in more than one direction. The introduced bill sent each zone's biennial report to both the Political Subdivisions Interim Committee and the Economic Development and Workforce Services Interim Committee; the final version drops the second committee entirely. Separately, the TIF-cap working group itself changed which committee it answers to — the 2nd substitute had it reporting to the Economic Development and Workforce Services Interim Committee, but the final version switched it to the Political Subdivisions Interim Committee, and added a dedicated Utah Association of Counties seat to the working group that wasn't there before.</p>
+      <p>Also notable: an entire category, "major sporting event venue zone," appears throughout the introduced bill's zone-funding and 2028 creation-deadline provisions, but is absent from the enacted version — replaced in the final Long Title's 2028 deadline list by "convention center reinvestment zone" instead. What happened to major sporting event venue zones — whether that provision moved to a separate bill or was simply dropped — isn't established from this comparison alone. Two numbered code sections that would have been created (63N-3a-209 and 63N-3a-304) also existed in the 2nd substitute and were removed before final passage; what they contained hasn't been established.</p>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="section-head">The working group tasked with setting real limits</h2>
+    <p>The bill requires the Political Subdivisions Interim Committee to convene a working group by May 30, 2026, and report recommendations back by November 1, 2026, specifically on capping the maximum percentage or dollar amount of tax increment financing tools can use. Its membership is set by statute: three sitting legislators (at least one senator), plus one representative each from the Utah League of Cities and Towns, the Utah Association of Counties, school districts generally, and the State Tax Commission. In other words, the same 2026 session that built this expanded TIF framework also ordered up, in the same bill, the first real study of whether it's grown too large.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">The committee that will now oversee it</h2>
+    <p>The Political Subdivisions Interim Committee — the body this bill's working group answers to, and the body that now receives every zone's biennial report — is co-chaired by Sen. Don L. Ipson and Rep. James A. Dunnigan. Its 2026 membership includes Sen. Nate Blouin, Sen. Wayne A. Harper, Sen. Calvin R. Musselman, Sen. Chris H. Wilson, Rep. Matthew H. Gwynn, Rep. Leah Hansen, Rep. Jill Koford, Rep. Trevor Lee, Rep. Verona Mauga, Rep. Tracy J. Miller, Rep. Val L. Peterson, and Rep. Jordan D. Teuscher.</p>
+    <div class="diagram-block wide">
+      <pre class="mermaid">
+%%{init: {'flowchart': {'useMaxWidth': false, 'nodeSpacing': 60, 'rankSpacing': 100}, 'themeVariables': {'fontSize': '22px'}}}%%
+graph TD
+    classDef bill fill:#e9dfc4,stroke:#8c2f22,stroke-width:2px,color:#221f1a;
+    classDef person fill:#faf5e8,stroke:#16233d,stroke-width:2px,color:#221f1a;
+    HB["H.B. 507"]:::bill
+    RF["RuthAnne Oakey-Frost<br/>H.B. 507's own<br/>drafting attorney"]:::person -->|"also staff counsel to"| PSC["Political Subdivisions<br/>Interim Committee"]:::person
+    HB -->|"drafted by"| RF
+    HB -->|"working group and<br/>zone reports go to"| PSC
+    PSC -->|"member"| Hansen["Rep. Leah Hansen<br/>sole Nay, all 3 votes"]:::person
+    PSC -->|"member"| Peterson["Rep. Val L. Peterson<br/>chief sponsor, H.B. 545"]:::person
+    PSC -->|"member"| Harper["Sen. Wayne A. Harper<br/>H.B. 507 conference committee"]:::person
+      </pre>
+      <div class="diagram-caption">The bill's own drafting attorney, its most consistent opponent, and a sponsor of a related bill all sit inside the committee now overseeing it</div>
+    </div>
+    <p style="font-size:.95rem;">Reading top to bottom: H.B. 507 was drafted by RuthAnne Oakey-Frost, who also serves as the Political Subdivisions Interim Committee's own staff counsel — the same person who wrote the bill now works for the committee that will oversee the working group and biennial zone reports the bill itself created. Three sitting committee members have their own direct stake in how that oversight plays out: Rep. Hansen voted against this specific bill three separate times, Rep. Peterson sponsored this tracker's other 2026 economic-development-oversight bill, and Sen. Harper personally sat on H.B. 507's own conference committee before it passed.</p>
+    <p>Three overlaps are worth naming directly. RuthAnne Oakey-Frost is both H.B. 507's own drafting attorney and the Political Subdivisions Interim Committee's Senior Associate General Counsel — the same lawyer who wrote the bill works for the committee that now oversees the working group it created. Rep. Hansen, the bill's most consistent opponent, sits on the committee that will review its own working group's recommendations. And Rep. Val L. Peterson, chief sponsor of H.B. 545 — this tracker's other 2026 economic-development-oversight bill — sits on the same committee. Sen. Wayne A. Harper, who served on H.B. 507's own conference committee, is also a sitting member.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">Full vote record</h2>
+    <table class="votes">
+      <tr><th>Date</th><th>Action</th><th>Vote</th></tr>
+      <tr><td>Feb 6, 2026</td><td>Introduced</td><td>—</td></tr>
+      <tr><td>Feb 18, 2026</td><td>House Committee — Substitute adopted</td><td>7–1–2</td></tr>
+      <tr><td>Feb 18, 2026</td><td>House Committee — Favorable Recommendation</td><td>7–1–2</td></tr>
+      <tr><td>Feb 25, 2026</td><td>House — Passed 3rd Reading</td><td>69–1–5</td></tr>
+      <tr><td>Mar 2, 2026</td><td>Senate Committee — Favorable Recommendation</td><td>3–0–3</td></tr>
+      <tr><td>Mar 5, 2026</td><td>Senate — Passed 2nd &amp; 3rd Readings (suspension)</td><td>22–2–5</td></tr>
+      <tr><td>Mar 6, 2026</td><td>Senate Conference Committee — Final Passage</td><td>27–1–1</td></tr>
+      <tr><td>Mar 6, 2026</td><td>House Conference Committee — Final Passage</td><td>57–1–17</td></tr>
+      <tr><td>Mar 25, 2026</td><td>Governor Signed</td><td>—</td></tr>
+    </table>
+    <p style="font-size:.95rem;">Rep. Leah Hansen was the sole Nay at all three of this bill's recorded House votes — the committee substitute, the committee favorable recommendation, and the final conference passage — the same lone dissenting pattern she showed on several other unrelated bills this session. On the Senate side, the sole Nay on final passage was Sen. Brady Brammer, notable because Brammer was also the Senate sponsor of H.B. 17, this same tracker's Public Infrastructure District Meeting Amendments bill — someone with direct PID-policy sponsorship history voting alone against this bill's PID provisions.</p>
+    <details class="readmore">
+      <summary>Read more: committee testimony and the conference committee sequence</summary>
+      <p>At its February 18 House committee hearing, five witnesses spoke to the bill — none of them recorded as clearly for or against: Cameron Diehl (Utah League of Cities and Towns), Jen Brown (Board Director, Utah Citizens for the Constitution), Jeff Hartley (High-Tech Solutions), Ben Hart (Executive Director, Utah Inland Port Authority), and Andrew Gruber (Executive Director, Wasatch Front Regional Council).</p>
+      <p>At its March 2 Senate committee hearing, the bill went through uncontested: Rep. Roberts presented, and the only witnesses on record — Lincoln Shurtz of the Utah Association of Counties and Cameron Diehl, Executive Director of the Utah League of Cities and Towns — both spoke in favor. No opposition testimony was recorded. The committee's own chair, Sen. Ann Millner, was absent that day; Sen. Karen Kwan presided as acting chair for the 3-0-3 vote.</p>
+      <p>The bill went through four substitutes before final passage, and needed a full conference committee to resolve real disagreement between the chambers — all within a single legislative day. The House refused to concur with the Senate's amendments at 6:51pm on March 5; the Senate refused to recede from those amendments at 9:27am the next morning; both conference committees were appointed within the hour, and by 3:41pm on March 6 both chambers had adopted the conference committee's 4th substitute. Both the House's refusal to concur and the Senate's refusal to recede were voice votes, not recorded roll calls, so there's no by-name record of who wanted what on the actual point of disagreement. Conference committee members: Sen. Kirk A. Cullimore, Sen. Wayne A. Harper, Sen. Jen Plumb; Rep. Calvin Roberts, Rep. R.P. Ward, Rep. Doug Owens.</p>
+    </details>
+    <details>
+      <summary>An unresolved funding question</summary>
+      <p>The bill's own Long Title states "Money Appropriated in this Bill: None." A separate Legislative Fiscal Analyst document listing "Additional Proposed Funding Items" for the 2026 session shows a line for this bill's title with figures of $176,200 and $173,700. Whether that funding was appropriated through a separate bill (possibly to implement the new GOED reporting database) has not been confirmed for this piece.</p>
+    </details>
+  </section>
+
+  <section>
+    <div class="pattern">
+      <span class="pattern-label">READING THE TWO HALVES TOGETHER</span>
+      <p>This bill's reporting-penalty provision and its new protected-records provision move public transparency in opposite directions inside the same act. One gives the public a genuinely stronger tool — a public database with a real financial penalty for agencies that don't comply. The other gives government and private partners a genuinely stronger tool to keep specific deal records out of public view. Which one matters more in practice will depend on how often each gets used — something only future compliance data and future records requests will show.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">See it as a chart</h2>
+    <div class="chart-widget">
+      <div class="chart-controls">
+        <label for="chartPicker">Choose a view:</label>
+        <select class="chart-select" id="chartPicker" onchange="renderHB507Chart(this.value)">
+          <option value="rubric">Rubric grades, scored</option>
+          <option value="votes">Vote margins at each stage</option>
+          <option value="percentages">Key percentages in the bill</option>
+          <option value="demonstrated">As written vs. as demonstrated</option>
+        </select>
+      </div>
+      <div class="chart-canvas-wrap">
+        <canvas id="hb507Chart"></canvas>
+      </div>
+      <p class="chart-note" id="hb507ChartNote">Grades converted to a 0-4 scale (F=0, D=1, C=2, B=3, A=4) so they can be compared side by side. This bill's overall grade of C- reflects a mix of real strengths and real weaknesses, not a uniformly bad or good bill.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Design vs. demonstrated: has any of this actually been shown to work?</h2>
+    <p class="lede">Every grade below this point describes what the bill's mechanisms are designed to do. None of it describes what's actually been confirmed to happen. As of this piece's last update, a search for real-world evidence found nothing confirming that any of these mechanisms — the good ones or the bad ones — have actually operated yet.</p>
+    <table class="math">
+      <tr><th>Mechanism</th><th>Verified as of Sep. 2026?</th><th>Why</th></tr>
+      <tr><td>GOED public database (June 30 reporting)</td><td class="num" style="color:#8c2f22;">Not confirmed</td><td>No public confirmation found that the database was actually built, or that any agency met the June 30, 2026 deadline — which fell just seven weeks after the law took effect.</td></tr>
+      <tr><td>State Auditor referral for a single missed year</td><td class="num" style="color:#8c2f22;">Not confirmed</td><td>No public notice or referral found naming any noncompliant agency.</td></tr>
+      <tr><td>20% withholding penalty (2 consecutive years)</td><td class="num" style="color:#4a4438;">Cannot yet exist</td><td>The penalty legally requires two consecutive missed years — not enough time has passed since the law took effect for this to be possible yet, regardless of compliance.</td></tr>
+      <tr><td>"Confidential economic development information" (GRAMA secrecy)</td><td class="num" style="color:#8c2f22;">Not confirmed</td><td>No denial, appeal, or news report found citing this specific classification since the law took effect.</td></tr>
+      <tr><td>UIPA's 1-5% reinvestment account contribution</td><td class="num" style="color:#8c2f22;">Not confirmed</td><td>Applies only to project areas adopted on or after Sept. 30, 2026 — after this piece's last update, so no board decision could exist yet.</td></tr>
+      <tr><td>PID 100% consent requirement (annexation/tax ceiling)</td><td class="num" style="color:#3c5e3f;">Structural, not dependent on enforcement</td><td>This is a legal precondition, not a discretionary program — a PID cannot legally act without it, regardless of anyone verifying compliance after the fact.</td></tr>
+    </table>
+    <p>Two things fall out of this. First, the mechanisms with real teeth on paper — the withholding penalty, UIPA's contribution rate — literally could not have been tested yet, through no fault of anyone; the clock hasn't run out. Second, and more pointedly: the database, the reporting deadline, the State Auditor referral trigger, and the new secrecy classification could all already be in use right now, and there is no public confirmation either way. A transparency mechanism nobody can confirm is operating provides the public with exactly the same benefit as one that doesn't exist — none, until proven otherwise.</p>
+  </section>
+
+  <section>
+    <h2 class="section-head">Graded by the collective rubric</h2>
+    <p class="lede">Two grades per row: what the mechanism is designed to do on paper, and what can actually be verified as working today. Where nothing can be confirmed, the demonstrated grade reflects that absence directly rather than assuming the design succeeded.</p>
+    <table class="rubric">
+      <caption>Power · Transparency · Financial Accountability · Environmental Impact · Community Impact</caption>
+      <tr><th></th><th class="subhead">As written</th><th class="subhead">As demonstrated</th><th>Reasoning</th></tr>
+      <tr><th>Power</th><td class="grade">D</td><td class="grade-demo">D</td><td>Concentrates real, largely unchecked discretion in three places at once: GOED (designs and runs the new database, sets its own fee schedule), UIPA's board (a 1-5% contribution range with no formula, listed factors, or rationale requirement for landing anywhere in it, and a revenue-sharing duty weakened from mandatory to optional), and the new Increment Authorization Committee that approves data-center incentive pathways. A real check against this kind of discretion — barring a financially-impacted regional economic development authority from acting as a proposal's own paid consultant — was drafted into an earlier substitute and removed before final passage. This grade doesn't change between design and demonstrated: the discretion is structural, not something that needs future evidence to confirm.</td></tr>
+      <tr><th>Transparency</th><td class="grade">C</td><td class="grade-demo">F</td><td><strong>As designed (C):</strong> genuinely mixed — a real new GOED public database with a two-stage enforcement chain, against a new GRAMA secrecy category, a dropped legislative reporting recipient, and a House-Senate disagreement resolved entirely by voice vote. <strong>As demonstrated (F):</strong> none of it — not the database, not a single compliance record, not one instance of the new secrecy category being invoked — has been confirmed to actually exist in operation. A mechanism nobody can verify is running earns no credit for running.</td></tr>
+      <tr><th>Financial accountability</th><td class="grade">B-</td><td class="grade-demo">Incomplete</td><td><strong>As designed (B-):</strong> the 20%-withholding penalty, the 50%-profit-capture requirement, and the 100%-consent requirement are all real, specific mechanisms with teeth, pulled down only by the discretionary revenue-sharing weakening and UIPA's unexplained rate-setting power. <strong>As demonstrated:</strong> incomplete rather than failing — the withholding penalty and the 1-5% contribution literally cannot have been tested yet given the bill's own timelines, while the 100% PID consent requirement is a structural legal precondition that doesn't depend on after-the-fact verification.</td></tr>
+      <tr><th>Environmental impact</th><td class="grade">D</td><td class="grade-demo">D</td><td>Not a blank slate, on closer reading. Existing UIPA law already bars using property tax differential as a business incentive for any development consuming more than 200,000 gallons of potable water per day. This bill's new RSDZ chapter, built specifically to route incentives to large data centers, has its own separate allowable-uses list that doesn't include this standard or any equivalent one. This is a permanent design gap in the statute itself, not something future evidence could improve.</td></tr>
+      <tr><th>Community impact</th><td class="grade">C</td><td class="grade-demo">C</td><td>The large-load-data-center rule responds to real public concern about water and energy demand, but the RSDZ pathway leaves substantial room for the underlying concern to go unaddressed. The PID consent requirements are a genuine, self-executing benefit that doesn't require future verification to count.</td></tr>
+      <tr class="overall"><th>Overall</th><td class="grade">C-</td><td class="grade-demo">D</td><td>As designed, a bill that cuts in several directions at once. As demonstrated, lower still: the provisions genuinely meant to help the public — the database, the penalty, the reporting chain — are entirely unverified, while the provisions that could work against the public — the discretion, the secrecy category, the missing water standard — don't need future evidence, because they're structural and already in force.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="section-head">Common questions</h2>
+    <dl class="qa">
+      <dt>Does this bill make PID and TIF financing more or less transparent overall?</dt>
+      <dd>Both, in different places. The new GOED public database and its 20%-withholding penalty for non-compliant agencies is a genuine transparency increase. The new protected-records classification for economic development records, including NDAs, is a genuine transparency decrease. This bill isn't a clean story in either direction.</dd>
+
+      <dt>Does the data center incentive ban actually stop incentives to data centers?</dt>
+      <dd>Not entirely. It bans most political subdivisions from offering incentives starting May 6, 2027, but carves out exceptions for RSDZ-funded incentives, regional development authority incentives tied to an RSDZ, and up to 80% of a new optional county or municipal energy tax's revenue.</dd>
+
+      <dt>Does this affect existing PIDs already in place?</dt>
+      <dd>The new 100%-consent requirement for raising a tax rate ceiling, and the tightened annexation/withdrawal process, apply going forward to any PID governed by this part of the code — not just newly created ones.</dd>
+
+      <dt>How does this connect to H.B. 545 and the GOED audit?</dt>
+      <dd>H.B. 507's chief sponsor, Rep. Calvin Roberts, is also the chief sponsor of H.B. 475, the bill that renamed GOEO to GOED — and this bill explicitly coordinates with H.B. 475. It passed the same 2026 session as H.B. 545 and the release of OLAG Report 2026-18, all three touching different pieces of the same underlying question: how well the state tracks its own economic development spending.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2 class="section-head">Questions worth asking</h2>
+    <ul class="ask-list">
+      <li><strong>Ask GOED:</strong> did agencies actually meet the June 30, 2026 reporting deadline, given the law only took effect seven weeks earlier — and if any missed it, have those agencies already been referred to the State Auditor?</li>
+      <li><strong>Ask UIPA:</strong> what percentage, within the 1-5% range, has the board set for its own contribution to the State Reinvestment Restricted Account for new project areas?</li>
+      <li><strong>Ask GOED, UIPA, MIDA, the Point of the Mountain State Land Authority, or the Utah Fairpark Area Investment and Restoration District:</strong> how many records have been classified as "confidential economic development information" since May 6, 2026, and how many nondisclosure agreements have been shared among them under this provision?</li>
+      <li><strong>Ask the Government Records Office:</strong> did GRAMA's "balancing test" survive S.B. 277's final version, and if so, has it ever been applied to a record classified as "confidential economic development information"?</li>
+      <li><strong>Ask Rep. Roberts or the House Economic Development and Workforce Services Committee:</strong> what happened to the "major sporting event venue zone" provisions present in the bill as introduced — moved to a separate bill, or dropped entirely?</li>
+      <li><strong>Ask Rep. Roberts or the bill's conference committee:</strong> why was the 2nd substitute's conflict-of-interest safeguard — barring a financially-impacted regional economic development authority from acting as a proposal's paid consultant — removed before final passage?</li>
+      <li><strong>Ask the Senate sponsors or the conference committee:</strong> why did the final version strip out the Senate-passed provisions letting a UIPA subsidiary district levy its own energy tax and issue bonds at an elevated property tax rate for energy-related projects?</li>
+      <li><strong>Ask Sen. Brady Brammer:</strong> what specifically drove his lone Nay vote on final passage, given his own sponsorship of H.B. 17's PID meeting-location reforms the same session?</li>
+      <li><strong>Ask a Political Subdivisions Interim Committee member:</strong> did the working group convene by its May 30, 2026 deadline, and what did it recommend on TIF caps by November 1?</li>
+      <li><strong>Ask Rep. Hansen or Rep. Peterson:</strong> does either see a conflict in sitting on the committee that will now oversee a working group created by a bill Hansen voted against three times and Peterson's own H.B. 545 relates to?</li>
+      <li><strong>Ask the Governor's Office of Economic Development or the Office of Legislative Research and General Counsel:</strong> are the State Reinvestment Restricted Accounts created by H.B. 507 and S.B. 254 the same account, or two separate accounts sharing a name?</li>
+      <li><strong>Ask Rep. Roberts or Sen. Cullimore:</strong> what specifically did the House and Senate disagree on before conference committee, and what changed in the 4th substitute to resolve it?</li>
+      <li><strong>Ask the Legislative Fiscal Analyst's office:</strong> what does the $176,200/$173,700 funding line tied to this bill's title actually fund, given the bill's own Long Title states no money is appropriated in it?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-head">Related on this docket</h2>
+    <div class="related-row">
+      <a class="related-card" href="weber-hive-hb545.html">
+        <span class="rc-label">BILL-TRACKER</span>
+        <span class="rc-title">H.B. 545 — the same session's unfunded IAA oversight response</span>
+      </a>
+      <a class="related-card" href="weber-hive-sb254.html">
+        <span class="rc-label">BILL-TRACKER</span>
+        <span class="rc-title">S.B. 254 — creates a same-named State Reinvestment Restricted Account one day earlier</span>
+      </a>
+      <a class="related-card" href="weber-hive-hb17.html">
+        <span class="rc-label">BILL-TRACKER</span>
+        <span class="rc-title">H.B. 17 — Sen. Brammer's own PID reform, from the same session</span>
+      </a>
+      <a class="related-card" href="https://weber-county-hive.github.io/audits/weber-hive-goed-audit-2026-18.html">
+        <span class="rc-label">AUDITS</span>
+        <span class="rc-title">OLAG Report 2026-18 — the audit this bill's reporting provisions respond to</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <details class="sources-block">
+      <summary>Sources</summary>
+      <ol>
+        <li>H.B. 507, "State Coordination of Regional and Local Economic Development Projects Amendments," 2026 General Session — full Enrolled Copy text read directly, all 82 sections (le.utah.gov's own bill-text page and PDF), including the GRAMA/protected-records amendments (§§63G-2-206, 63G-2-305, 63G-2-309, 63G-2-802), the PID dissolution process (§17D-4-401), the full new Chapter 3a "Regionally Significant Development Zones" framework and its Increment Authorization Committee, the County Energy Excise Tax Act, and the H.B. 475 coordination clause (Section 82).</li>
+        <li>H.B. 507 introduced text (le.utah.gov/Session/2026/bills/introduced/HB0507.pdf) — reviewed for the bill's original description before amendment.</li>
+        <li>"HB0507S04 compared with HB0507," Utah Legislature's own automated compare document (le.utah.gov/Session/2026/bills/introduced/CP%20HB0507%20To%20HB0507S04.pdf) — introduced-to-final comparison, source for the SHALL-to-MAY revenue-sharing change, the dropped local-service-mitigation funding use, the dropped Economic Development and Workforce Services Interim Committee reporting recipient, and the major sporting event venue zone removal.</li>
+        <li>Utah Legislature's own official Bill Status / Votes timeline for H.B. 507 (le.utah.gov), with exact timestamps — source for the same-day conference committee sequence and the voice-vote status of the House's refusal to concur and the Senate's refusal to recede.</li>
+        <li>Senate Economic Development and Workforce Services Standing Committee minutes, March 2, 2026 (le.utah.gov) — source for the committee testimony and vote-by-name detail.</li>
+        <li>House Economic Development and Workforce Services Standing Committee minutes, February 18, 2026 (le.utah.gov) — source for House committee testimony and vote-by-name detail, including Rep. Hansen's committee-stage dissents.</li>
+        <li>"HB0507S04 compared with HB0507S02," Utah Legislature's own automated compare document (le.utah.gov/Session/2026/bills/introduced/CP%20HB0507S02%20To%20HB0507S04.pdf) — source for the dropped conflict-of-interest safeguard, the 80%-to-100% personal-property-tax diversion increase, and the working group's committee-of-record switch.</li>
+        <li>"HB0507S04 compared with HB0507S03," Utah Legislature's own automated compare document (le.utah.gov/Session/2026/bills/introduced/CP%20HB0507S03%20To%20HB0507S04.pdf) — source for the Senate-added, conference-committee-removed UIPA subsidiary district energy tax and elevated bond-rate provisions.</li>
+        <li>Utah Legislature bill status page, H.B. 507 (le.utah.gov/~2026/bills/static/HB0507.html) — page loaded but vote table did not render as static text; full vote record confirmed instead via LegiScan and FastDemocracy bill-tracking pages, cross-checked against the Utah Chamber's own Bill Tracker.</li>
+        <li>LegiScan, UT HB0507 (2026) bill page — full committee and floor vote record.</li>
+        <li>FastDemocracy, UT HB 507 (2026) bill page — sponsor, floor sponsor, and vote record.</li>
+        <li>LegiScan, UT HB0507 (2026) full status/history page — confirmed the House-Senate conference committee disagreement sequence (refused to concur/refused to recede) and the LFA "Additional Proposed Funding Items" funding-line question.</li>
+        <li>Utah Legislature, Political Subdivisions Interim Committee 2026 membership page (le.utah.gov) — source for committee chairs, membership, and staff counsel.</li>
+        <li>Utah Code §59-12-102, "qualifying data center" definition — source for the 150,000-square-foot, post-July-2016 construction threshold.</li>
+        <li>Utah Code §54-26-101, "large load customer" definition — source for the 100-megawatt, five-year cumulative demand threshold.</li>
+        <li>Meta's Eagle Mountain expansion and the fuller Eagle Mountain incentive history: full sourcing in its own case file in the Data-Centers repo.</li>
+        <li>S.B. 217, "Housing and Transit Reinvestment Zone Act," 2021 General Session (le.utah.gov) — confirms Sen. Wayne A. Harper as chief sponsor.</li>
+        <li>S.B. 268, "First Home Investment Zone Act," 2024 General Session (le.utah.gov) — confirms Sen. Wayne A. Harper as chief sponsor, Rep. Calvin R. Musselman as House sponsor.</li>
+        <li>S.B. 168, "Affordable Building Amendments," 2024 General Session — creates the Home Ownership Promotion Zone Act, sponsored by Sen. Lincoln Fillmore, per Utah Department of Workforce Services' own accomplishments summary.</li>
+        <li>S.B. 39, "Investment Zones Amendments," 2026 General Session (le.utah.gov) — confirms Sen. Wayne A. Harper as sponsor and the consolidation/renumbering of HTRZ, FHIZ, HOPZ, Convention Center Reinvestment Zone, Capital City Revitalization Zone, and Transportation Reinvestment Zone. Harper's fuller committee/board profile appears in the Utah Senators repo.</li>
+        <li>Utah Department of Workforce Services, "Housing and Community Development Legislative Update" (2026) — source for S.B. 206's creation of the STATS program and the TIF-reporting transfer to the Utah Association of Counties.</li>
+        <li>FHWA Innovator newsletter, "Utah Creates Reinvestment Zones" — source for Utah's 2018 Transportation Reinvestment Zone Act, the earliest tool in this family.</li>
+        <li>UIPA's Tooele Valley project: full sourcing in its own case file in the UIPA repo.</li>
+        <li>Server Country, "Utah Data Center Policy" tracker (servercountry.org, updated July 2026) — independent third-party confirmation of H.B. 507's data-center incentive provisions.</li>
+        <li>Utah Division of Archives and Records Service, "The State Records Committee Through the Years" and "Government Records Office" pages — source for S.B. 277 (2025) dissolving the State Records Committee and creating the Government Records Office.</li>
+        <li>Katie McKellar, "Utah lawmakers look to dissolve, replace State Records Committee. Here's why that matters," Utah News Dispatch, February 14, 2025 — source for the proposed removal of GRAMA's balancing test and media coalition opposition.</li>
+        <li>The Salt Lake Tribune, "Utah's new public records chief is deciding cases twice as fast as the committee — but not everyone's happy," August 20, 2026 — source confirming the new Government Records Office is operating.</li>
+
+        <li>Cross-reference: this project's own S.B. 254 (Extracted Natural Resources Amendments) and H.B. 17 (Public Infrastructure District Meeting Amendments) case files, both in this tracker.</li>
+      </ol>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  THE WEBER COUNTY HIVE · INDEPENDENT · ACCOUNTABILITY · JOURNALISM<br>
+  <a href="https://webercountyhive.substack.com">webercountyhive.substack.com</a>
+</footer>
+
+<script>
+  const HB507_CHART_DATA = {
+    rubric: {
+      type: 'bar',
+      data: {
+        labels: ['Power', 'Transparency', 'Financial\nAccountability', 'Environmental\nImpact', 'Community\nImpact'],
+        datasets: [{
+          label: 'Grade (0=F, 4=A)',
+          data: [1, 2, 2.3, 1, 2],
+          backgroundColor: ['#8c2f22', '#a9832f', '#3c5e3f', '#8c2f22', '#a9832f'],
+          borderRadius: 3
+        }]
+      },
+      options: {
+        scales: {
+          y: { min: 0, max: 4, ticks: { stepSize: 1, callback: v => ['F','D','C','B','A'][v] || v }, grid: { color: '#d9caa2' } },
+          x: { grid: { display: false } }
+        },
+        plugins: { legend: { display: false } }
+      },
+      note: "Grades as written, converted to a 0-4 scale (F=0, D=1, C=2, B=3, A=4). This is what the bill's mechanisms are designed to do — not what's been confirmed to actually happen. See the \"as demonstrated\" view for that comparison."
+    },
+    demonstrated: {
+      type: 'bar',
+      data: {
+        labels: ['Power', 'Transparency', 'Financial\nAccountability', 'Environmental\nImpact', 'Community\nImpact'],
+        datasets: [
+          { label: 'As written', data: [1, 2, 2.3, 1, 2], backgroundColor: '#d9caa2', borderRadius: 3 },
+          { label: 'As demonstrated', data: [1, 0, null, 1, 2], backgroundColor: '#8c2f22', borderRadius: 3 }
+        ]
+      },
+      options: {
+        scales: {
+          y: { min: 0, max: 4, ticks: { stepSize: 1, callback: v => ['F','D','C','B','A'][v] || v }, grid: { color: '#d9caa2' } },
+          x: { grid: { display: false } }
+        },
+        plugins: { legend: { position: 'top', labels: { boxWidth: 14 } } }
+      },
+      note: "Transparency drops from a written C to a demonstrated F: no confirmed evidence the database, the reporting deadline, or the new secrecy category have actually been used. Financial Accountability has no demonstrated bar at all — its key mechanisms literally cannot have been tested yet, since the bill's own timelines haven't run their course. Power, Environmental Impact, and Community Impact don't change, because those grades describe structural features of the law itself, not something that requires future evidence to confirm."
+    },
+    votes: {
+      type: 'bar',
+      data: {
+        labels: ['House Comm.\nSubstitute', 'House Comm.\nFavorable', 'House 3rd\nReading', 'Senate\nCommittee', 'Senate 2nd/3rd\nReading', 'Senate\nConference', 'House\nConference'],
+        datasets: [
+          { label: 'Yea', data: [7, 7, 69, 3, 22, 27, 57], backgroundColor: '#3c5e3f', stack: 's' },
+          { label: 'Nay', data: [1, 1, 1, 0, 2, 1, 1], backgroundColor: '#8c2f22', stack: 's' },
+          { label: 'Absent/N.V.', data: [2, 2, 5, 3, 5, 1, 17], backgroundColor: '#d9caa2', stack: 's' }
+        ]
+      },
+      options: {
+        scales: {
+          y: { stacked: true, grid: { color: '#d9caa2' } },
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } }
+        },
+        plugins: { legend: { position: 'top', labels: { boxWidth: 14 } } }
+      },
+      note: "Rep. Leah Hansen was the sole Nay at all three House votes. The final House conference vote's 17 absent/not-voting members is unusually high, consistent with a late-session vote."
+    },
+    percentages: {
+      type: 'bar',
+      data: {
+        labels: ['Property tax\nincrement capture\n(data center zone)', 'Personal property\ntax diversion\n(data center zone)', 'Of diverted PPT,\nusable as\nincentive', 'County Energy\nExcise Tax to\nincentive', 'UIPA contribution\nto reinvestment\naccount (range)', 'Tax increment\nwithheld for\nnon-reporting'],
+        datasets: [{
+          label: 'Percent',
+          data: [60, 100, 80, 80, 5, 20],
+          backgroundColor: '#16233d',
+          borderRadius: 3
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: { min: 0, max: 100, grid: { color: '#d9caa2' } },
+          y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+        },
+        plugins: { legend: { display: false } }
+      },
+      note: "The UIPA contribution bar shows the top of its 1-5% range. The statute gives the board no formula for choosing anywhere within that range — see \"How does the board determine this\" above."
+    }
+  };
+
+  let hb507ChartInstance = null;
+
+  function renderHB507Chart(key) {
+    const cfg = HB507_CHART_DATA[key];
+    const ctx = document.getElementById('hb507Chart').getContext('2d');
+    if (hb507ChartInstance) { hb507ChartInstance.destroy(); }
+    hb507ChartInstance = new Chart(ctx, {
+      type: cfg.type,
+      data: cfg.data,
+      options: Object.assign({ responsive: true, maintainAspectRatio: false }, cfg.options)
+    });
+    document.getElementById('hb507ChartNote').textContent = cfg.note;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderHB507Chart('rubric');
+  });
+</script>
+
+</body>
+</html>
