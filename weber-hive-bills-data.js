@@ -491,5 +491,18 @@ const BILLS = [
     voteLine: "Full floor vote counts not yet confirmed for either bill",
     link: "weber-hive-sb2001-hb185.html",
     lastUpdated: "Sep 17, 2026"
+  },
+{
+    caseNumber: "CASE 2026-225",
+    grade: "D",
+    bill: "S.B. 225",
+    year: "2026",
+    title: "The Gallon Cap Nobody Debated",
+    summary: "A fixed, statewide 200,000-gallon-per-day water-use limit on tax-incentivized Inland Port development — the only real guardrail in the bill — was dropped for local water-provider discretion and expanded from one city to the whole state, across two substitutes with no recorded committee debate on the change. The bill's only supporter on record leads the data-center project the new standard directly applies to.",
+    tags: ["Water Rights", "Inland Port Authority", "MIDA/UIPA Family", "Tax Increment", "Process Concern", "Great Salt Lake"],
+    status: "law",
+    voteLine: "Senate Cmte 3–0–3 → 5–0–1 · Senate 20–5–4 · House Cmte 9–0–1 → 8–1–1 · House 67–2–6 → reconsidered, 57–10–8 · Senate concurred 19–8–2 · Signed Mar 18, 2026",
+    link: "weber-hive-sb225.html",
+    lastUpdated: "Sep 19, 2026"
   }
 ];
