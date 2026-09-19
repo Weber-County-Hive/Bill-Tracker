@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.B. 225 — Public Corporation Amendments | Bill Tracker Case File</title>
+<style>
+  :root {
+    --navy: #14213D;
+    --navy-dark: #0D1728;
+    --manila: #EDE7D8;
+    --white: #FFFFFF;
+    --gold: #F5B942;
+    --red: #E8654A;
+    --gray: #6B7280;
+    --text: #1A1A1A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--manila);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .top-bar {
+    background: var(--navy-dark);
+    color: var(--manila);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .top-bar a { color: var(--gold); text-decoration: none; }
+  .case-label {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  header.hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 48px 24px 40px;
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .eyebrow {
+    color: var(--gold);
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .dek {
+    color: var(--manila);
+    font-size: 19px;
+    max-width: 760px;
+    margin: 0 0 24px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #C9C2AE;
+    border-top: 1px solid rgba(245,185,66,0.3);
+    padding-top: 16px;
+  }
+  .meta-row strong { color: var(--white); }
+  .grade-chip {
+    display: inline-block;
+    border: 3px solid var(--red);
+    color: var(--red);
+    font-weight: bold;
+    font-size: 22px;
+    padding: 4px 16px;
+    border-radius: 6px;
+    background: rgba(232,101,74,0.08);
+  }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  section { margin-bottom: 44px; }
+  h2 {
+    color: var(--navy);
+    font-size: 24px;
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: var(--navy);
+    font-size: 18px;
+    margin: 24px 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  .card {
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #EAE4D4;
+    vertical-align: top;
+  }
+  th {
+    background: var(--navy);
+    color: var(--manila);
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: none; }
+  .version-tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--navy);
+    color: var(--gold);
+  }
+  .design-outcome {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 640px) {
+    .design-outcome { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+  }
+  .do-box {
+    border-radius: 8px;
+    padding: 18px 20px;
+    border: 1px solid #DCD5C2;
+  }
+  .do-box.design { background: #F2ECDD; }
+  .do-box.outcome { background: #FBEDE8; border-color: #F0C4B8; }
+  .do-box h4 {
+    margin: 0 0 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+  }
+  .rubric-table td:first-child, .rubric-table th:first-child { width: 22%; font-weight: bold; }
+  .rubric-grade {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+  }
+  .fix-box {
+    background: #EAF4EA;
+    border: 1px solid #BFDDBF;
+    border-left: 5px solid #4C8C4A;
+    border-radius: 6px;
+    padding: 20px 24px;
+  }
+  .fix-box h3 { color: #2F5F2D; margin-top: 0; }
+  details {
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--navy);
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  details[open] summary { margin-bottom: 10px; }
+  .quote-list li { margin-bottom: 6px; }
+  .sponsor-line { font-size: 15px; color: var(--gray); margin-bottom: 4px; }
+  footer.bottom-bar {
+    background: var(--navy-dark);
+    color: var(--manila);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+  }
+  footer.bottom-bar a { color: var(--gold); text-decoration: none; }
+  .footnote {
+    font-size: 13px;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0;
+    margin: 20px 0 24px;
+  }
+  .chain-node {
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-radius: 8px;
+    padding: 16px 18px;
+    flex: 1 1 200px;
+    min-width: 180px;
+  }
+  .chain-node h4 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 15px;
+  }
+  .chain-node p { margin: 0; font-size: 14px; }
+  .chain-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--gold);
+    padding: 0 8px;
+    flex: 0 0 auto;
+  }
+  @media (max-width: 700px) {
+    .chain { flex-direction: column; }
+    .chain-arrow { transform: rotate(90deg); padding: 4px 0; }
+  }
+  .connection-card {
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .connection-card h4 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 16px;
+  }
+  .connection-card .tag {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .diagram-box {
+    background: var(--white);
+    border: 1px solid #DCD5C2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .diagram-box .mermaid {
+    display: flex;
+    justify-content: center;
+  }
+  .diagram-box .mermaid svg {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .intro-lede {
+    font-size: 18px;
+    color: var(--navy);
+    background: var(--white);
+    border-left: 5px solid var(--navy);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+  }
+  .conclusion-box {
+    background: var(--navy);
+    color: var(--manila);
+    border-radius: 8px;
+    padding: 24px 26px;
+  }
+  .conclusion-box h2 {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .conclusion-box p { color: var(--manila); }
+  section > details > summary {
+    font-size: 15px;
+  }
+  details.section-collapse {
+    padding: 18px 24px;
+  }
+  details.section-collapse summary {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--navy);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  details.section-collapse[open] summary {
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .diagram-caption {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 8px;
+  }
+  .vote-compare { margin-bottom: 18px; }
+  .vote-compare .vc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .vote-compare .vc-label {
+    width: 150px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    flex: 0 0 150px;
+  }
+  .vote-compare .vc-bars {
+    flex: 1;
+    display: flex;
+    height: 26px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #DCD5C2;
+  }
+  .vc-yea { background: #4C8C4A; }
+  .vc-nay { background: var(--red); }
+  .vc-abs { background: #D8D2C0; }
+  .vc-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+  }
+  .vc-abs.vc-seg { color: #6B6250; }
+  .vote-legend {
+    display: flex;
+    gap: 18px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .vote-legend span::before {
+    content: "\25A0";
+    margin-right: 5px;
+  }
+  .legend-yea::before { color: #4C8C4A; }
+  .legend-nay::before { color: var(--red); }
+  .legend-abs::before { color: #D8D2C0; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Bill-Tracker</span>
+  <span class="case-label">NEW CASE FILE</span>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Case 2026-225 &middot; S.B. 225</div>
+    <h1>Public Corporation Amendments</h1>
+    <p class="dek">A statutory cap on how much water a tax-incentivized inland port development could use was quietly loosened over three committee substitutes — dropping both a fixed 200,000-gallon ceiling and a restriction limiting the rule to Salt Lake City's inland port site. The bill's only supporter on record, developer <strong>Charles Akerlow</strong>, leads the Tooele Valley data center project the changed standard directly applies to.</p>
+    <div class="meta-row">
+      <span><strong>Sponsor:</strong> Sen. Jerry W. Stevenson</span>
+      <span><strong>House Sponsor:</strong> Rep. Tyler Clancy</span>
+      <span><strong>Session:</strong> 2026 General</span>
+      <span><strong>Status:</strong> Signed 3/18/2026</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<p class="intro-lede">S.B. 225 made mostly technical changes to how the Utah Inland Port Authority manages its boundaries and paperwork. One change was not technical: the rule limiting how much water a tax-incentivized development can use went from a fixed, statewide number to a standard set by each local water provider. This case file documents that change, how it moved through the Legislature, and which real project has the most direct stake in it.</p>
+
+<section>
+  <h2>What the Bill Does</h2>
+  <p>S.B. 225 amends the Utah Inland Port Authority Act (11-58) and the State Fair Park Authority Act (11-68). Most of the bill is procedural: it lets the Authority's executive director adjust boundaries for "split properties," broadens how project-area boundaries can be described, and makes conforming changes tied to the Utah Fairpark Area Investment and Restoration District. One provision is substantive and is the focus of this case file: the standard governing when the Authority can use property tax differential (its core financing tool) to recruit high-water-use commercial or industrial development.</p>
+  <div class="grade-chip">GRADE: D</div>
+</section>
+
+<section>
+  <h2>The Water-Use Standard, Version by Version</h2>
+  <p>The rule in question bars using property tax differential as a business-recruitment incentive for new or expanded commercial/industrial development that uses more than a set amount of potable water per day. That standard changed at every drafting stage:</p>
+
+  <div class="diagram-box">
+    <div class="mermaid">
+graph TD
+  A["<b>Original Bill</b><br/>Introduced 2/2/26<br/>&#9679; Capital city only<br/>&#9679; Flat 200,000 gal/day cap"]
+  B["<b>S01</b><br/>Senate Cmte, 2/5/26<br/>&#9679; Capital city only<br/>&#9679; 200,000 gal/day, or negotiated —<br/>still capped at 200,000"]
+  C["<b>S02</b><br/>House Cmte, 2/26/26<br/>&#9679; STATEWIDE (capital-city rule dropped)<br/>&#9679; NO fixed number — set by local<br/>water provider's own policy"]
+  D["<b>S03 / Enacted</b><br/>House floor, 3/6/26<br/>&#9679; Identical to S02<br/>&#9679; Signed into law 3/18/26"]
+  A --> B --> C --> D
+  style A fill:#F2ECDD,stroke:#14213D,stroke-width:2px,color:#14213D
+  style B fill:#F2ECDD,stroke:#14213D,stroke-width:2px,color:#14213D
+  style C fill:#FBEDE8,stroke:#E8654A,stroke-width:2px,color:#14213D
+  style D fill:#FBEDE8,stroke:#E8654A,stroke-width:2px,color:#14213D
+    </div>
+    <p class="diagram-caption">Both real changes — dropping the capital-city limit and dropping the fixed ceiling — happened in one step, at S02.</p>
+  </div>
+
+  <table>
+    <tr>
+      <th>Version</th>
+      <th>Committee / Stage</th>
+      <th>Geographic Scope</th>
+      <th>Water-Use Ceiling</th>
+    </tr>
+    <tr>
+      <td><span class="version-tag">Original</span></td>
+      <td>As introduced, 2/2/26</td>
+      <td>Capital city (Salt Lake City) only</td>
+      <td>Flat 200,000 gallons/day</td>
+    </tr>
+    <tr>
+      <td><span class="version-tag">S01</span></td>
+      <td>Senate Econ. Dev. Cmte, 2/5/26</td>
+      <td>Capital city only</td>
+      <td>200,000 gal/day, or a board/capital-city negotiated figure — capped at 200,000</td>
+    </tr>
+    <tr>
+      <td><span class="version-tag">S02</span></td>
+      <td>House Econ. Dev. Cmte, 2/26/26</td>
+      <td>Statewide — capital-city limitation removed</td>
+      <td>No fixed number — deferred to whatever the local retail water provider's own service-area maximum permits</td>
+    </tr>
+    <tr>
+      <td><span class="version-tag">S03</span></td>
+      <td>House floor substitute, 3/6/26</td>
+      <td>Same as S02</td>
+      <td>Same as S02 — unchanged from S02</td>
+    </tr>
+  </table>
+  <p class="footnote">S02 is where both changes actually happened. Comparing the original bill against S03 makes it look like a gradual loosening across the whole process; comparing S02 against S03 directly shows they are identical on this provision.</p>
+
+  <details>
+    <summary>READ THE OPERATIVE LANGUAGE — before and after</summary>
+    <p><strong>As introduced (11-58-602(2)(b)):</strong> "...a standard prohibiting the use of property tax differential as a business recruitment incentive... for new commercial or industrial development... within authority jurisdictional land <em>that is in the capital city</em> if the new or expanded development will consume... more than <em>200,000 gallons of potable water per day</em>."</p>
+    <p><strong>S02/S03 (enacted):</strong> "...within authority jurisdictional land [statewide] if the new or expanded development will consume... more than <em>the maximum daily potable water use permitted within the service area of a municipal retail water provider supplying potable water to the development, as established by that provider's or municipality's adopted ordinances, policies, service regulations, or development agreements</em>."</p>
+  </details>
+</section>
+
+<section>
+  <h2>Design vs. Outcome</h2>
+  <div class="design-outcome">
+    <div class="do-box design">
+      <h4>As Introduced</h4>
+      <p>A narrow, legislatively-set safeguard: one hard number (200,000 gallons/day), enforceable statewide by reference to a single statutory figure, limited to development inside Salt Lake City's inland port site.</p>
+    </div>
+    <div class="do-box outcome">
+      <h4>As Enacted</h4>
+      <p>A statewide standard with no independent ceiling at all — compliance is defined entirely by whatever each local water provider's own policy already allows, and it now reaches every authority jurisdictional area in the state, not just the capital city.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>How It Happened — The Legislative Path</h2>
+
+  <h3>Senate Economic Development &amp; Workforce Services Committee — Feb. 5, 2026</h3>
+  <p>Sen. Stevenson presented the bill with Ben Hart, Executive Director of the Utah Inland Port Authority — the agency whose own boundary and financing powers the bill expands. The S01 substitute was adopted 3-0-3 with no recorded debate on the water provision. Seven residents and professionals spoke against the bill; one person spoke in favor:</p>
+  <ul class="quote-list">
+    <li>Opposed: Katie Pappas, Bruce Anderson, Bruce Williams (Professional Land Surveyor), Rhonda Lauritzen (Weber County), Joan Gregory (Salt Lake City), Jennifer Garner (Davis County), Courtney Henley</li>
+    <li>In favor: <strong>Charles Akerlow</strong>, Lead Developer, Tooele Valley Inland Port Project</li>
+  </ul>
+  <p>Favorable recommendation passed 5-0-1. Senate floor: 2nd reading 18-7-4 (2/20), 3rd reading 20-5-4 (2/23).</p>
+
+  <h3>House Economic Development &amp; Workforce Services Committee — Feb. 26, 2026</h3>
+  <p>Sen. Stevenson again presented with Ben Hart. Rep. Hawkins moved the S01→S02 substitute — <strong>this is where the capital-city restriction and the 200,000-gallon ceiling were both dropped</strong> — adopted 9-0-1 with no recorded discussion of the water-use change. More public opposition followed (Joan Gregory again, Monika Hilding, Deeda Seed, Heather Dove). Rep. Hawkins then moved S02 out favorably, passing 8-1-1 — Rep. Leah Hansen cast the lone "no" on final passage, despite voting yes on the substitute motion itself minutes earlier.</p>
+
+  <h3>House Floor — March 6, 2026</h3>
+  <p>The House passed 3rd reading 67-2-6 with S02's language intact. Immediately after, a motion to reconsider passed, the bill was substituted from S02 to S03 by voice vote, and it passed 3rd reading again — this time 57-10-8, a swing of eight additional "no" votes. Since S02 and S03 are word-for-word identical on the water-use provision, whatever drove the reconsideration and the drop in support was elsewhere in the bill — not yet identified.</p>
+
+  <div class="diagram-box vote-compare">
+    <div class="vc-row">
+      <div class="vc-label">1st vote (S02)<br/>67-2-6</div>
+      <div class="vc-bars">
+        <div class="vc-seg vc-yea" style="flex:67">67 Yea</div>
+        <div class="vc-seg vc-nay" style="flex:2">2</div>
+        <div class="vc-seg vc-abs" style="flex:6">6</div>
+      </div>
+    </div>
+    <div class="vc-row">
+      <div class="vc-label">Reconsidered,<br/>substituted to S03</div>
+      <div class="vc-bars">
+        <div class="vc-seg vc-yea" style="flex:57">57 Yea</div>
+        <div class="vc-seg vc-nay" style="flex:10">10 Nay</div>
+        <div class="vc-seg vc-abs" style="flex:8">8</div>
+      </div>
+    </div>
+    <div class="vote-legend">
+      <span class="legend-yea">Yea</span>
+      <span class="legend-nay">Nay</span>
+      <span class="legend-abs">Absent/Excused</span>
+    </div>
+    <p class="diagram-caption">Same water-use language in both votes — the 5x jump in "no" votes points to something else in the bill.</p>
+  </div>
+
+  <p>Senate concurred with the House amendment 19-8-2 the same night. Enrolled and signed by the Governor 3/18/26; effective 5/6/26.</p>
+
+  <details>
+    <summary>FULL VOTE RECORD</summary>
+    <table>
+      <tr><th>Date</th><th>Action</th><th>Vote</th></tr>
+      <tr><td>2/5/26</td><td>Senate Cmte — substitute #0→#1</td><td>3-0-3</td></tr>
+      <tr><td>2/5/26</td><td>Senate Cmte — favorable</td><td>5-0-1</td></tr>
+      <tr><td>2/20/26</td><td>Senate 2nd reading</td><td>18-7-4</td></tr>
+      <tr><td>2/23/26</td><td>Senate 3rd reading</td><td>20-5-4</td></tr>
+      <tr><td>2/26/26</td><td>House Cmte — substitute #1→#2</td><td>9-0-1</td></tr>
+      <tr><td>2/26/26</td><td>House Cmte — favorable</td><td>8-1-1 (Hansen sole nay)</td></tr>
+      <tr><td>3/6/26</td><td>House 3rd reading (S02)</td><td>67-2-6</td></tr>
+      <tr><td>3/6/26</td><td>House 3rd reading (S03, post-reconsideration)</td><td>57-10-8</td></tr>
+      <tr><td>3/6/26</td><td>Senate concurrence</td><td>19-8-2</td></tr>
+      <tr><td>3/18/26</td><td>Governor signed</td><td>—</td></tr>
+    </table>
+  </details>
+</section>
+
+<section>
+  <h2>Connected Cases</h2>
+  <p>S.B. 225 doesn't sit alone — it's one link in a documented chain running from a statute change to a live, real-world project.</p>
+
+  <div class="diagram-box">
+    <div class="mermaid">
+graph LR
+  SB225["<b>S.B. 225</b><br/>Drops fixed 200,000 gal/day<br/>ceiling statewide"]
+  HB507["<b>H.B. 507</b><br/>New RSDZ chapter carries<br/>NO water-use standard forward"]
+  UIPA["<b>UIPA's own debrief</b><br/>Confirms both changes<br/>in its own words"]
+  TOOELE["<b>Tooele Valley<br/>Project Area</b><br/>UIPA's 500MW data<br/>center campus"]
+  ZENITH["<b>Zenith Development</b><br/>(Charles Akerlow)"]
+  LOAN["$4.875M UIPA<br/>infrastructure loan, 2024"]
+  DISCHARGE["252,000 gal/day brine<br/>discharge permit sought"]
+  TESTIMONY["Sole supporter testimony,<br/>Senate Cmte, 2/5/26"]
+
+  SB225 --> UIPA
+  HB507 --> UIPA
+  UIPA --> TOOELE
+  TOOELE --> ZENITH
+  ZENITH -- built --> TOOELE
+  ZENITH --> TESTIMONY
+  TESTIMONY -- supports --> SB225
+  UIPA -- approved --> LOAN
+  LOAN --> ZENITH
+  ZENITH --> DISCHARGE
+
+  style SB225 fill:#14213D,stroke:#F5B942,stroke-width:2px,color:#EDE7D8
+  style HB507 fill:#14213D,stroke:#F5B942,stroke-width:2px,color:#EDE7D8
+  style ZENITH fill:#FBEDE8,stroke:#E8654A,stroke-width:2px,color:#14213D
+  style TESTIMONY fill:#FBEDE8,stroke:#E8654A,stroke-width:2px,color:#14213D
+    </div>
+    <p class="diagram-caption">The bill's only recorded supporter is also the recipient of the state loan and a party the changed water standard would apply to.</p>
+  </div>
+
+  <div class="connection-card">
+    <span class="tag">Same standard, dropped further &middot; H.B. 507 (2026)</span>
+    <h4>Public Corporation Amendments &rarr; RSDZ chapter</h4>
+    <p>H.B. 507's sweeping ~60-section TIF/economic-development rewrite creates a new "Regionally Significant Development Zone" tool — and its data-center provisions don't carry forward UIPA's pre-existing water-use threshold at all. Where S.B. 225 loosened the standard from a fixed number to local-provider discretion, H.B. 507 removes it as a constraint entirely for development recruited through the new RSDZ category. Same session, same underlying question about UIPA's water guardrails, two separate bills chipping away at it from different directions.</p>
+  </div>
+
+  <div class="connection-card">
+    <span class="tag">Confirmed in UIPA's own words</span>
+    <h4>UIPA's own legislative debrief names S.B. 225</h4>
+    <p>UIPA's "Legislative Updates Following 2026 Session" post (published by Kaitlin Felsted) describes S.B. 225 as bringing "minor updates" that "align water-related provisions with locally adopted municipal standards rather than fixed statewide thresholds" — UIPA's own characterization of exactly the S02 change documented in this case file, independently corroborating it from the regulated agency's own side. The same post also confirms the RSDZ/H.B. 507 connection above in UIPA's own words ("enhanced data protection requirements... protected records and nondisclosure agreements").</p>
+  </div>
+
+  <div class="connection-card">
+    <span class="tag">The live test case &middot; Tooele Valley Project Area</span>
+    <h4>Charles Akerlow: the bill's only recorded supporter, and a direct beneficiary of the standard it changed</h4>
+    <p>The sole person who testified in favor of S.B. 225 at the Senate committee hearing — Charles Akerlow, "Lead Developer, Tooele Valley Inland Port Project" — is the same developer (Zenith Development) behind UIPA's Tooele Valley 500MW data center campus. That project separately sought a state discharge permit (UPDES Permit UT0026409) for up to 260,000 gallons/day of concentrated reverse-osmosis brine near the Great Salt Lake's Gilbert Bay — the figure stated in DWQ's own hearing notice — a different measurement (discharge vs. potable-water consumption) than S.B. 225's threshold, but the same underlying pattern of a high-water-use project needing regulatory room UIPA's original statute didn't give it. UIPA's own board separately approved a $4.875 million infrastructure loan directly to the developer (Zenith Bolinder) in 2024, and UIPA and the developer have given contradictory public statements about how central UIPA's support actually is to the project.</p>
+  </div>
+
+  <div class="connection-card">
+    <span class="tag">Same session, same power-shift pattern</span>
+    <h4>H.B. 545 &amp; S.B. 254 — discretion moving from the Legislature to an executive actor</h4>
+    <p>S.B. 225's "designation order" change (moving authority over transition/trigger dates from the board to the executive director alone) mirrors a pattern found elsewhere in the same 2026 session: H.B. 545 narrowed the independently-elected State Auditor's control over her own office's expenses, and S.B. 254 saw its mining-industry council seat and severance-tax mechanics rewritten in a same-day, largely undebated substitute. Different agencies, same shape — a numeric or procedural check set by a multi-member body quietly becomes a call one official can make alone.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Graded Against the Collective Rubric</h2>
+  <p class="footnote">This is the project's fixed, standing five-part rubric — applied the same way to every bill, not a personal opinion about this one.</p>
+  <table class="rubric-table">
+    <tr><th>Criterion</th><th>Grade</th><th>Basis</th></tr>
+    <tr>
+      <td>Power</td>
+      <td class="rubric-grade">D</td>
+      <td>Removes a legislative check (the 200,000-gallon ceiling set by the Legislature) and replaces it with deference to local water-provider administrative policy. Separately, the bill also shifts authority over transition/trigger dates from the board (a "designation resolution," requiring a vote) to the executive director alone (a "designation order," a unilateral written determination).</td>
+    </tr>
+    <tr>
+      <td>Transparency</td>
+      <td class="rubric-grade">D</td>
+      <td>No committee in either chamber recorded any discussion of the water-use change specifically — it moved inside broader substitute motions passed without debate on this point. Compliance going forward also depends on each local water provider's own policy, which is far less visible and centralized than a single statutory number.</td>
+    </tr>
+    <tr>
+      <td>Financial accountability</td>
+      <td class="rubric-grade">D</td>
+      <td>No disclosed analysis of who bears the cost of high-water-use development recruited under this incentive. The change means such development can now qualify for tax-differential-funded incentives without hitting a hard, statewide volume limit.</td>
+    </tr>
+    <tr>
+      <td>Environmental impact</td>
+      <td class="rubric-grade">D</td>
+      <td>A fixed, enforceable statewide ceiling is replaced with local-provider discretion, extended from one city to the whole state — including water-stressed basins the original bill didn't reach.</td>
+    </tr>
+    <tr>
+      <td>Community impact</td>
+      <td class="rubric-grade">D</td>
+      <td>Eleven residents and professionals testified against this change across two committee hearings, and every substitute and passage vote that followed was still near-unanimous (3-0-3, 5-0-1, 9-0-1, 8-1-1) — no committee debated their concerns on the record, and their testimony did not visibly change a single outcome. Being allowed to speak without the process responding to what was said is the formality the rubric asks about, not real standing. The sole identified supporter was a developer with a direct financial stake in a similar project elsewhere in the state.</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Who It Helped</h2>
+  <div class="card">
+    <p><strong>Charles Akerlow</strong> is the only person who testified in favor of S.B. 225 at the Senate committee hearing, identified in the official minutes as "Lead Developer, Tooele Valley Inland Port Project." He heads Zenith Development, the company behind UIPA's Tooele Valley project — a planned 500-megawatt data center campus on the Great Salt Lake's southern shore. UIPA's board has already approved a $4.875 million infrastructure loan directly to Akerlow's project (Zenith Bolinder, 2024), and the project separately sought a state permit to discharge up to 252,000 gallons/day of concentrated brine near Gilbert Bay — a live illustration of exactly the kind of high-water-use development this bill's threshold was written to constrain.</p>
+    <p>Beyond Akerlow, the beneficiary class is anyone recruiting <strong>high-water-use commercial or industrial development</strong> anywhere in UIPA's jurisdictional land statewide — not just Salt Lake City, as under the original bill — since none of them are bound by a fixed statutory gallons-per-day ceiling anymore, only by whatever their own local water provider's policy already permits. Concretely, that reaches the same category of projects already surfacing elsewhere in Utah's inland-port and quasi-governmental development footprint:</p>
+    <ul class="quote-list">
+      <li><strong>Data centers</strong> — the exact use type at issue in Tooele Valley, and one UIPA's own Recruitment Strategy names as a targeted incentive industry for that project area, even while UIPA's public statements say it is "not recruiting data centers."</li>
+      <li><strong>Other UIPA project areas</strong> beyond Tooele Valley — including the Northwest Quadrant and Twenty Wells project areas — where the same relaxed, locally-deferred standard now applies rather than the capital-city-only rule that existed before.</li>
+      <li><strong>Large industrial/manufacturing users</strong> generally — any operation whose water draw would have exceeded 200,000 gallons/day under the old statewide number can now qualify for tax-differential incentives as long as its own local water provider's rules allow it, a bar that varies provider to provider and is set administratively rather than by the Legislature.</li>
+    </ul>
+  </div>
+
+  <h2>Who It Didn't</h2>
+  <div class="card">
+    <p>The eleven residents, professionals, and local officials who testified against loosening the standard across both committee hearings — Katie Pappas, Bruce Anderson, Bruce Williams (Professional Land Surveyor), Rhonda Lauritzen (Weber County), Joan Gregory (Salt Lake City, testified twice), Jennifer Garner (Davis County), Courtney Henley, Monika Hilding, Deeda Seed, and Heather Dove — none of whom prevailed. Communities outside Salt Lake City are now subject to a standard that no longer has the built-in exemption that once limited this authority's water-use provision to the capital city alone; the safeguard that used to apply narrowly now applies everywhere UIPA operates, but with less statutory teeth than before.</p>
+  </div>
+</section>
+
+<div class="fix-box">
+  <h3>How This Could Have Actually Helped</h3>
+  <p>A version of this bill that served the public interest could have kept the water-use standard as a fixed, legislatively-set number — adjustable by future legislative action, not administrative discretion — while still extending it statewide instead of limiting it to one city. Pairing a statewide scope with a real ceiling, rather than trading one for the other, would have closed the original bill's narrowness gap without opening a new loophole. At minimum, any change to a numeric public-health/environmental standard like this one could have been debated on the record in committee, rather than folded silently into a substitute motion.</p>
+</div>
+
+<details class="section-collapse">
+  <summary>Still Open — What Else Needs Checking</summary>
+  <div class="card">
+    <ul class="quote-list">
+      <li><strong>Why support dropped on the floor.</strong> S02 and S03 are identical on the water-use provision, so the swing from 67-2-6 to 57-10-8 after the reconsideration must come from somewhere else in the bill. Not yet identified — would require the House floor audio/debate from 3/6/26 (le.utah.gov), since no written floor transcript exists.</li>
+      <li><strong>Committee audio, both chambers.</strong> Neither the Senate (2/5/26) nor House (2/26/26) committee minutes record any spoken discussion of the water-use change itself — only the substitute motions and votes. If there's an on-record rationale anywhere, it's only in the audio, not yet pulled.</li>
+      <li><strong>UIPA's "additional flexibility" claim doesn't trace to a specific provision — confirmed, not just unverified.</strong> UIPA's own legislative debrief credits S.B. 225 with "additional flexibility in how tax differential incentives may be structured," but UIPA's own more detailed 2026 Legislative Debrief presentation lists S.B. 225 only as a one-line "Signed by Governor" entry — it does not identify which provision does this, even in UIPA's own material. The definitions and boundary-description changes UIPA also credits to the bill ARE confirmed directly in the bill text quoted on this page; this one claim is not.</li>
+      <li><strong>Zenith's actual potable-water intake figure appears not to be public anywhere — confirmed absence, not a search failure.</strong> DWQ's own July 27, 2026 hearing notice states only the 260,000 gal/day brine <em>discharge</em> figure. News coverage of the same hearing (KSL) confirms that neither the developer, Tooele County, DWQ, nor the conservation groups opposing the permit have published an intake/withdrawal number — the group with the clearest incentive to publicize a large intake figure hasn't done so, which suggests the number isn't in circulation publicly, not merely hard to find.</li>
+      <li><strong>Other UIPA project areas named here as examples (Northwest Quadrant, Twenty Wells)</strong> are cited as places the loosened, statewide standard now reaches — not as confirmed instances of a specific project currently seeking or receiving a high-water-use incentive there. Worth checking each project area's own recruitment/incentive filings if this becomes a bigger piece.</li>
+    </ul>
+  </div>
+</details>
+
+<details class="section-collapse">
+  <summary>Questions Still Open — And Where Each Answer Would Come From</summary>
+  <p class="footnote">These are genuinely unresolved, sourced to public records and public audio only — none of these require a comment request to a subject or a new records request, consistent with how this project sources its reporting.</p>
+  <table>
+    <tr><th>Open Question</th><th>Where the Answer Would Be</th></tr>
+    <tr>
+      <td>Why did House support drop from 67-2-6 to 57-10-8 after the S02&rarr;S03 reconsideration, if the water-use language didn't change?</td>
+      <td>The House floor audio/video for March 6, 2026, posted publicly at le.utah.gov alongside the bill's own page — no records request needed, just listening to the recording for that day's floor session.</td>
+    </tr>
+    <tr>
+      <td>Was there any spoken rationale for dropping the capital-city limit and the fixed gallons-per-day cap, in either committee?</td>
+      <td>Committee audio for Senate Econ. Dev. &amp; Workforce Services (2/5/26) and House Econ. Dev. &amp; Workforce Services (2/26/26), both posted publicly at le.utah.gov — the written minutes only record motions and votes, not floor discussion.</td>
+    </tr>
+    <tr>
+      <td>Which specific statute section gives UIPA "additional flexibility in how tax differential incentives may be structured," as UIPA's own debrief claims?</td>
+      <td>UIPA's public information contact for its own published statements is <strong>Kaitlin Felsted</strong>, author of both the "Legislative Updates" post and the June 25, 2026 data-center statement (inlandportauthority.utah.gov). This would be a direct question to UIPA about its own published claim, not a comment request on the reporting itself.</td>
+    </tr>
+    <tr>
+      <td>What is the Tooele Valley/Zenith project's actual potable-water intake, as distinct from its 260,000 gal/day brine discharge?</td>
+      <td>The DWQ contact of record on the related Tooele Valley Public Infrastructure District and TVPID RO Water Treatment Plant public notices is <strong>Jordan Bentley</strong> (jkbentley@utah.gov), Division of Water Quality. The underlying engineering report or fact sheet for UPDES Permit UT0026409, if one includes a water balance, would sit with DWQ's own case file for that permit.</td>
+    </tr>
+    <tr>
+      <td>Do any other UIPA project areas (Northwest Quadrant, Twenty Wells) have a live high-water-use incentive request pending under the new, loosened standard?</td>
+      <td>Each project area's own recruitment/incentive materials are posted directly on inlandportauthority.utah.gov; UIPA's public meeting agendas and board minutes (also posted there) would show any pending incentive votes.</td>
+    </tr>
+  </table>
+</details>
+
+<section>
+  <div class="conclusion-box">
+    <h2>Where This Leaves Things</h2>
+    <p>S.B. 225 replaced a fixed, legislatively-set water-use limit with a standard that varies by local water provider, and expanded that standard from one city to the entire state. The change moved through both chambers without recorded debate on the record, and the only person who spoke in its favor leads a development project that stood to benefit directly from it. None of that is asserted here as anyone's stated intent — the record shows what happened and who was in the room; readers can draw their own conclusions about why.</p>
+  </div>
+</section>
+
+<details class="section-collapse">
+  <summary>Sources</summary>
+  <div class="card">
+    <ul class="quote-list">
+      <li>S.B. 225, "Public Corporation Amendments," 2026 General Session — bill text as introduced, S01, S02, S03/Enrolled (le.utah.gov)</li>
+      <li>Official compare documents: Original→S03, S01→S03, S02→S03 (le.utah.gov automated bill-compare tool)</li>
+      <li>S.B. 225 Bill Status / Votes page, full action and vote history (le.utah.gov)</li>
+      <li>Minutes, Senate Economic Development and Workforce Services Standing Committee, Feb. 5, 2026</li>
+      <li>Minutes, House Economic Development and Workforce Services Standing Committee, Feb. 26, 2026</li>
+      <li>UIPA, "Legislative Updates Following 2026 Session" (published by Kaitlin Felsted, inlandportauthority.utah.gov)</li>
+      <li>UIPA, "UIPA's Position on Data Centers: Transparent Growth, Local Control and Natural Resource Protection" (June 25, 2026)</li>
+      <li>UIPA, Tooele Valley Project Area Plan, Amendment #1 and Amendment #2</li>
+      <li>UIPA, 2024 Annual Report (published Dec. 19, 2024)</li>
+      <li>UPDES Permit UT0026409 application materials and Division of Water Quality public hearing record (July 27, 2026)</li>
+      <li>Division of Water Quality, "Water Quality Open Public Notices" list (deq.utah.gov/dwq/wq-public-notices), including "Tooele Valley Public Infrastructure District" and "TVPID RO Water Treatment Plant" entries</li>
+      <li>KSL, "Conservation groups push back against proposed water treatment plant near Great Salt Lake"</li>
+      <li>Salt Lake Tribune reporting on Charles Akerlow / Zenith Development's public statements on UIPA financing</li>
+      <li>Utah News Dispatch, Sept. 3, 2026 (Tooele Valley project pause)</li>
+      <li>UIPA, 2026 Legislative Debrief presentation (inlandportauthority.utah.gov)</li>
+      <li>Cross-referenced case files: weber-hive-hb507.html (H.B. 507), weber-hive-hb545.html (H.B. 545), S.B. 254 case materials</li>
+    </ul>
+  </div>
+</details>
+
+</main>
+
+<footer class="bottom-bar">
+  <span>webercountyhive.substack.com</span>
+  <span>Public records only &middot; No comment requested</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        primaryColor: '#F2ECDD',
+        primaryBorderColor: '#14213D',
+        primaryTextColor: '#14213D',
+        lineColor: '#14213D',
+        fontFamily: 'Georgia, serif'
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
