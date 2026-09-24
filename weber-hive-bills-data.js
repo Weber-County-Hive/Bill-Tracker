@@ -111,6 +111,58 @@ const BILLS = [
     lastUpdated: "Sep 17, 2026"
   },
 {
+    caseNumber: "CASE 2026-457",
+    grade: "D",
+    bill: "H.B. 457",
+    year: "2026",
+    title: "County Islands and the County Auditor — County Governance Modifications",
+    summary: "Small unincorporated islands in second-class counties, including Weber, join the surrounding city on July 1, 2027 with no resident vote, unless the county commission exempts them. A Senate substitute also struck a county-auditor review condition on handing accounting to a county manager.",
+    tags: ["Local Power", "Annexation", "Weber County"],
+    status: "law",
+    voteLine: "House 62–2 · Senate 25–1 · House concurrence 61–6 · Signed Mar 26, 2026",
+    link: "weber-hive-hb457.html",
+    lastUpdated: "Sep 24, 2026"
+  },
+{
+    caseNumber: "CASE 2026-330",
+    grade: "D",
+    bill: "H.B. 330",
+    year: "2026",
+    title: "A Defense for Permitted Conduct — Liability Limitations Amendments",
+    summary: "A new defense in civil lawsuits for conduct a permit, license or law authorized. The House passed it with an exception for negligent, reckless or deceptive conduct; the Senate removed that exception.",
+    tags: ["Courts & Liability", "Bait-and-Switch", "Permits"],
+    status: "law",
+    voteLine: "House 65–0 · Senate 17–7 · House concurrence 50–15 · Signed Mar 18, 2026",
+    link: "weber-hive-hb330.html",
+    lastUpdated: "Sep 24, 2026"
+  },
+{
+    caseNumber: "CASE 2026-227",
+    grade: "C",
+    bill: "S.B. 227",
+    year: "2026",
+    title: "From Damages Caps to an Employer Rule — Punitive Damages Amendments",
+    summary: "Introduced as a cap on punitive damages in vehicle injury cases; signed with no caps, limiting when employers can be made to pay punitive damages for employees&rsquo; conduct instead.",
+    tags: ["Courts & Liability", "5 Versions", "Insurance"],
+    status: "law",
+    voteLine: "Senate 26–0 · House 56–12 · Senate concurrence 28–1 · Signed Mar 18, 2026",
+    link: "weber-hive-sb227.html",
+    lastUpdated: "Sep 24, 2026"
+  },
+{
+    caseNumber: "CASE 2026-075",
+    grade: "A",
+    bill: "H.B. 75",
+    year: "2026",
+    title: "The Same Sponsors, Written the Other Way — American Indian and Alaska Native Education",
+    summary: "The same sponsors as H.B. 61 require the State Board of Education to adopt a tribal education plan by Jan. 1, 2027, after meaningful consultation with tribal leaders, with a data-sharing process and yearly grant reporting.",
+    tags: ["Tribal Accountability", "Education", "Native American Legislative Liaison Committee"],
+    status: "law",
+    voteLine: "House Cmte 10–1–4 · House 72–0–3 · Senate Cmte 6–0–1 · Senate 22–0–7 · Signed Feb 27, 2026",
+    link: "weber-hive-hb75.html",
+    lastUpdated: "Sep 24, 2026"
+  },
+{
     caseNumber: "CASE 2026-061",
     bill: "H.B. 61",
     year: "2026",
