@@ -111,6 +111,19 @@ const BILLS = [
     lastUpdated: "Sep 17, 2026"
   },
 {
+    caseNumber: "CASE 2026-276",
+    grade: "C",
+    bill: "H.B. 276",
+    year: "2026",
+    title: "AI-Made Intimate Images and the Final Version — Artificial Intelligence Modifications",
+    summary: "Creates a right to sue AI services that share AI-made intimate images of real people without consent, and requires content-origin labels from big platforms, camera makers and AI providers. The final version has no minimum damages for the people depicted and adds safe harbors, a stricter pleading standard and fee awards for platforms that win on the safe harbor.",
+    tags: ["Technology", "Privacy", "Artificial Intelligence"],
+    status: "law",
+    voteLine: "House committee 5–1 · House 66–0 · Senate committee 5–0 · Signed Mar 24, 2026",
+    link: "weber-hive-hb276.html",
+    lastUpdated: "Sep 25, 2026"
+  },
+{
     caseNumber: "CASE 2026-457",
     grade: "D",
     bill: "H.B. 457",

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Made Intimate Images and the Final Version — H.B. 276 | The Weber County Hive</title>
+<style>
+  :root{
+    --paper:#f2ede2;
+    --ink:#20241f;
+    --ink-soft:#4a4f45;
+    --line:#c9c0a8;
+    --rule:#8a8265;
+    --flag:#8a2e1f;
+    --flag-soft:#f4e2dc;
+    --stamp:#3c4a3e;
+    --stamp-soft:#e2e8e0;
+    --gold:#8a6a1f;
+    --gold-soft:#f4ecdc;
+    --serif:"Iowan Old Style","Georgia","Times New Roman",serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.6;}
+  .sheet{max-width:760px;margin:0 auto;padding:56px 28px 120px;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--rule);padding-bottom:14px;margin-bottom:6px;}
+  .masthead .name{font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);}
+  .masthead .date{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);}
+  .file-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--gold);margin-top:18px;text-transform:uppercase;}
+
+  h1{font-family:var(--serif);font-size:clamp(2rem, 5vw, 2.9rem);line-height:1.12;font-weight:400;margin:14px 0 6px;letter-spacing:-0.01em;}
+  .dek{font-family:var(--sans);font-size:1.08rem;color:var(--ink-soft);max-width:58ch;margin:0 0 24px;}
+
+  .related{
+    font-family:var(--sans);font-size:12px;color:var(--ink-soft);
+    border:1px solid var(--line);background:#eae4d4;padding:10px 16px;margin-bottom:14px;
+  }
+  .related a{color:var(--flag);font-weight:700;text-decoration:none;border-bottom:1px solid var(--flag);}
+
+  .byline-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
+  .byline-row span b{color:var(--ink);font-weight:700;}
+
+  .start-here{border:2px solid var(--gold);background:var(--gold-soft);margin-bottom:44px;}
+  .start-here-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+  .start-here-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .start-here-head .sub{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:400;text-transform:none;letter-spacing:0;}
+  .start-here-toggle{font-family:var(--mono);font-size:13px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+  .start-here.open .start-here-toggle{transform:rotate(45deg);}
+  .start-here-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .start-here.open .start-here-body{max-height:2400px;}
+  .start-here-inner{padding:4px 20px 22px;border-top:1px solid var(--line);}
+
+  .step-list{list-style:none;margin:16px 0 0;padding:0;}
+  .step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-family:var(--sans);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--paper);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step-text{font-size:13.5px;color:var(--ink);padding-top:2px;}
+
+  .glossary{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .glossary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .gterm{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--gold);background:#fff;border:1px solid var(--gold);border-radius:4px;padding:5px 10px;margin:0 6px 6px 0;cursor:pointer;user-select:none;}
+  .gterm::after{content:" +";font-weight:400;}
+  .gterm.active::after{content:" \2212";}
+  .gdef{display:none;font-family:var(--sans);font-size:13px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin:-2px 0 10px;}
+  .gdef.show{display:block;}
+
+  .before-after{display:flex;align-items:center;gap:18px;margin:20px 0 8px;flex-wrap:wrap;}
+  .ba-box{flex:1;min-width:140px;border:1px solid var(--line);background:#fff;padding:16px;text-align:center;}
+  .ba-box .num{font-family:var(--serif);font-size:1.35rem;color:var(--ink);line-height:1.2;}
+  .ba-box .label{font-family:var(--sans);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+  .ba-box.after .num{color:var(--flag);}
+  .ba-arrow{font-family:var(--sans);font-size:22px;color:var(--gold);flex:0 0 auto;}
+
+  blockquote{margin:0 0 34px;border-left:3px solid var(--flag);background:var(--flag-soft);padding:16px 20px;}
+  blockquote p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.5;margin:0 0 6px;color:var(--ink);}
+  blockquote cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 2px;cursor:pointer;user-select:none;}
+  .acc-head h2{margin:0;padding:0;border:none;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);}
+  .acc-toggle{font-family:var(--mono);font-size:14px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .acc-item.open .acc-body{max-height:4000px;}
+  .acc-inner{padding:0 2px 22px;}
+  .acc-inner p{font-size:1.04rem;margin:0 0 18px;}
+  .acc-inner p:last-child{margin-bottom:0;}
+  .acc-inner ul{margin:0 0 18px;padding-left:20px;}
+  .acc-inner li{font-size:1.0rem;margin-bottom:8px;}
+
+  .stat-strip{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+  .stat{flex:1;min-width:110px;border:1px solid var(--line);background:#fff;padding:14px 12px;text-align:center;}
+  .stat .num{font-family:var(--serif);font-size:1.7rem;color:var(--gold);line-height:1;}
+  .stat .label{font-family:var(--sans);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+
+  .timeline{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line);}
+  .tl-item{position:relative;padding:2px 0 18px 20px;font-family:var(--sans);}
+  .tl-item::before{content:"";position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:0.03em;display:block;margin-bottom:2px;}
+  .tl-text{font-size:13.5px;color:var(--ink);}
+
+  .caveat{background:#eae4d4;border:1px solid var(--line);padding:18px 20px;margin:24px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-soft);}
+  .caveat b{color:var(--ink);}
+
+  footer{margin-top:44px;padding-top:16px;border-top:3px double var(--rule);font-family:var(--sans);font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:560px){
+    .byline-row{flex-wrap:wrap;gap:10px 20px;}
+    .before-after{flex-direction:column;}
+    .ba-arrow{transform:rotate(90deg);}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="name">The Weber County Hive</div>
+    <div class="date">September 2026</div>
+  </div>
+
+  <div class="file-tag">Technology &amp; Privacy</div>
+  <h1>AI-Made Intimate Images and the Final Version</h1>
+  <p class="dek">H.B. 276 lets people sue AI services that make and share AI-made intimate images of them without their consent, and requires labels showing where digital content came from. The version that became law has no minimum damages for the people depicted, and adds safe harbors for companies and fee awards for platforms that win on them.</p>
+
+  <div class="related">Senate sponsor Kirk Cullimore, listed on the bill page as sponsor of the final (second) substitute, is on the 2026 ballot: <a href="https://weber-county-hive.github.io/candidates2026/sd19-cullimore-anderson.html">SD-19 case file</a>.</div>
+
+  <div class="byline-row">
+    <span>Sources: <b>le.utah.gov</b></span>
+    <span>Method: <b>Public records only, no comment requested</b></span>
+  </div>
+
+  <div class="start-here" id="startHere">
+    <div class="start-here-head" onclick="document.getElementById('startHere').classList.toggle('open')">
+      <div>
+        <h2>Start Here — the 60-second version</h2>
+        <div class="sub">New to this story? Click to open a plain-language walkthrough.</div>
+      </div>
+      <div class="start-here-toggle">+</div>
+    </div>
+    <div class="start-here-body">
+      <div class="start-here-inner">
+        <ol class="step-list">
+          <li class="step-item"><div class="step-num">1</div><div class="step-text">H.B. 276 (2026), &ldquo;Artificial Intelligence Modifications,&rdquo; primary sponsor Rep. Ariel Defay, Senate sponsor Sen. Kirk A. Cullimore. The bill page lists Cullimore as sponsor of the second substitute, the version that became law.</div></li>
+          <li class="step-item"><div class="step-num">2</div><div class="step-text">It creates the Digital Voyeurism Prevention Act: an AI &ldquo;generation service&rdquo; may not distribute an AI-made intimate image of a real, identifiable person without that person&rsquo;s consent. The person depicted can sue for actual damages, punitive damages and attorney fees.</div></li>
+          <li class="step-item"><div class="step-num">3</div><div class="step-text">It creates the Digital Content Provenance Standards Act: big platforms must show where content came from, camera makers must embed origin data, and large AI providers must label AI-made images, video and audio.</div></li>
+          <li class="step-item"><div class="step-num">4</div><div class="step-text">The original bill set minimum damages of $10,000 per violation against AI services. The final version has none, and adds safe harbors, a stricter pleading standard and attorney-fee awards for platforms that win on the safe harbor. Which substitute made each change was not determined.</div></li>
+          <li class="step-item"><div class="step-num">5</div><div class="step-text">Signed March 24, 2026. It takes effect Jan. 1, 2027.</div></li>
+        </ol>
+        <div class="glossary">
+          <div class="glossary-label">Quick glossary — click a term</div>
+          <span class="gterm" data-term="g0">Counterfeit intimate image</span>
+          <div class="gdef" data-def="g0">An intimate image of a real person made with AI. The law uses the federal Take It Down Act&rsquo;s definition of a &ldquo;digital forgery.&rdquo;</div>
+          <span class="gterm" data-term="g1">Statutory damages</span>
+          <div class="gdef" data-def="g1">A set dollar range a court can award without the plaintiff proving a specific loss. The original bill had them; the final law does not.</div>
+          <span class="gterm" data-term="g2">Safe harbor</span>
+          <div class="gdef" data-def="g2">A rule that protects a company from liability if it meets listed conditions, here a published policy, safeguards and prompt takedowns.</div>
+          <span class="gterm" data-term="g3">Pleading with particularity</span>
+          <div class="gdef" data-def="g3">A rule that a lawsuit must state specific facts at the start, not general claims, or it is dismissed.</div>
+          <span class="gterm" data-term="g4">Provenance data</span>
+          <div class="gdef" data-def="g4">Information attached to a photo, video or audio file showing where it came from and whether it was altered.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:1.06rem;">AI tools that can produce realistic images of real people who never posed for them have raised new privacy questions. H.B. 276 gives victims a way to sue and sets labeling rules. How easy those suits are to bring changed between the original bill and the one that passed.</p>
+
+  <div class="accordion" id="accordion">
+    <div class="acc-item open">
+      <div class="acc-head"><h2>What the Law Does, as Enrolled</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <ul>
+          <li><strong>Consent rule:</strong> a generation service &ldquo;may not distribute a counterfeit intimate image without first obtaining consent from the identifiable individual depicted,&rdquo; through a consent system that assures identity &ldquo;with reasonable accuracy&rdquo; and keeps records at least seven years.</li>
+          <li><strong>Right to sue:</strong> no need to allege or prove actual damages to win a court order stopping distribution and removing the images; actual damages, including emotional distress; punitive damages if the violation is &ldquo;willful, reckless, or malicious&rdquo;; attorney fees; each distribution is a separate violation; suits allowed within three years of discovery or 10 years of the violation.</li>
+          <li><strong>Platforms:</strong> &ldquo;covered platforms,&rdquo; as the federal Take It Down Act defines them, must remove a reported image within 48 hours. A platform knowingly allows distribution if it gets notice and fails to take the image down.</li>
+          <li><strong>Safe harbor:</strong> a generation service is not liable if it does not market itself for making such images, keeps and publishes a written policy and safeguards, runs a consent system and acts promptly on notice. A platform is not liable if it keeps takedown procedures and acts in good faith. Either can raise this before trial; a platform that wins on it is awarded its attorney fees.</li>
+          <li><strong>Pleading standard:</strong> a plaintiff must plead &ldquo;with particularity&rdquo; why the company doesn&rsquo;t qualify for the safe harbor. &ldquo;General or conclusory allegations&rdquo; are not enough. A second failed complaint is dismissed with prejudice and the company is awarded its fees for that motion.</li>
+          <li><strong>Content labels:</strong> platforms with over 2 million monthly users must detect and show provenance data and may not knowingly strip it; camera makers must embed origin data in devices sold from Jan. 1, 2028; AI providers with over 1 million monthly users must add a latent label to AI-made images, video and audio. The Division of Consumer Protection enforces this part, with fines up to $2,500 per violation.</li>
+          <li><strong>State websites:</strong> the state&rsquo;s chief information officer must set provenance standards for state agency content where fraudulent media could harm residents.</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="acc-item open">
+      <div class="acc-head"><h2>How the Final Version Differs From the Original</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Per the Legislature&rsquo;s compare document (the original bill against the second substitute, the version that became law). The House committee adopted a first substitute and the second replaced it later; which substitute made each change was not determined, because the compare to the first substitute was not read:</p>
+        <ul>
+          <li><strong>Statutory damages removed:</strong> the original let victims recover &ldquo;statutory damages in an amount not less than $10,000 and not more than $100,000 for each violation&rdquo; from a generation service, and $5,000 to $50,000 from a platform.</li>
+          <li><strong>Platform liability narrowed:</strong> the original treated a platform that &ldquo;otherwise has actual knowledge&rdquo; of a non-consensual image as knowingly allowing it, and made a missed takedown a &ldquo;rebuttable presumption&rdquo; of knowing distribution. The law as passed drops that separate clause and the presumption and defines liability mainly by notice and takedown.</li>
+          <li><strong>Takedown rules aligned to federal law:</strong> the original required disabling access within 48 hours, an investigation within seven days, and blocking &ldquo;substantially similar&rdquo; reposts; the law as passed follows the Take It Down Act and asks for &ldquo;reasonable efforts&rdquo; to remove identical copies.</li>
+          <li><strong>Safe harbor and pleading sections:</strong> the original&rsquo;s sections, as listed in the compare document, have none; the final version has both.</li>
+          <li><strong>Other changes:</strong> file-sharing platforms dropped from the &ldquo;large online platform&rdquo; definition; a section on licensing AI systems to third parties removed; start date moved from May 6, 2026 to Jan. 1, 2027.</li>
+        </ul>
+        <div class="caveat">Read from a plain-text copy of the compare document, which marks removed text but not added text. Changes that could only be confirmed from added text are described from the enrolled bill.</div>
+      </div></div>
+    </div>
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Who Spoke</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Per the committee minutes: in the House Economic Development and Workforce Services Committee (Feb. 12), Rep. Defay presented with Zach Boyd, Director of the Office of Artificial Intelligence Policy. In the Senate Transportation, Public Utilities, Energy, and Technology Committee (Feb. 26), Margaret Woolley Bussey, executive director of the Department of Commerce; Christopher Bramwell, the state&rsquo;s chief privacy officer; and Scott Stornetta, CEO of SureMark Digital, spoke in favor. May Kennedy of the Abundance Institute and Nathan Trail, listed as a vice president of state government affairs with no organization named, spoke to the bill.</p>
+      </div></div>
+    </div>
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Worth Seeing Side by Side</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat"><b>Public records, placed next to each other:</b> Sen. Cullimore&rsquo;s 2026 campaign reports list $5,000 from Google Client Services (July 16) and $5,000 from Encode AI (Jan. 15). Google&rsquo;s search engine and platforms fit the bill&rsquo;s &ldquo;large online platform&rdquo; definition. A personal-injury law firm and the trial lawyers&rsquo; association gave him $25,000 in 2026. The records don&rsquo;t show any connection between these gifts and the substitute beyond subject and timing.</div>
+      </div></div>
+    </div>
+    <div class="acc-item open">
+      <div class="acc-head"><h2>Graded on the Five Questions</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Scale: C means the record meets what the law requires; B or A goes beyond it; D means the key part is vague or a public check is weakened; F means required information is missing or a public check is removed with nothing in its place.</p>
+        <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:.95rem;"><tr><th style="text-align:left;padding:8px 10px;">Question</th><th style="text-align:left;padding:8px 10px;">Grade</th><th style="text-align:left;padding:8px 10px;">Why</th></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Power</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">B</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">Creates a new right for people harmed by AI-generated intimate images to sue, and new enforcement against large platforms and AI providers.</td></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Transparency</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">B</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">Requires published policies and safeguards, and provenance labels that let the public see where content came from. The bill was heard and amended in open committee in both chambers.</td></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Financial accountability</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">D</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">The minimum damages in the original are gone. Platforms that win on the safe harbor are awarded their attorney fees, and a second failed complaint costs the plaintiff the company&rsquo;s fees for that motion. A plaintiff who wins still recovers attorney fees.</td></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Environmental impact</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">N/A</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">Not applicable.</td></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Community impact</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">C</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">People depicted gain a path to court, but a stricter pleading standard and safe harbors make suits harder to bring than under the original bill.</td></tr><tr><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:600;">Overall</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;font-weight:700;">C</td><td style="padding:8px 10px;border-bottom:1px dashed #ccc;">Real new protections and labeling rules, narrower for the people depicted than the original bill.</td></tr></table></div>
+        <div class="caveat"><b>What would have scored higher for the collective:</b> keeping minimum statutory damages so a person who can&rsquo;t show a dollar loss still recovers money, not only a removal order; dropping the fee award to platforms that win on the safe harbor; or pairing the safe harbor with public reporting of takedown requests and response times.</div>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-head"><h2>Vote Record</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <ul>
+          <li><strong>Feb. 12:</strong> House Economic Development and Workforce Services Committee adopted the first substitute 6&ndash;0 and Amendment #1 6&ndash;0, then recommended it 5&ndash;1 (Rep. Leah Hansen no; Fiefia, Hawkins, Jack and Shallenberger absent).</li>
+          <li><strong>Feb. 20:</strong> House passed the amended first substitute 66&ndash;0 (nine absent, including Speaker Schultz).</li>
+          <li><strong>Feb. 26:</strong> Senate Transportation, Public Utilities, Energy, and Technology Committee adopted Amendment #3 and recommended it, 5&ndash;0 each (Harper, Ipson, Millner, Riebe, Winterton yes; Adams, Kwan, Wilson absent).</li>
+          <li><strong>Later:</strong> the second substitute, which the bill page lists Sen. Cullimore as sponsoring, replaced the first; the Senate and final House votes on it were not in hand.</li>
+          <li><strong>March 24:</strong> signed by Gov. Cox.</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-head"><h2>Still Open</h2><div class="acc-toggle">+</div></div>
+      <div class="acc-body"><div class="acc-inner">
+        <div class="caveat"><b>Not yet read:</b> the Senate floor votes and the House concurrence vote on the second substitute, the compare to the first substitute (which would show which version made each change), and the committee audio.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>The Weber County Hive</span>
+    <span>Built from le.utah.gov &mdash; no comment requested</span>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.gterm').forEach(function(term){
+    term.addEventListener('click', function(){
+      var key = term.getAttribute('data-term');
+      var def = document.querySelector('.gdef[data-def="' + key + '"]');
+      var isOpen = def.classList.contains('show');
+      def.classList.toggle('show', !isOpen);
+      term.classList.toggle('active', !isOpen);
+    });
+  });
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
