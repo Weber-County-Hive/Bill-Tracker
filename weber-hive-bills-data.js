@@ -248,6 +248,19 @@ const BILLS = [
     link: "weber-hive-sb188-lease-revenue-bonds.html"
   },
 {
+    caseNumber: "CASE 2026-206",
+    grade: "C",
+    bill: "S.B. 206",
+    year: "2026",
+    title: "Started as an Appraisal Bill, Ended as Utah's First Tax-Increment Ledger",
+    summary: "Introduced as a narrow Multicounty Appraisal Trust bill, S.B. 206 became law as a new statewide disclosure system for tax increment: a public authorization meeting, a but-for analysis, a 40-year benefit comparison, and a Jan. 1, 2027 deadline to file every existing project area in one database. A House committee amendment moved where the rules apply — from the process leading to a trigger, to the trigger itself.",
+    tags: ["Tax Increment", "Transparency", "CRA/PID", "MIDA/UIPA Family", "Process Concern"],
+    status: "law",
+    voteLine: "Senate Cmte 3–0–4 · Senate 25–0–4 · House Cmte 9–0–2 · House 64–1–10 · Senate concurred 26–0–3 · Signed Mar 23, 2026",
+    link: "weber-hive-sb206.html",
+    lastUpdated: "Sep 25, 2026"
+  },
+{
     caseNumber: "CASE 2026-197",
     grade: "D",
     bill: "S.B. 197",

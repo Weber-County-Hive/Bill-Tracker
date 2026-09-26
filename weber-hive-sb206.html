@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE 2026-206 — S.B. 206, Tax Amendments — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+<style>
+  .compare-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:6px 0 10px;}
+  @media(max-width:600px){.compare-cols{grid-template-columns:1fr;}}
+  .compare-card{background:var(--paper-light);border:1px solid var(--rule);border-radius:4px;padding:14px 16px;}
+  .compare-card h3{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;color:var(--ink-soft);}
+  .compare-card.after h3{color:var(--red);}
+  .compare-card p{font-size:15px;line-height:1.55;margin:0 0 8px;}
+  .watch{border-left:4px solid var(--green);padding:6px 0 6px 18px;margin:16px 0;background:rgba(63,107,59,0.06);}
+  .rollcall{font-size:13.5px;line-height:1.6;color:var(--ink-soft);}
+  .rollcall strong{color:var(--ink);}
+  details.inner{border:1px dashed var(--rule);border-radius:4px;padding:10px 14px;margin:10px 0;}
+  details.inner summary{cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);}
+  .method{font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+  .glossary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:600px){.glossary-grid{grid-template-columns:1fr 1fr;}}
+  .flip-card{perspective:1000px;height:150px;cursor:pointer;}
+  .flip-card-inner{position:relative;width:100%;height:100%;transition:transform 0.5s;transform-style:preserve-3d;}
+  .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+  .flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;}
+  .flip-front{background:var(--manila-dark);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.03em;flex-direction:column;gap:6px;}
+  .flip-front small{font-weight:400;font-size:10.5px;opacity:0.7;}
+  .flip-back{background:var(--navy-deep);color:var(--paper-light);font-size:12.5px;line-height:1.45;transform:rotateY(180deg);}
+  .flip-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  .accordion{border-top:2px solid var(--gold);}
+  .acc-item{border-bottom:1px dashed var(--rule);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 2px;cursor:pointer;user-select:none;background:none;border:none;width:100%;text-align:left;font:inherit;color:inherit;}
+  .acc-head .acc-title{font-weight:600;font-size:15.5px;}
+  .acc-head .acc-sec{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin-left:8px;font-weight:400;}
+  .acc-toggle{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--gold);flex-shrink:0;transition:transform .2s ease;}
+  .acc-item.open .acc-toggle{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .acc-item.open .acc-body{max-height:900px;}
+  .acc-inner{padding:0 2px 16px;font-size:15px;line-height:1.6;}
+  .acc-controls{display:flex;gap:10px;margin:0 0 10px;}
+  .mini-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;background:none;border:1px solid var(--rule);color:var(--ink-soft);border-radius:14px;padding:4px 11px;cursor:pointer;}
+  .mini-btn:hover{border-color:var(--gold);color:var(--ink);}
+
+  .seg{display:inline-flex;border:2px solid var(--ink);border-radius:6px;overflow:hidden;margin:4px 0 14px;flex-wrap:wrap;}
+  .seg button{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.03em;background:var(--paper-light);color:var(--ink);border:none;padding:9px 16px;cursor:pointer;}
+  .seg button+button{border-left:2px solid var(--ink);}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper-light);}
+  .ver-panel{display:none;}
+  .ver-panel.show{display:block;}
+  .ver-row{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed var(--rule);font-size:15px;line-height:1.55;}
+  .ver-row:last-child{border-bottom:none;}
+  .ver-row .lbl{font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);padding-top:3px;}
+  .ver-row .chg{background:rgba(165,48,30,0.12);padding:0 3px;}
+  @media(max-width:600px){.ver-row{grid-template-columns:1fr;gap:2px;}}
+
+  .checker-btns{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px;}
+  .checker-btns button{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--paper-light);border:1px solid var(--rule);color:var(--ink);border-radius:4px;padding:8px 12px;cursor:pointer;text-align:left;}
+  .checker-btns button[aria-pressed="true"]{background:var(--navy);color:var(--paper-light);border-color:var(--navy);}
+  .checker-out{background:var(--paper-light);border:1px solid var(--rule);border-radius:4px;padding:14px 16px;min-height:60px;}
+  .checker-out h3{margin:0 0 8px;font-size:16px;}
+  .checker-out ul{margin:0;padding-left:18px;}
+  .checker-out li{font-size:14.5px;line-height:1.55;margin-bottom:6px;}
+  .checker-out .src{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:8px;}
+  .tag-yes{color:var(--green);font-weight:700;}
+  .tag-q{color:var(--gold);font-weight:700;}
+
+  .lookup input{width:100%;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:11px 14px;border:2px solid var(--ink);border-radius:4px;background:var(--paper-light);color:var(--ink);}
+  .lookup-list{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+  .lookup-list button{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--paper-light);border:1px solid var(--rule);border-radius:14px;padding:5px 11px;cursor:pointer;color:var(--ink);}
+  .lookup-list button:hover{border-color:var(--gold);}
+  .lookup-card{background:var(--navy);color:var(--paper-light);border-radius:4px;padding:16px 18px;margin-top:8px;display:none;}
+  .lookup-card.show{display:block;}
+  .lookup-card h3{margin:0 0 10px;font-size:18px;}
+  .lookup-card table{width:100%;border-collapse:collapse;font-size:14px;}
+  .lookup-card td{padding:7px 4px;border-bottom:1px dashed rgba(217,201,163,0.3);}
+  .lookup-card td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;}
+  .v-yea{color:#9CC596;} .v-nay{color:#E89A8A;} .v-abs{color:var(--manila);}
+  .lookup-note{font-size:12.5px;color:rgba(237,231,216,0.7);margin-top:10px;}
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-206</span>
+  <p class="eyebrow">S.B. 206 &middot; 2026 General Session</p>
+  <h1>Started as an Appraisal Bill, Ended as Utah's First Tax-Increment Ledger &mdash; Tax Amendments</h1>
+  <p class="dek">Introduced as a narrow bill about the Multicounty Appraisal Trust, S.B. 206 left the Legislature as a new chapter of state law requiring every entity that uses tax increment to hold a public meeting, file a disclosure, and report to a statewide database. On the way, a House committee amendment moved the point where those rules apply.</p>
+  <div class="stampline">
+    <span>Primary Sponsor: <strong>Sen. Wayne A. Harper</strong></span>
+    <span>House Sponsor: <strong>Rep. R. Neil Walter</strong></span>
+    <span>Signed: <strong>Mar 23, 2026</strong></span>
+    <span class="stamp-status law">Became Law</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="glossary">Tap a Term</button><button data-scroll-to="whatit">What It Does</button><button data-scroll-to="moved">What Moved</button><button data-scroll-to="local">Why It Matters Here</button><button data-scroll-to="timeline">The Timeline</button><button data-scroll-to="votes">Look Up a Vote</button><button data-scroll-to="rubric">The Grade</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="fix">How It Could Help</button><button data-scroll-to="open">Still Open</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">&ldquo;Tax increment&rdquo; is the new property or sales tax a project area generates as it develops. Instead of going to the school district, the fire district, and the county the way it normally would, some or all of that growth gets redirected to pay for the project.</p>
+    <p>Until this bill, Utah had no single statewide place to see who is collecting tax increment, how much, for how long, or what it is paying for. S.B. 206 creates one. Starting July 1, 2026, an entity that wants to use tax increment has to hold a public &ldquo;authorization meeting&rdquo; and file a disclosure &mdash; including a 40-year estimate of who receives the money compared with what each taxing entity receives. By January 1, 2027, every existing project area&rsquo;s plan, budget, interlocal agreements, and map must be filed with a statewide program manager, no matter when the project area was created.</p>
+    <p>That is a real gain in what the public can see. The same record also shows the rules were loosened during the session: a House committee amendment moved the point where they apply, and the new reports are labeled &ldquo;for informational purposes only.&rdquo; Both halves are on this page.</p>
+  </section>
+
+  <section id="glossary">
+    <h2>Quick Glossary &mdash; Tap a Term</h2>
+    <div class="glossary-grid">
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Tax increment, tap to flip"><div class="flip-card-inner"><div class="flip-front">Tax Increment<small>tap to flip</small></div><div class="flip-back">The new property or sales tax a project area produces as it grows, above what it produced in its base year.</div></div></div>
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="TIF entity, tap to flip"><div class="flip-card-inner"><div class="flip-front">TIF Entity<small>tap to flip</small></div><div class="flip-back">Any government body that uses or receives tax increment &mdash; a reinvestment agency, city, county, PID, special district, or state authority like MIDA.</div></div></div>
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Specified event, tap to flip"><div class="flip-card-inner"><div class="flip-front">Specified Event<small>tap to flip</small></div><div class="flip-back">What sets off the new rules. For a local entity: triggering tax increment. For MIDA, the Inland Port, Point of the Mountain, or the Fairpark district: an increment agreement or bond approval.</div></div></div>
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Authorization meeting, tap to flip"><div class="flip-card-inner"><div class="flip-front">Authorization Meeting<small>tap to flip</small></div><div class="flip-back">A public meeting, noticed at least 10 days ahead, that a TIF entity must hold before each specified event.</div></div></div>
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="But-for analysis, tap to flip"><div class="flip-card-inner"><div class="flip-front">But-For Analysis<small>tap to flip</small></div><div class="flip-back">A showing that a project couldn&rsquo;t proceed without tax increment, and that its public benefit outweighs the cost of using it.</div></div></div>
+      <div class="flip-card" data-flip tabindex="0" role="button" aria-label="Program manager, tap to flip"><div class="flip-card-inner"><div class="flip-front">Program Manager<small>tap to flip</small></div><div class="flip-back">The body running the new statewide system (STATS) and its database &mdash; defined as an association representing at least two-thirds of Utah&rsquo;s counties.</div></div></div>
+    </div>
+  </section>
+
+  <section id="whatit">
+    <h2>What It Does, Section by Section</h2>
+    <div class="acc-controls"><button class="mini-btn" data-acc="open">Open all</button><button class="mini-btn" data-acc="close">Close all</button></div>
+    <div class="accordion">
+      <div class="acc-item open"><button class="acc-head" aria-expanded="true"><span><span class="acc-title">Statewide Tax Administration and Technology Solutions</span><span class="acc-sec">STATS</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">Creates a new statewide program, run by a &ldquo;program manager,&rdquo; to maintain the statewide property tax system and web portals, provide valuation services, value telecommunications personal property, and collect information on tax-increment project areas. Moves duties, property, and unspent revenue over from the Multicounty Appraisal Trust. The bill defines the program manager as an association representing at least two-thirds of Utah&rsquo;s counties.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Authorization meeting</span><span class="acc-sec">&sect;59-35-201</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">Beginning July 1, 2026, before each &ldquo;specified event,&rdquo; a TIF entity must hold a public authorization meeting with at least 10 calendar days&rsquo; class A notice. The meeting can be part of a regular meeting if the agenda clearly labels it.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Disclosure</span><span class="acc-sec">&sect;59-35-201</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">Within 30 days after the authorization meeting, the entity files a disclosure with the program manager: the meeting notice and minutes; the public good and each project; the type and amount of tax increment it is authorized to use; the administrative cost to the state and county; a &ldquo;but-for&rdquo; analysis showing each project could not proceed without tax increment; and an explanation of how the benefit to nearby residents is proportionate to the benefit to anyone else.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Proportionate benefit</span><span class="acc-sec">&sect;59-35-202</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">The disclosure must estimate, in present value, the tax increment going to any party each year over the collection period or 40 years (whichever is greater), and the revenue each taxing entity expects to receive each year over 40 years.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Limits on the money</span><span class="acc-sec">&sect;59-35-203</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">Affected taxing entities must be notified within 30 days. A local entity that receives more increment than projected must use the excess to pay down debt, if the debt allows early payment. Increment may be used only for the disclosed purpose. Once the disclosed amount is reached, or the collection period ends, collection stops, and any excess goes back to the taxing entities. A new meeting and disclosure are required if the entity doesn&rsquo;t act within five years.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Statewide filing</span><span class="acc-sec">&sect;59-35-301</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">By January 1, 2027, every TIF entity files each project area&rsquo;s plan, budget, interlocal agreements, and map with the program manager. From January 1, 2028, it files an annual progress summary. These apply &ldquo;regardless of when the project area is created.&rdquo; The same section says the submissions are &ldquo;for informational purposes only.&rdquo;</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Report and enforcement</span><span class="acc-sec">&sect;59-35-302</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">Each year the program manager reports to the Legislature&rsquo;s Political Subdivisions Interim Committee, including a list of entities that didn&rsquo;t comply and, for each county, the share of all property tax that is allocated as tax increment. An entity that misses its filing is referred to the state auditor and named on the STATS website. After two consecutive years, the county treasurer withholds 20% of its increment &mdash; unless the money is needed for contract or debt payments. An independent audit is due every three years beginning in 2030.</div></div></div>
+      <div class="acc-item"><button class="acc-head" aria-expanded="false"><span><span class="acc-title">Fire and police district definitions</span><span class="acc-sec">&sect;59-2-924.2</span></span><span class="acc-toggle">+</span></button><div class="acc-body"><div class="acc-inner">A &ldquo;participating&rdquo; county or city no longer has to have been inside a fire or police district when the district was created. The bill&rsquo;s summary says this reflects land moving from unincorporated county into new cities since these districts formed. The rule for cities that annex into a fire district &mdash; cut their own rate by their prior-year fire budget &mdash; is unchanged. This section applies retroactively to January 1, 2026.</div></div></div>
+    </div>
+    <p class="method" style="margin-top:14px;">Read from the Legislature&rsquo;s posted comparison of the introduced bill with the fourth substitute (the version that passed), plain-text read, cross-checked against the enrolled copy&rsquo;s long title.</p>
+  </section>
+
+  <section id="moved">
+    <h2>What Moved Between the Senate and the Final Law</h2>
+    <p>The tax-increment disclosure chapter was not in the introduced bill, which dealt only with the Multicounty Appraisal Trust. It was added by substitute in the Senate. On March 2, the House Revenue and Taxation Committee adopted Amendment #1, moved by Rep. Kay Christofferson, 9&ndash;0&ndash;2. It changed where the new rules apply:</p>
+    <div class="seg" role="group" aria-label="Choose a version">
+      <button aria-pressed="true" data-ver="senate">Senate version</button><button aria-pressed="false" data-ver="final">Final law</button>
+    </div>
+    <div class="ver-panel show" id="ver-senate">
+      <div class="ver-row"><span class="lbl">Rules apply</span><span>&ldquo;before <span class="chg">beginning the process to trigger</span> tax increment&rdquo;</span></div>
+      <div class="ver-row"><span class="lbl">Disclosure due</span><span>&ldquo;<span class="chg">Before triggering</span> tax increment&rdquo;</span></div>
+      <div class="ver-row"><span class="lbl">Ceiling</span><span>A defined &ldquo;<span class="chg">maximum tax increment</span>&rdquo; &mdash; &ldquo;the total amount of revenue a local entity seeks to generate&rdquo;</span></div>
+      <div class="ver-row"><span class="lbl">MIDA &amp; other state authorities</span><span>Same &ldquo;process to trigger&rdquo; language as everyone else</span></div>
+    </div>
+    <div class="ver-panel" id="ver-final">
+      <div class="ver-row"><span class="lbl">Rules apply</span><span>&ldquo;before <span class="chg">each specified event</span>&rdquo; &mdash; for a local entity, triggering tax increment</span></div>
+      <div class="ver-row"><span class="lbl">Disclosure due</span><span>&ldquo;<span class="chg">Within 30 days after</span> the day on which a TIF entity holds an authorization meeting&rdquo; &mdash; still before the specified event</span></div>
+      <div class="ver-row"><span class="lbl">Ceiling</span><span>&ldquo;<span class="chg">the amount of tax increment that a TIF entity is authorized to use</span>&rdquo;; &ldquo;maximum tax increment&rdquo; deleted</span></div>
+      <div class="ver-row"><span class="lbl">MIDA &amp; other state authorities</span><span>Rules apply before <span class="chg">entering a tax increment agreement or approving a bond authorization</span></span></div>
+    </div>
+    <p class="method">Highlighted words are the language that changed. Source: House Revenue and Taxation Committee Amendment #1, Mar 2, 2026.</p>
+    <div class="finding">
+      <p><strong>What this means, read plainly:</strong> The final law still requires the meeting and the disclosure before an entity triggers tax increment. What changed is the starting line: the Senate version reached the earlier &ldquo;process&rdquo; leading up to a trigger, and the final version applies at the trigger itself. The amendment also brought the four regional authorities &mdash; the Military Installation Development Authority, the Utah Inland Port Authority, the Point of the Mountain State Land Authority, and the Fairpark district &mdash; under a specific definition tied to their own agreements and bond approvals.</p>
+    </div>
+    <p>This is an amendment that narrowed when the rules apply, not one that reversed the bill&rsquo;s purpose. The minutes record the amendment text and vote but no discussion of why it was offered.</p>
+  </section>
+
+  <section id="local">
+    <h2>Why It Matters in Weber County</h2>
+    <p>Several tax-increment arrangements already documented by The Weber County Hive fall under this law.</p>
+    <ul class="plain">
+      <li><strong>Nordic Village Community Reinvestment Area.</strong> Weber County, Weber School District, Weber Basin Water Conservancy District, and Weber Fire District each agreed to share tax increment from the project area for 15 years &mdash; 75% for the county and 50% for the others. The fire district&rsquo;s share is capped at $6 million. Its interlocal says the increment period begins when the agency gives notice, or January 1, 2029, whichever is earlier. If that trigger comes after July 1, 2026, the county&rsquo;s reinvestment agency appears to need an authorization meeting and a disclosure first, including the 40-year comparison of what the project receives versus what each taxing entity receives.</li>
+      <li><strong>Farr West Landing Community Reinvestment Area.</strong> Weber Fire District approved its interlocal for this project on August 12, 2025 (Resolution 12-2025). As an existing project area, its plan, budget, interlocals, and map must be filed with the program manager by January 1, 2027.</li>
+      <li><strong>Military Installation Development Authority.</strong> For MIDA, the rules apply before entering a tax increment agreement or approving a bond authorization.</li>
+      <li><strong>Roy and Riverdale fire annexation.</strong> This bill reorganized the section that sets how a city&rsquo;s tax rate must drop when it joins a fire district. The drop remains equal to the city&rsquo;s prior-year budget for fire, paramedic, and emergency services. It did not change the math for Roy and Riverdale.</li>
+    </ul>
+
+    <h3 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:22px 0 4px;">Does S.B. 206 reach it? Pick one</h3>
+    <div class="checker-btns" role="group" aria-label="Pick a project">
+      <button data-chk="nordic" aria-pressed="false">Nordic Village CRA</button>
+      <button data-chk="farrwest" aria-pressed="false">Farr West Landing CRA</button>
+      <button data-chk="mida" aria-pressed="false">A MIDA project area</button>
+      <button data-chk="new" aria-pressed="false">A brand-new CRA or PID</button>
+      <button data-chk="annex" aria-pressed="false">Roy &amp; Riverdale joining the fire district</button>
+    </div>
+    <div class="checker-out" id="checker-out" aria-live="polite"><p style="margin:0;color:var(--ink-soft);font-size:14.5px;">Choose a project above to see which parts of the law apply, based on the bill text and the project&rsquo;s own records.</p></div>
+    <div class="watch">
+      <p style="margin:0;"><strong>What to watch for:</strong> an agenda item labeled &ldquo;authorization meeting&rdquo; from the Community Reinvestment Agency of Weber County or MIDA; and, after January 1, 2027, the Nordic Village and Farr West Landing filings in the statewide database. No filing or authorization meeting for either project area was found as of this case file&rsquo;s date. That is not a finding of noncompliance &mdash; the trigger may not have occurred and the January 2027 deadline has not passed.</p>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <div class="flow">
+      <div class="flow-step">Introduced<br><span style="font-weight:400;font-size:11px;">Jan 27, 2026 &middot; MCAT only</span></div><div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Senate Cmte 3-0-4<br><span style="font-weight:400;font-size:11px;">Feb 2 &middot; 1st sub</span></div><div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Senate 25-0-4<br><span style="font-weight:400;font-size:11px;">Feb 24 &middot; 3rd sub</span></div><div class="flow-arrow">&rarr;</div>
+      <div class="flow-step hot">House Cmte amdt 9-0-2<br><span style="font-weight:400;font-size:11px;">Mar 2 &middot; trigger point moved</span></div><div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">House 64-1-10<br><span style="font-weight:400;font-size:11px;">Mar 6 &middot; 4th sub</span></div><div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">Signed<br><span style="font-weight:400;font-size:11px;">Mar 23, 2026</span></div>
+    </div>
+    <ul class="timeline">
+      <li><span class="date">Jan 27, 2026</span>Numbered and publicly distributed as &ldquo;Multicounty Appraisal Trust Amendments.&rdquo;</li>
+      <li><span class="date">Feb 2, 2026</span>Senate Revenue and Taxation Committee. Sen. Harper presents with Brandy Grace, CEO of the Utah Association of Counties. First substitute adopted and passed favorably, both 3&ndash;0&ndash;4. Present and voting: Sens. Cullimore, Harper, and McCay. Absent: Sens. Brammer, Escamilla, Fillmore, and Wilson.</li>
+      <li><span class="date">Feb 20, 2026</span>Senate 2nd reading; circled (held) by voice vote.</li>
+      <li><span class="date">Feb 23, 2026</span>Uncircled; third substitute adopted by voice vote; passed 2nd reading 27&ndash;0&ndash;2.</li>
+      <li><span class="date">Feb 24, 2026</span>Passed Senate 3rd reading, 25&ndash;0&ndash;4; sent to the House.</li>
+      <li class="flag"><span class="date">Mar 2, 2026</span>House Revenue and Taxation Committee. Sen. Harper presents with Brandy Grace. Rep. Christofferson moves Amendment #1, which changes the trigger point and deletes &ldquo;maximum tax increment&rdquo;; adopted 9&ndash;0&ndash;2. Rep. Christofferson then moves to pass it favorably; 9&ndash;0&ndash;2. Absent: Reps. Barlow and Eliason.</li>
+      <li><span class="date">Mar 3, 2026</span>Committee report; bill goes to the House Rules Committee that evening.</li>
+      <li><span class="date">Mar 6, 2026, 12:25 PM</span>Released from Rules to the 3rd reading calendar &mdash; the last day of the session.</li>
+      <li class="flag"><span class="date">Mar 6, 2026, 8:57 PM</span>Fourth substitute adopted on the House floor by voice vote.</li>
+      <li><span class="date">Mar 6, 2026, 9:03 PM</span>House passes the fourth substitute, 64&ndash;1&ndash;10.</li>
+      <li><span class="date">Mar 6, 2026, 11:39 PM</span>Senate concurs, 26&ndash;0&ndash;3 &mdash; final passage.</li>
+      <li><span class="date">Mar 23, 2026</span>Signed by the Governor.</li>
+    </ul>
+  </section>
+
+  <section id="votes">
+    <h2>The Vote Record</h2>
+    <div class="lookup">
+      <label for="lk" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:6px;">Look up your legislator</label>
+      <input id="lk" type="text" placeholder="Type a last name, e.g. Okerlund" autocomplete="off">
+      <div class="lookup-list" id="lk-list"></div>
+      <div class="lookup-card" id="lk-card" aria-live="polite"></div>
+    </div>
+    <p class="method" style="margin-top:6px;">Names appear as the Legislature&rsquo;s roll calls print them. Only the roll calls listed on this page were reviewed; the Senate 2nd and 3rd reading roll calls were not.</p>
+    <table class="collective-table">
+      <thead><tr><th>Stage</th><th>Vote</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Senate committee</td><td>3&ndash;0&ndash;4</td><td>Feb 2, 2026. Four of seven members absent.</td></tr>
+        <tr><td>Senate 2nd reading</td><td>27&ndash;0&ndash;2</td><td>Feb 23, 2026.</td></tr>
+        <tr><td>Senate 3rd reading</td><td>25&ndash;0&ndash;4</td><td>Feb 24, 2026.</td></tr>
+        <tr><td>House committee</td><td>9&ndash;0&ndash;2</td><td>Mar 2, 2026. Same count on the amendment and on passage. Draft minutes.</td></tr>
+        <tr><td>House final passage</td><td>64&ndash;1&ndash;10</td><td>Mar 6, 2026, fourth substitute. One nay: Rep. L. Hansen.</td></tr>
+        <tr><td>Senate concurrence</td><td>26&ndash;0&ndash;3</td><td>Mar 6, 2026. Final passage.</td></tr>
+      </tbody>
+    </table>
+    <details class="inner">
+      <summary>House Revenue and Taxation Committee roll call, Mar 2 &#9656;</summary>
+      <p class="rollcall"><strong>Yeas (9), both votes:</strong> Christofferson, Dailey-Provost, Elison, Koford, Kyle, Nguyen, Okerlund, Shepherd, Strong. <strong>Absent (2):</strong> Barlow, Eliason.</p>
+    </details>
+    <details class="inner">
+      <summary>House final passage roll call, Mar 6 &#9656;</summary>
+      <p class="rollcall"><strong>Yeas (64):</strong> Acton, Albrecht, Arthur, Auxier, Ballard, Barlow, Brooks, Burton, Chevrier, Chew, Christofferson, Clancy, Cutler, Defay, Dominguez, Dunnigan, Eliason, Elison, Fiefia, Fitisemanu, Gricius, Gwynn, Hall, Hawkins, Hayes, Ivory, Jack, Koford, Kohler, Kyle, Lee, MacPherson, Maloy, Matthews, Mauga, G. Miller, T. Miller, Monson, Moss, Nguyen, Okerlund, D. Owens, Peck, M. Petersen, K. Peterson, T. Peterson, V. Peterson, Roberts, Romero, Sawyer, Schultz, Shallenberger, Shelley, Shepherd, Snider, Teuscher, Thompson, Thurston, Walter, Ward, Watkins, Welton, Whyte, Wilcox.</p>
+      <p class="rollcall"><strong>Nays (1):</strong> L. Hansen.</p>
+      <p class="rollcall"><strong>Absent or not voting (10):</strong> Abbott, Bolinder, Dailey-Provost, Hollins, Lisonbee, Loubet, Pierucci, Shipp, Stoddard, Strong.</p>
+    </details>
+    <details class="inner">
+      <summary>Senate concurrence roll call, Mar 6 &#9656;</summary>
+      <p class="rollcall"><strong>Yeas (26):</strong> Adams, Balderree, Blouin, Brammer, Buss, Escamilla, Fillmore, Grover, Harper, Hinkins, Ipson, Johnson, Kwan, McCay, Millner, Musselman, D.R. Owens, Pitcher, Plumb, Riebe, Sandall, Stevenson, Stratton, Vickers, Weiler, Winterton.</p>
+      <p class="rollcall"><strong>Nays:</strong> none. <strong>Absent or not voting (3):</strong> Cullimore, McKell, Wilson.</p>
+    </details>
+    <p style="margin-top:12px;">No recorded vote on this bill had more than one &ldquo;no.&rdquo; The public record reviewed does not state a reason for Rep. Hansen&rsquo;s vote, and absences are not explained in the roll calls.</p>
+  </section>
+
+  <section id="rubric">
+    <h2>Graded against the standing rubric</h2>
+    <p class="rubric-note">This isn't a personal opinion of the bill. The grade below asks two questions, applied the same way to every bill in this series: <strong>1. Power</strong> &mdash; does it add or remove a check on power that the public, collectively, would otherwise have no say over? <strong>2. Transparency</strong> &mdash; does it add or remove what the public can actually see about the process? Design and outcome are graded separately because a bill can pass in a form different from how it started.</p>
+    <div class="rubric-cols">
+      <div class="rubric-col">
+        <h3>As Designed (Senate version)</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Notice and a meeting, not a vote</span></div>
+        <div class="rubric-row"><span class="crit">Transparency</span><span class="val">Statewide database, but-for test, 40-year comparison, from the start of the process</span></div>
+        <div class="grade-final"><span class="grade-badge b">B</span><p style="margin:0;">A real transparency structure for a tool that previously had none statewide.</p></div>
+      </div>
+      <div class="rubric-col">
+        <h3>As It Happened (final law)</h3>
+        <div class="rubric-row"><span class="crit">Power</span><span class="val">Notice, not consent; 20% withholding yields to debt</span></div>
+        <div class="rubric-row"><span class="crit">Transparency</span><span class="val">Starts at the trigger; ceiling replaced; late voice-vote substitute</span></div>
+        <div class="grade-final"><span class="grade-badge c">C</span><p style="margin:0;">The disclosure system became law in a narrower form than the Senate passed.</p></div>
+      </div>
+    </div>
+    <p style="margin-top:18px;">In the final law, enforcement is a referral to the state auditor, a public listing, and a 20% withholding that does not apply when the money is needed for debt payments. Filings are labeled &ldquo;for informational purposes only,&rdquo; and the fourth substitute was adopted by voice vote six minutes before final passage.</p>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake, and did they get real standing to be heard?</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Power</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>School, fire, and water districts whose revenue is shared get notice within 30 days, not a say. For regional authorities like MIDA, which don&rsquo;t need taxing-entity consent, that notice is the only new check.</td></tr>
+        <tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill b">B</span></td><td>For the first time, every project area in the state must be filed in one public database, with an annual county-by-county report of how much property tax goes to tax increment. Weakened by the later trigger point and the &ldquo;informational purposes only&rdquo; label.</td></tr>
+        <tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill b">B</span></td><td>Increment must stop at the disclosed amount, excess must be returned or used to pay down debt, and it can be spent only for the disclosed purpose. The debt-payoff rule applies only when the debt allows early payment.</td></tr>
+        <tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>Not addressed by the bill.</td></tr>
+        <tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>Residents get a noticed public meeting with 10 days&rsquo; warning and a written benefit analysis. The analysis is prepared by the entity seeking the increment, and no one outside it is given a formal role in reviewing it.</td></tr>
+      </tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge c">C</span><p>A genuine transparency gain for Utah&rsquo;s tax-increment tools, narrowed during the session and backed by limited enforcement.</p></div>
+  </section>
+
+  <section class="fix-box" id="fix">
+    <h2>How This Could Have Actually Protected the Public</h2>
+    <ul class="plain">
+      <li>Required the full disclosure, including the 40-year benefit comparison, to be posted before the authorization meeting, so the public can read it before the vote rather than after</li>
+      <li>Given each affected taxing entity a formal window to object in writing, recorded in the disclosure</li>
+      <li>Kept the self-declared &ldquo;maximum tax increment&rdquo; ceiling alongside the authorized amount</li>
+      <li>Required the but-for and proportionate-benefit analyses to be reviewed by someone other than the entity seeking the increment</li>
+      <li>Named the reason for the House committee amendment and the late fourth substitute in the public record</li>
+    </ul>
+  </section>
+
+  <section class="question-box" id="open">
+    <h2>Still Open</h2>
+    <ul class="plain">
+      <li>What changed between the House-amended third substitute and the fourth substitute adopted by voice vote on March 6 is not documented in the records reviewed. The Legislature&rsquo;s substitute comparison documents would show it.</li>
+      <li>The posted text of &sect;59-2-924.2 credits &ldquo;Chapter 274, 2026 General Session.&rdquo; S.B. 206 amended that section with retroactive effect to January 1, 2026; the chapter number has not been independently matched to S.B. 206.</li>
+      <li>The House committee minutes used here are marked draft. Vote counts match the bill&rsquo;s status page.</li>
+      <li>The bill defines the program manager as an association representing at least two-thirds of Utah&rsquo;s counties. The Utah Association of Counties presented the bill at both committee hearings; its formal designation as program manager has not been confirmed in the records reviewed.</li>
+    </ul>
+  </section>
+
+  <details class="sources-box">
+    <summary>
+      <div class="sum-row">
+        <h2>Sources</h2>
+        <span class="toggle"><span class="show">Show sources &#9656;</span><span class="hide">Hide sources &#9662;</span></span>
+      </div>
+    </summary>
+    <div class="sources-body">
+      <ul class="plain">
+        <li><a href="https://le.utah.gov/Session/2026/bills/enrolled/SB0206.pdf">S.B. 206 (2026) enrolled copy</a> &mdash; le.utah.gov</li>
+        <li>S.B. 206 comparison, introduced bill vs. fourth substitute (&ldquo;SB0206S04 compared with SB0206&rdquo;) &mdash; le.utah.gov</li>
+        <li>S.B. 206 bill status and vote history &mdash; le.utah.gov</li>
+        <li>Senate Revenue and Taxation Standing Committee minutes, Feb 2, 2026</li>
+        <li>House Revenue and Taxation Standing Committee draft minutes, Mar 2, 2026 (Amendment #1 text and votes)</li>
+        <li>House roll call, S.B. 206 fourth substitute, Mar 6, 2026, 9:03 PM</li>
+        <li>Senate roll call, concurrence, Mar 6, 2026, 11:39 PM</li>
+        <li>Utah Code &sect;59-2-924.2, as posted, effective Jan 1, 2026</li>
+        <li><a href="https://webercountyutah.gov/news/post.php?id=185">Weber County notice, Nordic Village CRA adoption</a></li>
+        <li><a href="https://www.utah.gov/pmn/files/1207813.pdf">Weber Fire District &ndash; CRA interlocal agreement, Nordic Village (meeting packet copy)</a></li>
+        <li><a href="https://www.utah.gov/pmn/files/1309325.pdf">Weber Fire District Resolution 12-2025, Farr West Landing CRA</a></li>
+        <li>Cross-reference: <a href="weber-hive-sb197.html">S.B. 197 (2026)</a> and <a href="weber-hive-sb228.html">S.B. 228 (2019)</a>, this docket&rsquo;s own case files</li>
+      </ul>
+    </div>
+  </details>
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, committee minutes, roll calls, and public notices. Compiled by The Weber County Hive. Case file dated Sep 25, 2026.
+</footer>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); } });
+  });
+  document.querySelectorAll('.acc-head').forEach(h => h.addEventListener('click', () => {
+    const it = h.parentElement; it.classList.toggle('open'); h.setAttribute('aria-expanded', it.classList.contains('open'));
+  }));
+  document.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => {
+    const open = b.dataset.acc === 'open';
+    document.querySelectorAll('.acc-item').forEach(it => { it.classList.toggle('open', open); it.querySelector('.acc-head').setAttribute('aria-expanded', open); });
+  }));
+  document.querySelectorAll('[data-ver]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-ver]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.querySelectorAll('.ver-panel').forEach(p => p.classList.toggle('show', p.id === 'ver-' + b.dataset.ver));
+  }));
+
+  const CHK = {
+    nordic: { t: 'Nordic Village Community Reinvestment Area', li: [
+      '<span class="tag-yes">Yes &mdash; Jan. 1, 2027 filing.</span> The plan, budget, interlocals, and map must be filed with the program manager; the law applies &ldquo;regardless of when the project area is created.&rdquo;',
+      '<span class="tag-q">Likely &mdash; authorization meeting.</span> The fire district&rsquo;s interlocal starts the increment period at the agency&rsquo;s notice or Jan. 1, 2029, whichever is earlier. A trigger after July 1, 2026 appears to require the meeting and disclosure first.',
+      'Participating: Weber County (75%), Weber School District, Weber Basin Water, and Weber Fire District (50% each), 15 years. Fire district cap: $6 million.' ],
+      src: 'Weber County CRA notice; WFD&ndash;CRA interlocal; S.B. 206 &sect;59-35-201, -301' },
+    farrwest: { t: 'Farr West Landing Community Reinvestment Area', li: [
+      '<span class="tag-yes">Yes &mdash; Jan. 1, 2027 filing</span> of plan, budget, interlocals, and map, as an existing project area.',
+      '<span class="tag-q">Depends on timing &mdash; authorization meeting.</span> Required only if the increment is triggered after July 1, 2026. No trigger date was found in the records reviewed.',
+      'Weber Fire District approved its interlocal Aug. 12, 2025 (Resolution 12-2025).' ],
+      src: 'WFD Resolution 12-2025 and Aug. 12, 2025 minutes; S.B. 206 &sect;59-35-301' },
+    mida: { t: 'A Military Installation Development Authority project area', li: [
+      '<span class="tag-yes">Yes &mdash; authorization meeting and disclosure</span> before MIDA enters a new tax increment agreement or approves a bond authorization, from July 1, 2026.',
+      '<span class="tag-yes">Yes &mdash; Jan. 1, 2027 filing</span> for existing project areas.',
+      'For MIDA, the base for measuring increment on a parcel is the 12 months before the day MIDA receives its first property tax allocation from that parcel.' ],
+      src: 'S.B. 206 &sect;59-35-101 (definitions), -201, -301' },
+    new: { t: 'A brand-new CRA or PID created after July 1, 2026', li: [
+      '<span class="tag-yes">Yes &mdash; authorization meeting</span> with 10 days&rsquo; notice, then a disclosure within 30 days, before increment is triggered.',
+      '<span class="tag-yes">Yes &mdash; 40-year comparison</span> of what any party receives versus what each taxing entity receives.',
+      '<span class="tag-yes">Yes &mdash; filing</span> of the plan, budget, interlocals, and map before January 1 of the year after it is created.',
+      'If it doesn&rsquo;t trigger within five years of disclosing, it must hold a new meeting and file again.' ],
+      src: 'S.B. 206 &sect;59-35-201, -202, -203, -301' },
+    annex: { t: 'Roy and Riverdale joining Weber Fire District', li: [
+      '<span class="tag-q">Not a tax-increment question.</span> S.B. 206&rsquo;s disclosure rules don&rsquo;t apply to an annexation.',
+      'The bill reorganized &sect;59-2-924.2, which requires each annexing city to cut its own rate by its prior-year budget for fire, paramedic, and emergency services. That rule is unchanged.',
+      'It also changed who counts as a &ldquo;participating&rdquo; city: no longer only cities inside the district when it was created.' ],
+      src: 'Utah Code &sect;59-2-924.2 as amended by S.B. 206' }
+  };
+  const out = document.getElementById('checker-out');
+  document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-chk]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const c = CHK[b.dataset.chk];
+    out.innerHTML = '<h3>' + c.t + '</h3><ul>' + c.li.map(x => '<li>' + x + '</li>').join('') + '</ul><div class="src">Source: ' + c.src + '</div>';
+  }));
+
+  const V = {};
+  function add(chamber, names, stage, vote){ names.split('|').forEach(n => { const k = chamber + ' ' + n; (V[k] = V[k] || []).push([stage, vote]); }); }
+  add('Sen.','Cullimore, K.|Harper, W.|McCay, D.','Senate committee, Feb 2','Yea');
+  add('Sen.','Brammer, B.|Escamilla, L.|Fillmore, L.|Wilson, C.','Senate committee, Feb 2','Absent');
+  add('Sen.','Adams, J. Stuart|Balderree, H.|Blouin, N.|Brammer, B.|Buss, E.|Escamilla, L.|Fillmore, L.|Grover, K.|Harper, W.|Hinkins, D.|Ipson, D.|Johnson, J.|Kwan, K.|McCay, D.|Millner, A.|Musselman, C.R.|Owens, D.R.|Pitcher, S.|Plumb, J.|Riebe, K.|Sandall, S.|Stevenson, J.|Stratton, K.|Vickers, E.|Weiler, T.|Winterton, R.','Senate final concurrence, Mar 6','Yea');
+  add('Sen.','Cullimore, K.|McKell, M.|Wilson, C.','Senate final concurrence, Mar 6','Absent');
+  add('Rep.','Christofferson, K.|Dailey-Provost, J.|Elison, J.|Koford, J.|Kyle, J.|Nguyen, H.|Okerlund, C.|Shepherd, L.|Strong, M.A.','House committee amendment, Mar 2','Yea');
+  add('Rep.','Christofferson, K.|Dailey-Provost, J.|Elison, J.|Koford, J.|Kyle, J.|Nguyen, H.|Okerlund, C.|Shepherd, L.|Strong, M.A.','House committee passage, Mar 2','Yea');
+  add('Rep.','Barlow, S.|Eliason, S.','House committee amendment, Mar 2','Absent');
+  add('Rep.','Barlow, S.|Eliason, S.','House committee passage, Mar 2','Absent');
+  add('Rep.','Acton, C.K.|Albrecht, C.|Arthur, J.|Auxier, T.|Ballard, M.G.|Barlow, S.|Brooks, W.|Burton, J.|Chevrier, K.|Chew, S.|Christofferson, K.|Clancy, T.|Cutler, P.|Defay, A.|Dominguez, R.|Dunnigan, J.|Eliason, S.|Elison, J.|Fiefia, D.|Fitisemanu, J.|Gricius, S.|Gwynn, M.|Hall, K.|Hawkins, J.|Hayes, S.|Ivory, K.|Jack, C.|Koford, J.|Kohler, M.|Kyle, J.|Lee, T.|MacPherson, M.|Maloy, A. Cory|Matthews, A.|Mauga, V.|Miller, G.|Miller, T.|Monson, L.|Moss, C.|Nguyen, H.|Okerlund, C.|Owens, D.|Peck, N.|Petersen, M.|Peterson, K.|Peterson, T.|Peterson, V.|Roberts, C.|Romero, A.|Sawyer, J.|Schultz, M.|Shallenberger, D.|Shelley, T.|Shepherd, L.|Snider, C.|Teuscher, J.|Thompson, J.|Thurston, N.|Walter, N.|Ward, R.|Watkins, C.|Welton, D.|Whyte, S.|Wilcox, R.','House final passage, Mar 6','Yea');
+  add('Rep.','Hansen, L.','House final passage, Mar 6','Nay');
+  add('Rep.','Abbott, N.|Bolinder, B.|Dailey-Provost, J.|Hollins, S.|Lisonbee, K.|Loubet, A.|Pierucci, C.|Shipp, R.P.|Stoddard, A.|Strong, M.A.','House final passage, Mar 6','Absent');
+  const NAMES = Object.keys(V).sort((a,b) => a.split(' ').slice(1).join(' ').localeCompare(b.split(' ').slice(1).join(' ')));
+  const lk = document.getElementById('lk'), list = document.getElementById('lk-list'), card = document.getElementById('lk-card');
+  function show(k){
+    const rows = V[k].map(([st, v]) => '<tr><td>' + st + '</td><td class="v-' + (v === 'Yea' ? 'yea' : v === 'Nay' ? 'nay' : 'abs') + '">' + v + '</td></tr>').join('');
+    const extra = k === 'Rep. Walter, N.' ? '<p class="lookup-note">House sponsor of S.B. 206.</p>' : k === 'Sen. Harper, W.' ? '<p class="lookup-note">Primary sponsor of S.B. 206.</p>' : k === 'Rep. Christofferson, K.' ? '<p class="lookup-note">Moved Amendment #1 and the committee&rsquo;s favorable recommendation.</p>' : '';
+    card.innerHTML = '<h3>' + k + '</h3><table>' + rows + '</table>' + extra + '<p class="lookup-note">A vote shows only how this legislator voted on S.B. 206. It says nothing about any other bill or conduct.</p>';
+    card.classList.add('show');
+  }
+  lk.addEventListener('input', () => {
+    const q = lk.value.trim().toLowerCase();
+    list.innerHTML = ''; if (!q) { card.classList.remove('show'); return; }
+    const hits = NAMES.filter(k => k.toLowerCase().includes(q)).slice(0, 10);
+    if (!hits.length) { list.innerHTML = '<span style="font-size:13px;color:var(--ink-soft);">No match in the roll calls reviewed.</span>'; return; }
+    hits.forEach(k => { const b = document.createElement('button'); b.textContent = k; b.addEventListener('click', () => show(k)); list.appendChild(b); });
+    if (hits.length === 1) show(hits[0]);
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+
+</body>
+</html>
