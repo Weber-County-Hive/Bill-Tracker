@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Doors to One Trail | H.B. 2 (2026) Pioneer Trail Grants | The Legislative Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D; --navy-deep:#0D1728;
+    --manila:#D9C9A3; --manila-dark:#C4B389;
+    --paper:#EDE7D8; --paper-light:#F5F1E6;
+    --ink:#1F1B16; --ink-soft:#4A443A;
+    --red:#A5301E; --green:#3F6B3B; --gold:#A9822F; --rule:#B7AC91;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);
+    background-image:radial-gradient(circle at 15% 0%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 85% 100%, rgba(255,255,255,0.03), transparent 50%);
+    color:var(--paper);font-family:'Source Serif 4', Georgia, serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .back{display:block;max-width:800px;margin:0 auto;padding:28px 28px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--manila);text-decoration:none;opacity:0.8;}
+  .back:hover{opacity:1;}
+  .masthead{max-width:800px;margin:0 auto;padding:26px 28px 34px;border-bottom:1px solid rgba(217,201,163,0.25);}
+  .case-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:var(--ink);background:var(--manila-dark);padding:5px 14px 4px;border-radius:0 0 4px 4px;margin-bottom:18px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .masthead h1{font-size:clamp(28px,4.5vw,42px);line-height:1.12;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;color:var(--paper-light);}
+  .dek{max-width:62ch;font-size:18px;line-height:1.6;color:rgba(237,231,216,0.78);margin:0 0 20px;}
+  .stampline{display:flex;gap:18px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--manila);}
+  .stampline strong{color:var(--paper-light);}
+  .stamp-status{display:inline-block;font-family:'Special Elite',monospace;text-transform:uppercase;font-size:13px;letter-spacing:0.05em;border:2px solid var(--red);color:var(--red);border-radius:5px;padding:3px 10px;transform:rotate(-4deg);}
+  .stamp-status.law{border-color:var(--green);color:var(--green);}
+
+  main{max-width:800px;margin:0 auto;padding:36px 28px 100px;}
+  section{background:var(--paper);color:var(--ink);border-radius:2px;padding:32px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);}
+  section h2{font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:2px solid var(--gold);padding-bottom:9px;margin:0 0 16px;}
+  section p{font-size:16px;line-height:1.65;margin:0 0 14px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+  .finding{border-left:4px solid var(--red);padding:4px 0 4px 18px;margin:16px 0;}
+  .finding p{color:var(--ink);}
+
+  ul.plain{padding-left:20px;margin:0 0 14px;}
+  ul.plain li{margin-bottom:8px;line-height:1.6;font-size:15.5px;}
+
+  .timeline{list-style:none;padding:0;margin:0;}
+  .timeline li{position:relative;padding:2px 0 16px 24px;border-left:2px solid var(--rule);font-size:15.5px;line-height:1.55;}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  .timeline li.flag::before{background:var(--red);}
+  .timeline .date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-bottom:2px;}
+
+  .quote-block{border-left:4px solid var(--gold);padding:6px 0 6px 18px;margin:16px 0;font-style:italic;}
+  .quote-block cite{display:block;margin-top:6px;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rubric-note{font-size:14px;line-height:1.6;color:var(--ink-soft);background:rgba(169,130,47,0.08);border:1px dashed var(--rule);border-radius:4px;padding:14px 16px;margin-bottom:20px;}
+  .rubric-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:600px){.rubric-cols{grid-template-columns:1fr;}}
+  .rubric-col h3{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;}
+  .rubric-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-bottom:1px dashed var(--rule);align-items:baseline;}
+  .rubric-row:last-child{border-bottom:none;}
+  .rubric-row .crit{font-weight:600;font-size:14.5px;}
+  .rubric-row .val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);text-align:right;max-width:52%;}
+  .grade-final{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .grade-badge{font-family:'Special Elite',monospace;font-size:30px;border-radius:8px;padding:2px 14px;transform:rotate(-3deg);}
+  .grade-badge.a{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.b{color:var(--green);border:3px solid var(--green);}
+  .grade-badge.c{color:var(--gold);border:3px solid var(--gold);}
+  .grade-badge.d{color:var(--red);border:3px solid var(--red);}
+  .grade-badge.f{color:var(--red);border:3px solid var(--red);}
+
+  .simple-box{background:var(--paper-light);border:2px dashed var(--gold);}
+  .simple-box p{font-size:17px;line-height:1.75;}
+  .simple-box .lede{font-size:19px;font-weight:600;}
+
+  .question-box{background:var(--paper-light);border:2px dashed var(--red);}
+  .question-box .big-q{font-size:19px;font-weight:600;line-height:1.5;}
+
+  .fix-box{background:var(--paper-light);border:2px dashed var(--green);}
+  .fix-box h2{border-bottom-color:var(--green);}
+  .fix-box ul.plain li{margin-bottom:10px;}
+
+  table.collective-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14.5px;}
+  table.collective-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--gold);}
+  table.collective-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.collective-table tr:last-child td{border-bottom:none;}
+  table.collective-table td:first-child{font-weight:600;width:16%;}
+  table.collective-table td.grade-cell{width:8%;text-align:center;}
+  .grade-pill{display:inline-block;font-family:'Special Elite',monospace;font-size:14px;border-radius:5px;padding:2px 9px;}
+  .grade-pill.a,.grade-pill.b{color:var(--green);border:2px solid var(--green);}
+  .grade-pill.c{color:var(--gold);border:2px solid var(--gold);}
+  .grade-pill.d,.grade-pill.f{color:var(--red);border:2px solid var(--red);}
+  .grade-pill.na{color:var(--ink-soft);border:2px solid var(--rule);}
+  .overall-box{display:flex;align-items:center;gap:16px;margin-top:16px;padding-top:14px;border-top:2px solid var(--gold);}
+  .overall-box p{margin:0;font-weight:600;}
+  @media(max-width:600px){
+    table.collective-table, table.collective-table thead, table.collective-table tbody, table.collective-table th, table.collective-table td, table.collective-table tr{display:block;}
+    table.collective-table thead{display:none;}
+    table.collective-table td{border-bottom:none;padding:5px 0;}
+    table.collective-table td:first-child{width:auto;color:var(--gold);padding-top:12px;}
+    table.collective-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  details.sources-box{background:var(--paper);color:var(--ink);border-radius:2px;margin-bottom:22px;box-shadow:0 14px 30px -14px rgba(0,0,0,0.5);overflow:hidden;}
+  details.sources-box summary{list-style:none;cursor:pointer;padding:32px;}
+  details.sources-box summary::-webkit-details-marker{display:none;}
+  details.sources-box summary .sum-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--gold);padding-bottom:9px;}
+  details.sources-box summary h2{margin:0;border-bottom:none;padding-bottom:0;font-family:'Special Elite',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  details.sources-box summary .toggle{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:var(--gold);white-space:nowrap;}
+  details.sources-box summary .toggle .hide{display:none;}
+  details.sources-box[open] summary .toggle .show{display:none;}
+  details.sources-box[open] summary .toggle .hide{display:inline;}
+  details.sources-box[open] summary{padding-bottom:6px;}
+  details.sources-box .sources-body{padding:0 32px 32px;}
+
+  table.protect-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px;}
+  table.protect-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold);}
+  table.protect-table td{padding:12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;}
+  table.protect-table tr:last-child td{border-bottom:none;}
+  table.protect-table td:first-child{font-weight:600;width:32%;}
+  @media(max-width:600px){
+    table.protect-table, table.protect-table thead, table.protect-table tbody, table.protect-table th, table.protect-table td, table.protect-table tr{display:block;}
+    table.protect-table thead{display:none;}
+    table.protect-table td{border-bottom:none;padding:6px 0;}
+    table.protect-table td:first-child{width:auto;padding-top:14px;color:var(--gold);}
+    table.protect-table tr{border-bottom:1px dashed var(--rule);padding-bottom:8px;margin-bottom:6px;}
+  }
+
+  footer{max-width:800px;margin:0 auto;padding:0 28px 60px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(237,231,216,0.4);border-top:1px solid rgba(217,201,163,0.15);padding-top:22px;}
+
+  .jumpnav{max-width:800px;margin:0 auto;padding:18px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+  .jumpnav button{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.03em;background:rgba(255,255,255,0.05);border:1px solid rgba(217,201,163,0.3);color:var(--manila);border-radius:20px;padding:6px 13px;cursor:pointer;transition:background 0.15s ease, border-color 0.15s ease;}
+  .jumpnav button:hover{background:rgba(255,255,255,0.1);border-color:var(--gold);}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin-bottom:24px;}
+  .flow-step{flex:1 1 120px;background:var(--manila-dark);color:var(--ink);border-radius:4px;padding:10px 12px;font-size:12px;line-height:1.4;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+  .flow-step.hot{background:var(--red);color:var(--paper-light);}
+  .flow-step .fdate{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.75;margin-bottom:4px;}
+  .flow-arrow{align-self:center;color:var(--gold);font-size:18px;flex:0 0 auto;}
+  @media(max-width:600px){.flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg);}}
+
+  table.parts-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:14px;}
+  table.parts-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  table.parts-table td{padding:11px 12px;border-bottom:1px dashed var(--rule);vertical-align:top;line-height:1.5;font-size:14px;}
+  table.parts-table tr:last-child td{border-bottom:none;}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  .money-table{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 6px;}
+  .money-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper-light);text-align:left;padding:10px 12px;background:var(--navy);}
+  .money-table td{padding:12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.55;}
+  .money-table td.amt{font-family:'IBM Plex Mono',monospace;font-weight:600;white-space:nowrap;}
+  .money-table tr.total td{font-weight:700;border-top:2px solid var(--gold);}
+  .tag-new{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:1px 7px;border-radius:3px;margin-top:4px;border:1px solid var(--green);color:var(--green);}
+  .tag-old{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:1px 7px;border-radius:3px;margin-top:4px;border:1px solid var(--red);color:var(--red);}
+  .mermaid{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:14px;margin:14px 0;font-size:18px;text-align:center;}
+  #trailmap{height:420px;border:1px solid var(--rule);border-radius:4px;margin:12px 0;}
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .person{background:var(--paper-light);border:1px solid var(--rule);border-radius:4px;padding:14px 16px;}
+  .person h3{margin:0 0 4px;font-size:18px;}
+  .person .role{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);margin-bottom:8px;}
+  .person p{margin:0 0 6px;font-size:16px;line-height:1.55;}
+  .note-box{border-left:4px solid var(--rule);padding:10px 16px;background:#fff;margin-top:14px;}
+  .note-box.red{border-left-color:var(--red);background:rgba(165,48,30,0.06);}
+  ol.q li{margin-bottom:12px;line-height:1.6;}
+  .scale-line{font-size:15px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  @media (max-width:640px){section{padding:22px 16px;} .money-table{font-size:15px;} .money-table thead{display:none;} .money-table tr{display:block;border-bottom:2px solid var(--rule);padding:8px 0;} .money-table td{display:block;border:none;padding:4px 4px;} #trailmap{height:320px;}}
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Back to The Legislative Docket</a>
+
+<header class="masthead">
+  <span class="case-tag">CASE 2026-HB2-PT</span>
+  <p class="eyebrow">H.B. 2 &middot; 2026 General Session &middot; Pioneer Trail grants</p>
+  <h1>Four Doors to One Trail</h1>
+  <p class="dek">The state budget bill sends up to $10 million to the Pioneer Trail Foundation through four separate agencies and four separate pots of money. Only one of the four is matched to new money shown in its own line of the bill. One House member tried to stop it on the floor; the House declined to pause debate for his change.</p>
+  <div class="stampline">
+    Primary Sponsor: Rep. Val L. Peterson &middot; Senate Sponsor: Sen. Jerry W. Stevenson
+    <span>Effective: <strong>Signed March 26, 2026</strong></span>
+    <span class="stamp-status law">Became Law</span>
+  </div>
+</header>
+
+<nav class="jumpnav">
+  <button data-scroll-to="simple">Start Simple</button><button data-scroll-to="money">The Four Grants</button><button data-scroll-to="diagram">Money Map</button><button data-scroll-to="map">Trail Map</button><button data-scroll-to="floor">The Floor Vote</button><button data-scroll-to="timeline">Timeline</button><button data-scroll-to="people">Who's Who</button><button data-scroll-to="collective">Rubric Grade</button><button data-scroll-to="questions">Questions to Ask</button>
+</nav>
+
+<main>
+
+  <section class="simple-box" id="simple">
+    <h2>New Here? Start Simple</h2>
+    <p class="lede">"A group had an idea for a walking trail. It formed a nonprofit. The state budget then named that nonprofit for up to $10 million, split four ways."</p>
+    <p>Every year Utah's Legislature passes budget bills. H.B. 2 is one of them. It is thousands of lines long, and most of it is ordinary: money for courts, colleges, roads and state offices.</p>
+    <p>Tucked inside are four short paragraphs, in four different parts of the bill, that each send money to the same private nonprofit: the <strong>Pioneer Trail Foundation</strong>. The foundation is planning a walking route in downtown Salt Lake City linking Temple Square and the State Capitol.</p>
+    <p>Add the four together and you get <strong>up to $10 million</strong>. You would not see that total by reading any one line. And only one of the four lines is matched to new money shown in its own item. Two name sources that their items add no H.B. 2 money from, and the fourth sits in an item whose H.B. 2 additions are smaller than the grants written into it. Because H.B. 2 adds to earlier budget bills, that does not mean money is missing; it means the bill alone does not show which dollars pay for the trail.</p>
+    <p>None of this says the trail is a bad idea. Lawmakers who spoke for it called it a future landmark. This page lays out what the bill says, what the vote record shows, and what it does not.</p>
+  </section>
+
+  <section id="money">
+    <h2>The Four Grants, Line by Line</h2>
+    <p>Each line below is quoted from the enrolled H.B. 2 (2026). Each one calls the payment a "direct award grant" under Utah Code Title 63G, Chapter 6b, and each names the Pioneer Trail Foundation as the recipient.</p>
+    <table class="money-table">
+      <thead><tr><th>Where in H.B. 2</th><th>Grant</th><th>Paid from</th><th>Matched to new money shown in this item?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Item 27</strong> &middot; Governor's Office of Economic Opportunity, Pass-Through</td><td class="amt">$5,000,000</td><td>Not named in the grant. Item 27's funding: $5,175,000 one-time General Fund, $2,000,000 one-time Income Tax Fund, and a $1,400,000 ongoing General Fund cut</td><td><span class="tag-old">Partly / unclear</span><br>Item 27 adds $7,175,000 one-time and cuts $1,400,000 ongoing, a net increase of $5,775,000. The ten grants written into item 27 add up to $10,220,700. Item 27 also draws on money appropriated in other budget bills, and H.B. 2 does not say which dollars pay the trail grant.</td></tr>
+        <tr><td><strong>Item 148</strong> &middot; Dept. of Natural Resources, Outdoor Recreation &ndash; Capital</td><td class="amt">up to $2,000,000</td><td>Outdoor Adventure Infrastructure Restricted Account</td><td><span class="tag-old">No new line</span><br>Item 148's own funding lines are federal funds and the Off-Highway Vehicle Account. Neither is the account named in the grant.</td></tr>
+        <tr><td><strong>Item 170</strong> &middot; Capital Budget, Capital Improvements</td><td class="amt">up to $1,000,000</td><td>"Capital Improvements funding," for Council Hall and other Capitol Complex work tied to the trail</td><td><span class="tag-old">No new line</span><br>Item 170 has no dollar lines in H.B. 2; it is intent language only</td></tr>
+        <tr><td><strong>Item 179</strong> &middot; Transportation, Pass-Through</td><td class="amt">up to $2,000,000</td><td>Active Transportation Investment Fund</td><td><span class="tag-new">Yes</span><br>Item 179 adds exactly $2,000,000 one-time from that fund</td></tr>
+        <tr class="total"><td>Total named for the foundation</td><td class="amt">up to $10,000,000</td><td>Four agencies, four sources</td><td>$2M matched to a new line in its item; $5M in an item whose H.B. 2 additions are smaller than its named grants; up to $3M from sources their items add no H.B. 2 money from</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      <p style="margin:0 0 8px;"><strong>What "up to" means:</strong> three of the four grants are written as caps. The bill allows up to that amount; it does not show what was actually paid. Payment records would show that.</p>
+      <p style="margin:0 0 8px;"><strong>What the state budget site shows:</strong> the Legislature's budget site (COBI) lists two funded items for the trail: "The Pioneer Trail," $5,000,000 one-time, and "Pioneer Trail Project," $2,000,000 one-time. That is $7 million. There is no funding item for the other two grants (items 148 and 170), which matches the bill: neither item adds H.B. 2 money from the source its grant names. H.B. 2 adds to amounts appropriated in other budget bills, so these lines show only what changed in H.B. 2, not every dollar available.</p>
+      <p style="margin:0 0 8px;"><strong>Why four sources:</strong> the Deseret News reported (April 28, 2026) that the trail was funded from four different sources because of a tight budget year.</p>
+      <p style="margin:0;"><strong>What the four paragraphs do and don't say:</strong> the four trail grant paragraphs do not state a matching contribution or a report back to lawmakers. In the same bill, four homelessness funding items in item 46 do state both: a 1:1 local match and a report to the Executive Appropriations Committee before spending. However, each trail paragraph invokes Utah's State Grants chapter (Utah Code Title 63G, Chapter 6b), which has its own requirements. The grant agreements and that chapter would have to be reviewed before concluding what budgets, deliverables, reporting or other conditions apply.</p>
+    </div>
+    <div class="note-box red">
+      <p style="margin:0;"><strong>Not found by name:</strong> we searched a copy of the Legislature's public list of 2026 Requests for Appropriation (copied Oct. 4, 2026) for "Pioneer," "Capitol" and "Council Hall" and found no request under those search terms. A request could exist under another title. News reports say Gov. Spencer Cox's budget asked for $5 million for the trail.</p>
+    </div>
+  </section>
+
+  <section id="diagram">
+    <h2>Money Map: Four Doors, One Recipient</h2>
+    <p>Green box: matched to new money added in H.B. 2. Red boxes: money the agency already has. Gold box: partly new, partly existing; the bill does not say which.</p>
+<pre class="mermaid">
+flowchart LR
+  A["Item 27 budget<br/>(new one-time money<br/>+ existing budget)"] -->|"$5,000,000"| G["Governor's Office of<br/>Economic Opportunity<br/>Item 27"]
+  B["Outdoor Adventure<br/>Infrastructure<br/>Restricted Account"] -->|"up to $2,000,000"| D["Natural Resources<br/>Outdoor Recreation<br/>Item 148"]
+  C["Capital Improvements<br/>funding"] -->|"up to $1,000,000"| F["Facilities Construction<br/>and Management<br/>Item 170"]
+  E["Active Transportation<br/>Investment Fund<br/>(new one-time)"] -->|"up to $2,000,000"| T["Transportation<br/>Pass-Through<br/>Item 179"]
+  G --> P["Pioneer Trail<br/>Foundation<br/>up to $10,000,000"]
+  D --> P
+  F --> P
+  T --> P
+  classDef newm fill:#e3f1e1,stroke:#3F6B3B,stroke-width:2px,color:#1F1B16;
+  classDef oldm fill:#f6e3df,stroke:#A5301E,stroke-width:2px,color:#1F1B16;
+  classDef dest fill:#14213D,stroke:#14213D,color:#F5F1E6;
+  class E newm;
+  classDef mixm fill:#f7ecd2,stroke:#A9822F,stroke-width:2px,color:#1F1B16;
+  class A mixm;
+  class B,C oldm;
+  class P dest;
+</pre>
+    <p style="font-size:15px;color:var(--ink-soft);">Tip: on a phone, turn your screen sideways to see the full diagram.</p>
+  </section>
+
+  <section id="map">
+    <h2>Where the Trail Would Go</h2>
+    <p>The foundation describes a 1.8-mile route from Temple Square to the State Capitol. KSL reported that the loop would link Temple Square, City Creek Park, Council Hall, the Capitol and Memory Grove. The Deseret News described the main line running past Temple Square along South Temple, then north up State Street to the Capitol, with a side route to Brigham Young's pioneer cemetery, the Cathedral of the Madeleine and the First Presbyterian Church. Reported lengths vary (1 mile, 1.8 miles, 2 miles). The markers below show the five landmarks KSL named. They are approximate points for orientation, not the official route, which has not been published in the records reviewed here.</p>
+    <div id="trailmap" role="img" aria-label="Map of downtown Salt Lake City showing Temple Square, City Creek Park, Council Hall, the Utah State Capitol and Memory Grove"></div>
+  </section>
+
+  <section id="floor">
+    <h2>What Happened on the House Floor</h2>
+    <p>On March 3, 2026, H.B. 2 came up for its final House debate at 9:47 a.m. Rep. Nelson T. Abbott, R-Orem, filed House Amendment 1 at 9:59 a.m. It would have deleted all four Pioneer Trail grants. The deleted text is shown in braces { } in the amendment.</p>
+    <p>According to KSL's report that day, Abbott asked the House to pause debate so he could bring the amendment, saying the trail could be a good thing but questioning whether it was worth $10 million in state money. In his words: <em>"does it deserve $10 million in state money? I don't think so."</em> Rep. Kristen Chevrier, R-Highland, also backed pausing, saying several of her committee's recommendations were not in the budget. Budget chair Rep. Val Peterson responded that the budget had been negotiated with the Senate and that changing it would undo weeks of work. KSL reported that the effort to postpone debate failed.</p>
+    <p>Speaking to the Deseret News later, Abbott said the project did not get a typical committee hearing or recommendation, that he does not oppose the idea itself, and that he had not seen details of how the money would be used: <em>"Before we pay for the path, we need to see the map."</em></p>
+    <p>Two minutes after the amendment's time stamp, at 10:01 a.m., the House passed H.B. 2, <strong>68&ndash;6&ndash;1</strong>, with all four grants still in it.</p>
+    <table class="money-table">
+      <thead><tr><th>Vote</th><th>Members</th></tr></thead>
+      <tbody>
+        <tr><td><strong>No (6)</strong></td><td>Nelson Abbott, Kristen Chevrier, L. Hansen, Trevor Lee, Nicholeen Peck, Mike Petersen</td></tr>
+        <tr><td><strong>Not voting (1)</strong></td><td>Karianne Lisonbee</td></tr>
+        <tr><td><strong>Yes (68)</strong></td><td>All other House members, including primary sponsor Val Peterson</td></tr>
+      </tbody>
+    </table>
+    <p>The Senate passed the bill the next day, March 4, 25&ndash;0&ndash;4. KSL reported that Senate leaders, including budget chair Sen. Jerry Stevenson and Minority Leader Luz Escamilla, spoke in favor of the trail funding. Gov. Cox signed the bill March 26, 2026.</p>
+    <div class="note-box">
+      <p style="margin:0 0 8px;"><strong>After the session:</strong> on March 12, 2026, The Salt Lake Tribune reported that Abbott said one of his bills was killed, and that he felt mocked, after he questioned the trail money. The Tribune described an end-of-session video image showing him behind the budget chair with the caption <em>"You prob-ly should vote for Val's budget or forfeit your RFA."</em> An RFA is a request for appropriation.</p>
+      <p style="margin:0;"><strong>Reading note:</strong> only the opening paragraphs of the Tribune story were available (the rest is behind a paywall). Which bill Abbott was referring to, and the rest of his account, have not been read. These are Abbott's statements as reported, not findings of this case file.</p>
+    </div>
+    <div class="note-box">
+      <p style="margin:0;"><strong>Also in the record:</strong> Rep. Lisonbee, the one House member recorded as not voting, sponsored H.A.R. 13, the $130 million "Prison Capacity Expansion" request. That amount is in this same bill (item 169); the Legislative Fiscal Analyst puts the final prison-capacity figure at $125.0 million after a second budget bill (H.B. 3). The roll call shows only that she did not vote, not why. Missing a vote is common.</p>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <h2>The Timeline</h2>
+    <ul class="timeline">
+      <li>May 2025 &mdash; Ryan Beck presents the trail idea to top state policymakers (Deseret News); KSL reports foundation members presented it to the Capitol Preservation Board in May.</li>
+      <li class="flag">Dec. 10, 2025 &mdash; The Pioneer Trail Foundation is formed as a Utah nonprofit corporation (entity #14638773-0140). The state filing (Utah Division of Corporations entity record, viewed Aug. 25, 2026) lists Matthew T. Sanderson as incorporator and no officers or directors.</li>
+      <li>Before the 2026 session &mdash; Gov. Cox's budget asks for $5 million for the trail (per KSL).</li>
+      <li>March 1, 2026 &mdash; H.B. 2 numbered and made public.</li>
+      <li class="flag">March 3, 2026, 9:47&ndash;10:01 a.m. &mdash; Final House debate. Abbott files an amendment to strike all four grants; the move to pause debate fails; the House passes the bill 68&ndash;6&ndash;1.</li>
+      <li>March 4, 2026 &mdash; Senate passes the bill 25&ndash;0&ndash;4.</li>
+      <li>March 12, 2026 &mdash; Tribune reports Abbott's account of what happened after he questioned the trail money.</li>
+      <li>March 26, 2026 &mdash; Gov. Cox signs H.B. 2. The grants are for fiscal year 2027 (July 1, 2026 &ndash; June 30, 2027).</li>
+      <li>April 22&ndash;28, 2026 &mdash; Deseret News walks the route with foundation leaders and reports the foundation plans to ask the Legislature for millions more in 2027 and 2028.</li>
+    </ul>
+  </section>
+
+  <section id="people">
+    <h2>Who's Who</h2>
+    <div class="people">
+      <div class="person"><h3>Pioneer Trail Foundation</h3><div class="role">Recipient &middot; Utah nonprofit, formed Dec. 10, 2025</div><p>Named in all four grants. Its state filing lists no officers or directors, only its incorporator. The Deseret News (April 28, 2026) names its leaders: chairman <strong>Ryan Beck</strong>, director <strong>Alex Burton</strong>, and board members <strong>Patrick Mason</strong> (chair of Latter-day Saint history and culture at Utah State University) and <strong>Natalie Gochnour</strong> (director of the University of Utah's Kem C. Gardner Policy Institute). Rosie Gochnour is also pictured with the foundation.</p><p>Other money reported: $300,000 from This is the Place Foundation, $2 million from Gail Miller and Kem Gardner, and a $1.9 million Salt Lake City commitment for Memory Grove Park.</p><p><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/follow-the-money-uwha.html">See it in the Ledger's Follow the Money case &rarr;</a></p></div>
+      <div class="person"><h3>Matthew T. Sanderson</h3><div class="role">Incorporator of the foundation</div><p>A Washington, D.C. attorney who incorporated six Utah entities in Hive records, including All In For Utah Foundation, which lists itself as a founding sponsor and donor of the trail. Incorporating an entity is legal paperwork; it does not show he runs it.</p><p><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/follow-the-money-uwha.html">Sanderson's six entities &rarr;</a></p></div>
+      <div class="person"><h3>Rep. Val L. Peterson</h3><div class="role">R-Orem &middot; H.B. 2 primary sponsor, House budget chair</div><p>Defended the budget on the floor as a negotiated package and voted yes.</p></div>
+      <div class="person"><h3>Sen. Jerry W. Stevenson</h3><div class="role">R-Layton &middot; H.B. 2 Senate sponsor, Senate budget chair</div><p>Spoke in favor of the trail funding, per KSL.</p><p><a href="https://weber-county-hive.github.io/utah-senators/jerry-stevenson.html">Stevenson profile &rarr;</a></p></div>
+      <div class="person"><h3>Rep. Nelson T. Abbott</h3><div class="role">R-Orem &middot; Filed the amendment to strike the grants</div><p>Voted no on H.B. 2. Separately, in 2025 he sponsored a request for appropriation for UVU's Herbert Institute.</p><p><a href="weber-hive-2026-appropriation-requests.html">2026 requests page &rarr;</a></p></div>
+      <div class="person"><h3>Gov. Spencer Cox</h3><div class="role">Requested $5M for the trail; signed H.B. 2</div><p>His budget's $5 million request matches the size of the item 27 grant. The Legislature's up-to-$10 million doubled it (Deseret News).</p></div>
+    </div>
+  </section>
+
+  <section id="collective">
+    <h2>Graded by the Collective Rubric</h2>
+    <p class="rubric-note">This is The Weber County Hive's standing five-part rubric, applied the same way across every piece: <strong>Power</strong> &mdash; does it add or remove a check on power the public would otherwise have no say over? <strong>Transparency</strong> &mdash; can the public actually see the process? <strong>Financial Accountability</strong> &mdash; who actually pays, and is that disclosed plainly? <strong>Environmental Impact</strong> &mdash; is the effect on water, wetlands, and wildlife treated as a real constraint or a box to check? <strong>Community Impact</strong> &mdash; who bears the cost or holds a stake, and did they get real standing to be heard? The grade is about these four grants, not about whether the trail is a good idea.</p>
+    <table class="collective-table">
+      <thead><tr><th>Criterion</th><th>Grade</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Power</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>The Legislature used its normal power to name a grant recipient in a budget bill, and the bill passed by recorded votes in both chambers. A floor challenge was raised; the House declined to pause for it. Nothing here adds a new check, and no existing check was formally removed.</td></tr>
+        <tr><td>Transparency</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>The $10 million is split across four agencies and four sections of a very long bill, so no single line shows the total. Two of the four grants direct money from existing budgets through intent language only. The recipient's state filing names no officers or directors; its leaders have been named in news coverage, not on the state record. The Deseret News reported the four-way split was due to a tight budget year. No request for appropriation by the trail's name appears on the public list.</td></tr>
+        <tr><td>Financial Accountability</td><td class="grade-cell"><span class="grade-pill d">D</span></td><td>Three of four grants are open-ended caps ("up to"). Two draw on restricted accounts set aside for outdoor recreation and active transportation. Unlike some other grants in the same bill, the four trail paragraphs themselves state no match, no report back, and no deliverable beyond "construction." Each invokes the State Grants chapter, whose requirements and the grant agreements have not been reviewed here.</td></tr>
+        <tr><td>Environmental Impact</td><td class="grade-cell"><span class="grade-pill na">N/A</span></td><td>No environmental record is in hand for this downtown walking route. Not graded.</td></tr>
+        <tr><td>Community Impact</td><td class="grade-cell"><span class="grade-pill c">C</span></td><td>Statewide taxpayers and two restricted accounts fund a project in downtown Salt Lake City. The idea was presented at a public Capitol Preservation Board meeting and debated on the House floor; no committee hearing on the $10 million specifically has been found yet, and Rep. Abbott told the Deseret News it did not get one.</td></tr>
+      </tbody>
+    </table>
+    <div class="overall-box"><span class="grade-badge c">C-</span><p>Recorded votes and a public floor exchange, but up to $10 million to one new nonprofit is spread across four agencies, partly drawn from existing budgets by intent language alone, with no match or reporting stated in the grant paragraphs, and no officers listed on the recipient's state filing.</p></div>
+    <p class="scale-line">A C means the record meets what Utah law requires, the status quo. A B or A means the record goes beyond it. D means something is vague or bundled, or a public check is weakened; F means something required is missing, or a check is removed with nothing in its place. Grades can change: a single line showing the total, a reporting requirement, or published officers for the foundation would each move a grade up.</p>
+  </section>
+
+  <section class="fix-box">
+    <h2>How This Could Have Been Clearer</h2>
+    <ul class="plain">
+      <li>One line item, or one intent statement, showing the full up-to-$10 million total and its four sources together</li>
+      <li>A report back to an appropriations committee written into the grant paragraphs, as the same bill does for other grants</li>
+      <li>New appropriation lines for the two grants that currently direct existing money, so readers can see what each fund gives up</li>
+      <li>The foundation's officers and directors listed on its state filing, matching who is named publicly, before it receives state money</li>
+    </ul>
+  </section>
+
+  <section class="question-box" id="questions">
+    <h2>Questions to Ask, and Who to Ask</h2>
+    <ol class="q">
+      <li><strong>How much of the $10 million has actually been paid, and by which agency?</strong> Ask your own legislator, or the Legislative Fiscal Analyst's office, which tracks state spending.</li>
+      <li><strong>What did the Outdoor Adventure and Active Transportation accounts give up to fund this?</strong> Ask members of the Natural Resources and Transportation appropriations subcommittees.</li>
+      <li><strong>Why does the state business filing list no officers, when news reports name a chairman, a director and board members?</strong> Ask the foundation through its public website, pioneertrail.org.</li>
+      <li><strong>Was there a request for appropriation for the trail, and under what title?</strong> Ask Rep. Val Peterson or Sen. Jerry Stevenson, the budget chairs.</li>
+      <li><strong>How much more will be requested?</strong> The foundation told the Deseret News it plans to ask for millions more in 2027 and 2028. Watch the 2027 request list when it is posted on le.utah.gov, and ask your legislator how they will vote on it.</li>
+    </ol>
+  </section>
+
+  <details class="sources-box">
+    <summary><div class="sum-row"><h2>Sources</h2><span class="toggle"><span class="show">Show &darr;</span><span class="hide">Hide &uarr;</span></span></div></summary>
+    <div class="sources-body">
+      <ul class="plain">
+        <li>H.B. 2, "New Fiscal Year Supplemental Appropriations," 2026 General Session, enrolled text: items 27, 46, 148, 169, 170 and 179 &mdash; <a href="https://le.utah.gov/Session/2026/bills/enrolled/HB0002.pdf">le.utah.gov enrolled PDF</a> &middot; <a href="https://le.utah.gov/~2026/bills/static/HB0002.html">bill page</a>. Read from the full bill-page text copied Oct. 4, 2026.</li>
+        <li>H.B. 2 House Amendment 1, proposed by Rep. Nelson T. Abbott, March 3, 2026, 9:59 a.m. (copied from the bill page, Oct. 4, 2026).</li>
+        <li>H.B. 2 status and votes page, including the House roll call (68&ndash;6&ndash;1, March 3, 2026, 10:01 a.m.) and Senate vote (25&ndash;0&ndash;4, March 4, 2026) &mdash; <a href="https://le.utah.gov/~2026/bills/static/HB0002.html">le.utah.gov</a>.</li>
+        <li>Legislator Requests for Appropriation, 2026 General Session &mdash; <a href="https://le.utah.gov/sessions/requestsAppropSpon.jsp">le.utah.gov</a>. Searched by name in a copied text version, Oct. 4, 2026. See also <a href="weber-hive-2026-appropriation-requests.html">the Hive's 2026 requests page</a>.</li>
+        <li>Utah Division of Corporations entity record, The Pioneer Trail Foundation, #14638773-0140 (looked up Aug. 25, 2026).</li>
+        <li>KSL.com, "$10M for the Pioneer Trail? Spending bill faces questions in Utah House," March 3, 2026 &mdash; <a href="https://www.ksl.com/">ksl.com</a>.</li>
+        <li>Deseret News, Brigham Tomco, "Utah leaders back ambitious Pioneer Trail to showcase state's identity and history," April 28, 2026 &mdash; <a href="https://www.deseret.com/politics/2026/04/28/utah-leaders-back-pioneer-trail-to-tell-unique-story-of-state-during-temple-open-house-in-2027-and-winter-olympics-in-2034/">deseret.com</a>.</li>
+        <li>The Salt Lake Tribune, Robert Gehrke, March 12, 2026, on Rep. Abbott's account after the session &mdash; <a href="https://www.sltrib.com/">sltrib.com</a> (opening paragraphs only; remainder not read).</li>
+        <li>The Pioneer Trail project site &mdash; <a href="https://www.pioneertrail.org/">pioneertrail.org</a>. All In For Utah Foundation project list &mdash; <a href="https://www.allinforutahfoundation.org/">allinforutahfoundation.org</a>.</li>
+        <li>COBI, Compendium of Budget Information, FY26-27 Issues tab, "Funded" view of funding items, copied Oct. 4, 2026 &mdash; <a href="https://cobi.utah.gov/2026/1/issues">cobi.utah.gov</a>.</li>
+        <li>Capitol Preservation Board minutes, May 28, 2025 &mdash; <a href="https://www.utah.gov/pmn/files/1323343.pdf">utah.gov public notice</a>.</li>
+        <li>Map: landmark points are approximate, placed for orientation only. Base map &copy; OpenStreetMap contributors.</li>
+      </ul>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  Sourced from official Utah Legislature bill text, floor votes, state business filings, and public reporting. Compiled by The Weber County Hive. We report public records. You decide.
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({startOnLoad:true, theme:'base', themeVariables:{fontSize:'20px', fontFamily:'Georgia, serif', lineColor:'#4A443A'}, flowchart:{useMaxWidth:true, htmlLabels:true}});
+</script>
+<script>
+  document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-scroll-to'));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+  (function(){
+    if (typeof L === 'undefined') return;
+    const pts = [
+      ['Temple Square', 40.7704, -111.8919],
+      ['City Creek Park', 40.7737, -111.8886],
+      ['Council Hall', 40.7765, -111.8878],
+      ['Utah State Capitol', 40.7774, -111.8882],
+      ['Memory Grove', 40.7792, -111.8838]
+    ];
+    const map = L.map('trailmap', {scrollWheelZoom:false}).setView([40.7752, -111.8885], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19, attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+    pts.forEach(p => L.circleMarker([p[1],p[2]], {radius:9, color:'#14213D', weight:2, fillColor:'#A9822F', fillOpacity:0.9}).addTo(map).bindTooltip(p[0], {permanent:true, direction:'right', className:''}));
+  })();
+</script>
+
+</body>
+</html>

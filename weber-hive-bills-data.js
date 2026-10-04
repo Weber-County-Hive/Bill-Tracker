@@ -26,6 +26,19 @@
 //              off entirely rather than guess. Shown as a badge on the card.
 const BILLS = [
 {
+    caseNumber: "CASE 2026-HB2-PT",
+    grade: "C-",
+    bill: "H.B. 2",
+    year: "2026",
+    title: "Four Doors to One Trail",
+    summary: "The 2026 budget bill names the Pioneer Trail Foundation for up to $10 million through four agencies and four funds. Only one is matched to new money shown in its own item, and none of the four grant paragraphs states a match or a report back to lawmakers. The House declined to pause debate for a floor amendment to strike all four.",
+    tags: ["Budget", "Direct Award Grants", "Nonprofit Recipient", "Process Concern"],
+    status: "law",
+    voteLine: "House 68–6–1 · Senate 25–0–4 · Signed Mar 26, 2026",
+    link: "weber-hive-hb2-pioneer-trail.html",
+    lastUpdated: "Oct 4, 2026"
+  },
+{
     caseNumber: "CASE 2026-HJR7",
     grade: "B",
     bill: "H.J.R. 7",
