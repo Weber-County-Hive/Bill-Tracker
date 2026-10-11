@@ -226,5 +226,6 @@ $('#reset').addEventListener('click',()=>{['#fFund','#fLeg','#fSub','#fQ'].forEa
 $('#watchList').innerHTML=ROWS.filter(r=>r.watch).map(r=>`<div class="plain" style="margin:12px 0"><b>${r.id}, ${r.title}</b><br>${legName(r)} &middot; ${FUNDS[r.fund]} &middot; ${usd(r.one)} one-time, ${usd(r.ong)} ongoing &middot; ${r.sub}<div class="note" style="font-size:17px">${r.watch}</div></div>`).join('');
 render();
 </script>
+<script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
