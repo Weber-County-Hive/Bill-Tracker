@@ -360,8 +360,23 @@
     font-size:12.5px; color:var(--dim);
   }
 </style>
+<link rel="icon" type="image/png" href="hive-bee.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}}
+</style>
 </head>
 <body>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
 
 <header class="masthead">
   <svg class="hex" viewBox="0 0 100 100" aria-hidden="true">
@@ -378,7 +393,7 @@
 </header>
 
 <div class="stat-block">
-  <div class="stat-number" id="bill-counter" data-target="69">0</div>
+  <div class="stat-number" id="bill-counter" data-target="101">0</div>
   <div class="stat-label">Bills Researched So Far</div>
   <div class="stat-sub">More being added as research continues</div>
   <div class="stat-updated" id="last-updated">Last updated: October 19, 2026</div>
@@ -456,7 +471,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 258 (2024) — “Preliminary Municipality” Pilot Program</h4>
+        <h4 class="bill-title" id="bill-sb258-2024">S.B. 258 (2024) — “Preliminary Municipality” Pilot Program</h4>
         <div class="badges"><span class="badge st-passed">Passed (2024), still active/expanding</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Curtis S. Bramble, House Sponsor Rep. James A. Dunnigan.</p>
@@ -464,7 +479,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 540 (2025) — Pause on Preliminary Municipalities</h4>
+        <h4 class="bill-title" id="bill-hb540-2025">H.B. 540 (2025) — Pause on Preliminary Municipalities</h4>
         <div class="badges"><span class="badge st-died">Died — enacting clause struck on Senate floor 3/7/25</span><span class="badge gr-b">Grade: B</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Michael L. Kohler; fourth substitute proposed by Sen. Ronald M. Winterton.</p>
@@ -472,7 +487,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 337 (2025) — Beehive Development Agency (“BDA”)</h4>
+        <h4 class="bill-title" id="bill-sb337-2025">S.B. 337 (2025) — Beehive Development Agency (“BDA”)</h4>
         <div class="badges"><span class="badge st-died">Died — no Senate floor vote, cross-partisan opposition</span><span class="badge gr-f">Grade: F</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Sen. Kirk A. Cullimore, chief sponsor.</p>
@@ -480,7 +495,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 60 (2026) — Water Rights Amendments</h4>
+        <h4 class="bill-title" id="bill-hb60-2026">H.B. 60 (2026) — Water Rights Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. David Shallenberger, Senate Sponsor Sen. Keven J. Stratton. Drafting attorney: Patricia Owen. Fiscal analyst: Lacey K. Moore.</p>
@@ -488,7 +503,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 439 / S.B. 284 (2026) — Water Planning + Local Land Use Modifications</h4>
+        <h4 class="bill-title" id="bill-hb439-2026">H.B. 439 / S.B. 284 (2026) — Water Planning + Local Land Use Modifications</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">H.B. 439 — Shallenberger / Stratton. S.B. 284 — Lincoln Fillmore (Senate), Jill Koford (House floor).</p>
@@ -501,7 +516,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 107 (2023) — Oil and Gas Severance Tax Amendments</h4>
+        <h4 class="bill-title" id="bill-sb107-2023">S.B. 107 (2023) — Oil and Gas Severance Tax Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/20/23</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ronald M. Winterton, House Sponsor Rep. Keven J. Stratton. House floor substitute proposed by Rep. Mike Schultz.</p>
@@ -509,7 +524,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 207 (2025) — Local Impact Mitigation Amendments</h4>
+        <h4 class="bill-title" id="bill-sb207-2025">S.B. 207 (2025) — Local Impact Mitigation Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/25/25</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sen. Ronald M. Winterton, House sponsor Rep. R. Neil Walter.</p>
@@ -529,7 +544,7 @@
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 410 (2026) — Water Leasing Amendments</h4>
+        <h4 class="bill-title" id="bill-hb410-2026">H.B. 410 (2026) — Water Leasing Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford, Senate Sponsor Sen. Scott D. Sandall. Cosponsors: Joseph Elison, Stephanie Pitcher, John Arthur, Jake Fitisemanu, David Shallenberger, Jennifer Dailey-Provost, Sahara Hayes, Jason E. Thompson, James A. Dunnigan, Clinton D. Okerlund. Drafting attorney: Patricia Owen.</p>
@@ -537,7 +552,7 @@
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 348 (2026) — Dedicated Water Amendments</h4>
+        <h4 class="bill-title" id="bill-hb348-2026">H.B. 348 (2026) — Dedicated Water Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford, Senate Sponsor Sen. Scott D. Sandall. Cosponsors: Stephanie Pitcher, Sahara Hayes. Drafting attorney: Patricia Owen. Fiscal analyst: Sean C. Faherty.</p>
@@ -545,7 +560,7 @@
     </article>
     <article class="bill-card sub">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 76 (2026) — Data Center Water Transparency Amendments</h4>
+        <h4 class="bill-title" id="bill-hb76-2026">H.B. 76 (2026) — Data Center Water Transparency Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed — Senate committee 4-0-3 (3/3/26)</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Rep. Jill Koford / Sen. Scott D. Sandall.</p>
@@ -554,7 +569,7 @@
     </div>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 37 (2025) — Utah Housing Amendments</h4>
+        <h4 class="bill-title" id="bill-hb37-2025">H.B. 37 (2025) — Utah Housing Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/26/25</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. James A. Dunnigan, Senate/Floor Sen. Lincoln Fillmore.</p>
@@ -562,7 +577,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 492 (2026) — Transportation, Infrastructure, and Housing Amendments</h4>
+        <h4 class="bill-title" id="bill-hb492-2026">H.B. 492 (2026) — Transportation, Infrastructure, and Housing Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/25/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Calvin Roberts, Senate Sen. Kirk A. Cullimore; final substitute sponsored by Rep. Ken Ivory.</p>
@@ -570,7 +585,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 457 (2026) — County Islands and the County Auditor</h4>
+        <h4 class="bill-title" id="bill-hb457-2026">H.B. 457 (2026) — County Islands and the County Auditor</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/26/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. James A. Dunnigan, Senate Sponsor Sen. Ronald M. Winterton.</p>
@@ -578,7 +593,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 15 (2026) — County Forms of Government Amendments</h4>
+        <h4 class="bill-title" id="bill-sb15-2026">S.B. 15 (2026) — County Forms of Government Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/17/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ronald M. Winterton, House Sponsor Rep. Michael L. Kohler.</p>
@@ -586,7 +601,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 266 (2026) — County Governance Revisions</h4>
+        <h4 class="bill-title" id="bill-sb266-2026">S.B. 266 (2026) — County Governance Revisions</h4>
         <div class="badges"><span class="badge st-died">Died — held in committee 2/11/26, enacting clause struck 3/6/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ronald M. Winterton; no House sponsor.</p>
@@ -594,7 +609,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.C.R. 4 (2026) — Permitting of Oil, Gas, and Mining</h4>
+        <h4 class="bill-title" id="bill-scr4-2026">S.C.R. 4 (2026) — Permitting of Oil, Gas, and Mining</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/7/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ronald M. Winterton, House Sponsor Rep. Carl R. Albrecht.</p>
@@ -607,7 +622,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">Duchesne County Ordinance #24-409 (2024) vs. S.B. 207 (2025)</h4>
+        <h4 class="bill-title" id="bill-sb207-2024">Duchesne County Ordinance #24-409 (2024) vs. S.B. 207 (2025)</h4>
         <div class="badges"><span class="badge st-died">Superseded by S.B. 207 (2025, passed)</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">N/A — county ordinance, presented by Community Development Director Mike Hyde; preempted by S.B. 207 (sponsors above).</p>
@@ -623,7 +638,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 125 / H.B. 157 (2026) — Water-Litigation-Funding Bait-and-Switch</h4>
+        <h4 class="bill-title" id="bill-hb125-2026">H.B. 125 / H.B. 157 (2026) — Water-Litigation-Funding Bait-and-Switch</h4>
         <div class="badges"><span class="badge st-passed">Passed (funding ultimately removed)</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">H.B. 125: Rep. Rex Shipp, Senate sponsor Sen. Keven Stratton. H.B. 157 sponsors not identified.</p>
@@ -648,7 +663,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 185 (2020)</h4>
+        <h4 class="bill-title" id="bill-hb185-2020">H.B. 185 (2020)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Francis Gibson / Lyle Hillyard.</p>
@@ -656,7 +671,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 491 (2023) — “Great Salt Lake Commissioner Act”</h4>
+        <h4 class="bill-title" id="bill-hb491-2023">H.B. 491 (2023) — “Great Salt Lake Commissioner Act”</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Mike Schultz, Senate Sponsor Sen. Scott D. Sandall. Drafting attorney: Patricia Owen.</p>
@@ -664,7 +679,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 373 (2024)</h4>
+        <h4 class="bill-title" id="bill-hb373-2024">H.B. 373 (2024)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Casey Snider, Senate Sponsor Sen. Scott Sandall.</p>
@@ -672,7 +687,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 509 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb509-2026">H.B. 509 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Doug Owens, Senate Sponsor Sen. Michael K. McKell.</p>
@@ -680,7 +695,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 378 (2026) — Fugitive Dust Mitigation Amendments</h4>
+        <h4 class="bill-title" id="bill-hb378-2026">H.B. 378 (2026) — Fugitive Dust Mitigation Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed — House committee 7-1-4 (2/3/26), House floor 71-2-2 (2/12/26, Nays: Chew, Hansen), Senate committee 4-0-4 (2/19/26), Senate floor 26-0-3 (2/25/26, Consent Calendar); signed 3/25/26, effective 5/6/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Stephanie Gricius, Senate Sponsor Sen. Derrin R. Owens. Drafting attorney: Ryan C. Williams. Fiscal analyst: Lacey K. Moore.</p>
@@ -688,7 +703,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 530 (2025) — Nucleus Institute Act</h4>
+        <h4 class="bill-title" id="bill-hb530-2025">H.B. 530 (2025) — Nucleus Institute Act</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Senate sponsor: Sen. Kirk A. Cullimore.</p>
@@ -696,7 +711,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 254 (2026) — Extracted Natural Resources Amendments</h4>
+        <h4 class="bill-title" id="bill-sb254-2026">S.B. 254 (2026) — Extracted Natural Resources Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed — Senate committee 4-1-2 (2/9/26), Senate floor 28-1-0 (2/23/26), House committee 9-0-5 (3/2/26), House floor 60-12-3 (3/5/26, as Substitute #3, still under the original title)</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ann Millner, Floor Sponsor Rep. David Shallenberger. Drafting attorney: Patricia Owen (same drafter as H.B. 60/410/348/76/439). Fiscal analyst: Travis D. Eisenbacher.</p>
@@ -704,7 +719,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 475 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb475-2026">H.B. 475 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Calvin Roberts, Senate Sponsor Sen. Kirk A. Cullimore.</p>
@@ -712,7 +727,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 273 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb273-2026">H.B. 273 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Senate Sponsor Sen. Chris H. Wilson. The weakening amendment was proposed by Rep. Matt MacPherson.</p>
@@ -720,7 +735,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 17 (2026) — Public Infrastructure District Meeting Amendments</h4>
+        <h4 class="bill-title" id="bill-hb17-2026">H.B. 17 (2026) — Public Infrastructure District Meeting Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed unanimously at every stage, signed 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Doug Welton, Senate Sponsor Sen. Brady Brammer. Recommended by the Political Subdivisions Interim Committee (legislative vote 14-1-2).</p>
@@ -728,15 +743,15 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 422 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb422-2026">H.B. 422 (2026)</h4>
         <div class="badges"><span class="badge st-died">Died — enacting clause struck 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Rep. Jill Koford.</p>
-      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p></details>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb422.html" style="color:var(--warm-gold);">weber-hive-2026-hb422.html</a>. Added Oct. 19, 2026.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.J.R. 7 (2026) — Proposal to Amend Utah Constitution, Property Tax Modifications</h4>
+        <h4 class="bill-title" id="bill-hjr7-2026">H.J.R. 7 (2026) — Proposal to Amend Utah Constitution, Property Tax Modifications</h4>
         <div class="badges"><span class="badge st-died">Died — no recorded committee vote found; filed 3/6/26, same 11:59pm mechanism as H.B. 422, same night</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Jill Koford. Drafting attorney: Andrea Valenti Arthur. Fiscal analyst: Jared Gibbs.</p>
@@ -744,7 +759,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 349 (2026) — Statewide Water Storage</h4>
+        <h4 class="bill-title" id="bill-hb349-2026">H.B. 349 (2026) — Statewide Water Storage</h4>
         <div class="badges"><span class="badge st-died">Died — passed House committee, House floor, AND Senate committee; killed via the same 11:59pm mechanism, 3/6/26</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Walt Brooks, Senate Sponsor Sen. Evan J. Vickers. Drafting attorney: Patricia Owen. Fiscal analyst: Lacey K. Moore.</p>
@@ -752,7 +767,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 236 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb236-2026">H.B. 236 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Karen Peterson / Daniel McCay, with Katy Hall as co-sponsor.</p>
@@ -760,7 +775,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 477 (2026) — Land Use Regulation Revisions</h4>
+        <h4 class="bill-title" id="bill-hb477-2026">H.B. 477 (2026) — Land Use Regulation Revisions</h4>
         <div class="badges"><span class="badge st-died">Died — House Political Subdivisions Committee recommended returning it to Rules (3/2/26); enacting clause struck and filed (3/6/26)</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Primary sponsor Rep. Jill Koford, Senate sponsor Sen. Kirk A. Cullimore.</p>
@@ -768,7 +783,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.C.R. 9 (2026)</h4>
+        <h4 class="bill-title" id="bill-hcr9-2026">H.C.R. 9 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed under its new title</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Joseph Elison, Senate Scott Sandall; Jill Koford cosponsor on the final version.</p>
@@ -776,7 +791,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 163 (2020) — Cultural Stewardship Amendments</h4>
+        <h4 class="bill-title" id="bill-hb163-2020">H.B. 163 (2020) — Cultural Stewardship Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed — House committee 11-0-2, House floor 72-0-3, Senate committee 3-0-4, Senate floor 27-0-2; signed 3/28/20, effective 5/12/20</span><span class="badge gr-a">Grade: A</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Timothy D. Hawkes, Senate Sponsor Sen. Scott D. Sandall. ~25 cosponsors. Drafting attorney: Peter Asplund. Fiscal analyst: Andrea Wilko.</p>
@@ -784,7 +799,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 12 (2026) — Sunset and Repeal Date Amendments</h4>
+        <h4 class="bill-title" id="bill-sb12-2026">S.B. 12 (2026) — Sunset and Repeal Date Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 5/6/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Todd Weiler, House Sponsor Rep. Andrew Stoddard. Drafting attorney: Mike Curtis. Fiscal analyst: Steven M. Allred.</p>
@@ -796,7 +811,7 @@
     <p class="section-blurb">Two companion bills from the same sponsors that change who can be held responsible in court.</p>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 227 (2026) — Punitive Damages Amendments</h4>
+        <h4 class="bill-title" id="bill-sb227-2026">S.B. 227 (2026) — Punitive Damages Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/18/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Ronald M. Winterton, House Sponsor Rep. Colin W. Jack.</p>
@@ -804,11 +819,275 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 330 (2026) — Liability Limitations Amendments</h4>
+        <h4 class="bill-title" id="bill-hb330-2026">H.B. 330 (2026) — Liability Limitations Amendments</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/18/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. Colin W. Jack, Senate Sponsor Sen. Ronald M. Winterton.</p>
       <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Creates a defense in civil lawsuits for conduct a statute, rule, permit, license or order authorized. The House passed it 65-0 with an exception for harm caused by negligent, reckless, fraudulent or deceptive conduct; the Senate committee substitute removed that exception. Senate 17-7, House concurrence 50-15.</p><p class="bill-note">Full case file: <a href="weber-hive-hb330.html" style="color:var(--warm-gold);">weber-hive-hb330.html</a>.</p></details>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Initiative and Referendum Laws (2006–2026)</h3>
+    <p style="color:var(--gray); font-size:15.5px;">Laws from <a href="weber-hive-petition-laws-2016-2026.html" style="color:var(--warm-gold);">Ten Years of Petition Laws</a> with their own case files, plus three related bills (S.B. 53 of 2025, and H.B. 120 of 2006 and S.B. 66 of 2013, which died). Added Oct. 19, 2026. (H.B. 185 and S.B. 2001 are listed above.)</p>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb119-2019">H.B. 119 (2019) — Initiatives, Referenda, and Other Political Activities</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/25/2019; effective 5/14/2019 (Chapter 203)</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Brad M. Daw; floor sponsor Sen. Curtis S. Bramble.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 119 (2019), primary sponsor Rep. Brad Daw, rewrote the rules for local initiatives and referendums. It passed in the session right after 2018, when voters approved Props 2, 3 and 4 and Holladay voters blocked a development by referendum. It created a step where the city or county decides within 20 days whether a proposed referendum is &quot;legally referable to voters,&quot; with a separate test for land use laws.</p><p class="bill-note">Full case file: <a href="weber-hive-2019-hb119.html" style="color:var(--warm-gold);">weber-hive-2019-hb119.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb462-2022">H.B. 462 (2022) — Utah Housing Affordability Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/24/2022</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Steve Waldrip; floor sponsor Sen. Jacob L. Anderegg.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 462 (2022) was a large housing bill: station area plans around transit stops, moderate income housing plans, a Rural Housing Fund and more. It also made a transit-area land use law not referable to voters if the council passed it by a two-thirds vote, and raised the signatures needed to refer the rest.</p><p class="bill-note">Full case file: <a href="weber-hive-2022-hb462.html" style="color:var(--warm-gold);">weber-hive-2022-hb462.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb199-2023">S.B. 199 (2023) — Local Land Use Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/2023</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Michael K. McKell; floor sponsor Rep. Mike Schultz.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">As introduced, S.B. 199 (2023) made any local land use law passed by a two-thirds vote not referable to voters. On March 1, 2023, a House floor amendment offered by Rep. Mike Schultz narrowed it to a &quot;municipal land use law&quot; passed by a unanimous vote, and kept the two-thirds rule for transit areas from H.B. 462 (2022).</p><p class="bill-note">Full case file: <a href="weber-hive-2023-sb199.html" style="color:var(--warm-gold);">weber-hive-2023-sb199.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb107-2024">S.B. 107 (2024) — Election Process Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 2/28/2024</span><span class="badge gr-c">Grade: C+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Todd D. Weiler; floor sponsor Rep. Jordan D. Teuscher.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 107 (2024) began as a bill about deadlines for independent candidates (&quot;Unaffiliated Candidate Amendments&quot;). In the House committee on Feb. 2, 2024, a 2nd Substitute added a repeal of the rule that people who collect signatures for initiatives, referendums and independent candidates must live in Utah. The enrolled bill strikes residency language in 19 places in 11 code sections.</p><p class="bill-note">Full case file: <a href="weber-hive-2024-sb107.html" style="color:var(--warm-gold);">weber-hive-2024-sb107.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sjr401-2024">S.J.R. 401 (Amendment D) (2024) — Proposal to Amend Utah Constitution – Voter Legislative Power</h4>
+        <div class="badges"><span class="badge st-died">Passed by the Legislature; voided by the courts (2024)</span><span class="badge gr-d">Grade: D−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Kirk A. Cullimore; floor sponsor Rep. Jordan D. Teuscher.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">On July 11, 2024, the Utah Supreme Court ruled in the Prop 4 case that the Legislature&#x27;s power to change certain voter-passed laws has limits. Six weeks later, on Aug. 21, 2024, lawmakers passed S.J.R. 401, Amendment D, in a special session with no committee hearing: Senate 20–8, House 54–21.</p><p class="bill-note">Full case file: <a href="weber-hive-2024-sjr401.html" style="color:var(--warm-gold);">weber-hive-2024-sjr401.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb2001-2025">H.B. 2001 (2025) — Public Sector Labor Union Modification</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 12/11/2025</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Jordan D. Teuscher; floor sponsor Sen. Kirk A. Cullimore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 267 (2025), sponsored by Rep. Jordan Teuscher and Sen. Kirk Cullimore, banned collective bargaining for public employees. It passed the House 42–32 and the Senate 16–13 and was signed Feb. 14, 2025. Citizens submitted about 320,000 signatures for a referendum; 251,590 were verified, far more than the 140,748 needed. It qualified for the Nov. 3, 2026 ballot.</p><p class="bill-note">Full case file: <a href="weber-hive-2025-hb2001.html" style="color:var(--warm-gold);">weber-hive-2025-hb2001.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb32-2026">H.B. 32 (2026) — Signature Gathering and Verification Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/23/2026</span><span class="badge gr-c">Grade: C+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Paul A. Cutler; floor sponsor Sen. Ronald M. Winterton.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 32 (2026), primary sponsor Rep. Paul Cutler, requires anyone gathering signatures for an initiative, referendum or candidate to complete a Lt. Governor&#x27;s online training course first. Clerks reject packets when the gatherer did not. Starting July 1, 2027, clerks will send signers an email and a text, when the voter record allows, saying whether their signature counted.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb32.html" style="color:var(--warm-gold);">weber-hive-2026-hb32.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb242-2026">H.B. 242 (2026) — Initiative and Referendum Signature Gathering and Removal Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, signed 3/7/2026</span><span class="badge gr-c">Grade: C+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Karen M. Peterson; floor sponsor Sen. Calvin R. Musselman.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 242 (2026), primary sponsor Rep. Karen Peterson, set rules for people who gather signature-removal statements: 18 or older; paid gatherers wear a badge, include a notice and are paid only by the hour. It also says a clerk &quot;may not refuse to certify&quot; a signature solely because its date is off by one calendar year.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb242.html" style="color:var(--warm-gold);">weber-hive-2026-hb242.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+      <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb167-2026">H.B. 167 (2026) — Signature Collection Modifications</h4>
+        <div class="badges"><span class="badge st-died">Died: enacting clause struck Mar. 6, 2026</span><span class="badge gr-b">Grade: B−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Michael L. Kohler.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have posted the names and signing dates of voters on candidate nomination petitions on the lieutenant governor&#x27;s website, and required election officials to tell the county or district attorney when someone says they did not sign. House Government Operations held it 5-2-5 on Feb. 3, 2026. Its enacting clause was struck March 6.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb167.html" style="color:var(--warm-gold);">weber-hive-2026-hb167.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb133-2019">H.B. 133 (2019) — Initiative Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/25/2019</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Brad M. Daw; floor sponsor Sen. Curtis S. Bramble.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Moved the start date of most laws passed by statewide initiative to 60 days after the next general session of the Legislature, with set dates for tax changes. Appeals over conflicting initiatives now start in the appropriate court instead of the Utah Supreme Court. Graded C− as published.</p><p class="bill-note">Full case file: <a href="weber-hive-2019-hb133.html" style="color:var(--warm-gold);">weber-hive-2019-hb133.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb145-2019">H.B. 145 (2019) — Citizen Political Process Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/25/2019</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Norman K. Thurston; floor sponsor Sen. Curtis S. Bramble.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Required petition packets to be turned in and certified on an ongoing basis, required county clerks to post signer names online, and set deadlines for removing a signature. Made paying or accepting pay to sign or remove a referendum signature a class A misdemeanor. The Senate failed it once, then reconsidered and passed it. Graded C as published.</p><p class="bill-note">Full case file: <a href="weber-hive-2019-hb145.html" style="color:var(--warm-gold);">weber-hive-2019-hb145.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb136-2021">H.B. 136 (2021) — Initiative and Referenda Modifications</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/23/2021</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Jordan D. Teuscher; floor sponsor Sen. Jerry W. Stevenson.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Banned paying initiative and referendum gatherers per signature and required hourly pay. Paid gatherers must wear a badge naming who pays them, and every gatherer must show the law to a signer before collecting a signature. Violations are a class B misdemeanor. Graded C− as published.</p><p class="bill-note">Full case file: <a href="weber-hive-2021-hb136.html" style="color:var(--warm-gold);">weber-hive-2021-hb136.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb75-2020">H.B. 75 (2020) — Initiatives and Referenda Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/28/2020</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Norman K. Thurston; floor sponsor Sen. Deidre M. Henderson.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Provided that a referendum petition is void if the Legislature repeals the law it challenges, and let the Lt. Governor temporarily stay a challenged law once enough signatures are certified. Also changed signer postings and statewide referendum deadlines. The repeal rule and stay were added in a March 5, 2020 committee substitute. Graded C− as published; not the same bill as H.B. 75 (2026).</p><p class="bill-note">Full case file: <a href="weber-hive-2020-hb75.html" style="color:var(--warm-gold);">weber-hive-2020-hb75.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb218-2022">H.B. 218 (2022) — Ballot Measure Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/24/2022</span><span class="badge gr-c">Grade: C</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Jordan D. Teuscher; floor sponsor Sen. Jerry W. Stevenson.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Set up electronic signing, with a gatherer present and an approved device, for statewide referendums, party nomination petitions and local initiatives and referendums. Only registered voters&#x27; signatures count. Electronic signers&#x27; names, voter ID numbers and signing dates are posted on the Lieutenant Governor&#x27;s website. No lawmaker voted no.</p><p class="bill-note">Full case file: <a href="weber-hive-2022-hb218.html" style="color:var(--warm-gold);">weber-hive-2022-hb218.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb38-2023">H.B. 38 (2023) — Initiative and Referendum Modifications</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/14/2023</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Calvin R. Musselman; floor sponsor Sen. David G. Buxton.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Rewrote 77 sections of the initiative and referendum law to make the steps consistent and say who does each one. Sponsors must give 10 days&#x27; notice of pre-circulation hearings instead of three. It spells out how packets are bound, and clerks may not certify signatures on unverified packets.</p><p class="bill-note">Full case file: <a href="weber-hive-2023-hb38.html" style="color:var(--warm-gold);">weber-hive-2023-hb38.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb43-2023">S.B. 43 (2023) — Public Notice Requirements</h4>
+        <div class="badges"><span class="badge st-passed">Passed, Signed 3/20/2023</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Stephanie Pitcher; floor sponsor Rep. Norman K. Thurston.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Created class A and class B public notices. For hearings held before a statewide initiative circulates, the county clerk&#x27;s newspaper notice became a class A notice, and clerks may bill sponsors for it. The Lieutenant Governor&#x27;s publication of proposed constitutional amendments also moved from county newspapers to a statewide class A notice.</p><p class="bill-note">Full case file: <a href="weber-hive-2023-sb43.html" style="color:var(--warm-gold);">weber-hive-2023-sb43.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb53-2025">S.B. 53 (2025) — Election Code Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Passed; took effect May 7, 2025</span><span class="badge gr-b">Grade: B−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Calvin R. Musselman; floor sponsor Rep. Stephanie Gricius.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">An omnibus election bill that dropped the Utah residency rule for people gathering signatures for party candidates and new parties, finishing what S.B. 107 (2024) started. It also lets voters ask to remove their signature from a candidate petition. The sponsor said the state expected to lose a lawsuit over the residency rule.</p><p class="bill-note">Full case file: <a href="weber-hive-2025-sb53.html" style="color:var(--warm-gold);">weber-hive-2025-sb53.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">Laws That Changed Voter-Passed Propositions (2018–2020)</h3>
+    <p style="color:var(--gray); font-size:15.5px;">What the Legislature did after voters passed Props 2, 3 and 4 in 2018. Added Oct. 19, 2026.</p>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb3001-2018">H.B. 3001 (2018) — Utah Medical Cannabis Act</h4>
+        <div class="badges"><span class="badge st-passed">Signed Dec. 3, 2018</span><span class="badge gr-d">Grade: D+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Gregory H. Hughes; floor sponsor Sen. Evan J. Vickers.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Voters passed Proposition 2 in November 2018. In a one-day special session with no committee hearing, the Legislature replaced it with a narrower medical cannabis law. It kept medical cards but removed home growing and renter protections. It passed by two-thirds, so it took effect at once and could not be referred to voters.</p><p class="bill-note">Full case file: <a href="weber-hive-2018-hb3001.html" style="color:var(--warm-gold);">weber-hive-2018-hb3001.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb96-2019">S.B. 96 (2019) — Medicaid Expansion Adjustments</h4>
+        <div class="badges"><span class="badge st-passed">Signed Feb. 11, 2019</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Allen M. Christensen; floor sponsor Rep. James A. Dunnigan.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Voters passed Proposition 3 in 2018 for full Medicaid expansion paid for by a small sales tax. S.B. 96 kept the tax but started with a smaller, capped plan that needed federal waivers, plus a fallback to fuller coverage. It had hearings in both chambers and passed by two-thirds. Full expansion was federally authorized in December 2019.</p><p class="bill-note">Full case file: <a href="weber-hive-2019-sb96.html" style="color:var(--warm-gold);">weber-hive-2019-sb96.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb200-2020">S.B. 200 (2020) — Redistricting Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Signed March 28, 2020</span><span class="badge gr-f">Grade: F</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Curtis S. Bramble; floor sponsor Rep. Carol Spackman Moss.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Voters passed Proposition 4 in 2018, creating an independent redistricting commission. S.B. 200 repealed it, kept a commission, and made voting on its maps optional for the Legislature. It removed the public report and the citizens&#x27; right to sue. A district judge ruled the repeal unconstitutional in 2025, and the Utah Supreme Court dismissed the Legislature&#x27;s appeal in 2026.</p><p class="bill-note">Full case file: <a href="weber-hive-2020-sb200.html" style="color:var(--warm-gold);">weber-hive-2020-sb200.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+  </section>
+  <section class="tier-section">
+    <h3 class="tier-title">More Case Files Added Oct. 19, 2026</h3>
+    <p style="color:var(--gray); font-size:15.5px;">Records, water, bonds, mining, MIDA, budget, economic development and data-center bills that now have their own Bill-Tracker case files.</p>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb468-2025">H.B. 468 (2025) — Automatic License Plate Reader Amendments</h4>
+        <div class="badges"><span class="badge st-died">Died: enacting clause struck 11:59 p.m., Mar. 7, 2025</span><span class="badge gr-b">Grade: B−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Kristen Chevrier; floor sponsor Sen. Daniel McCay.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have rewritten Utah&#x27;s rules for government license plate reader cameras: data deleted within 90 days unless needed for a case, a warrant to track a known vehicle with private camera data, annual internal audits and reports, and a misdemeanor for misuse. It passed the House 64-2-9 and a Senate committee 6-0-2, then went back to Senate Rules. Its enacting clause was struck at 11:59 p.m. on March 7, 2025, the last night of the session.</p><p class="bill-note">Full case file: <a href="weber-hive-2025-hb468.html" style="color:var(--warm-gold);">weber-hive-2025-hb468.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb318-2026">S.B. 318 (2026) — Data Center Non Disclosure Amendments</h4>
+        <div class="badges"><span class="badge st-died">Died: enacting clause struck 11:59 p.m., Mar. 6, 2026</span><span class="badge gr-a">Grade: A−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Nate Blouin.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have barred state agencies, cities, towns and counties from signing non-disclosure agreements with prospective data centers of 20 megawatts or more, made such agreements void, required them to be posted online, and let any Utah resident sue. It was introduced Feb. 23, 2026 and stayed in Senate Rules. Its enacting clause was struck at 11:59 p.m. on March 6 with no committee hearing or vote.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-sb318.html" style="color:var(--warm-gold);">weber-hive-2026-sb318.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb188-2023">H.B. 188 (2023) — Golf Related Water Modifications</h4>
+        <div class="badges"><span class="badge st-died">Died: held in House Natural Resources, Agriculture, and Environment committee Feb. 10, 2023; enacting clause struck and filed Mar. 3, 2023</span><span class="badge gr-c">Grade: C+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Douglas R. Welton; floor sponsor Sen. Daniel McCay.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 188 would have required golf courses and driving ranges to report yearly water use to the state and post it online. A substitute added a study, up to $30 million in efficiency grants and an advisory board. A House committee held the bill, and the House filed it as not passed.</p><p class="bill-note">Full case file: <a href="weber-hive-2023-hb188.html" style="color:var(--warm-gold);">weber-hive-2023-hb188.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb501-2026">H.B. 501 (2026) — Water Modifications</h4>
+        <div class="badges"><span class="badge st-died">Died: enacting clause struck Mar. 6, 2026, after the Senate circled it on 2nd reading</span><span class="badge gr-d">Grade: D+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Bridger Bolinder; floor sponsor Sen. Scott D. Sandall.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 501 would have required water systems to collect a state-set share of local median income to qualify for state water infrastructure money. The target traces to a $170,000 fee study that KSL reported did not count existing provider revenue. It passed the House and died in the Senate without a vote.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb501.html" style="color:var(--warm-gold);">weber-hive-2026-hb501.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb502-2024">H.B. 502 (2024) — Critical Infrastructure and Mining</h4>
+        <div class="badges"><span class="badge st-passed">Signed Mar. 12, 2024</span><span class="badge gr-b">Grade: B</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Rep. Casey Snider; floor sponsor Sen. Kirk A. Cullimore.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">As introduced, H.B. 502 required every city and county to allow mining and critical infrastructure materials operations by the end of 2024. A House committee replaced it with a state study after testimony from a mayor, the League of Cities and Towns and residents. The Senate added a $500,000 appropriation, and it was signed.</p><p class="bill-note">Full case file: <a href="weber-hive-2024-hb502.html" style="color:var(--warm-gold);">weber-hive-2024-hb502.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb86-2024">S.B. 86 (2024) — Local Government Bonds Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Signed Mar. 20, 2024; cap and hearing rules apply to bonds issued on or after May 1, 2024</span><span class="badge gr-b">Grade: B+</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Lincoln Fillmore; floor sponsor Rep. Brady Brammer.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 86 capped local lease revenue bonds at $200 million in any three-year period and required notice and an evening public hearing before any bond over $10 million. School district notices must say the bond uses future tax money and usually costs more than a voter-approved bond. It does not require a public vote. S.B. 188 (2025) later exempted some bonds in splitting school districts from the cap.</p><p class="bill-note">Full case file: <a href="weber-hive-2024-sb86.html" style="color:var(--warm-gold);">weber-hive-2024-sb86.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb277-2025">S.B. 277 (2025) — Government Records Management Amendments</h4>
+        <div class="badges"><span class="badge st-passed">Signed Mar. 27, 2025; effective date not confirmed from the bill text</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Michael K. McKell; floor sponsor Rep. Jefferson Moss.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 277 repealed the seven-member State Records Committee, which had heard public records appeals since 1992, and gave those appeals to one director appointed by the governor with Senate consent. The bill as introduced would have removed GRAMA&#x27;s balancing test; the final law keeps it. Appeals can still go to district court.</p><p class="bill-note">Full case file: <a href="weber-hive-2025-sb277.html" style="color:var(--warm-gold);">weber-hive-2025-sb277.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb235-2026">S.B. 235 (2026) — Governor Compensation Amendments (introduced as &quot;Attorney General Compensation Amendments&quot;)</h4>
+        <div class="badges"><span class="badge st-passed">Signed Mar. 18, 2026; effective July 1, 2026</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <p class="bill-sponsor">Primary sponsor Sen. Brady Brammer; floor sponsor Rep. Jordan D. Teuscher.</p>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 235 was introduced to tie the attorney general&#x27;s salary to the chief justice&#x27;s pay. A House committee substitute renamed it and tied the governor&#x27;s salary to the chief justice&#x27;s instead, which also raises the other statewide officers, whose pay is a share of the governor&#x27;s. The governor&#x27;s salary is no longer set each year in an appropriations act. The fiscal note estimates $307,400 a year.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-sb235.html" style="color:var(--warm-gold);">weber-hive-2026-sb235.html</a>. Added Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb169-2024">S.B. 169 (2024) — The Backfill</h4>
+        <div class="badges"><span class="badge st-passed">Senate 19–4 · Signed Mar 21, 2024</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 169 (2024), primary sponsor Sen. Jerry W. Stevenson, expanded the Military Installation Development Authority&#x27;s tax authority in its Deer Valley project area. The state&#x27;s fiscal analysts estimated it would cost Utah&#x27;s basic school fund $421,800 a year to make up what MIDA collects instead. It passed the Senate 19–4 and was signed March 21, 2024.</p><p class="bill-note">Full case file: <a href="weber-hive-sb169.html" style="color:var(--warm-gold);">weber-hive-sb169.html</a>. Added to the tracker Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-sb233-2021">S.B. 233 (2021) — The Foundation</h4>
+        <div class="badges"><span class="badge st-passed">Senate 27–0 · House 67–1–7 · Signed Mar 22, 2021</span><span class="badge gr-ng">Grade: N/G</span></div>
+      </div>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">S.B. 233 (2021), primary sponsor Sen. Jerry W. Stevenson, is the bill that MIDA&#x27;s project-area public infrastructure district taxes trace back to. It also included a conflict-of-interest exception and open-meetings and records-law provisions for MIDA. It passed the Senate 27–0 and the House 67–1–7 and was signed March 22, 2021.</p><p class="bill-note">Full case file: <a href="weber-hive-sb233.html" style="color:var(--warm-gold);">weber-hive-sb233.html</a>. Added to the tracker Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb545-2026">H.B. 545 (2026) — Budgetary Modifications</h4>
+        <div class="badges"><span class="badge st-passed">House 71–1 · Concurrence 66–1 · Effective Jul 1, 2026</span><span class="badge gr-d">Grade: D</span></div>
+      </div>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 545 (2026), primary sponsor Rep. Val L. Peterson, is a 38-section budget housekeeping bill that renames, folds and repeals restricted accounts. Most of it is routine cleanup; this case file looks at the parts that are not. It passed the House 71–1 and took effect July 1, 2026.</p><p class="bill-note">Full case file: <a href="weber-hive-hb545.html" style="color:var(--warm-gold);">weber-hive-hb545.html</a>. Added to the tracker Oct. 19, 2026.</p></details>
+    </article>
+    <article class="bill-card">
+      <div class="bill-head">
+        <h4 class="bill-title" id="bill-hb507-2026">H.B. 507 (2026) — One New Tool, One New Secrecy Rule, and a Real Penalty for Hiding Money</h4>
+        <div class="badges"><span class="badge st-passed">House 69–1–5 · Senate 22–2–5 · Final 27–1–1 / 57–1–17 · Signed Mar 25, 2026</span><span class="badge gr-c">Grade: C−</span></div>
+      </div>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">H.B. 507 (2026), primary sponsor Rep. Calvin R. Roberts, changes how the state coordinates regional and local economic development projects. It adds a new development tool, a new records category the public can&#x27;t see, a penalty for hiding money, and rules for the largest data centers. Graded C− as designed and D as demonstrated so far. Signed March 25, 2026.</p><p class="bill-note">Full case file: <a href="weber-hive-hb507.html" style="color:var(--warm-gold);">weber-hive-hb507.html</a>. Added to the tracker Oct. 19, 2026.</p></details>
     </article>
   </section>
   <section class="tier-section">
@@ -817,7 +1096,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 228 (2019)</h4>
+        <h4 class="bill-title" id="bill-sb228-2019">S.B. 228 (2019)</h4>
         <div class="badges"><span class="badge st-inforce">Passed, in force</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Daniel McCay, House Sponsor Rep. James A. Dunnigan.</p>
@@ -825,7 +1104,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 197 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb197-2026">S.B. 197 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Sponsor not identified.</p>
@@ -833,7 +1112,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 242 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb242-2026">S.B. 242 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Sponsor not identified.</p>
@@ -841,15 +1120,15 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 77 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb77-2026">H.B. 77 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-d">Grade: D</span></div>
       </div>
-      <p class="bill-sponsor">Sponsor not identified.</p>
+      <p class="bill-sponsor">Primary sponsor Rep. Steve Eliason; floor sponsor Sen. Daniel McCay.</p>
       
-    </article>
+    <p class="bill-note">Full case file: <a href="weber-hive-2026-hb77.html" style="color:var(--warm-gold);">weber-hive-2026-hb77.html</a>. Added Oct. 19, 2026.</p></article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 60 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb60-2026">S.B. 60 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Sen. Daniel McCay.</p>
@@ -857,12 +1136,12 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 575 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb575-2026">H.B. 575 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Cal Roberts, Senate Brady Brammer.</p>
       <p class="bill-desc">Fuel Tax and Supply Amendments — new refinery-data secrecy regime (protected record + confidential commercial info + trade secret, GRAMA-exempt); gas tax cut paired with an alternative-fuel tax hike.</p>
-    </article>
+    <p class="bill-note">Full case file: <a href="weber-hive-2026-hb575.html" style="color:var(--warm-gold);">weber-hive-2026-hb575.html</a>. Added Oct. 19, 2026.</p></article>
     <div class="group-block">
       <div class="group-label">GROUP — Baseline Taxation Bills</div>
       <p class="group-note">Part of the existing taxation baseline; each needs its own future research pass.</p>
@@ -894,15 +1173,15 @@
     </div>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 562 (2024) (UFAIR)</h4>
-        <div class="badges"><span class="badge st-pending">Status not identified — marked “Not graded” in the baseline tracker</span><span class="badge gr-ng">Grade: N/G</span></div>
+        <h4 class="bill-title" id="bill-hb562-2024">H.B. 562 (2024) (UFAIR)</h4>
+        <div class="badges"><span class="badge st-pending">Status not identified — marked “Not graded” in the baseline tracker</span><span class="badge gr-d">Grade: D+</span></div>
       </div>
       <p class="bill-sponsor">Bill Sponsor Rep. Ryan D. Wilcox, Floor Sponsor Sen. Lincoln Fillmore, Substitute Sponsor Rep. Ryan D. Wilcox. Cosponsors: Albrecht, Ballard, Barlow, Burton, Clancy, Gwynn, Hayes, Hollins, Lesser, Lisonbee, Lund, Moss, V. Peterson, Rohner, Romero, Stoddard.</p>
       <p class="bill-desc">Utah Fairpark Area Investment and Restoration District Amendments.</p>
-    </article>
+    <p class="bill-note">Full case file: <a href="weber-hive-2024-hb562.html" style="color:var(--warm-gold);">weber-hive-2024-hb562.html</a>. Added Oct. 19, 2026.</p></article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 206 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb206-2026">S.B. 206 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Wayne Harper, House R. Neil Walter.</p>
@@ -915,7 +1194,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 188 (2025)</h4>
+        <h4 class="bill-title" id="bill-sb188-2025">S.B. 188 (2025)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/17/25</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Sen. Keith Grover, no cosponsors listed. Cap exemption added by Rep. Matt MacPherson's committee amendment.</p>
@@ -923,7 +1202,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 332 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb332-2026">H.B. 332 (2026)</h4>
         <div class="badges"><span class="badge st-died">Died — same 11:59pm mechanism, 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Rep. Tiara Auxier.</p>
@@ -931,7 +1210,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 37 (2025)</h4>
+        <h4 class="bill-title" id="bill-sb37-2025">S.B. 37 (2025)</h4>
         <div class="badges"><span class="badge st-vetoed">Passed the Legislature, then VETOED by Gov. Cox</span><span class="badge gr-d">Grade: D</span></div>
       </div>
       <p class="bill-sponsor">Sen. Lincoln Fillmore.</p>
@@ -939,7 +1218,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 65 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb65-2026">S.B. 65 (2026)</h4>
         <div class="badges"><span class="badge st-died">Died — no House floor vote, filed 3/6/26</span><span class="badge gr-d">Grade: D</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Lincoln Fillmore (chief), Val L. Peterson (House).</p>
@@ -952,7 +1231,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 42 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb42-2026">H.B. 42 (2026)</h4>
         <div class="badges"><span class="badge st-pending">Stalled/absorbed, likely died independently</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox.</p>
@@ -960,7 +1239,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 44 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb44-2026">H.B. 44 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/19/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Rep. Ryan D. Wilcox, Senate Ann Millner.</p>
@@ -968,7 +1247,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 123 (2026)</h4>
+        <h4 class="bill-title" id="bill-sb123-2026">S.B. 123 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/17/26</span><span class="badge gr-c">Grade: C</span></div>
       </div>
       <p class="bill-sponsor">Chief Wayne A. Harper, House Ryan D. Wilcox.</p>
@@ -981,7 +1260,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 61 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb61-2026">H.B. 61 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 3/23/26</span><span class="badge gr-f">Grade: F</span></div>
       </div>
       <p class="bill-sponsor">Christine Watkins / Ronald Winterton.</p>
@@ -989,7 +1268,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 75 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb75-2026">H.B. 75 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, signed 2/27/26</span><span class="badge gr-a">Grade: A</span></div>
       </div>
       <p class="bill-sponsor">Watkins/Winterton, same pair and committee as H.B. 61.</p>
@@ -997,7 +1276,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 588 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb588-2026">H.B. 588 (2026)</h4>
         <div class="badges"><span class="badge st-pending">Not yet reviewed</span><span class="badge gr-ng">Grade: N/G</span></div>
       </div>
       <p class="bill-sponsor">Rep. Angela Romero.</p>
@@ -1005,7 +1284,7 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 52 (2026)</h4>
+        <h4 class="bill-title" id="bill-hb52-2026">H.B. 52 (2026)</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
       </div>
       <p class="bill-sponsor">Sponsor not identified.</p>
@@ -1039,7 +1318,7 @@
     
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 55 (2025)</h4>
+        <h4 class="bill-title" id="bill-hb55-2025">H.B. 55 (2025)</h4>
         <div class="badges"><span class="badge st-passed">Passed, effective 7/1/26</span><span class="badge gr-b">Grade: B</span></div>
       </div>
       <p class="bill-sponsor">Rep. Tiara Auxier.</p>
@@ -1060,7 +1339,7 @@
         <div class="badges"><span class="badge st-died">Died — enacting clause struck 3/6/26</span><span class="badge gr-a">Grade: A</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Rep. Jill Koford.</p>
-      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p></details>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Would have required real PID-trustee conflict disclosure plus Utah's first PID dissolution procedure.</p><p class="bill-note">Real accountability gain. Passed the House floor 66-1-8 and a Senate committee 5-0-2 before being killed via enacting-clause strike without a Senate floor vote.</p><p class="bill-note">Full case file: <a href="weber-hive-2026-hb422.html" style="color:var(--warm-gold);">weber-hive-2026-hb422.html</a>. Added Oct. 19, 2026.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
@@ -1088,19 +1367,19 @@
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">H.B. 120 (2006) — Election and Referendum Procedures</h4>
+        <h4 class="bill-title" id="bill-hb120-2006">H.B. 120 (2006) — Election and Referendum Procedures</h4>
         <div class="badges"><span class="badge st-died">Died — House floor, 27–46, no recorded debate on either side</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Rep. David L. Hogue. Drafting attorney: Eric N. Weeks.</p>
-      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Utah Code said a local ordinance challenged by referendum “remains in effect until repealed by the voters” — the opposite of Utah Constitution Article VI, which says a challenged law has no force until voters approve it. This bill rewrote the statute to match the Constitution, so a contested local ordinance couldn't take effect while a referendum against it was pending.</p><p class="bill-note">Cleared committee unopposed, 8-0-3, with no witnesses testifying either way. Failed on the House floor 27-46 two weeks later — floor audio for that vote contains no spoken debate at all, so there is no record of why it was opposed. Never reached the Senate.</p></details>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">Utah Code said a local ordinance challenged by referendum “remains in effect until repealed by the voters” — the opposite of Utah Constitution Article VI, which says a challenged law has no force until voters approve it. This bill rewrote the statute to match the Constitution, so a contested local ordinance couldn't take effect while a referendum against it was pending.</p><p class="bill-note">Cleared committee unopposed, 8-0-3, with no witnesses testifying either way. Failed on the House floor 27-46 two weeks later — floor audio for that vote contains no spoken debate at all, so there is no record of why it was opposed. Never reached the Senate.</p><p class="bill-note">Full case file: <a href="weber-hive-2006-hb120.html" style="color:var(--warm-gold);">weber-hive-2006-hb120.html</a>. Added Oct. 19, 2026.</p></details>
     </article>
     <article class="bill-card">
       <div class="bill-head">
-        <h4 class="bill-title">S.B. 66 (2013) — Referendum Revisions</h4>
+        <h4 class="bill-title" id="bill-sb66-2013">S.B. 66 (2013) — Referendum Revisions</h4>
         <div class="badges"><span class="badge st-died">Died — House struck the enacting clause, no floor vote taken</span><span class="badge gr-b">Grade: B</span><span class="badge gr-outcome">Outcome: N/A (died)</span></div>
       </div>
       <p class="bill-sponsor">Chief Sponsor Sen. Stuart C. Reid. House Floor Sponsor Rep. Don L. Ipson. Drafting attorney: Thomas R. Vaughn.</p>
-      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">The same statutory conflict H.B. 120 tried to fix seven years earlier — a challenged local law taking effect before voters ever got to weigh in, contrary to the Constitution.</p><p class="bill-note">Passed the Senate 27-1. The House never held a recorded floor vote on it at all — it struck the bill's enacting clause instead, a procedural move that kills a bill without anyone voting no on the record.</p></details>
+      <details class="bill-details"><summary>Read more</summary><p class="bill-desc">The same statutory conflict H.B. 120 tried to fix seven years earlier — a challenged local law taking effect before voters ever got to weigh in, contrary to the Constitution.</p><p class="bill-note">Passed the Senate 27-1. The House never held a recorded floor vote on it at all — it struck the bill's enacting clause instead, a procedural move that kills a bill without anyone voting no on the record.</p><p class="bill-note">Full case file: <a href="weber-hive-2013-sb66.html" style="color:var(--warm-gold);">weber-hive-2013-sb66.html</a>. Added Oct. 19, 2026.</p></details>
     </article>
   </section>
 
@@ -1114,6 +1393,8 @@
   <div class="foot-tag">Independent · Accountability · Journalism</div>
   <div class="foot-url">webercountyhive.substack.com</div>
 </footer>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span></div>
+
 
 <script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
