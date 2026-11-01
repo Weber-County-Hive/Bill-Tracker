@@ -1112,5 +1112,83 @@ const BILLS = [
     voteLine: "Senate 27-1-1 · House: enacting clause struck, no vote · Died Mar. 14, 2013",
     link: "weber-hive-2013-sb66.html",
     lastUpdated: "Oct 19, 2026"
+},
+{
+    caseNumber: "CASE 2022-374-BOOK",
+    grade: "B",
+    bill: "H.B. 374 (2022)",
+    year: "2022",
+    title: "Sensitive Materials in Schools",
+    summary: "Made sensitive material illegal in Utah public schools, required parents reflective of each school's community in reviews, and required reports to two legislative committees. Primary sponsor Rep. Ken Ivory.",
+    tags: ["sensitive materials", "school libraries", "Ivory", "Weiler", "books"],
+    status: "law",
+    voteLine: "House 59-16-0 · Senate 23-3-3 · Signed Mar 24, 2022",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb374",
+    lastUpdated: "Oct 31, 2026"
+},
+{
+    caseNumber: "CASE 2023-138-BOOK",
+    grade: "C+",
+    bill: "H.B. 138 (2023)",
+    year: "2023",
+    title: "Finish the Review, Report to the State",
+    summary: "Would have required districts to finish reviews of challenged material and report violations to the State School Board, and ended vendor contracts for sensitive material. Passed the House; died without a Senate floor vote. Ivory voted no.",
+    tags: ["sensitive materials", "school libraries", "Ballard", "Fillmore", "died", "books"],
+    status: "failed",
+    voteLine: "House 50-18-7 · Senate committee 3-1-5 · Died Mar 3, 2023",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb138",
+    lastUpdated: "Oct 31, 2026"
+},
+{
+    caseNumber: "CASE 2024-029-BOOK",
+    grade: "C-",
+    bill: "H.B. 29 (2024)",
+    year: "2024",
+    title: "Three Districts Decide for Every School",
+    summary: "Created the statewide trigger: when three districts (or two plus five charter schools) remove a book as objective sensitive material, it comes out of every Utah public school unless the State School Board votes to overturn. Also added state indemnification and an audit requirement.",
+    tags: ["sensitive materials", "statewide removal", "school libraries", "Ivory", "Weiler", "USBE", "books"],
+    status: "law",
+    voteLine: "Senate 19-8-2 · House 52-18-5 · Signed Mar 18, 2024",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb29",
+    lastUpdated: "Oct 31, 2026"
+},
+{
+    caseNumber: "CASE 2025-473-BOOK",
+    grade: "C+",
+    bill: "H.B. 473 (2025)",
+    year: "2025",
+    title: "Tell Parents, Post a Report Button",
+    summary: "Would have added sensitive-material information to the state parent portal and at registration, and a reporting section on every district's homepage. Passed the House; died without a Senate vote.",
+    tags: ["sensitive materials", "digital materials", "parents", "Peck", "Stratton", "died", "books"],
+    status: "failed",
+    voteLine: "House 54-14-7 · Died Mar 7, 2025",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb473",
+    lastUpdated: "Oct 31, 2026"
+},
+{
+    caseNumber: "CASE 2026-197-BOOK",
+    grade: "C",
+    bill: "H.B. 197 (2026)",
+    year: "2026",
+    title: "Review Every Book Before It Goes In",
+    summary: "Would have barred schools from giving students statewide-removed material, required review of every new item before adding it, and set rules for digital-material vendors. Passed the House; held in Senate committee.",
+    tags: ["sensitive materials", "school libraries", "vendors", "Peck", "Stratton", "died", "books"],
+    status: "failed",
+    voteLine: "House 47-17-11 · Senate committee held 6-0-1 · Died Mar 6, 2026",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb197",
+    lastUpdated: "Oct 31, 2026"
+},
+{
+    caseNumber: "CASE 2026-517-BOOK",
+    grade: "D",
+    bill: "H.B. 517 (2026)",
+    year: "2026",
+    title: "A Right to Sue Over School Books",
+    summary: "Would have required school library policies, let a harmed person sue a school to comply, let boards ask families to agree to arbitration, kept state courts from blocking the law, and made people who sue to block it liable for the other side's fees. Died in committee with no recorded vote.",
+    tags: ["sensitive materials", "right of action", "school libraries", "Ivory", "died", "books"],
+    status: "failed",
+    voteLine: "No recorded vote · Died Mar 6, 2026",
+    link: "weber-hive-school-book-laws-2022-2026.html#hb517",
+    lastUpdated: "Oct 31, 2026"
 }
 ];
