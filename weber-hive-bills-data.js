@@ -1295,4 +1295,5 @@ const BILLS = [
     link: "weber-hive-2026-hb243.html",
     lastUpdated: "Nov 4, 2026"
 }
+  ,{ caseNumber: "CASE 2026-591-NUI", grade: "D-", bill: "H.B. 591 (2026)", year: "2026", title: "The Nuisance Law That Kept One Lawsuit for the AG", summary: "Ended common-law nuisance lawsuits for everyone but the Attorney General, left permitted and licensed activities out of the definition, and limited city and county suits. The final version was swapped in, amended and passed in the last hour of the session. The AG used its exception against Kalshi in October.", tags: ["nuisance","attorney general","courts","environment","Kalshi","2026"], status: "law", voteLine: "House committee 9–1–2 · House 60–9–6 · Senate committee 7–0–2 · Senate 21–6–2 (under suspension, 10:55 PM) · House concurs 47–14–14 · Signed Mar 25, 2026", link: "weber-hive-2026-hb591.html", lastUpdated: "Nov 4, 2026" }
 ];
