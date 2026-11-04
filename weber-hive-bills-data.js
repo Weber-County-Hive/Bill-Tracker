@@ -1281,5 +1281,18 @@ const BILLS = [
     voteLine: "House 58-14-3 · Senate 23-6-0 · House concur 60-14-1 · Signed Jan 30, 2024",
     link: "weber-hive-2024-hb261.html",
     lastUpdated: "Nov 2, 2026"
+},
+{
+    caseNumber: "CASE 2026-243-GAM",
+    grade: "D",
+    bill: "H.B. 243 (2026)",
+    year: "2026",
+    title: "The Prop-Bet Bill the AG's Office Asked to Widen",
+    summary: "H.B. 243 made proposition bets gambling in Utah. The sponsor said the Attorney General's office asked lawmakers to take out the words limiting it to sports, so it reaches bets on elections and anything else. The AG presented it in the Senate, and in October sued and charged Kalshi under Utah's gambling laws.",
+    tags: ["gambling", "prediction markets", "Kalshi", "attorney general", "campaign money", "2026"],
+    status: "law",
+    voteLine: "House committee 8–0–2 · House 63–9–3 · Senate committee 5–0–3 · Senate 25–0–4 · Signed Mar 25, 2026",
+    link: "weber-hive-2026-hb243.html",
+    lastUpdated: "Nov 4, 2026"
 }
 ];
