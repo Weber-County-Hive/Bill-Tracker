@@ -1299,5 +1299,83 @@ const BILLS = [
   ,{ caseNumber: "CASE 2020-214-GAM", grade: "B-", bill: "S.B. 214 (2020)", year: "2020", title: "The 2020 Law That Made Offering Online Gambling a Felony", summary: "Banned profiting from sweepstakes 'fringe' gambling machines, raised penalties for running gambling, made offering online gambling to people in Utah a felony, let cities and counties seize gambling money, and let people who lost money sue for double. Its felony is the one charged against Kalshi in 2026.", tags: ["gambling","sweepstakes","online gambling","local control","Kalshi","2020"], status: "law", voteLine: "Senate committee 5–1–2 · Senate 26–1–2 · House 63–8–4 · Senate concurs 22–0–7 · Signed Mar 28, 2020", link: "weber-hive-2020-sb214.html", lastUpdated: "Nov 4, 2026" }
   ,{ caseNumber: "CASE 2019-023-GAM", grade: "C", bill: "H.B. 23 (2019)", year: "2019", title: "The 2019 Bill Where the House Refused a Gambling-Machine Carve-Out", summary: "Defined 'fringe gaming devices' and said a game decided by chance is gambling even with a preview or pre-reveal feature. The Senate added a carve-out for machines with age checks and 60-minute limits; the House refused it twice and the final conference version dropped it.", tags: ["gambling","sweepstakes","fringe gaming","conference committee","2019"], status: "law", voteLine: "House 69–2–4 · Senate 26–0–3 · Conference 4–2 · Senate 25–0–4 · House 72–2–1 · Signed Mar 25, 2019", link: "weber-hive-2019-hb23.html", lastUpdated: "Nov 4, 2026" }
   ,{ caseNumber: "CASE 2012-108-GAM", grade: "C", bill: "H.B. 108 and H.B. 40 (2012)", year: "2012", title: "2012: The Year Utah Wrote Online Gambling Into Its Ban", summary: "H.B. 108 said online gambling is gambling, made offering it to Utahns a Class A misdemeanor (a felony since 2020), and said Utah shall opt out of any federal online-gambling law. H.B. 40 tightened the store-promotion exemption from fringe gambling.", tags: ["gambling","online gambling","federal opt-out","sweepstakes","2012"], status: "law", voteLine: "H.B. 108: House 61–9–5 · Senate 25–2–2 · House concurs 62–10–3 | H.B. 40: House 72–1–2 · Senate 27–0–2", link: "weber-hive-2012-hb108-hb40.html", lastUpdated: "Nov 4, 2026" }
-  ,{ caseNumber: "CASE 2023-120-GAM", grade: "C", bill: "S.B. 120 (2023) and H.B. 21 (2025)", year: "2025", title: "Where Seized Gambling Money Goes, and the 2025 Rewrite", summary: "S.B. 120 moved Utah's seizure and forfeiture law to Title 77: seizing agencies take costs, prosecutors can get up to 20% in fees, and the rest funds state grants. H.B. 21 renumbered the gambling laws, named the crime 'online gambling promotion' (charged against Kalshi in 2026), and reworded who may seize gambling money.", tags: ["gambling","forfeiture","recodification","online gambling","Kalshi","2023","2025"], status: "law", voteLine: "S.B. 120: Senate 25–0–4 · House 68–0–7 · Senate concurs 26–0–3 | H.B. 21: House 74–0–1 · Senate 29–0–0 · House concurs 74–0–1", link: "weber-hive-2023-sb120-2025-hb21.html", lastUpdated: "Nov 4, 2026" }
+  ,{ caseNumber: "CASE 2023-120-GAM", grade: "C", bill: "S.B. 120 (2023) and H.B. 21 (2025)", year: "2025", title: "Where Seized Gambling Money Goes, and the 2025 Rewrite", summary: "S.B. 120 moved Utah's seizure and forfeiture law to Title 77: seizing agencies take costs, prosecutors can get up to 20% in fees, and the rest funds state grants. H.B. 21 renumbered the gambling laws, named the crime 'online gambling promotion' (charged against Kalshi in 2026), and reworded who may seize gambling money.", tags: ["gambling","forfeiture","recodification","online gambling","Kalshi","2023","2025"], status: "law", voteLine: "S.B. 120: Senate 25–0–4 · House 68–0–7 · Senate concurs 26–0–3 | H.B. 21: House 74–0–1 · Senate 29–0–0 · House concurs 74–0–1", link: "weber-hive-2023-sb120-2025-hb21.html", lastUpdated: "Nov 4, 2026" },
+  {
+    caseNumber: "CASE 2022-096-REC",
+    grade: "D+",
+    bill: "H.B. 96 (2022)",
+    year: "2022",
+    title: "The free 15 minutes now has limits",
+    summary: "Kept the first quarter hour of staff time on a records request free in general, but let agencies charge for it when the requester sent another request in the prior 10 days and is not a Utah media representative. The media definition leaves out blogs, podcasts and social media.",
+    tags: ["GRAMA", "public records", "records fees", "media", "Dan N. Johnson", "Chris H. Wilson"],
+    status: "law",
+    voteLine: "House 60–13–2 · Senate 20–5–4 · House concurs 56–16–3 · Signed Mar 22, 2022",
+    link: "weber-hive-records-laws-2022-2026.html#hb96",
+    lastUpdated: "Nov 17, 2026"
+  },
+  {
+    caseNumber: "CASE 2023-018-REC",
+    grade: "B",
+    bill: "S.B. 18 (2023)",
+    year: "2023",
+    title: "A fast exit from lawsuits over public speech",
+    summary: "Utah's anti-SLAPP law (Public Expression Protection Act). A person sued over speaking in or about a government proceeding, or over using constitutional rights to speak, publish, assemble or petition, can ask the court to end the claim early; the court must award costs and lawyer fees in certain circumstances. Repealed the older Citizen Participation in Government Act. Related law on the records-laws page.",
+    tags: ["anti-SLAPP", "UPEPA", "free speech", "lawsuits", "Curtis Bramble", "A. Cory Maloy"],
+    status: "law",
+    voteLine: "Senate 26–0–3 · House 71–0–4 · Senate concurs 27–0–2 · Signed Mar 23, 2023",
+    link: "weber-hive-records-laws-2022-2026.html#sb18",
+    lastUpdated: "Nov 17, 2026"
+  },
+  {
+    caseNumber: "CASE 2023-231-REC",
+    grade: "D+",
+    bill: "S.B. 231 (2023)",
+    year: "2023",
+    title: "Cut off for up to a year",
+    summary: "Created the vexatious requester petition: an agency can ask the State Records Committee to relieve it from filling one person's records requests for up to one year, with no discovery at the hearing. Fees for a requester who beats the petition require winning plus a finding of no merit and no reasonable basis. Also required agencies to do a reasonable search. Since May 7, 2025, petitions go to the Government Records Office director, and H.B. 69 added a bad-faith condition for fees.",
+    tags: ["GRAMA", "public records", "vexatious requester", "State Records Committee", "Curtis Bramble", "Anthony Loubet"],
+    status: "law",
+    voteLine: "Senate 23–0–6 · House 66–4–5 · Senate concurs 26–0–3 · Signed Mar 23, 2023",
+    link: "weber-hive-records-laws-2022-2026.html#sb231",
+    lastUpdated: "Nov 17, 2026"
+  },
+  {
+    caseNumber: "CASE 2024-266-REC",
+    grade: "B-",
+    bill: "H.B. 266 (2024)",
+    year: "2024",
+    title: "Mediation pauses the clock",
+    summary: "Asking the government records ombudsman to mediate now pauses a requester's deadlines to appeal and to seek court review. Wrote fee-waiver denials into the appeal steps with their own deadline, and required denial notices to mention mediation. Removed the rule making the State Records Committee a required party in court review of its decisions.",
+    tags: ["GRAMA", "public records", "ombudsman", "mediation", "fee waiver", "Anthony Loubet", "Curtis Bramble"],
+    status: "law",
+    voteLine: "House 67–0–8 · Senate 23–4–2 · Signed Mar 19, 2024",
+    link: "weber-hive-records-laws-2022-2026.html#hb266",
+    lastUpdated: "Nov 17, 2026"
+  },
+  {
+    caseNumber: "CASE 2025-069-REC",
+    grade: "D",
+    bill: "H.B. 69 (2025)",
+    year: "2025",
+    title: "Winning isn't enough to get your fees back",
+    summary: "A records requester who wins in court now must also show the agency acted in bad faith to recover lawyer fees; no fees if the case mainly serves the requester's financial or commercial interest; an agency can recover fees from a requester found to act in bad faith. Also limited officers' use of election records (class B misdemeanor) and made voter postage information private. Graded on two topics: records-case fees D, election records B-.",
+    tags: ["GRAMA", "public records", "attorney fees", "bad faith", "election records", "Stephanie Gricius", "Calvin Musselman"],
+    status: "law",
+    voteLine: "House 72–0–3 · Senate 27–0–2 · House concurs 54–18–3 · Signed Mar 25, 2025",
+    link: "weber-hive-records-laws-2022-2026.html#hb69",
+    lastUpdated: "Nov 17, 2026"
+  },
+  {
+    caseNumber: "CASE 2026-307-REC",
+    grade: "C",
+    bill: "H.B. 307 (2026)",
+    year: "2026",
+    title: "A new test for who pays lawyer fees",
+    summary: "Rewrote Utah's general civil lawyer-fee rule (78B-5-825): fees go to the winner when the losing side's case or defense was frivolous or had no reasonable basis and was brought to harass, delay, raise costs or abuse the process. Does not amend the records law. Related law on the records-laws page.",
+    tags: ["attorney fees", "bad faith", "civil lawsuits", "Anthony Loubet", "Brady Brammer"],
+    status: "law",
+    voteLine: "House 71–0–4 · Senate 27–0–2 · Signed Mar 23, 2026",
+    link: "weber-hive-records-laws-2022-2026.html#hb307",
+    lastUpdated: "Nov 17, 2026"
+  }
 ];
