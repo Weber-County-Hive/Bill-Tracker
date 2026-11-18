@@ -718,12 +718,12 @@ const BILLS = [
     bill: "S.B. 169",
     year: "2024",
     title: "The Backfill",
-    summary: "S.B. 169 (2024), primary sponsor Sen. Jerry W. Stevenson, expanded the Military Installation Development Authority's tax authority in its Deer Valley project area. The state's fiscal analysts estimated it would cost Utah's basic school fund $421,800 a year to make up what MIDA collects instead. It passed the Senate 19–4 and was signed March 21, 2024.",
+    summary: "S.B. 169 (2024), primary sponsor Sen. Jerry W. Stevenson, expanded the Military Installation Development Authority's tax authority in its Deer Valley project area. The state's fiscal analysts estimated it would cost Utah's basic school fund $421,800 a year to make up what MIDA collects instead. It passed the Senate 20–4–5 and the House 65–2–8 and was signed March 21, 2024.",
     tags: ["MIDA", "Taxes", "Schools", "Process Concern"],
     status: "law",
-    voteLine: "Senate 19–4 · Signed Mar 21, 2024",
+    voteLine: "Senate 20–4–5 · House 65–2–8 · Senate concurred 20–3–6 · Signed Mar 21, 2024",
     link: "weber-hive-sb169.html",
-    lastUpdated: "Oct 19, 2026"
+    lastUpdated: "Nov 18, 2026"
 },
 {
     caseNumber: "CASE 2021-SB233-MIDA",
