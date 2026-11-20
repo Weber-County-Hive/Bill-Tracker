@@ -542,7 +542,7 @@ const BILLS = [
     status: "law",
     voteLine: "Senate 29–0–0 · House 71–1–3 · Signed Mar 21, 2024",
     link: "weber-hive-sb258.html",
-    lastUpdated: "Sep 17, 2026"
+    lastUpdated: "Nov 19, 2026"
   },
 {
     caseNumber: "CASE 2026-510",
@@ -1317,6 +1317,19 @@ const BILLS = [
     voteLine: "House 50-21-4 (concurrence) · Senate 19-6-4 · Signed Mar 25, 2019",
     link: "weber-hive-2019-hb145.html",
     lastUpdated: "Oct 19, 2026"
+},
+{
+    caseNumber: "CASE 2021-115",
+    grade: "B-",
+    bill: "H.B. 115 (2021)",
+    year: "2021",
+    title: "Notice, a Study and a Hearing Before Crossing the County Line",
+    summary: "Kept the county approving vote required before a city annexes land in another county and added steps before it: notice to nearby cities, a cost study unless the county waives it, and a public hearing. Gave mining-area and parcel owners consent and protest rights and added a voter pamphlet before incorporation elections. Came the session after the Hideout cross-county provision was repealed. Connects to S.B. 258 (2024).",
+    tags: ["Annexation", "Municipal Incorporation", "County Authority", "2021", "Waldrip", "McCay", "S.B. 258"],
+    status: "law",
+    voteLine: "House 70-0-5 · Senate 28-0-1 · Signed Mar 16, 2021",
+    link: "weber-hive-2021-hb115.html",
+    lastUpdated: "Nov 19, 2026"
 },
 {
     caseNumber: "CASE 2021-136-PET",
