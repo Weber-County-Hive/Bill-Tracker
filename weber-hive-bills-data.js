@@ -26,6 +26,32 @@
 //              off entirely rather than guess. Shown as a badge on the card.
 const BILLS = [
 {
+    caseNumber: "CASE 2026-033",
+    grade: "C",
+    bill: "H.B. 33",
+    year: "2026",
+    title: "Smaller Exemption, New Exemption",
+    summary: "Cut the size of signs that can skip a 'paid for by' line from 4x8 feet to under 24x18 inches, so most yard signs now need one. The Senate's substitute, adopted by voice vote, added a pass for candidate-paid signs that name the candidate and dropped a rule that the line be readable up close.",
+    tags: ["Elections", "Campaign Disclosure", "Political Signs", "Voice Vote"],
+    status: "law",
+    voteLine: "House 72–0–3 · Senate substitute by voice vote · Senate 27–0–2 · House concurred 69–1–5 · Signed Mar 23, 2026",
+    link: "weber-hive-hb33-2026-political-signs.html",
+    lastUpdated: "Nov 26, 2026"
+  },
+{
+    caseNumber: "CASE 2021-197",
+    grade: "C-",
+    bill: "H.B. 197",
+    year: "2021",
+    title: "The Draft He Changed",
+    summary: "A bill billed as preventing party raiding went through three versions. The sponsor's floor version, adopted by voice vote with no names recorded, dropped two limits his own earlier drafts had included (unaffiliated voters joining a party after the cutoff, and a drop-off-and-re-register path) and added a narrower one. It then passed the House 41-30.",
+    tags: ["Elections", "Party Affiliation", "Voice Vote", "Process Concern"],
+    status: "law",
+    voteLine: "House Cmte 7–3–1 · Substitute adopted by voice vote · House 41–30–4 · Senate 22–3–4 · Law without signature Mar 24, 2021",
+    link: "weber-hive-hb197-2021-voter-affiliation.html",
+    lastUpdated: "Nov 26, 2026"
+  },
+{
     caseNumber: "CASE 2026-HB2-PT",
     grade: "C-",
     bill: "H.B. 2",
